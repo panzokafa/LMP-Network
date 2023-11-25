@@ -1,0 +1,58 @@
+<?php
+
+namespace App\Http\Controllers\User;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
+class RegisterController extends Controller
+{
+    public function index()
+    {
+        return view('user.register');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'password' => 'required',
+            'company' => 'required|string',
+            'division' => 'required|string',
+            'phonenumber' => 'required|string',
+            'linkedin' => 'required|string',
+        ]);
+
+        $isEmailExist = User::where('email', $request->email)->exists();
+
+        if ($isEmailExist) {
+            return back()
+                ->withErrors([
+                    'email' => 'This email already exist'
+                ])
+                ->withInput();
+        } elseif (strlen($request->password) < 8) {
+            return back()
+                ->withErrors([
+                    'password' => 'Password must be above 8 characters'
+                ])
+                ->withInput();
+        } else {
+            User::create([
+                'name'         => $request->name,
+                'email'         => $request->email,
+                'password'   => Hash::make($request->password),
+                'company'         => $request->company,
+                'division'   => $request->division,
+                'phone_number'   => $request->phonenumber,
+                'linkedin'         => $request->linkedin,
+                'role' => 'user'
+            ]);
+        }
+
+        return redirect()->route('user.home')->with('success', 'Success Register');
+    }
+}

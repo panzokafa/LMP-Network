@@ -7,6 +7,13 @@ use App\Http\Controllers\Admin\LoginController;
 
 
 
+use App\Http\Controllers\User\RegisterController;
+use App\Http\Controllers\User\LoginController as UserLoginController;
+use App\Http\Controllers\User\HomeController;
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +33,16 @@ Route::group(['prefix' => 'admin','middleware' => ['admin.auth']], function () {
     Route::get('logout', [LoginController::class, 'logout'])->name('admin.logout');
     Route::get('user', [UserController::class, 'index'])->name('admin.user');
 });
+
+
+
+Route::get('/register', [RegisterController::class, 'index'])->name('user.register');
+Route::post('/register', [RegisterController::class, 'store'])->name('user.register.store');
+
+Route::get('/login', [UserLoginController::class, 'index'])->name('user.login');
+Route::post('/login', [UserLoginController::class, 'auth'])->name('user.login.auth');
+
+Route::get('/', [HomeController::class, 'index'])->name('user.home');
 
 
 
