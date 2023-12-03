@@ -24,14 +24,18 @@
         });
     </script>
     <script src="
-                                https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
-                                "></script>
+                                                    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+                                                    "></script>
     <link href="
 https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 " rel="stylesheet">
 
     <style type="text/tailwindcss">
         @layer utilities {
+            * {
+                font-family: 'Inter', sans-serif;
+            }
+
             .poppins {
                 font-family: 'Poppins', sans-serif;
             }
@@ -62,6 +66,14 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 
             .biru-muda {
                 background-color: #A8D5FB;
+            }
+
+            .text-biru-muda-2 {
+                color: #E6F6FE;
+            }
+
+            .biru-muda-2 {
+                background-color: #E6F6FE;
             }
 
             .biru-tua {

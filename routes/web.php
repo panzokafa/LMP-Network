@@ -9,9 +9,8 @@ use App\Http\Controllers\Admin\LoginController;
 
 use App\Http\Controllers\User\RegisterController;
 use App\Http\Controllers\User\LoginController as UserLoginController;
-use App\Http\Controllers\User\HomeController;
-
-
+use App\Http\Controllers\User\PageController;
+use App\Http\Controllers\User\ProfileController;
 
 
 /*
@@ -42,7 +41,9 @@ Route::post('/register', [RegisterController::class, 'store'])->name('user.regis
 Route::get('/login', [UserLoginController::class, 'index'])->name('user.login');
 Route::post('/login', [UserLoginController::class, 'auth'])->name('user.login.auth');
 
-Route::get('/', [HomeController::class, 'index'])->name('user.home');
+Route::get('/', [PageController::class, 'index'])->name('user.home');
+Route::get('/about', [PageController::class, 'about'])->name('user.about');
+Route::get('/profile', [ProfileController::class, 'index'])->name('user.profile');
 
 
 
