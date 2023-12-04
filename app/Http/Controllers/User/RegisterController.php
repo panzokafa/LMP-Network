@@ -53,6 +53,6 @@ class RegisterController extends Controller
             ]);
         }
 
-        return redirect()->route('user.home')->with('success', 'Success Register');
+        return redirect()->route('user.login')->with('success', 'Success Register');
     }
 }

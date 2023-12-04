@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\User\RegisterController;
 use App\Http\Controllers\User\LoginController as UserLoginController;
 use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\ProfileController;
+
 
 
 
@@ -25,6 +27,7 @@ use App\Http\Controllers\User\HomeController;
 |
 */
 
+// Backend
 Route::get('admin/login', [LoginController::class, 'index'])->name('admin.login');
 Route::post('admin/login', [LoginController::class, 'authenticate'])->name('admin.login.auth');
 
@@ -35,7 +38,7 @@ Route::group(['prefix' => 'admin','middleware' => ['admin.auth']], function () {
 });
 
 
-
+// Front-End
 Route::get('/register', [RegisterController::class, 'index'])->name('user.register');
 Route::post('/register', [RegisterController::class, 'store'])->name('user.register.store');
 
@@ -43,6 +46,9 @@ Route::get('/login', [UserLoginController::class, 'index'])->name('user.login');
 Route::post('/login', [UserLoginController::class, 'auth'])->name('user.login.auth');
 
 Route::get('/', [HomeController::class, 'index'])->name('user.home');
+Route::get('/profile', [ProfileController::class, 'index'])->name('user.profile');
+
+
 
 
 

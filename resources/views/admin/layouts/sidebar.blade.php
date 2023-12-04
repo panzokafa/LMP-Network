@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="{{ asset('assets/img/LMP_logo.png') }}" alt="AdminLTE Logo" class="brand-image " style="opacity: .8">
-      <span class="brand-text font-weight-light">.</span>
+      <span class="brand-text font-weight-light ">.</span>
     </a>
 
     <!-- Sidebar -->
