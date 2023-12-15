@@ -44,6 +44,43 @@ Route::post('/login', [UserLoginController::class, 'auth'])->name('user.login.au
 Route::get('/', [PageController::class, 'index'])->name('user.home');
 Route::get('/about', [PageController::class, 'about'])->name('user.about');
 Route::get('/profile', [ProfileController::class, 'index'])->name('user.profile');
+Route::get('research', function () {
+    return view('user.research'); // You can return any response you want here
+})->name('research');
+
+Route::get('service', function () {
+    return view('user.service'); // You can return any response you want here
+})->name('service');
+
+Route::get('solution', function () {
+    return view('user.solution'); // You can return any response you want here
+})->name('solution');
+
+Route::get('partner', function () {
+    return view('user.partner'); // You can return any response you want here
+})->name('partner');
+
+Route::get('contact', function () {
+    return view('user.contact'); // You can return any response you want here
+})->name('contact');
+
+Route::get('support', function () {
+    return view('user.support'); // You can return any response you want here
+})->name('support');
+
+Route::get('network', function () {
+    return view('user.network'); // You can return any response you want here
+})->name('network');
+
+Route::get('centrinium', function () {
+    return view('user.centrinium'); // You can return any response you want here
+})->name('centrinium');
+
+Route::get('energy', function () {
+    return view('user.energy'); // You can return any response you want here
+})->name('energy');
+
+
 
 
 

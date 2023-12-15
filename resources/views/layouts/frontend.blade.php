@@ -24,14 +24,18 @@
         });
     </script>
     <script src="
-                                                    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
-                                                    "></script>
+                                                                                            https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+                                                                                            "></script>
     <link href="
 https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 " rel="stylesheet">
 
     <style type="text/tailwindcss">
         @layer utilities {
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+
             * {
                 font-family: 'Inter', sans-serif;
             }
@@ -87,12 +91,14 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     </style>
 </head>
 
-<body>
+<body class="h-full">
     @include('components.navbar')
     <main>
         @yield('content')
     </main>
-    @include('components.footer')
+    <div class="relative bottom-0 h-full">
+        @include('components.footer')
+    </div>
 </body>
 
 </html>
