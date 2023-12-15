@@ -9,11 +9,8 @@ use App\Http\Controllers\Admin\LoginController;
 
 use App\Http\Controllers\User\RegisterController;
 use App\Http\Controllers\User\LoginController as UserLoginController;
-use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\PageController;
 use App\Http\Controllers\User\ProfileController;
-
-
-
 
 
 /*
@@ -31,11 +28,11 @@ use App\Http\Controllers\User\ProfileController;
 Route::get('admin/login', [LoginController::class, 'index'])->name('admin.login');
 Route::post('admin/login', [LoginController::class, 'authenticate'])->name('admin.login.auth');
 
-Route::group(['prefix' => 'admin','middleware' => ['admin.auth']], function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::get('logout', [LoginController::class, 'logout'])->name('admin.logout');
-    Route::get('user', [UserController::class, 'index'])->name('admin.user');
-});
+// Route::group(['prefix' => 'admin','middleware' => ['admin.auth']], function () {
+//     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
+//     Route::get('logout', [LoginController::class, 'logout'])->name('admin.logout');
+//     Route::get('user', [UserController::class, 'index'])->name('admin.user');
+// });
 
 
 // Front-End
@@ -45,14 +42,12 @@ Route::post('/register', [RegisterController::class, 'store'])->name('user.regis
 Route::get('/login', [UserLoginController::class, 'index'])->name('user.login');
 Route::post('/login', [UserLoginController::class, 'auth'])->name('user.login.auth');
 
-Route::get('/', [HomeController::class, 'index'])->name('user.home');
+Route::get('/', [PageController::class, 'index'])->name('user.home');
+Route::get('/about', [PageController::class, 'about'])->name('user.about');
 Route::get('/profile', [ProfileController::class, 'index'])->name('user.profile');
-
-
 
 
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
