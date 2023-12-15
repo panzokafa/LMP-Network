@@ -4,12 +4,12 @@
     </div>
 
     <div class="flex poppins font-semibold items-center gap-12">
-        <div>About</div>
-        <div>Product & Service</div>
-        <div>Solution</div>
-        <div>Partner</div>
-        <div>Contact</div>
-        <div>Support</div>
+        <div class="cursor-pointer">About</div>
+        <div class="cursor-pointer">Product & Service</div>
+        <div class="cursor-pointer">Solution</div>
+        <div class="cursor-pointer">Partner</div>
+        <div class="cursor-pointer">Contact</div>
+        <div class="cursor-pointer">Support</div>
     </div>
 
 

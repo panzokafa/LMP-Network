@@ -25,53 +25,41 @@
 
             <div class="flex relative w-2/5 h-full">
                 <div class="flex items-center justify-center w-full">
-                    <img class="relative z-20 w-full" src="{{ asset('images/centrinium/bg.jpg') }}" alt="">
+                    <img class="relative z-20 w-full" src="{{ asset('images/network/bg.jpg') }}" alt="">
                 </div>
                 <div class="absolute w-full h-full bg-[#E6F6FE] top-8 right-8">
 
                 </div>
             </div>
         </div>
-
         <div class="px-20">
-            <div class="text-2xl mb-28 w-1/3">
+            <div class="text-2xl mb-26 w-1/3">
                 Provide interconnect and cross-connect of applications over installations
                 in entrance facilities, telecommunications rooms, data center and at the desk.
             </div>
 
             <div class="flex flex-wrap gap-36 justify-center items-center mb-28">
                 @php
-                    $text = ['Centrinium™️ UHD Series 1U 144F - LMP Networks®', 'Centrinium™ UHD Series 2U – 288F', 'Centrinium™ UHD Series 4U – 576F'];
+                    $text = ['Single Mode Patchcord Jumper', 'Multi Mode OM3 Jumper', 'Multi Mode OM4 Jumper'];
                 @endphp
                 @for ($i = 1; $i < 4; $i++)
-                    <div class="text-center flex flex-col items-center">
-                        <img class="mb-4" src="{{ asset('images/centrinium/' . $i . '.png') }}" alt="">
+                    <div class="text-center">
+                        <img src="{{ asset('images/network/' . $i . '.png') }}" alt="">
 
+                        <div class="text-medium mb">LMP Networks®</div>
                         <div class="text-medium mb">{{ $text[$i - 1] }}</div>
-                        <div class="text-medium mb">{{ $i > 1 ? '48 Modules adapter panels. MPO - 6 LC DX Adapter' : '' }}
-                        </div>
+                        <div>LC-LC</div>
 
                     </div>
                 @endfor
             </div>
 
-            <div class="font-medium text-2xl text-center mb-14">
-                There are two type of module, Pre-conn type for MPO – LC and splice type for splicing method.
-            </div>
-
-            <div class="text-2xl w-2/3 mb-28">
-                This solution makes it easier for network architects to design networks according to their needs
-                Because of this versatility, the enclosure is able to serve as a transition from backbone cabling to
-                distribution switching, an interconnect to active equipment, or as a cross-connect or interconnect
-                in a main or horizontal distribution area. Users can even easily access the fibres through front
-                pull out Modules.
-            </div>
-
-            <div class="w-full flex justify-end text-xl mb-14 cursor-pointer">
-                PRODUCT ->
+            <div class="text-2xl w-2/3 mb-36">
+                Patch cords support network applications in main, horizontal and equipment
+                distribution areas and are available in low smoke zero halogen (LSZH) rated
+                jacket materials to comply with local cabling ordinances. Pre-terminated fiber
+                optic pigtails support fusion splice field termination applications.
             </div>
         </div>
-    </div>
-
     </div>
 @endsection
