@@ -245,11 +245,11 @@
         <div class="inter font-semibold text-2xl pb-5">and many more... </div>
     </div>
 
-    <div class="flex flex-col items-center justify-center py-12 biru-muda mt-16">
+    {{-- <div class="flex flex-col items-center justify-center py-12 biru-muda mt-16">
         <div class="tracking-[5px] font-semibold opensans text-3xl mb-2">SUBSCRIBE</div>
         <div class="mb-6 text-xl inter">Join us to receive product news and industry updates from us</div>
         <div class="text-biru inter font-bold text-xl px-5 py-3 bg-white border border-[#2D5290] rounded cursor-pointer">
             JOIN WITH US
         </div>
-    </div>
+    </div> --}}
 @endsection
