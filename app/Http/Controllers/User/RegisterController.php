@@ -25,6 +25,8 @@ class RegisterController extends Controller
             'division' => 'required|string',
             'phonenumber' => 'required|string',
             'linkedin' => 'required|string',
+            'instagram' => 'required|string',
+
         ]);
 
         $isEmailExist = User::where('email', $request->email)->exists();
@@ -50,6 +52,7 @@ class RegisterController extends Controller
                 'division'   => $request->division,
                 'phone_number'   => $request->phonenumber,
                 'linkedin'         => $request->linkedin,
+                'instagram'         => $request->instagram,
                 'role' => 'user'
             ]);
         }

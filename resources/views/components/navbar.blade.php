@@ -20,12 +20,13 @@
     </div>
     @else
 
-    <div class="poppins font-semibold flex gap-7 items-center">
+    <div class="poppins font-semibold flex gap-3 items-center">
         {{-- <img src={{ auth()->user()->profile_picture }} alt=""> --}}
         <div class="w-10 h-auto brand-image img-circle elevation-3 ">
             <img src="{{ asset('images/Avatar.png') }}" class="brand-image img-circle elevation-3 rounded-full" alt="">
         </div>
         <p class=" font-light">{{ auth()->user()->name }}</p>
+
 
 
     </div>

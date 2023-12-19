@@ -26,6 +26,7 @@ class User extends Authenticatable
         'division',
         'phone_number',
         'linkedin',
+        'instagram',
         'profile_picture',
         'role'
     ];

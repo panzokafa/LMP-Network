@@ -5,26 +5,40 @@
 
 
 @section('content')
-{{-- @include('components.modal') --}}
+    {{-- @include('components.modal') --}}
     <div class="flex justify-ceenter items-center gap-24 max-w-max py-20 px-44">
+
         <div>
-            <img src="{{ asset('images/Avatar.png') }}"  class="h-[340px] w-[340px] rounded mb-8" alt="" >
 
-{{-- @include('components.modal') --}}
+            <img src="{{ asset('storage/profil'.auth()->user()->profile_picture ) }} "
+                class="h-[340px] w-[340px] rounded mb-8" id='profile_picture' alt="">
 
-            <button
-            class="w-full py-4 font-bold text-center border rounded-md border-[#888888] open_modal" >
-                <a href="{{ route('user.edit', auth()->user()->id) }}">
+            {{-- @include('components.modal') --}}
+
+            <button class="w-full py-4 font-bold text-center border rounded-md border-[#888888] open_modal">
+                <a href="{{ route('user.edit', auth()->user()->id) }}" data-toggle="modal" data-target="#ModalEdit">
                     Change Profile
                 </a>
             </button>
 
+
+
         </div>
 
         <div>
-            <div class="font-bold text-xl mb-14">
+            <div class="font-bold text-xl mb-5 flex flex-row gap-24">
                 Personal data
+                <form action="{{ route('user.logout') }}" method="GET">
+                    @csrf
+                    <button type="submit"
+                        class=" rounded-sm bg-red-600 block px-4 py-2 text-sm text-white hover:bg-red-500 "
+                        >Log out</button>
+                </form>
             </div>
+
+
+
+
 
             <div class="flex gap-28 items-center">
                 <div class="flex-col flex gap-8 font-semibold">
@@ -50,6 +64,10 @@
 
                     <div>
                         Linkedin
+                    </div>
+
+                    <div>
+                        Instagram
                     </div>
 
 
@@ -84,32 +102,18 @@
 
                     </div>
 
+                    <div>
+                        <p>{{ auth()->user()->instagram }}</p>
+
+                    </div>
 
 
                 </div>
+
             </div>
+
         </div>
     </div>
-
-
-
-
 @endsection
 
-@section('js')
-<script>
- $(document).on('click','.open_modal',function(){
-        var url = "domain.com/yoururl";
-        var tour_id= $(this).val();
-        $.get(url + '/' + users_id, function (data) {
-            //success data
-            console.log(data);
-            $('#users_id').val(data.id);
-            $('#name').val(data.name);
-            $('#details').val(data.details);
-            $('#btn-save').val("update");
-            $('#myModal').modal('show');
-        })
-    });
-</script>
-@endsection
+

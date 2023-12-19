@@ -24,6 +24,7 @@ class UserSeeder extends Seeder
             'division' => 'UI/UX',
             'phone_number' => '082170200825',
             'linkedin' => '@galang123',
+            'instagram' => '@galangs',
             'profile_picture' => '',
             'created_at' => now(),
             'updated_at' => now(),

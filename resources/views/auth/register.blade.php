@@ -21,11 +21,11 @@
            w-80
 
         ">
-        <div class="flex justify-center content-center lg:ml-20">
-            <a href="/" class=" flex  lg:block justify-center content-center">
-                <img src="{{ asset('assets/img/LMP_logo.png') }}" alt="LMP" />
-            </a>
-        </div>
+            <div class="flex justify-center content-center lg:ml-20">
+                <a href="/" class=" flex  lg:block justify-center content-center">
+                    <img src="{{ asset('assets/img/LMP_logo.png') }}" alt="LMP" />
+                </a>
+            </div>
 
 
             <div class="mt-10 lg:w-96">
@@ -221,6 +221,34 @@
 
                         </div>
                         @error('linkedin')
+                            <span class="text-red-500" role="alert">
+                                <p class="text-sm">{{ $message }}</p>
+                            </span>
+                        @enderror
+                    </div>
+
+                    <div class="flex flex-col mb-5">
+                        <label for="instagram" class="mb-1 text-xs tracking-wide text-black">instagram</label>
+                        <div class="relative">
+
+
+                            <input id="instagram" type="text" name="instagram"
+                                class="
+                                bg-gray-200
+                                text-sm
+                                placeholder-gray-500
+                                pl-3
+                                pr-4
+                                rounded
+
+                                w-full
+                                py-2
+                                focus:outline-none focus:bg-gray-300
+                                "
+                                placeholder="instagram" />
+
+                        </div>
+                        @error('instagram')
                             <span class="text-red-500" role="alert">
                                 <p class="text-sm">{{ $message }}</p>
                             </span>

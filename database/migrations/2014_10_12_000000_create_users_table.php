@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('division');
             $table->string('phone_number');
             $table->string('linkedin');
+            $table->string('instagram');
             $table->string('profile_picture')->nullable();
             $table->enum('role', ['admin', 'user']);
             $table->timestamps();
