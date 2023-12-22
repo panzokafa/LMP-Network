@@ -96,6 +96,8 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     <main>
         @yield('content')
     </main>
+    @yield('javascript')
+
     <div class="relative bottom-0 h-full">
         @include('components.footer')
     </div>

@@ -86,7 +86,7 @@
                                 placeholder="Email" />
 
                         </div>
-                        @error('email')
+                        @error('credentials')
                             <span class="text-red-500" role="alert">
                                 <p class="text-sm">{{ $message }}</p>
                             </span>

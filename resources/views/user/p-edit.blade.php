@@ -3,6 +3,17 @@
 
 @section('content')
     <div class="fixed z-10 inset-0 flex justify-center items-center">
+        {{-- Alert Here --}}
+      @if ($errors->any())
+
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+    @endif
         <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
         <div class="prose p-6 overflow-y-auto relative bg-white rounded-lg overflow-hidden shadow-xl max-w-screen-md w-full m-4"
             x-transition:enter="transition ease-out duration-300 transform opacity-0 scale-95"
@@ -24,11 +35,11 @@
 
                         <div class="mb-6 border-right">
                             <div class="w-24 d-flex flex-col items-center text-center p-3 py-5">
-                                <img src=" {{ asset('storage/profil/' . auth()->user()->profile_picture) }} "
+                                <img src=" {{ asset('storage/picture/' . auth()->user()->profile_picture) }} "
                                     class="brand-image img-circle elevation-3 rounded-full" height="50" width="50"
                                     id="image_preview_container" alt="">
                                 <span class=" font-normal">
-                                    <input type="file" name="profile_picture" id="profile_picture" class="form-control">
+                                    <input type="file" name="profile_picture" id="profile_picture" value="{{ $users->profile_picture }}" class="form-control">
                                 </span>
 
                             </div>
@@ -50,7 +61,7 @@
 
                         <div class="mb-6">
                             <label for="password" class="text-sm font-medium text-gray-900 block mb-2">Password</label>
-                            <input type="text" id="password" name="password"
+                            <input type="password"  id="password" name="password"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-sm"
                                 placeholder="****">
                         </div>
