@@ -2,50 +2,56 @@
 
 
 @section('content')
-    <div class="w-full flex justify-between items-center mb-48">
+    <div
+        class="w-full flex lg:flex-row flex-col-reverse justify-between items-center sm:mb-36 mb-28 max-lg:pt-14 max-lg:px-7">
 
-        <div class="inter px-20 mt-20  w-1/2">
-            <div class="text-4xl font-bold">LMP Support</div>
+        <div class="inter lg:pl-20 lg:w-1/2 text-center lg:text-left 2xl:mt-0 relative lg:top-10 top-14">
 
-            <div class="h-1 w-1/2 biru my-3"></div>
+            <div class="max-w-max max-lg:mx-auto lg:mb-10 mb-5 title">
+                <div class="2xl:text-4xl lg:text-3xl sm:text-2xl text-xl  font-bold max-lg:px-10 whitespace-nowrap">Data
+                    Center Solution
+                </div>
 
+                <div class="h-1 lg:w-[130%] w-full biru sm:my-3 my-2"></div>
 
-            <div class="text-xl mb-3">Locate your specific product for the latest user manuals,
-                system application guides, data sheets, warranties,
-                software downloads and more.
+                <div class="2xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold max-lg:px-10">Architecture</div>
+
             </div>
 
-            <div class="text-xl">
-                We continue to reinvest approximately 10-15 percent of our
-                revenues into R&D, providing our scientists - expert & engineers
-                with the resources they need to be successful.
+            <div class="desc lg:text-xl sm:text-lg lg:mb-3 sm:leading-8 leading-7">We present LMP EDGE DC, a revolutionary
+                solution
+                to enhance efficiency, improve performance, and
+                optimize your best Edge data center. With an
+                approach that brings data processing closer to its
+                source, we deliver remarkable latency reduction for
+                maximum results in energy, cooling, and connectivity.
             </div>
         </div>
-        {{-- <div class="relative w-3/5">
-            <img class="relative z-20 w-full" src="{{ asset('images/research/1.jpg') }}" alt="">
-            <div class="absolute w-full h-full bg-[#E6F6FE] top-8 right-8">
 
-            </div>
-        </div> --}}
 
-        <div class="flex relative w-2/5 h-full">
+        <div class="flex relative lg:w-2/5 h-full relative max-lg:left-3 image-1">
             <div class="flex items-center justify-center w-full">
-                <img class="relative z-20 w-full" src="{{ asset('images/solution/1.jpg') }}" alt="">
+                <div class="absolute z-30">
+                    <div class="bruno xl:text-3xl text-2xl text-white lg:mb-3 mb-2 text-center px-5">Solution
+                    </div>
+                    <div class="w-full relative sm:h-1 h-0.5 bg-white"></div>
+                </div>
+                <img class="relative z-20 w-full" src="{{ asset('images/research/1.jpg') }}" alt="">
             </div>
-            <div class="absolute w-full h-full bg-[#E6F6FE] top-8 right-8">
+            <div class="absolute w-full h-full bg-[#E6F6FE] sm:top-8 sm:right-8 top-5 right-5">
 
             </div>
         </div>
     </div>
 
 
-    <div class="px-20">
+    <div class="lg:px-20 sm:px-10 px-5">
 
-        <div class="text-4xl font-bold text-center mb-24">
+        <div class="lg:text-4xl sm:text-3xl text-2xl font-bold text-center lg:mb-24 mb-12 title-2">
             Efficient & Personalized Process
         </div>
 
-        <div class="flex justify-between gap-8 items-center mb-40">
+        <div class="grid xl:grid-cols-4 lg:grid-cols-2 justify-center lg:gap-8 gap-12 items-center lg:mb-40 mb-20">
 
 
             @php
@@ -70,20 +76,20 @@
                 $title = ['Rapid Design', 'Tailored Integration', 'Simplistic Assembly', 'Global Service'];
             @endphp
             @for ($i = 2; $i < 6; $i++)
-                <div class="flex flex-col items-center">
-                    <img class="mb-7" src="{{ asset('images/solution/' . $i . '.png') }}" alt="">
-                    <div class="text-biru text-2xl font-bold mb-7">{{ $title[$i - 2] }}</div>
+                <div class="flex flex-col items-center {{ 'solution-' . $i }}">
+                    <img class="sm:mb-7 max-sm:scale-75" src="{{ asset('images/solution/' . $i . '.png') }}" alt="">
+                    <div class="text-biru sm:text-2xl text-xl font-bold lg:mb-7 mb-4">{{ $title[$i - 2] }}</div>
 
                     <div class="font-semibold text-center">{{ $desc[$i - 2] }}</div>
                 </div>
             @endfor
         </div>
 
-        <div class="text-4xl font-bold text-center mb-20">
+        <div class="lg:text-4xl sm:text-3xl text-2xl font-bold text-center mb-20 title-2">
             Customized for your needs
         </div>
 
-        <div class="flex gap-20 overflow-x-scroll no-scrollbar mb-14">
+        <div class="flex gap-20 overflow-x-scroll no-scrollbar pb-14 fade">
             @php
                 $title = ['Edge Data Center', 'Micro Data Center', 'Cable Landing Station'];
 
@@ -101,16 +107,16 @@ delivery. Our swift data center component deployments enable streamlined on-site
                 ];
             @endphp
             @for ($i = 0; $i < 3; $i++)
-                <div class="min-w-[44%]">
-                    <div class="font-bold text-2xl mb-2">
+                <div class="lg:min-w-[44%] min-w-[100%]">
+                    <div class="font-bold lg:text-2xl text-xl mb-3">
                         {{ $title[$i] }}
                     </div>
 
-                    <div class="mb-3 text-lg font-medium">
+                    <div class="mb-3 lg:text-lg font-medium">
                         {{ $title2[$i] }}
                     </div>
 
-                    <div class="text-lg">
+                    <div class="lg:text-lg">
                         {{ $desc[$i] }}
                     </div>
                 </div>
@@ -119,9 +125,52 @@ delivery. Our swift data center component deployments enable streamlined on-site
 
         </div>
 
-        <div class="flex justify-end cursor-pointer mb-16">
-            <div class="text-lg font-medium cursor-pointer">Slide -></div>
-        </div>
 
     </div>
+
+    <script>
+        ScrollReveal().reveal('.image-1', {
+            delay: 350,
+            duration: 1000,
+            distance: '800px',
+            opacity: 1,
+            origin: 'right',
+        });
+
+        ScrollReveal().reveal('.title', {
+            delay: 700,
+            duration: 1000,
+            distance: '100px',
+            origin: 'bottom'
+        });
+
+        ScrollReveal().reveal('.title-2', {
+            delay: 350,
+            duration: 1000,
+            distance: '100px',
+            origin: 'bottom'
+        });
+
+        ScrollReveal().reveal('.desc', {
+            delay: 1000,
+            duration: 1000,
+            distance: '100px',
+            origin: 'bottom'
+        });
+        ScrollReveal().reveal('.fade', {
+            delay: 500,
+            duration: 1000,
+            opacity: 0,
+            distance: '50px',
+            origin: 'bottom'
+        });
+        for (let i = 1; i < 6; i++) {
+            ScrollReveal().reveal('.solution-' + i, {
+                delay: 700 + i * 100,
+                duration: 1000,
+                distance: '100px',
+                origin: 'bottom'
+            });
+        }
+    </script>
 @endsection

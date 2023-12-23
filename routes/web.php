@@ -94,6 +94,27 @@ Route::get('energy', function () {
     return view('user.energy'); // You can return any response you want here
 })->name('energy');
 
+Route::get('polymer', function () {
+    return view('user.polymer'); // You can return any response you want here
+})->name('polymer');
+
+Route::get('nex-t', function () {
+    return view('user.nex-t'); // You can return any response you want here
+})->name('nex-t');
+
+Route::get('product', function () {
+    return view('user.product'); // You can return any response you want here
+})->name('product');
+
+Route::get('testing', function () {
+    return view('user.testing'); // You can return any response you want here
+})->name('testing');
+
+
+Route::get('learning', function () {
+    return view('user.learning'); // You can return any response you want here
+})->name('learning');
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });

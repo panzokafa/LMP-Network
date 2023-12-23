@@ -1,0 +1,95 @@
+@extends('layouts.frontend')
+
+
+@section('content')
+    <div class="py-12 lg:px-20 sm:px-10 px-5">
+        <div class="w-full flex lg:flex-row flex-col justify-between items-center mb-14 gap-12">
+
+            <div class="inter  lg:w-1/2">
+                <div class="lg:text-4xl text-3xl font-bold mb-5">MDC Top Package Cooling</div>
+
+
+                <div class="lg:text-xl text-lg mb-5">3k – 6k MDC fully integrated with closed rack,
+                    package cooling, UPS, battery, power distribution,
+                    security, monitoring and fire systems. No complex
+                    piping of remote condenser installation.
+                </div>
+
+                <div class="flex lg:flex-row flex-col lg:gap-7 gap-4  items-center">
+                    <div
+                        class="font-semibold cursor-pointer py-3 px-4 bg-[#3F73AE] text-white rounded-md max-lg:w-full max-lg:text-center">
+                        Pre
+                        Order</div>
+                    <div
+                        class="font-semibold cursor-pointer py-3 px-4 biru text-white rounded-md max-lg:w-full max-lg:text-center">
+                        Get Brochure</div>
+
+                </div>
+            </div>
+            {{-- <div class="relative w-3/5">
+                <img class="relative z-20 w-full" src="{{ asset('images/research/1.jpg') }}" alt="">
+                <div class="absolute w-full h-full bg-[#E6F6FE] top-8 right-8">
+
+                </div>
+            </div> --}}
+            <div class="flex items-center xl:justify-center lg:justify-end w-1/2">
+                <img class="relative z-20 " src="{{ asset('images/product/product.png') }}" alt="">
+            </div>
+        </div>
+
+        <div>
+            <div class="text-biru font-semibold lg:text-3xl text-2xl mb-8">
+                Key Characteristics
+            </div>
+
+            <div class="flex flex-col justify-center gap-4 mb-12">
+                @php
+                    $char = [
+                        'Support global customized services',
+                        'Plug and play design, available online in 10 minutes at the fastest',
+                        'Cabinet covered with insulation material to prevent condensation',
+                        'Fully enclosed design, dust and noise reduction, protection level up to IP55',
+                        'Rack-level cooling, cold and hot aisle isolation, high efficiency, the PUE values as low as 1.3',
+                        'The front and rear doors of the cabinet are equipped with a 3 in 1 access control system',
+                        'Cabinets, power distribution and cooling units have a variety of forms and specifications for flexible application',
+                        'Standard 10-inch integrated touch monitor screen, the monitoring system does not take up U space of the cabinet',
+                        'Support remote web, APP and centralized  monitoring, support monitoring protocols such as Modbus-TCP, SNMPV1 / V2, BACnet',
+                        'The cabinet is equipped with an emergency pop-up door system as standard, which can automatically open the
+front and rear doors in the event of a high temperature or fire alarm',
+                    ];
+                @endphp
+                @for ($i = 0; $i < 9; $i++)
+                    <div class="flex items-center gap-2 text-lg">
+                        <div class="lg:min-h-3  lg:min-w-3 min-w-2 min-h-2 bg-[#A0A0A0] rounded-full"></div>
+                        <div class="max-lg:text-sm">{{ $char[$i] }}</div>
+                    </div>
+                @endfor
+            </div>
+
+            <div class="lg:text-3xl text-2xl font-semibold text-biru mb-7">
+                Similar products
+            </div>
+
+            <div class="grid lg:grid-cols-2 grid-cols-1 gap-7">
+                @for ($i = 0; $i < 3; $i++)
+                    <div class="flex justify-center items-center bg-[#DDEDFB] lg:px-12 px-6 py-5 cursor-pointer">
+                        <div>
+                            <div class="lg:text-xl sm:text-lg  mb-5 font-medium">
+                                MDC Row Packgae Cooling
+                            </div>
+
+                            <div class="text-xs">
+                                5k – 10k MDC fully integrated with closed rack,
+                                package cooling, UPS, battery, power distribution,
+                                security, monitoring and fire systems. No complex
+                                piping of remote condenser installation.
+                            </div>
+                        </div>
+
+                        <img class="w-1/2" src="{{ asset('images/product/product.png') }}" alt="">
+                    </div>
+                @endfor
+            </div>
+        </div>
+    </div>
+@endsection

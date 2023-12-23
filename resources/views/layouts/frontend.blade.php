@@ -17,18 +17,23 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
         rel="stylesheet">
+
+    <!--splide-->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var splide = new Splide('.splide');
             splide.mount();
         });
     </script>
-    <script src="
-                                                                                            https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
-                                                                                            "></script>
+    <!--font awesome-->
+    <script src="https://kit.fontawesome.com/97d4904ad5.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <!--scroll reveal-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
     <link href="
-https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
-" rel="stylesheet">
+    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+    " rel="stylesheet">
 
     <style type="text/tailwindcss">
         @layer utilities {
@@ -64,6 +69,11 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
                 color: #1780BB;
             }
 
+            .text-biru-tua {
+                color: #112645;
+            }
+
+
             .biru {
                 background-color: #1780BB;
             }
@@ -91,13 +101,11 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     </style>
 </head>
 
-<body class="h-full">
+<body class="">
     @include('components.navbar')
-    <main>
+    <main class="relative top-20 mb-20">
         @yield('content')
     </main>
-    @yield('javascript')
-
     <div class="relative bottom-0 h-full">
         @include('components.footer')
     </div>

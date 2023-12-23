@@ -3,17 +3,19 @@
 @section('title');
 
 @section('content')
-<div class="text-center justify-content-center p-4 ">
-    <h1>LMP Dashboard</h1>
+<div class="text-center justify-content-center p-4 mb-5">
+    <a href="{{ route('user.home')}}" class="w-24 h-auto">
+        <img src="{{ asset('images/logo1.png') }}" alt="">
+    </a>
 
 
 </div>
 
-<div class="container-fluid">
+<div class="flex flex-row container-fluid">
     <!-- Small boxes (Stat box) -->
 
       <!-- ./col -->
-      <div class="col-lg-3 col-6">
+      <div class="row-lg-3 col-6">
         <!-- small box -->
         <div class="small-box bg-success">
           <div class="inner">
@@ -27,8 +29,22 @@
           <a href="{{ route('admin.user') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
-
       <!-- ./col -->
+
+      <div class="row-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-info">
+          <div class="inner">
+            <h3>{{ $products }}</h3>
+
+            <p>Products</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-bag"></i>
+          </div>
+          <a href="{{ route('admin.product') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
     </div>
 
 @endsection
