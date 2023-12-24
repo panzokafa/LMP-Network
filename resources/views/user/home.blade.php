@@ -247,7 +247,7 @@
                 <img src="{{ asset('images/sponsor/freeport.png') }}" class="logo-14 md:w-32 w-28 h-auto">
                 <img src="{{ asset('images/sponsor/bukopin.png') }}" class="logo-15 md:w-32 w-28 h-auto">
             </div>
-            <div class="inter font-semibold md:text-2xl text-lg pb-10">and many more... </div>
+            <div class="inter font-semibold md:text-2xl text-lg pb-24">and many more... </div>
         </div>
     </div>
 

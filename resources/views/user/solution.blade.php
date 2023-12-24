@@ -36,7 +36,7 @@
                     </div>
                     <div class="w-full relative sm:h-1 h-0.5 bg-white"></div>
                 </div>
-                <img class="relative z-20 w-full" src="{{ asset('images/research/1.jpg') }}" alt="">
+                <img class="relative z-20 w-full" src="{{ asset('images/solution/1.jpg') }}" alt="">
             </div>
             <div class="absolute w-full h-full bg-[#E6F6FE] sm:top-8 sm:right-8 top-5 right-5">
 
@@ -89,7 +89,7 @@
             Customized for your needs
         </div>
 
-        <div class="flex gap-20 overflow-x-scroll no-scrollbar pb-14 fade">
+        <div class="flex gap-16 overflow-x-scroll no-scrollbar pb-10 fade">
             @php
                 $title = ['Edge Data Center', 'Micro Data Center', 'Cable Landing Station'];
 
@@ -125,6 +125,9 @@ delivery. Our swift data center component deployments enable streamlined on-site
 
         </div>
 
+        <div class="flex justify-end text-xl pb-14 fade">
+            <div class="cursor-pointer">Slide -></div>
+        </div>
 
     </div>
 

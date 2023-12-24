@@ -27,8 +27,8 @@
         optic pigtails support fusion splice field termination applications.
     </div>
 
-    <div class="flex justify-end text-xl fade">
-        <div class="cursor-pointer">product -></div>
+    <div class="flex text-biru justify-end text-xl fade">
+        <div class="cursor-pointer">PRODUCT -></div>
     </div>
 
     <script>

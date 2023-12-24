@@ -11,7 +11,7 @@
 
         </div>
 
-        <div class="lg:text-xl tsm:ext-lg lg:mb-3 sm:leading-8 leading-7 desc">{{ $desc }}
+        <div class="lg:text-xl sm:text-lg lg:mb-3 sm:leading-8 leading-7 desc">{{ $desc }}
         </div>
     </div>
 

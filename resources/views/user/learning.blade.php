@@ -9,7 +9,7 @@
 
                 <div class="title max-w-max max-lg:mx-auto ">
                     <div class="2xl:text-4xl lg:text-3xl sm:text-2xl text-xl  font-bold max-lg:px-10 whitespace-nowrap">LMP
-                        Support
+                        Support & Learning Center
                     </div>
 
                     <div class="h-1 lg:w-[130%] w-full biru sm:my-3 my-2"></div>

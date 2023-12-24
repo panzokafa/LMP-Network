@@ -28,8 +28,8 @@
                     customer.
                 </div>
 
-                <div class="flex justify-end lg:text-xl text-lg fade">
-                    <div class="cursor-pointer">product -></div>
+                <div class="fade lg:text-xl text-biru text-lg relative text-right cursor-pointer w-full">
+                    PRODUCT ->
                 </div>
             </div>
         </div>

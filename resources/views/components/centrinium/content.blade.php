@@ -20,7 +20,7 @@
         @endfor
     </div>
 
-    <div class="desc-2 font-medium lg:text-xl text-lg text-center mb-14">
+    <div class="desc-2 font-medium lg:text-2xl text-lg text-center mb-14">
         There are two type of module, Pre-conn type for MPO – LC and splice type for splicing method.
     </div>
 
@@ -32,8 +32,8 @@
         pull out Modules.
     </div>
 
-    <div class="flex justify-end text-xl fade">
-        <div class="cursor-pointer">product -></div>
+    <div class="flex text-biru justify-end text-xl fade">
+        <div class="cursor-pointer">PRODUCT -></div>
     </div>
 </div>
 

@@ -27,7 +27,7 @@
 
             <div class="image-1 flex relative lg:w-2/5 h-full relative max-lg:left-3">
                 <div class="flex items-center justify-center w-full">
-                    <img class="relative z-20 w-full" src="{{ asset('images/research/1.jpg') }}" alt="">
+                    <img class="relative z-20 w-full" src="{{ asset('images/support/bg.jpg') }}" alt="">
                 </div>
                 <div class="absolute w-full h-full bg-[#E6F6FE] sm:top-8 sm:right-8 top-5 right-5">
 

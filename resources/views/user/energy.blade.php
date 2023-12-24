@@ -53,7 +53,7 @@
                 </div>
             @endfor
 
-            <div class="fade lg:text-xl tex-lg relative text-right cursor-pointer w-full">
+            <div class="fade lg:text-xl text-biru text-lg relative text-right cursor-pointer w-full">
                 PRODUCT ->
             </div>
 

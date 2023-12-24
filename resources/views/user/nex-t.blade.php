@@ -42,7 +42,7 @@
                 “ITE” productivity or we call : Cooling as a Services “CaaS”.</div>
         </div>
 
-        <div class="fade w-full flex justify-end lg:text-xl sm:text-lg cursor-pointer">
+        <div class="fade w-full flex text-biru justify-end lg:text-xl sm:text-lg cursor-pointer">
             PRODUCT ->
         </div>
     </div>

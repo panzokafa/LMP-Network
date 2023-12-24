@@ -105,6 +105,10 @@
                     Island in Indonesia Archipelago. Our EDGE DC are placed as
                     near as possible to user to give high user experience on data
                     processing by cutting the latency & secure.</div>
+
+                    <div class="flex flex-col lg:gap-8 gap-4">
+                        <div class="text-biru cursor-pointer">Container MDC</div>
+                    </div>
             </div>
         </div>
 
