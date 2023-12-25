@@ -58,6 +58,12 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::put('update/{id?}', [ProfileController::class, 'update'])->name('user.update');
 });
 
+Route::group(['prefix' => 'product', 'middleware' => ['auth']], function () {
+    Route::get('MDC-Top', function () {
+        return view('user.product'); // You can return any response you want here
+    })->name('product');
+});
+
 Route::get('research', function () {
     return view('user.research'); // You can return any response you want here
 })->name('research');
@@ -102,9 +108,7 @@ Route::get('nex-t', function () {
     return view('user.nex-t'); // You can return any response you want here
 })->name('nex-t');
 
-Route::get('product', function () {
-    return view('user.product'); // You can return any response you want here
-})->name('product');
+
 
 Route::get('testing', function () {
     return view('user.testing'); // You can return any response you want here

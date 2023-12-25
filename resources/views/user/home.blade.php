@@ -15,7 +15,7 @@
 
         <div
             class="product md:text-xl  absolute lg:right-24 md:right-14 right-8 md:bottom-16 bottom-8 text-white cursor-pointer">
-            Product
+            PRODUCT
             -></div>
     </div>
 
@@ -65,18 +65,18 @@
                         a modern lifestyle without distractions
                         the earth where we live.
                     </div>
-                    <div
+                    <a  href="{{route('user.about')}}"
                         class="desc max-lg:hidden text-biru font-medium text-xl relative max-lg:top-[-70px] cursor-pointer max-w-max">
                         WHY LMP ->
-                    </div>
+                </a>
                 </div>
             </div>
         </div>
 
-        <div
+        <a  href="{{route('user.about')}}"
             class="title lg:hidden text-center text-biru font-medium text-lg relative max-lg:top-[-70px] cursor-pointer max-w-max mx-auto">
-            WHY LMP
-        </div>
+            WHY LMP ->
+        </a>
 
 
         <!--banner biru--->
@@ -107,9 +107,9 @@
                         future.
                     </div>
 
-                    <div class="desc cursor-pointer md:text-xl text-lg max-lg:text-center text-biru font-semibold">
+                    <a href="{{route('energy')}}" class="desc cursor-pointer md:text-xl text-lg max-lg:text-center text-biru font-semibold">
                         Check Here ->
-                    </div>
+                    </a>
                 </div>
 
                 <div class="flex lg:justify-end justify-center relative lg:w-1/3 h-full max-lg:bottom-12 max-lg:left-5">
@@ -133,9 +133,9 @@
                         Great solution to your interesting request
                     </div>
 
-                    <div class="desc cursor-pointer md:text-xl text-lg max-lg:text-center text-biru font-semibold">
+                    <a href="{{route('solution')}}" class="desc cursor-pointer md:text-xl text-lg max-lg:text-center text-biru font-semibold">
                         Check Here ->
-                    </div>
+                    </a>
                 </div>
 
                 <div class="flex lg:justify-end justify-center relative lg:w-2/5 h-full max-lg:top-[-45px]">
