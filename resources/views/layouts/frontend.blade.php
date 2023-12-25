@@ -82,6 +82,10 @@
                 background-color: #A8D5FB;
             }
 
+            .text-biru-muda {
+                color: #A8D5FB;
+            }
+
             .text-biru-muda-2 {
                 color: #E6F6FE;
             }

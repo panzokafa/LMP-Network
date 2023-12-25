@@ -15,8 +15,7 @@
 
         <div
             class="product md:text-xl  absolute lg:right-24 md:right-14 right-8 md:bottom-16 bottom-8 text-white cursor-pointer">
-            Product
-            -></div>
+            Product <span class="text-biru">-></span></div>
     </div>
 
     <!--section 1-->
@@ -26,11 +25,11 @@
                 <div class="lg:w-1/2 relative">
                     {{-- <img class=" w-[140px] h-auto absolute top-[-100px] left-[-50px]" src="{{ asset('images/dot1.png') }}"
                         alt=""> --}}
-                    <div class="title text-hijau md:text-4xl text-3xl md:mb-12 mb-5 bruno relative z-10">
+                    <div class="title text-hijau lg:text-4xl sm:text-3xl text-2xl md:mb-12 mb-5 bruno relative z-10">
                         GREEN
                     </div>
                     <div
-                        class="desc xl:leading-10 leading-8 md:text-2xl text-xl tracking-wide inter relative z-10 font-medium md:w-2/3">
+                        class="desc xl:leading-10 leading-8 xl:text-2xl lg:text-xl text-lg tracking-wide inter relative z-10 font-medium md:w-2/3">
                         Environmentally friendly technology
                         plays a crucial role in preserving the
                         sustainability of our planet
@@ -59,14 +58,15 @@
                 </div>
 
                 <div class=" relative lg:w-1/3 w-full max-lg:text-center">
-                    <div class="title md:text-2xl text-xl tracking-wide inter font-medium xl:leading-10 leading-8 mb-5">
+                    <div
+                        class="title xl:text-2xl lg:text-xl text-lg tracking-wide inter font-medium xl:leading-10 leading-8 mb-5">
                         This technology paves the way to a cleaner
                         and greener world, as much as we can live
                         a modern lifestyle without distractions
                         the earth where we live.
                     </div>
                     <div
-                        class="desc max-lg:hidden text-biru font-medium text-xl relative max-lg:top-[-70px] cursor-pointer max-w-max">
+                        class="desc hover:scale-110 max-lg:hidden text-biru hover font-medium text-xl relative max-lg:top-[-70px] cursor-pointer max-w-max">
                         WHY LMP ->
                     </div>
                 </div>
@@ -84,7 +84,8 @@
             <img class="absolute w-36 h-auto left-[-50px] bottom-16" src="{{ asset('images/dot1.png') }}" alt="">
             <div
                 class="box relative z-10 biru-muda flex-col flex md:gap-5 gap-2 md:py-7 py-4 lg:px-24 md:px-8 px-3 text-center max-w-max rounded">
-                <div class="inter font-bold lg:text-3xl md:text-2xl text-xl">Your business needs a competitive advantage
+                <div class="inter font-bold xl:text-3xl lg:text-2xl sm:text-xl text-lg">Your business needs a competitive
+                    advantage
                 </div>
                 <div class="inter lg:text-xl md:text-lg text-sm">Stay fast and connected by implementing digital services
                     that are
@@ -100,16 +101,17 @@
 
         <div class="mb-36">
             <div class="flex lg:flex-row flex-col-reverse justify-between items-center">
-                <div class="lg:w-1/2 relative">
+                <div class="lg:w-1/2 relative ">
                     <div
-                        class="title md:text-2xl text-xlg tracking-wide inter relative z-10 font-medium lg:w-2/3 leading-relaxed lg:mb-5 mb-8 max-lg:text-center">
+                        class="title xl:text-2xl lg:text-xl text-lg tracking-wide inter relative z-10 font-medium lg:w-2/3 leading-relaxed lg:mb-5 mb-8 max-lg:text-center">
                         Renewable energy sources are emerging as bright stars in the shift towards a clean and sustainable
                         future.
                     </div>
 
-                    <div class="desc cursor-pointer md:text-xl text-lg max-lg:text-center text-biru font-semibold">
+                    <a href="{{ route('energy') }}"
+                        class="block desc cursor-pointer xl:text-xl lg:text-lg max-lg:text-center text-biru font-semibold">
                         Check Here ->
-                    </div>
+                    </a>
                 </div>
 
                 <div class="flex lg:justify-end justify-center relative lg:w-1/3 h-full max-lg:bottom-12 max-lg:left-5">
@@ -126,14 +128,14 @@
         <!--panel section--->
 
         <div class="mb-36">
-            <div class="flex lg:flex-row-reverse flex-col-reverse lg:justify-between justify-center items-center lg:pr-20">
+            <div class="flex lg:flex-row-reverse flex-col-reverse lg:justify-between justify-center items-center xl:pr-20">
                 <div class="lg:w-1/3 relative">
-                    <div
-                        class="title md:text-2xl text-lg tracking-wide inter relative z-10 font-medium lg:w-2/3 leading-relaxed lg:mb-5 mb-8 max-lg:text-center">
+                    <a href="{{ route('solution') }}"
+                        class="block title xl:text-2xl lg:text-xl text-lg tracking-wide inter relative z-10 font-medium lg:w-2/3 leading-relaxed lg:mb-5 mb-8 max-lg:text-center">
                         Great solution to your interesting request
-                    </div>
+                    </a>
 
-                    <div class="desc cursor-pointer md:text-xl text-lg max-lg:text-center text-biru font-semibold">
+                    <div class="desc cursor-pointer xl:text-xl lg:text-lg max-lg:text-center text-biru font-semibold">
                         Check Here ->
                     </div>
                 </div>
@@ -152,14 +154,14 @@
 
         <!--machine section--->
 
-        <div class="mb-36 inter max-lg:px-10">
+        <div class="mb-36 inter">
             <div class="flex lg:justify-between lg:flex-row flex-col-reverse items-center ">
                 <div class="lg:w-1/2 w-full relative max-lg:top-20">
-                    <div class="title text-center text-biru sm:text-3xl text-2xl lg:mb-24 mb-16">
+                    <div class="title text-center text-biru lg:text-3xl sm:text-2xl text-2xl lg:mb-24 mb-16">
                         LMP <span class="text-black">In Numbers</span>
                     </div>
 
-                    <div class="grid md:grid-cols-2 gap-x-24 lg:gap-y-36 gap-y-16">
+                    <div class="grid md:grid-cols-2 gap-x-24 lg:gap-y-36 gap-y-16 max-lg:px-10">
                         <div class="desc-2">
                             <div class="md:text-3xl text-xl md:mb-8 mb-4">
                                 48
@@ -168,7 +170,7 @@
                                 <div class="h-1 bg-[#2D5290] progress-1" style="width: 7%"></div>
                             </div>
 
-                            <div class="text-lg text-[#797979]">
+                            <div class="sm:text-lg text-[#797979]">
                                 EMPLOYEES
                             </div>
                         </div>
@@ -180,7 +182,7 @@
                             <div class="h-1 w-full bg-[#A0A0A0] mb-5 overflow-hidden">
                                 <div class="h-1 bg-[#2D5290] progress-1" style="width: 45%"></div>
                             </div>
-                            <div class="text-lg text-[#797979]">
+                            <div class="sm:text-lg text-[#797979]">
                                 TKDN
                             </div>
                         </div>
@@ -192,7 +194,7 @@
                             <div class="h-1 w-full bg-[#A0A0A0] mb-5 overflow-hidden">
                                 <div class="h-1 bg-[#2D5290] progress-2" style="width: 30%"></div>
                             </div>
-                            <div class="text-lg text-[#797979]">
+                            <div class="sm:text-lg text-[#797979]">
                                 CAPITAL
                             </div>
                         </div>
@@ -204,7 +206,7 @@
                             <div class="h-1 w-full bg-[#A0A0A0] mb-5 overflow-hidden">
                                 <div class="h-1 bg-[#2D5290] progress-2" style="width: 80%"></div>
                             </div>
-                            <div class="text-lg text-[#797979]">
+                            <div class="sm:text-lg text-[#797979]">
                                 CLIENTS
                             </div>
                         </div>

@@ -1,41 +1,72 @@
 <div id="normal"
-    class="flex py-5 xl:px-20 md:px-12 px-6 justify-between items-center fixed z-50 bg-white shadow-lg w-full">
-    <a href="{{ route('user.home')}}" class="w-24 h-auto">
+    class="max-lg:py-5 flex xl:px-20 md:px-12 px-6 justify-between items-center fixed z-50 bg-white shadow-lg w-full">
+    <a href="{{ route('user.home') }}" class="sm:w-24 w-20 h-auto">
         <img src="{{ asset('images/logo1.png') }}" alt="">
     </a>
 
 
     <div class="poppins font-semibold items-center gap-12 text-sm xl:text-base text-center lg:flex hidden">
-        <a href="{{ route('user.about')}}" class="cursor-pointer">About</a>
-        <a href="{{ route('service')}}" class="cursor-pointer">Product & Service</a>
-        <a href="{{ route('solution')}}" class="cursor-pointer">Solution</a>
-        <a href="{{ route('partner')}}" class="cursor-pointer">Partner</a>
-        <a href="{{ route('contact')}}" class="cursor-pointer">Contact</a>
-        <a href="{{ route('support')}}" class="cursor-pointer">Support</a>
+        <a href="{{ route('user.about') }}"
+            class="xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer hover:text-biru duration-300 flex flex-col items-center">
+            <div>About</div>
+            <div class="absolute bottom-0 h-0.5 biru garis w-0"></div>
+        </a>
+        <a href="{{ route('service') }}"
+            class="xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer hover:text-biru duration-300 flex flex-col items-center">
+            <div>Product & Service</div>
+            <div class="absolute bottom-0 h-0.5 biru garis w-0"></div>
+        </a>
+
+        <a href="{{ route('solution') }}"
+            class="xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer hover:text-biru duration-300 flex flex-col items-center">
+            <div>Solution</div>
+            <div class="absolute bottom-0 h-0.5 biru garis w-0"></div>
+        </a>
+
+        <a href="{{ route('partner') }}"
+            class="xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer hover:text-biru duration-300 flex flex-col items-center">
+            <div>Partner</div>
+            <div class="absolute bottom-0 h-0.5 biru garis w-0"></div>
+        </a>
+
+        <a href="{{ route('contact') }}"
+            class="xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer hover:text-biru duration-300 flex flex-col items-center">
+            <div>Contact</div>
+            <div class="absolute bottom-0 h-0.5 biru garis w-0"></div>
+        </a>
+
+        <a href="{{ route('support') }}"
+            class="xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer hover:text-biru duration-300 flex flex-col items-center">
+            <div>Support</div>
+            <div class="absolute bottom-0 h-0.5 biru garis w-0"></div>
+        </a>
     </div>
 
     @guest
-    <div class="poppins font-semibold flex gap-7 items-center">
-        <a href="{{ route('user.login')}}" class="cursor-pointer">Login</a>
-        <a href="{{ route('user.register')}}" class="cursor-pointer py-2 px-3 rounded-md text-white biru">Sign up</a>
+        <div class="poppins font-semibold flex sm:gap-7 gap-4 items-center text-center">
+            <a href="{{ route('user.login') }}" class="max-sm:text-sm cursor-pointer hover:text-biru duration-300">Login</a>
+            <a href="{{ route('user.register') }}"
+                class="max-sm:text-sm relative cursor-pointer py-2 px-3 rounded-md text-white biru hover:bg-white hover:text-biru border-[#1780BB] border-2 duration-300">Sign
+                up</a>
 
-        <i id="navBtn" class="text-xl cursor-pointer fa-solid fa-bars lg:hidden block lg:text-black "></i>
+            <i id="navBtn" class="text-xl cursor-pointer fa-solid fa-bars lg:hidden block lg:text-black "></i>
 
-    </div>
-    @else
-    <div class="flex items-center gap-2 ">
-    <a href="{{ route('user.profile')}}"  class="poppins font-semibold flex gap-3 items-center ">
-        {{-- <img src={{ auth()->user()->profile_picture }} alt=""> --}}
-        <div class="w-10 h-auto brand-image img-circle elevation-3 ">
-            @php($profile_picture = auth()->user()->profile_picture)
-            <img src="@if($profile_picture == null) {{ asset('images/Person.png' ) }} @else {{ asset('storage/picture/'.auth()->user()->profile_picture ) }} @endif" class="brand-image img-circle elevation-3 rounded-full" alt="">
         </div>
+    @else
+        <div class="flex items-center gap-2 ">
+            <a href="{{ route('user.profile') }}" class="poppins font-semibold flex gap-3 items-center ">
+                {{-- <img src={{ auth()->user()->profile_picture }} alt=""> --}}
+                <div class="w-10 h-auto brand-image img-circle elevation-3 ">
+                    @php($profile_picture = auth()->user()->profile_picture)
+                    <img src="@if ($profile_picture == null) {{ asset('images/Person.png') }} @else {{ asset('storage/picture/' . auth()->user()->profile_picture) }} @endif"
+                        class="brand-image img-circle elevation-3 rounded-full" alt="">
+                </div>
 
-        <p class="max-lg:hidden font-light">{{ auth()->user()->name }}</p>
+                <p class="max-lg:hidden font-light">{{ auth()->user()->name }}</p>
 
-    </a>
-    <i id="navBtn" class="text-xl cursor-pointer fa-solid fa-bars lg:hidden block lg:text-black "></i>
-</div>
+            </a>
+            <i id="navBtn" class="text-xl cursor-pointer fa-solid fa-bars lg:hidden block lg:text-black "></i>
+        </div>
     @endguest
 </div>
 
@@ -48,9 +79,12 @@
             <img src="{{ asset('images/logo1.png') }}" alt="">
         </div>
 
-        <div class="poppins font-semibold flex gap-7 items-center text-center">
-            <div class="cursor-pointer text-white">Login</div>
-            <div class="cursor-pointer py-2 px-3 rounded-md text-white biru">Sign up</div>
+        <div class="poppins font-semibold flex lg:gap-7 gap-4 items-center text-center">
+            <a href="{{ route('user.login') }}"
+                class="max-sm:text-sm text-white cursor-pointer hover:text-biru duration-300">Login</a>
+            <a href="{{ route('user.register') }}"
+                class="max-sm:text-sm relative cursor-pointer py-2 px-3 rounded-md text-white biru hover:bg-transparent hover:text-biru border-[#1780BB] border-2 duration-300">Sign
+                up</a>
 
             <i id="x" class="fa-solid fa-xmark text-2xl text-white cursor-pointer"></i>
         </div>
@@ -119,5 +153,11 @@
             navNormal.classList.toggle('hidden');
         });
     </script>
-</div>
 
+    <style>
+        .nav:hover .garis {
+            transition-duration: 300ms;
+            width: 120%
+        }
+    </style>
+</div>
