@@ -23,7 +23,7 @@
 
     </div>
     @else
-    <div class="flex items-center gap-2 ">
+    <div class="flex items-center gap-2 max-lg:gap-5">
     <a href="{{ route('user.profile')}}"  class="poppins font-semibold flex gap-3 items-center ">
         {{-- <img src={{ auth()->user()->profile_picture }} alt=""> --}}
         <div class="w-10 h-auto brand-image img-circle elevation-3 ">
@@ -48,12 +48,18 @@
             <img src="{{ asset('images/logo1.png') }}" alt="">
         </div>
 
+        @guest
         <div class="poppins font-semibold flex gap-7 items-center text-center">
-            <div class="cursor-pointer text-white">Login</div>
-            <div class="cursor-pointer py-2 px-3 rounded-md text-white biru">Sign up</div>
+            <a href="{{ route('user.login')}}" class="cursor-pointer text-white">Login</a>
+        <a href="{{ route('user.register')}}" class="cursor-pointer py-2 px-3 rounded-md text-white biru">Sign up</a>
 
             <i id="x" class="fa-solid fa-xmark text-2xl text-white cursor-pointer"></i>
         </div>
+        @else
+        <div class="">
+            <i id="x" class="fa-solid fa-xmark text-2xl text-white cursor-pointer"></i>
+        </div>
+        @endguest
     </div>
 
     <div class="relative z-20 px-8 pr-12 flex flex-col ">

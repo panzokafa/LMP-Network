@@ -41,7 +41,7 @@
             </div>
         </div>
     @endif
-    {{-- @include('components.modal') --}}
+    {{-- @include('user.p-edit') --}}
     <div class="flex justify-ceenter items-center gap-24 max-w-max py-20 px-44">
 
         <div>
@@ -51,13 +51,11 @@
 
             {{-- @include('components.modal') --}}
 
-            <button class="w-full py-4 font-bold text-center border rounded-md border-[#888888] open_modal">
+            <button class="w-full py-4 font-bold text-center border rounded-md border-[#888888] ">
                 <a href="{{ route('user.edit', auth()->user()->id) }}" data-toggle="modal" data-target="#ModalEdit">
                     Change Profile
                 </a>
             </button>
-
-
 
         </div>
 
