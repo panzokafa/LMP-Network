@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <div class="max-lg:px-7 lg:pb-2">
+    <div class="py-12 max-lg:px-7 lg:pb-2">
         <div class="w-full flex lg:flex-row flex-col-reverse justify-between items-center sm:mb-36 mb-28 max-lg:pt-14">
 
             <div class="inter lg:pl-20 lg:w-1/2 text-center lg:text-left 2xl:mt-0 relative lg:top-10 top-14">
@@ -29,7 +29,8 @@
                 <div class="flex items-center justify-center w-full">
                     <img class="relative z-20 w-full" src="{{ asset('images/learning/bg.jpg') }}" alt="">
                 </div>
-                <div class="absolute w-full h-full bg-[#E6F6FE] sm:top-8 sm:right-8 top-5 right-5">
+
+                <div class="absolute w-full h-full border-2 border-[#3F73AE] lg:top-7 lg:right-7 right-3 top-3 right75">
 
                 </div>
             </div>
