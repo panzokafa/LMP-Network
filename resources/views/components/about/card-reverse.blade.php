@@ -14,26 +14,8 @@
 
 
         <div
-            class="border hover:biru-tua duration-300 hover:text-white border-[#2D5290] px-3 py-2 rounded text-biru font-medium poppins max-w-fit cursor-pointer max-lg:mx-auto ">
+            class="border hover:biru duration-300 hover:text-white border-[#2D5290] px-3 py-2 rounded text-biru font-medium poppins max-w-fit cursor-pointer max-lg:mx-auto ">
             Check here
         </div>
     </div>
-
-    <script>
-        ScrollReveal().reveal('.image-2', {
-            delay: 300,
-            duration: 1000,
-            distance: '1000px',
-            opacity: 1,
-            origin: 'right',
-        });
-
-        ScrollReveal().reveal('.box-2', {
-            delay: 300,
-            duration: 1000,
-            distance: '1000px',
-            opacity: 1,
-            origin: 'left',
-        });
-    </script>
 </a>

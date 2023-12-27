@@ -140,19 +140,49 @@
         var aboutBtn = document.getElementById('aboutBtn');
         var aboutList = document.getElementById('aboutList');
 
-        homeBtn.addEventListener('click', function() {
-            homeList.classList.toggle('max-md:hidden')
-            homeList.classList.toggle('translate-y-[350px]')
-        })
 
-        productBtn.addEventListener('click', function() {
-            productList.classList.toggle('max-md:hidden')
-            productList.classList.toggle('translate-y-[350px]')
-        })
+        // var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+        // if (viewportWidth < 1024) {
+        //     homeBtn.addEventListener('click', function() {
+        //         homeList.classList.toggle('max-md:hidden')
+        //         homeList.classList.toggle('translate-y-[350px]')
+        //     })
 
-        aboutBtn.addEventListener('click', function() {
-            aboutList.classList.toggle('max-md:hidden')
-            aboutList.classList.toggle('translate-y-[350px]')
-        })
+        //     productBtn.addEventListener('click', function() {
+        //         productList.classList.toggle('max-md:hidden')
+        //         productList.classList.toggle('translate-y-[350px]')
+        //     })
+
+        //     aboutBtn.addEventListener('click', function() {
+        //         aboutList.classList.toggle('max-md:hidden')
+        //         aboutList.classList.toggle('translate-y-[350px]')
+        //     })
+        // } else {
+        //     null
+        // }
+
+        // function myFunction() {
+        //     var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+        //     if (viewportWidth < 1024) {
+        //         homeBtn.addEventListener('click', function() {
+        //             homeList.classList.toggle('max-md:hidden')
+        //             homeList.classList.toggle('translate-y-[350px]')
+        //         })
+
+        //         productBtn.addEventListener('click', function() {
+        //             productList.classList.toggle('max-md:hidden')
+        //             productList.classList.toggle('translate-y-[350px]')
+        //         })
+
+        //         aboutBtn.addEventListener('click', function() {
+        //             aboutList.classList.toggle('max-md:hidden')
+        //             aboutList.classList.toggle('translate-y-[350px]')
+        //         })
+        //     } else {
+        //         null
+        //     }
+        // }
+
+        // window.onresize = myFunction;
     </script>
 </div>

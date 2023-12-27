@@ -6,16 +6,16 @@
         <div class="w-full flex lg:flex-row flex-col justify-between items-center mb-14 gap-12">
 
             <div class="inter  lg:w-1/2">
-                <div class="xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold mb-5">MDC Top Package Cooling</div>
+                <div class="xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold mb-5 title">MDC Top Package Cooling</div>
 
 
-                <div class="lg:text-xl sm:text-lg mb-5">3k – 6k MDC fully integrated with closed rack,
+                <div class="lg:text-xl sm:text-lg mb-5 desc">3k – 6k MDC fully integrated with closed rack,
                     package cooling, UPS, battery, power distribution,
                     security, monitoring and fire systems. No complex
                     piping of remote condenser installation.
                 </div>
 
-                <div class="flex lg:flex-row flex-col lg:gap-7 gap-4  items-center">
+                <div class="flex lg:flex-row flex-col lg:gap-7 gap-4 items-center desc">
                     <div
                         class="font-semibold cursor-pointer hover:bg-white hover:border-2 hover:text-biru duration-300 hover:border-[#1780BB] border-2 border-[#3F73AE] py-3 px-4 bg-[#3F73AE] text-white rounded-md max-lg:w-full max-lg:text-center">
                         Pre
@@ -33,12 +33,12 @@
                 </div>
             </div> --}}
             <div class="flex items-center xl:justify-center lg:justify-end w-1/2">
-                <img class="relative z-20 " src="{{ asset('images/product/mdc/MDC Top.png') }}" alt="">
+                <img class="relative z-20 image" src="{{ asset('images/product/mdc/MDC Top.png') }}" alt="">
             </div>
         </div>
 
         <div>
-            <div class="text-biru font-semibold lg:text-3xl sm:text-2xl text-xl mb-8">
+            <div class="title text-biru font-semibold lg:text-3xl sm:text-2xl text-xl mb-8 title">
                 Key Characteristics
             </div>
 
@@ -55,18 +55,18 @@
                         'Standard 10-inch integrated touch monitor screen, the monitoring system does not take up U space of the cabinet',
                         'Support remote web, APP and centralized  monitoring, support monitoring protocols such as Modbus-TCP, SNMPV1 / V2, BACnet',
                         'The cabinet is equipped with an emergency pop-up door system as standard, which can automatically open the
-front and rear doors in the event of a high temperature or fire alarm',
+                        front and rear doors in the event of a high temperature or fire alarm',
                     ];
                 @endphp
-                @for ($i = 0; $i < 9; $i++)
-                    <div class="flex items-center gap-2 text-lg">
+                @for ($i = 0; $i < 10; $i++)
+                    <div class="flex items-center gap-2 text-lg {{ 'item-' . $i }}">
                         <div class="lg:min-h-3  lg:min-w-3 min-w-2 min-h-2 bg-[#A0A0A0] rounded-full"></div>
                         <div class="max-lg:text-sm">{{ $char[$i] }}</div>
                     </div>
                 @endfor
             </div>
 
-            <div class="lg:text-3xl sm:text-2xl text-xl font-semibold text-biru mb-7">
+            <div class="lg:text-3xl sm:text-2xl text-xl font-semibold text-biru mb-7 title">
                 Similar products
             </div>
 
@@ -93,22 +93,59 @@ front and rear doors in the event of a high temperature or fire alarm',
                     $route = ['product.mdc.row-package', 'product.mdc.row-split', 'product.mdc.rack-split'];
                 @endphp
                 @for ($i = 0; $i < 3; $i++)
-                    <a href="{{ route($route[$i]) }}"
-                        class="flex justify-center items-center bg-[#DDEDFB] lg:px-12 px-6 py-8 cursor-pointer">
-                        <div>
-                            <div class="lg:text-xl sm:text-lg  mb-5 font-medium">
-                                {{ $title[$i] }}
-                            </div>
-
-                            <div class="lg:text-base sm:text-base text-xs">
-                                {{ $desc[$i] }}
-                            </div>
-                        </div>
-
-                        <img class="w-1/2" src="{{ asset('images/product/mdc/' . $image[$i] . '.png') }}" alt="">
-                    </a>
+                    <div class="{{ 'product-' . $i }}"><x-product.box title="{{ $title[$i] }}" desc="{{ $desc[$i] }}"
+                            route="{{ $route[$i] }}" image="{{ 'mdc/' . $image[$i] }}" />
+                    </div>
                 @endfor
             </div>
         </div>
     </div>
+
+    <script>
+        ScrollReveal().reveal('.image', {
+            delay: 750,
+            duration: 1000,
+            distance: '800px',
+            opacity: 1,
+            origin: 'right',
+        });
+
+        ScrollReveal().reveal('.title', {
+            delay: 300,
+            duration: 1000,
+            distance: '100px',
+            origin: 'bottom'
+        });
+
+        ScrollReveal().reveal('.desc', {
+            delay: 500,
+            duration: 1000,
+            distance: '100px',
+            origin: 'bottom'
+        });
+        ScrollReveal().reveal('.fade', {
+            delay: 500,
+            duration: 1000,
+            opacity: 0,
+            distance: '50px',
+            origin: 'bottom'
+        });
+        for (let i = 0; i < 10; i++) {
+            ScrollReveal().reveal('.item-' + i, {
+                delay: 500 + i * 100,
+                duration: 1000,
+                distance: '100px',
+                origin: 'bottom'
+            });
+        }
+
+        for (let i = 0; i < 3; i++) {
+            ScrollReveal().reveal('.product-' + i, {
+                delay: 500 + i * 100,
+                duration: 1000,
+                distance: '100px',
+                origin: 'bottom'
+            });
+        }
+    </script>
 @endsection

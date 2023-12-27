@@ -6,17 +6,18 @@
         <div class="w-full flex lg:flex-row flex-col justify-between items-center mb-14 gap-12">
 
             <div class="inter  lg:w-1/2">
-                <div class="xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold mb-5">MDC Row Split Package Cooling</div>
+                <div class="xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold mb-5 title">MDC Row Split Package Cooling
+                </div>
 
 
-                <div class="lg:text-xl sm:text-lg mb-5">6k – 20k MDC fully integrated with closed rack,
+                <div class="lg:text-xl sm:text-lg mb-5 desc">6k – 20k MDC fully integrated with closed rack,
                     split cooling, UPS, battery, power distribution,
                     security, monitoring and fire systems. Row cooling
                     seamless integration with rack row and capacity
                     expansion.
                 </div>
 
-                <div class="flex lg:flex-row flex-col lg:gap-7 gap-4  items-center">
+                <div class="flex lg:flex-row flex-col lg:gap-7 gap-4  items-center desc">
                     <div
                         class="font-semibold cursor-pointer hover:bg-white hover:border-2 hover:text-biru duration-300 hover:border-[#1780BB] border-2 border-[#3F73AE] py-3 px-4 bg-[#3F73AE] text-white rounded-md max-lg:w-full max-lg:text-center">
                         Pre
@@ -39,11 +40,11 @@
         </div>
 
         <div>
-            <div class="text-biru font-semibold lg:text-3xl sm:text-2xl text-xl mb-8">
+            <div class="text-biru font-semibold lg:text-3xl sm:text-2xl text-xl mb-8 title">
                 Key Characteristics
             </div>
 
-            <div class="flex flex-col justify-center gap-4 lg:mb-12">
+            <div class="flex flex-col justify-center gap-4 lg:mb-12 {{ 'item-' . $i }}">
                 @php
                     $char = ['Standard 19-inch server cabinet, glass front door, sheet metal back door', '3 in 1 access control system(Pin/Fingerprint/RFID) and video monitoring system', 'Rack mount power distribution, metering, and management for all the power lines', '2.5kW – 90kW rack / row mount precision cooling, seamlessly matched to the rack.', '48VDC power, or 3kVA – 200kVA rack mount or modular UPS system protect power continuity', 'Independent cold / hot closed aisle are integrated at the front and rear of the cabinet, respectively', 'Standard 10-inch integrated touch monitor screen, the monitoring system does not take up U space of the cabinet'];
                 @endphp
@@ -57,4 +58,52 @@
 
         </div>
     </div>
+
+    <script>
+        ScrollReveal().reveal('.image', {
+            delay: 750,
+            duration: 1000,
+            distance: '800px',
+            opacity: 1,
+            origin: 'right',
+        });
+
+        ScrollReveal().reveal('.title', {
+            delay: 300,
+            duration: 1000,
+            distance: '100px',
+            origin: 'bottom'
+        });
+
+        ScrollReveal().reveal('.desc', {
+            delay: 500,
+            duration: 1000,
+            distance: '100px',
+            origin: 'bottom'
+        });
+        ScrollReveal().reveal('.fade', {
+            delay: 500,
+            duration: 1000,
+            opacity: 0,
+            distance: '50px',
+            origin: 'bottom'
+        });
+        for (let i = 0; i < 10; i++) {
+            ScrollReveal().reveal('.item-' + i, {
+                delay: 500 + i * 100,
+                duration: 1000,
+                distance: '100px',
+                origin: 'bottom'
+            });
+        }
+
+        for (let i = 0; i < 3; i++) {
+            ScrollReveal().reveal('.product-' + i, {
+                delay: 500 + i * 100,
+                duration: 1000,
+                distance: '100px',
+                origin: 'bottom'
+            });
+        }
+    </script>
 @endsection

@@ -40,11 +40,11 @@
             </div>
 
             <div class="flex flex-col justify-center lg:gap-36 gap-6 w-full lg:mb-36 mb-16">
-
                 <x-about.card route="network" title="LMP Networks" image="1"
                     desc="Optimizing Network Performance for
                     Comprehensive Analysis and Security Challenges
                     in Modern Networks with Strategies and Solutions" />
+
 
                 <x-about.card-reverse route="centrinium" title="LMP Centrinium" image="2"
                     desc="Simplifying and protecting your digital system
@@ -77,7 +77,8 @@
             <div class="gap-20 lg:mb-44 mb-16">
                 <div class="flex lg:gap-20 sm:gap-10 gap-5 lg:flex-row flex-col items-center">
                     <div class="card flex justify-end relative lg:w-1/3 w-11/12 h-full relative right-3">
-                        <div class="w-full border-2 border-[rgb(63,115,174)] absolute lg:left-8 left-4 h-full z-10"></div>
+                        <div class="w-full border-2 border-[rgb(63,115,174)] absolute lg:left-8 left-4 h-full z-10">
+                        </div>
                         <img class="w-full relative lg:bottom-8 bottom-4 right-0 z-20" src="{{ asset('images/panel.jpg') }}"
                             alt="">
                     </div>
@@ -184,12 +185,41 @@
                     </div>
                 </div>
 
-
-
             </div>
 
         </div>
         <script>
+            ScrollReveal().reveal('.image-2', {
+                delay: 300,
+                duration: 1000,
+                distance: '1000px',
+                opacity: 1,
+                origin: 'right',
+            });
+
+            ScrollReveal().reveal('.box-2', {
+                delay: 300,
+                duration: 1000,
+                distance: '1000px',
+                opacity: 1,
+                origin: 'left',
+            });
+
+            ScrollReveal().reveal('.image-1', {
+                delay: 350,
+                duration: 1000,
+                distance: '1000px',
+                opacity: 1,
+                origin: 'left',
+            });
+
+            ScrollReveal().reveal('.box-1', {
+                delay: 350,
+                duration: 1000,
+                distance: '1000px',
+                opacity: 1,
+                origin: 'right',
+            });
             ScrollReveal().reveal('.title', {
                 delay: 700,
                 duration: 1000,
