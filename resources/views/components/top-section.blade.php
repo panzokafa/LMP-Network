@@ -3,15 +3,15 @@
     <div class="inter lg:pl-20 lg:w-1/2 text-center lg:text-left 2xl:mt-0 relative lg:top-10 top-14">
 
         <div class="max-w-max max-lg:mx-auto title">
-            <div class="2xl:text-4xl lg:text-3xl sm:text-2xl text-xl  font-bold max-lg:px-10 whitespace-nowrap">
+            <div class="2xl:text-4xl lg:text-3xl sm:text-2xl text-xl  font-bold max-lg:px-10 ">
                 {{ $title }}
             </div>
 
-            <div class="h-1 lg:w-[130%] w-full biru sm:my-3 my-2 max-lg:mb-5"></div>
+            <div class="h-1 lg:w-[115%] w-full biru sm:my-3 my-2 max-lg:mb-5"></div>
 
         </div>
 
-        <div class="lg:text-xl sm:text-lg lg:mb-3 sm:leading-8 leading-7 desc">{{ $desc }}
+        <div class="lg:text-xl sm:text-lg lg:mb-3 sm:leading-8 lg:leading-7 desc">{{ $desc }}
         </div>
     </div>
 

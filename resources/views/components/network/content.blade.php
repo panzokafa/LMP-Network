@@ -1,5 +1,5 @@
 <div class="lg:px-20">
-    <div class="desc lg:text-2xl sm:text-xl text-lg mb-26 lg:w-2/3">
+    <div class="desc xl:text-2xl lg:text-xl sm:text-lg mb-26 lg:w-2/3">
         Provide interconnect and cross-connect of applications over installations
         in entrance facilities, telecommunications rooms, data center and at the desk.
     </div>
@@ -20,14 +20,14 @@
         @endfor
     </div>
 
-    <div class="desc-2 lg:text-2xl sm:text-xl text-lg xl:w-2/3 lg:mb-36 mb-10">
+    <a class="desc-2 xl:text-2xl lg:text-xl sm:text-lg xl:w-2/3 lg:mb-36 mb-10 block">
         Patch cords support network applications in main, horizontal and equipment
         distribution areas and are available in low smoke zero halogen (LSZH) rated
         jacket materials to comply with local cabling ordinances. Pre-terminated fiber
         optic pigtails support fusion splice field termination applications.
-    </div>
+    </a>
 
-    <div class="flex text-biru justify-end text-xl fade">
+    <div class="flex text-biru justify-end lg:text-xl text-lg fade">
         <div class="cursor-pointer">PRODUCT -></div>
     </div>
 

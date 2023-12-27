@@ -4,7 +4,8 @@
 @section('content')
     <div class="relative flex items-center justify-center max-lg:h-[35vh]">
         <div class="absolute px-5 z-20 header">
-            <div class="font-bold mb-3 text-white lg:text-5xl text-4xl lg:px-12 px-8 text-center">LMP Partner </div>
+            <div class="font-bold mb-3 text-white xl:text-5xl lg:text-4xl sm:text-3xl text-2xl lg:px-12 px-8 text-center">LMP
+                Partner </div>
             <div class="w-full h-1 biru"></div>
         </div>
         <img class="object-cover w-full h-full banner" src="{{ asset('images/partner/bg.jpg') }}" alt="">

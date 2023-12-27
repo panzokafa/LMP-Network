@@ -33,19 +33,43 @@
             <div class="lg:mx-40 mx-auto justify-center flex relative max-w-max">
                 <img class="absolute lg:w-[140px] w-28 bottom-1/2 left-[-50px]" src="{{ asset('images/dot1.png') }}"
                     alt="">
-                <div class="lg:mb-24 sm:mb-12 mb-6 text-biru lg:text-5xl text-4xl bruno relative z-10">LMP Group</div>
+                <div
+                    class="lg:mb-24 sm:mb-12 mb-6 text-biru xl:text-5xl lg:text-4xl sm:text-3xl text-2xl bruno relative z-10">
+                    LMP
+                    Group</div>
             </div>
 
             <div class="flex flex-col justify-center lg:gap-36 gap-6 w-full lg:mb-36 mb-16">
-                <x-about.card title="Networks" image="LMP"
-                    desc="Optimizing Network Performance for
-            Comprehensive Analysis and Security Challenges
-            in Modern Networks with Strategies and Solutions" />
 
-                <x-about.card-reverse title="Networks" image="LMP"
+                <x-about.card route="network" title="LMP Networks" image="1"
                     desc="Optimizing Network Performance for
-        Comprehensive Analysis and Security Challenges
-        in Modern Networks with Strategies and Solutions" />
+                    Comprehensive Analysis and Security Challenges
+                    in Modern Networks with Strategies and Solutions" />
+
+                <x-about.card-reverse route="centrinium" title="LMP Centrinium" image="2"
+                    desc="Simplifying and protecting your digital system
+                    with this pre- manufactured, self-contained
+                    and readily scalable micro data center solution" />
+
+                <x-about.card route="energy" title="LMP Renewable Energy" image="3"
+                    desc="Together we create a better future
+                    a greener data center" />
+
+                <x-about.card-reverse route="polymer" title="LMP Polymer" image="4"
+                    desc="Development of LMP technology for
+                    environmentally friendly plastics and the latest
+                    innovations in the development of sustainable
+                    plastic polymers" />
+
+                <x-about.card route="learning" title="LMP Service & Learning Center" image="5"
+                    desc="The LMP program inspires with deep service
+                    and builds future leaders through experiential
+                    service and learning" />
+
+                <x-about.card-reverse route="nex-t" title="LMP Nex-T Edge DC 360" image="6"
+                    desc="Neutral edge data center for colocation,
+                    leading challenges explore excellence
+                    with the LMP Nex-T Edge DC 360" />
 
             </div>
 
@@ -70,9 +94,10 @@
                             began our work in 2018.
                         </div>
 
-                        <div class="desc cursor-pointer lg:text-xl text-lg text-biru font-medium">
+                        <a href="{{ route('research') }}"
+                            class="desc cursor-pointer lg:text-xl text-lg text-biru font-medium">
                             Read more
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>

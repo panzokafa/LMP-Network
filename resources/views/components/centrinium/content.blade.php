@@ -32,7 +32,7 @@
         pull out Modules.
     </div>
 
-    <div class="flex text-biru justify-end text-xl fade">
+    <div class="flex text-biru justify-end lg:text-xl text-lg fade">
         <div class="cursor-pointer">PRODUCT -></div>
     </div>
 </div>

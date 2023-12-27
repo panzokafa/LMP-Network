@@ -6,10 +6,10 @@
         <div class="w-full flex lg:flex-row flex-col justify-between items-center mb-14 gap-12">
 
             <div class="inter  lg:w-1/2">
-                <div class="lg:text-4xl text-3xl font-bold mb-5">MDC Top Package Cooling</div>
+                <div class="xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold mb-5">MDC Top Package Cooling</div>
 
 
-                <div class="lg:text-xl text-lg mb-5">3k – 6k MDC fully integrated with closed rack,
+                <div class="lg:text-xl sm:text-lg mb-5">3k – 6k MDC fully integrated with closed rack,
                     package cooling, UPS, battery, power distribution,
                     security, monitoring and fire systems. No complex
                     piping of remote condenser installation.
@@ -17,11 +17,11 @@
 
                 <div class="flex lg:flex-row flex-col lg:gap-7 gap-4  items-center">
                     <div
-                        class="font-semibold cursor-pointer py-3 px-4 bg-[#3F73AE] text-white rounded-md max-lg:w-full max-lg:text-center">
+                        class="font-semibold cursor-pointer hover:bg-white hover:border-2 hover:text-biru duration-300 hover:border-[#1780BB] border-2 border-[#3F73AE] py-3 px-4 bg-[#3F73AE] text-white rounded-md max-lg:w-full max-lg:text-center">
                         Pre
                         Order</div>
                     <div
-                        class="font-semibold cursor-pointer py-3 px-4 biru text-white rounded-md max-lg:w-full max-lg:text-center">
+                        class="font-semibold cursor-pointer py-3 px-4 biru text-white rounded-md max-lg:w-full max-lg:text-center hover:bg-white hover:border-2 hover:text-biru duration-300 hover:border-[#3F73AE] border-2 border-[#1780BB]">
                         Get Brochure</div>
 
                 </div>
@@ -38,11 +38,11 @@
         </div>
 
         <div>
-            <div class="text-biru font-semibold lg:text-3xl text-2xl mb-8">
+            <div class="text-biru font-semibold lg:text-3xl sm:text-2xl text-xl mb-8">
                 Key Characteristics
             </div>
 
-            <div class="flex flex-col justify-center gap-4 mb-12">
+            <div class="flex flex-col justify-center gap-4 mb-20 lg:mb-12">
                 @php
                     $char = [
                         'Support global customized services',
@@ -66,19 +66,19 @@ front and rear doors in the event of a high temperature or fire alarm',
                 @endfor
             </div>
 
-            <div class="lg:text-3xl text-2xl font-semibold text-biru mb-7">
+            <div class="lg:text-3xl sm:text-2xl text-xl font-semibold text-biru mb-7">
                 Similar products
             </div>
 
             <div class="grid lg:grid-cols-2 grid-cols-1 gap-7">
                 @for ($i = 0; $i < 3; $i++)
-                    <div class="flex justify-center items-center bg-[#DDEDFB] lg:px-12 px-6 py-5 cursor-pointer">
+                    <div class="flex justify-center items-center bg-[#DDEDFB] lg:px-12 px-6 py-8 cursor-pointer">
                         <div>
                             <div class="lg:text-xl sm:text-lg  mb-5 font-medium">
                                 MDC Row Packgae Cooling
                             </div>
 
-                            <div class="text-xs">
+                            <div class="lg:text-base sm:text-base text-xs">
                                 5k – 10k MDC fully integrated with closed rack,
                                 package cooling, UPS, battery, power distribution,
                                 security, monitoring and fire systems. No complex

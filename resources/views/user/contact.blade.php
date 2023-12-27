@@ -6,7 +6,9 @@
         <div class="flex flex-col gap-3 mx-auto max-w-max relative lg:mb-28 mb-14">
             <img class="lg:scale-50 scale-[35%] absolute left-[-130px] top-[-120px]" src="{{ asset('images/dot1.png') }}"
                 alt="">
-            <div class="title font-bold lg:mb-3 mb-2 tlg:ext-5xl text-4xl lg:px-24 px-12 relative z-10 text-center">Contact
+            <div
+                class="title font-bold lg:mb-3 mb-2 xl:ext-5xl lg:text-4xl sm:text-3xl text-2xl lg:px-24 px-12 relative z-10 text-center">
+                Contact
                 Us
             </div>
             <div class="title w-full h-1 biru relative z-10"></div>
@@ -29,7 +31,7 @@ Bekasi - Jawa Barat',
                 <div class="{{ 'contact-' . $i }} flex flex-col items-center justify-center text-center">
                     <img class="xl:mb-12 mb-10" src="{{ asset('images/contact/' . $i . '.png') }}" alt="">
 
-                    <div class="font-bold text-2xl xl:mb-14 mb-7">{{ $title[$i - 1] }}</div>
+                    <div class="font-bold lg:text-2xl sm:text-xl text-lg xl:mb-14 sm:mb-7 mb-4">{{ $title[$i - 1] }}</div>
 
                     <div class="font-medium max-sm:px-5">{{ $desc[$i - 1] }}</div>
                 </div>
@@ -43,11 +45,11 @@ Bekasi - Jawa Barat',
         referrerpolicy="no-referrer-when-downgrade"></iframe>
 
     <div class="flex fade flex-col items-center justify-center lg:py-12 py-8 px-5 biru-muda text-center">
-        <div class="tracking-[5px] font-semibold opensans lg:text-3xl text-2xl mb-3">SUBSCRIBE</div>
-        <div class="lg:mb-6 mb-4 lg:text-xl text-lg inter">Join us to receive product news and industry updates from us
+        <div class="tracking-[5px] font-semibold opensans lg:text-3xl sm:-2xl text-xl mb-3">SUBSCRIBE</div>
+        <div class="lg:mb-6 mb-4 lg:text-xl sm:text-lg inter">Join us to receive product news and industry updates from us
         </div>
         <div
-            class="text-biru inter font-bold lg:text-xl text-lg lg:px-5 px-3 lg:py-3 py-2 bg-white border border-[#2D5290] rounded cursor-pointer">
+            class="hover:biru duration-300 hover:text-white text-biru inter font-bold lg:text-xl sm:text-lg lg:px-5 px-3 lg:py-3 py-2 bg-white border border-[#2D5290] rounded cursor-pointer">
             JOIN WITH US
         </div>
     </div>

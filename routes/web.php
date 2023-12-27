@@ -58,11 +58,11 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::put('update/{id?}', [ProfileController::class, 'update'])->name('user.update');
 });
 
-Route::group(['prefix' => 'product', 'middleware' => ['auth']], function () {
-    Route::get('MDC-Top', function () {
-        return view('user.product'); // You can return any response you want here
-    })->name('product');
-});
+// Route::group(['prefix' => 'product', 'middleware' => ['auth']], function () {
+//     Route::get('MDC-Top', function () {
+//         return view('user.product'); // You can return any response you want here
+//     })->name('product');
+// });
 
 Route::get('research', function () {
     return view('user.research'); // You can return any response you want here
@@ -109,7 +109,6 @@ Route::get('nex-t', function () {
 })->name('nex-t');
 
 
-
 Route::get('testing', function () {
     return view('user.testing'); // You can return any response you want here
 })->name('testing');
@@ -119,6 +118,68 @@ Route::get('learning', function () {
     return view('user.learning'); // You can return any response you want here
 })->name('learning');
 
+Route::group(['prefix' => 'product'], function () {
+    Route::get('mdc-top', function () {
+        return view('user.product.mdc.top'); // You can return any response you want here
+    })->name('product.mdc.top');
+
+    Route::get('mdc-rack-split', function () {
+        return view('user.product.mdc.rack-split');
+    })->name('product.mdc.rack-split');
+
+    Route::get('mdc-row-package', function () {
+        return view('user.product.mdc.row-package');
+    })->name('product.mdc.row-package');
+
+    Route::get('mdc-row-split', function () {
+        return view('user.product.mdc.row-split');
+    })->name('product.mdc.row-split');
+
+    Route::get('mdc-row', function () {
+        return view('user.product.mdc.row');
+    })->name('product.mdc.row');
+
+    //Rack
+
+    Route::get('rack-1', function () {
+        return view('user.product.rack.1-rack');
+    })->name('product.rack.1');
+
+    Route::get('rack-2', function () {
+        return view('user.product.rack.2-rack');
+    })->name('product.rack.2');
+
+    Route::get('rack-2-row', function () {
+        return view('user.product.rack.2-rack-row');
+    })->name('product.rack.2.row');
+
+    Route::get('rack-3', function () {
+        return view('user.product.rack.3-rack');
+    })->name('product.rack.3');
+
+
+    //container
+    Route::get('container-10ft', function () {
+        return view('user.product.container.10ft');
+    })->name('product.container.10ft');
+
+    Route::get('container-20ft', function () {
+        return view('user.product.container.20ft');
+    })->name('product.container.20ft');
+
+    Route::get('container-40ft', function () {
+        return view('user.product.container.40ft');
+    })->name('product.container.40ft');
+
+    Route::get('container-dual', function () {
+        return view('user.product.container.dual-container');
+    })->name('product.container.dual-container');
+
+    Route::get('containment-centrinium', function () {
+        return view('user.product.container.centrinium-containment');
+    })->name('product.container.centrinium-containment');
+
+});
 // Route::get('/', function () {
 //     return view('welcome');
 // });

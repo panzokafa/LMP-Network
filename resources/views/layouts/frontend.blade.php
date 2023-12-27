@@ -107,7 +107,7 @@
 
 <body class="">
     @include('components.navbar')
-    <main class="relative top-20 mb-20">
+    <main class="relative top-20 mb-20 overflow-x-hidden">
         @yield('content')
     </main>
     <div class="relative bottom-0 h-full">

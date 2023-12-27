@@ -10,15 +10,17 @@ class CardReverse extends Component
 {
     public $image;
     public $title;
+    public $route;
     public $desc;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($image, $title, $desc)
+    public function __construct($image, $title, $desc, $route)
     {
         $this->image = $image;
         $this->title = $title;
+        $this->route = $route;
         $this->desc = $desc;
     }
 
