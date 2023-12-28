@@ -110,7 +110,7 @@
     <main class="relative top-20 mb-20 overflow-x-hidden">
         @yield('content')
     </main>
-    <div class="relative bottom-0 h-full">
+    <div class="relative bottom-0">
         @include('components.footer')
     </div>
 </body>

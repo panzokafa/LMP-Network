@@ -94,11 +94,13 @@
                             major strength of our research since we
                             began our work in 2018.
                         </div>
+                        <div class="desc">
+                            <a href="{{ route('research') }}"
+                                class="hover:text-biru-tua duration-300 cursor-pointer lg:text-xl text-lg text-biru font-medium">
+                                Read more
+                            </a>
+                        </div>
 
-                        <a href="{{ route('research') }}"
-                            class="desc cursor-pointer lg:text-xl text-lg text-biru font-medium">
-                            Read more
-                        </a>
                     </div>
                 </div>
             </div>

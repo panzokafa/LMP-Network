@@ -24,14 +24,14 @@
             <div class="md:flex-row flex flex-col md:gap-7 poppins text-white text-left w-full">
                 <div class="flex md:flex-row flex-col md:gap-32 relative">
                     <div>
-                        <div id="homeBtn"
+                        <div id="homeBtn" onclick="home()"
                             class="flex items-center justify-between relative z-20 biru-tua  max-md:cursor-pointer max-md:duration-100 max-md:hover:px-5">
                             <div class="font-bold py-5 text-lg">HOME</div>
                             <i class="fa-solid fa-arrow-right md:hidden"></i>
                         </div>
 
                         <div id="homeList"
-                            class="flex flex-col gap-3 text-sm max-md:px-3 max-md:mb-3 z-10 max-md:hidden duration-100 relative max-md:top-[-350px]">
+                            class="flex flex-col gap-3 text-sm max-md:px-3 max-md:mb-3 z-10 max-md:hidden duration-100 relative">
                             <div
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
                                 About
@@ -59,7 +59,7 @@
 
                 <div class="flex max-md:flex-col md:gap-32">
                     <div>
-                        <div id="productBtn"
+                        <div id="productBtn" onclick="product()"
                             class="flex items-center justify-between relative z-20 biru-tua  max-md:cursor-pointer max-md:duration-100 max-md:hover:px-5">
                             <div class="font-bold py-5 text-lg">Product</div>
                             <i class="fa-solid fa-arrow-right md:hidden"></i>
@@ -67,7 +67,7 @@
                         </div>
 
                         <div id="productList"
-                            class="flex flex-col gap-3 text-sm max-md:px-3 max-md:mb-3 z-10 max-md:hidden duration-100 relative max-md:top-[-350px]">
+                            class="flex flex-col gap-3 text-sm max-md:px-3 max-md:mb-3 z-10 max-md:hidden duration-100 relative">
                             <div
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
                                 LMP Networks</div>
@@ -91,7 +91,7 @@
 
                 <div class="flex max-md:flex-col md:gap-32">
                     <div>
-                        <div id="aboutBtn"
+                        <div id="aboutBtn" onclick="about()"
                             class="flex items-center justify-between relative z-20 biru-tua  max-md:cursor-pointer max-md:duration-100 max-md:hover:px-5">
                             <div class="font-bold py-5 text-lg">About</div>
                             <i class="fa-solid fa-arrow-right md:hidden"></i>
@@ -99,7 +99,7 @@
                         </div>
 
                         <div id="aboutList"
-                            class="flex flex-col gap-3 text-sm max-md:px-3 max-md:mb-3 z-10 max-md:hidden duration-100 relative max-md:top-[-350px]">
+                            class="flex flex-col gap-3 text-sm max-md:px-3 max-md:mb-3 z-10 max-md:hidden duration-100 relative ">
                             <div
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
                                 About LMP</div>
@@ -142,7 +142,7 @@
 
 
         // var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
-        // if (viewportWidth < 1024) {
+        // if (viewportWidth < 768) {
         //     homeBtn.addEventListener('click', function() {
         //         homeList.classList.toggle('max-md:hidden')
         //         homeList.classList.toggle('translate-y-[350px]')
@@ -161,28 +161,50 @@
         //     null
         // }
 
-        // function myFunction() {
-        //     var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
-        //     if (viewportWidth < 1024) {
-        //         homeBtn.addEventListener('click', function() {
-        //             homeList.classList.toggle('max-md:hidden')
-        //             homeList.classList.toggle('translate-y-[350px]')
-        //         })
+        function home() {
+            if (window.innerWidth <= 768) {
+                homeList.classList.toggle('max-md:hidden')
+                // homeList.classList.toggle('translate-y-[350px]')
 
-        //         productBtn.addEventListener('click', function() {
-        //             productList.classList.toggle('max-md:hidden')
-        //             productList.classList.toggle('translate-y-[350px]')
-        //         })
+                console.log('testing')
+            } else {
+                null
+            }
 
-        //         aboutBtn.addEventListener('click', function() {
-        //             aboutList.classList.toggle('max-md:hidden')
-        //             aboutList.classList.toggle('translate-y-[350px]')
-        //         })
-        //     } else {
-        //         null
-        //     }
-        // }
+        }
 
-        // window.onresize = myFunction;
+        function product() {
+            if (window.innerWidth <= 768) {
+                productList.classList.toggle('max-md:hidden')
+                // productList.classList.toggle('translate-y-[350px]')
+            }
+
+        }
+
+        function about() {
+            if (window.innerWidth <= 768) {
+
+                aboutList.classList.toggle('max-md:hidden')
+                // aboutList.classList.toggle('translate-y-[350px]')
+
+            }
+
+        }
+
+        function removeList() {
+            var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+            if (viewportWidth > 768) {
+                homeList.classList.add('max-md:hidden')
+                // homeList.classList.add('translate-y-[350px]')
+                productList.classList.add('max-md:hidden')
+                // productList.classList.add('translate-y-[350px]')
+                aboutList.classList.add('max-md:hidden')
+                // aboutList.classList.add('translate-y-[350px]')
+            } else {
+                null
+            }
+        }
+        // console.log(document.documentElement.clientWidth)
+        window.onresize = removeList;
     </script>
 </div>
