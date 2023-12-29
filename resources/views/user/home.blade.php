@@ -107,11 +107,15 @@
                         Renewable energy sources are emerging as bright stars in the shift towards a clean and sustainable
                         future.
                     </div>
-
-                    <a href="{{ route('energy') }}"
-                        class="block desc cursor-pointer xl:text-xl lg:text-lg max-lg:text-center text-biru font-semibold">
-                        Check Here ->
-                    </a>
+                    <div class="desc">
+                        <a href="{{ route('energy') }}"
+                            class="flex gap-2 items-center hover:gap-6 max-w-max duration-300 cursor-pointer xl:text-xl lg:text-lg max-lg:text-center text-biru font-semibold mx-auto">
+                            <div>Check Here</div>
+                            <div>
+                                ->
+                            </div>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="flex lg:justify-end justify-center relative lg:w-1/3 h-full max-lg:bottom-12 max-lg:left-5">
@@ -130,13 +134,19 @@
         <div class="mb-36">
             <div class="flex lg:flex-row-reverse flex-col-reverse lg:justify-between justify-center items-center xl:pr-20">
                 <div class="lg:w-1/3 relative">
-                    <a href="{{ route('solution') }}"
+                    <div
                         class="block title xl:text-2xl lg:text-xl text-lg tracking-wide inter relative z-10 font-medium lg:w-2/3 leading-relaxed lg:mb-5 mb-8 max-lg:text-center">
                         Great solution to your interesting request
-                    </a>
+                    </div>
 
-                    <div class="desc cursor-pointer xl:text-xl lg:text-lg max-lg:text-center text-biru font-semibold">
-                        Check Here ->
+                    <div class="desc">
+                        <a href="{{ route('solution') }}"
+                            class="flex gap-2 items-center hover:gap-6 max-w-max duration-300 cursor-pointer xl:text-xl lg:text-lg max-lg:text-center text-biru font-semibold mx-auto">
+                            <div>Check Here</div>
+                            <div>
+                                ->
+                            </div>
+                        </a>
                     </div>
                 </div>
 
@@ -348,7 +358,6 @@
                 distance: '100px',
                 origin: 'bottom'
             });
-            console.log('logo-' + i)
         }
     </script>
 

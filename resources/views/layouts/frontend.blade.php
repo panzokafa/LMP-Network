@@ -112,7 +112,7 @@
     @yield('javascript')
 
     </main>
-    <div class="relative bottom-0 h-full">
+    <div class="relative bottom-0">
         @include('components.footer')
     </div>
 </body>
