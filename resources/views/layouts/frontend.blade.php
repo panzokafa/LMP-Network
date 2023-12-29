@@ -109,6 +109,8 @@
     @include('components.navbar')
     <main class="relative top-20 mb-20 overflow-x-hidden">
         @yield('content')
+    @yield('javascript')
+
     </main>
     <div class="relative bottom-0 h-full">
         @include('components.footer')
