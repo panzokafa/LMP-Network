@@ -15,7 +15,7 @@
       </div>
     @endif
         <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-        <div class="p-10 px-96 mt-24 relative bg-white rounded-lg overflow-hidden shadow-xl max-w-screen-md  m-4"
+        <div class="p-10 lg:px-96  mt-24 relative bg-white rounded-lg overflow-hidden shadow-xl max-w-screen-md  m-4"
             x-transition:enter="transition ease-out duration-300 transform opacity-0 scale-95"
             x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
             x-transition:leave="transition ease-in duration-200 transform opacity-100 scale-100"
@@ -33,21 +33,21 @@
                         style="max-height: 70vh;  border-radius: 0.375rem; rgba(0, 0, 0, 0.1);">
 
 
-                        <div class="flex items-center justify-center  border-right">
-                            <div class="w-24 d-flex flex-col items-center text-center ">
+                        <div class="flex items-center justify-center  border-right ">
+                            <div class="flex d-flex flex-col items-center text-center">
                                 <img src=" {{ asset('storage/picture/' . auth()->user()->profile_picture) }} "
                                     class="brand-image img-circle elevation-3 rounded-full mb-5" height="100" width="100"
                                     id="image_preview_container" alt="">
-                                <span class=" font-normal">
+                                <div class=" font-normal flex items-center justify-center w-60">
                                     <input type="file" name="profile_picture" id="profile_picture" value="{{ $users->profile_picture }}" class="form-control">
-                                </span>
+                                </div>
 
                             </div>
                         </div>
 
                         <p class="leading-6 font-semibold text-xl text-center mt-3 mb-6"> Change Photo </p>
 
-
+                        <div class=" mx-10">
                         <div class="mb-6">
                             <label for="name" class="text-sm font-medium text-gray-900 block mb-2">Full Name</label>
                             <input type="text" value="{{ $users->name }}" id="name" name="name"
@@ -110,6 +110,7 @@
                             <button type="submit"
                                 class="text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Save</button>
                         </div>
+                         </div>
                     </div>
                 </form>
             </div>

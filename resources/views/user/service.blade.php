@@ -25,7 +25,7 @@
                     for connectivity in Data Center. Optimizing Space - Air flow
                     and Efficiency in Cooling Systems & Energy consumption</div>
 
-                <div class="flex flex-col lg:gap-8 gap-4">
+                <div class="flex flex-col lg:gap-6 gap-4">
                     <div class="text-biru cursor-pointer">Cable Fiber Optic</div>
                     <div class="text-biru cursor-pointer">Patchcord</div>
                     <div class="text-biru cursor-pointer">Enclosure</div>
@@ -40,7 +40,7 @@
                     continuously without depleting natural resources ensuring
                     long term sustainability</div>
 
-                <div class="flex flex-col lg:gap-8 gap-4">
+                <div class="flex flex-col lg:gap-6 gap-4">
                     <div class="text-biru cursor-pointer">Energy Storage</div>
                     <div class="text-biru cursor-pointer">Electrolyzer</div>
                     <div class="text-biru cursor-pointer">Fuel Cell</div>
@@ -57,11 +57,12 @@
                     Electrical Panel, Power House, Energy Storage, Fire
                     Suppression Systems, Monitoring Systems and DCIM.</div>
 
-                <div class="flex flex-col lg:gap-8 gap-4">
-                    <div class="text-biru cursor-pointer">LMP Centrinium</div>
-                    <div class="text-biru cursor-pointer">Rack MDC</div>
-                    <div class="text-biru cursor-pointer">Row MDC</div>
-                    <div class="text-biru cursor-pointer">Container MDC</div>
+                <div class="flex flex-col lg:gap-6 gap-4">
+                    <a href="{{route('product.centrinium.centrinium-containment')}}" class="text-biru cursor-pointer">Centrinium -></a>
+                    <a href="{{route('product.mdc.top')}}" class="text-biru cursor-pointer">Rack MDC -></a>
+                    <a href="{{route('product.rack.1')}}" class="text-biru cursor-pointer">Outdoor MDC -></a>
+                    <a href="{{route('product.mdc.row')}}" class="text-biru cursor-pointer">Row MDC -></a>
+                    <a href="{{route('product.container.10ft')}}" class="text-biru cursor-pointer">Container MDC -></a>
                 </div>
             </div>
 
@@ -71,7 +72,7 @@
                 <div class="sm:text-lg mb-12">At LMP Polymer we deliver solution for Plastic Product Design
                     and Production for wide range Industry</div>
 
-                <div class="flex flex-col lg:gap-8 gap-4">
+                <div class="flex flex-col lg:gap-6 gap-4">
                     <div class="text-biru cursor-pointer">Roset</div>
                     <div class="text-biru cursor-pointer">OTP</div>
                     <div class="text-biru cursor-pointer">Access Point IDU Hybrid</div>
@@ -86,7 +87,7 @@
                     LMP offers a wide range of programs and services to
                     support critical infrastructure needs</div>
 
-                <div class="flex flex-col lg:gap-8 gap-4">
+                <div class="flex flex-col lg:gap-6 gap-4">
                     <div class="text-biru cursor-pointer">Project Service</div>
                     <div class="text-biru cursor-pointer">UPS & Baterry Service</div>
                     <div class="text-biru cursor-pointer">Thermal Service</div>
@@ -106,7 +107,7 @@
                     near as possible to user to give high user experience on data
                     processing by cutting the latency & secure.</div>
 
-                <div class="flex flex-col lg:gap-8 gap-4">
+                <div class="flex flex-col lg:gap-6 gap-4">
                     <div class="text-biru cursor-pointer">Container MDC</div>
                 </div>
             </div>

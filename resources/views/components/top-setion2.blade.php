@@ -17,7 +17,9 @@
 
         </div>
 
-        <div class="desc lg:text-xl sm:text-lg lg:mb-3 sm:leading-8 lg:leading-7">{{ $desc }}
+        <div class="desc lg:text-xl sm:text-lg lg:mb-3 sm:leading-8 lg:leading-7 mb-5">{{ $desc }}
+        </div>
+        <div class="text lg:text-xl sm:text-lg lg:mb-3 sm:leading-8 lg:leading-7">{{ $text }}
         </div>
     </div>
 

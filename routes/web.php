@@ -175,9 +175,10 @@ Route::group(['prefix' => 'product'], function () {
         return view('user.product.container.dual-container');
     })->name('product.container.dual-container');
 
+    //centrinium
     Route::get('containment-centrinium', function () {
-        return view('user.product.container.centrinium-containment');
-    })->name('product.container.centrinium-containment');
+        return view('user.product.centrinium.centrinium-containment');
+    })->name('product.centrinium.centrinium-containment');
 
 });
 // Route::get('/', function () {

@@ -47,7 +47,7 @@
         <div class="">
             @php($profile_picture = auth()->user()->profile_picture)
             <img src="@if ($profile_picture == null) {{ asset('images/Person.png') }} @else {{ asset('storage/picture/' . auth()->user()->profile_picture) }} @endif  "
-                class="h-[340px] w-[340px] rounded mb-8" id='profile_picture' alt="PP">
+                class="lg:h-[340px] lg:w-[340px] h-[150px] w-[150px] lg:rounded rounded-full mb-8 " id='profile_picture' alt="PP">
 
             {{-- @include('components.modal') --}}
             <a href="{{ route('user.edit', auth()->user()->id) }}">
@@ -63,8 +63,8 @@
         </div>
 
         <div>
-            <div class="font-bold text-xl mb-5 flex flex-row gap-24">
-                Personal data
+            <div class=" font-bold text-2xl mb-5 flex flex-row gap-24">
+                Personal Data
                 <form action="{{ route('user.logout') }}" method="GET">
                     @csrf
                     <button type="submit"
@@ -77,7 +77,7 @@
 
 
             <div class="flex gap-28 items-center">
-                <div class="flex-col flex lg:gap-8 gap-6 font-semibold">
+                <div class="flex-col flex gap-8 font-semibold">
                     <div>
                         Full Name
                     </div>

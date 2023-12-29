@@ -13,9 +13,10 @@
             Edge Data Center <span class="text-hijau">For
                 Greener Data Center</span></div>
 
-        <div
+        <a  href="{{route('service')}}"
             class="product md:text-xl  absolute lg:right-24 md:right-14 right-8 md:bottom-16 bottom-8 text-white cursor-pointer">
-            Product <span class="text-biru">-></span></div>
+            Product <span class="text-biru">-></span>
+            </a>
     </div>
 
     <!--section 1-->
@@ -65,18 +66,18 @@
                         a modern lifestyle without distractions
                         the earth where we live.
                     </div>
-                    <div
+                    <a  href="{{route('user.about')}}"
                         class="desc hover:scale-110 max-lg:hidden text-biru hover font-medium text-xl relative max-lg:top-[-70px] cursor-pointer max-w-max">
                         WHY LMP ->
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
 
-        <div
-            class="title lg:hidden text-center text-biru font-medium text-lg relative max-lg:top-[-70px] cursor-pointer max-w-max mx-auto">
+        <a  href="{{route('user.about')}}"
+            class="title lg:hidden items-center flex justify-center text-center text-biru font-medium text-lg relative max-lg:top-[-70px] cursor-pointer max-w-max mx-auto">
             WHY LMP
-        </div>
+        </a>
 
 
         <!--banner biru--->
@@ -84,7 +85,7 @@
             <img class="absolute w-36 h-auto left-[-50px] bottom-16" src="{{ asset('images/dot1.png') }}" alt="">
             <div
                 class="box relative z-10 biru-muda flex-col flex md:gap-5 gap-2 md:py-7 py-4 lg:px-24 md:px-8 px-3 text-center max-w-max rounded">
-                <div class="inter font-bold xl:text-3xl lg:text-2xl sm:text-xl text-lg">Your business needs a competitive
+                <div class="inter font-bold xl:text-3xl lg:text-2xl sm:text-md text-lg">Your business needs a competitive
                     advantage
                 </div>
                 <div class="inter lg:text-xl md:text-lg text-sm">Stay fast and connected by implementing digital services
@@ -119,7 +120,7 @@
                 </div>
 
                 <div class="flex lg:justify-end justify-center relative lg:w-1/3 h-full max-lg:bottom-12 max-lg:left-5">
-                    <div class="image-1 lg:w-full w-11/12  bg-[#E6F6FE] absolute sm:right-8 right-5 h-full rounded z-10">
+                    <div class="image-1 lg:w-full w-11/12  bg-[#E6F6FE] absolute lg:left-1 lg:bottom-1 sm:right-8 right-5 h-full rounded z-10">
                     </div>
                     <img class="image-1 lg:w-full w-11/12 relative top-5 right-5 z-20"
                         src="{{ asset('images/turbine.jpg') }}" alt="">
@@ -152,11 +153,11 @@
 
                 <div class="flex lg:justify-end justify-center relative lg:w-2/5 h-full max-lg:top-[-45px]">
                     <div
-                        class="image-2 lg:w-full w-11/12  bg-[#E6F6FE] absolute lg:left-5 md:left-14 left-7 h-full rounded z-10">
+                        class="image-2 lg:w-full w-11/12  bg-[#E6F6FE] absolute lg:left-7 lg:top-10 md:left-14 left-7 h-full rounded z-10">
                     </div>
                     <img class="image-2 lg:w-full w-11/12 relative lg:bottom-5 md:top-5 top-3 z-20"
                         src="{{ asset('images/panel.jpg') }}" alt="">
-                    <img class="w-[140px] md:bottom-[-40px] md:right-[-80px] bottom-[-80px] left-[-80px] absolute"
+                    <img class="w-[140px] md:bottom-[-40px] md:right-[-80px] lg:bottom-[-90px] bottom-[-80px] right-[-80px] absolute"
                         src="{{ asset('images/dot1.png') }}" alt="">
                 </div>
             </div>

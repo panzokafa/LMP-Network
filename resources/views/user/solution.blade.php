@@ -8,7 +8,8 @@
         optimize your best Edge data center. With an
         approach that brings data processing closer to its
         source, we deliver remarkable latency reduction for
-        maximum results in energy, cooling, and connectivity." />
+        maximum results in energy, cooling, and connectivity."
+        text="" />
 
 
     <div class="lg:px-20 sm:px-10 px-5">

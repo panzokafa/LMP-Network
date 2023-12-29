@@ -6,7 +6,8 @@
         <x-top-setion2 title="LMP Support" subTitle="{{ null }}" theme="{{ null }}" image="support/bg"
             desc="Locate your specific product for the latest user
             manuals, system application guides, data sheets,
-            warranties, software downloads and more." />
+            warranties, software downloads and more."
+            text=""/>
 
         <div class="max-lg:px-7">
             <div class="flex flex-wrap lg:gap-28 gap-14 items-center justify-center lg:mb-36 mb-20 desc">

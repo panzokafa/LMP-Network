@@ -28,7 +28,7 @@
     </a>
 
     <div class="flex text-biru justify-end lg:text-xl text-lg fade">
-        <div class="cursor-pointer">PRODUCT -></div>
+        <a href="{{route('service')}}" class="cursor-pointer">PRODUCT -></a>
     </div>
 
     <script>

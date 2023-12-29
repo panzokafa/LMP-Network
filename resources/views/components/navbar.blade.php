@@ -59,7 +59,7 @@
             <div class="w-10 h-auto brand-image img-circle elevation-3 ">
                 @php($profile_picture = auth()->user()->profile_picture)
                 <img src="@if ($profile_picture == null) {{ asset('images/Person.png') }} @else {{ asset('storage/picture/' . auth()->user()->profile_picture) }} @endif"
-                    class="brand-image img-circle elevation-3 rounded-full" alt="">
+                    class="brand-image img-circle elevation-3 rounded-full border-solid border-2 border-sky-600" alt="">
             </div>
 
             <p class=" font-light">{{ auth()->user()->name }}</p>
@@ -104,41 +104,41 @@
             <div class="">Profile</div>
             <i class="fa-solid fa-arrow-right "></i>
         </a>
-        <div
+        <a href="{{route('user.about')}}"
             class="flex justify-between items-center py-5 text-white font-bold border-b-[1px] hover:bg-white cursor-pointer duration-100 hover:px-5 hover:text-black">
             <div class="">About</div>
             <i class="fa-solid fa-arrow-right "></i>
-        </div>
+        </a>
 
-        <div
+        <a href="{{route('service')}}"
             class="flex justify-between items-center py-5 text-white font-bold border-b-[1px]  hover:bg-white cursor-pointer duration-100 hover:px-5 hover:text-black">
             <div class="">Product & Service</div>
             <i class="fa-solid fa-arrow-right "></i>
-        </div>
+        </a>
 
-        <div
+        <a href="{{route('solution')}}"
             class="flex justify-between items-center py-5 text-white font-bold border-b-[1px]  hover:bg-white cursor-pointer duration-100 hover:px-5 hover:text-black">
             <div class="">Solution</div>
             <i class="fa-solid fa-arrow-right "></i>
-        </div>
+        </a>
 
-        <div
+        <a href="{{route('partner')}}"
             class="flex justify-between items-center py-5 text-white font-bold border-b-[1px]  hover:bg-white cursor-pointer duration-100 hover:px-5 hover:text-black">
             <div class="">Partners</div>
             <i class="fa-solid fa-arrow-right "></i>
-        </div>
+        </a>
 
-        <div
+        <a href="{{route('contact')}}"
             class="flex justify-between items-center py-5 text-white font-bold border-b-[1px]  hover:bg-white cursor-pointer duration-100 hover:px-5 hover:text-black">
             <div class="">Contact</div>
             <i class="fa-solid fa-arrow-right "></i>
-        </div>
+        </a>
 
-        <div
+        <a href="{{route('support')}}"
             class="flex justify-between items-center py-5 text-white font-bold border-b-[1px]  hover:bg-white cursor-pointer duration-100 hover:px-5 hover:text-black">
             <div class="">Support</div>
             <i class="fa-solid fa-arrow-right "></i>
-        </div>
+        </a>
     </div>
     <script>
         // Ambil referensi elemen

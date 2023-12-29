@@ -6,8 +6,13 @@
         desc="At LMP we create an environment in research and
     development (R&D) that enables the best scientific
     minds in the world to create the innovations that
-    form the foundation of our future. "
+    form the foundation of our future."
+        text="We continue to reinvest approximately 10-15 percent
+    of our revenues into R&D, providing our scientists -
+    expert & engineers with the resources they need to
+    be successful. "
         theme="Research & Development" />
+
 
     <div class="flex flex-col relative lg:pb-48 pb-24 max-lg:px-10 max-lg:text-center">
         <img class="absolute sm:w-36 w-24 top-20 max-lg:left-[-20px]" src="{{ asset('images/dot1.png') }}" alt="">
@@ -55,6 +60,13 @@
 
         ScrollReveal().reveal('.desc-2', {
             delay: 500,
+            duration: 1000,
+            distance: '100px',
+            origin: 'bottom'
+        });
+
+        ScrollReveal().reveal('.text', {
+            delay: 1000,
             duration: 1000,
             distance: '100px',
             origin: 'bottom'

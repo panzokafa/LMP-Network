@@ -18,7 +18,7 @@
         </div>
 
         <div class="fade lg:text-xl text-biru text-lg relative text-right cursor-pointer w-full">
-            PRODUCT ->
+            <a href="{{route('service')}}" class="cursor-pointer">PRODUCT -></a>
         </div>
     </div>
 

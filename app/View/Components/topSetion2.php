@@ -13,17 +13,21 @@ class topSetion2 extends Component
     public $title;
     public $subTitle;
     public $theme;
+    public $text;
+
 
     /**
      * Create a new component instance.
      */
-    public function __construct($image, $title, $subTitle, $theme, $desc)
+    public function __construct($image, $title, $subTitle, $theme, $desc, $text)
     {
         $this->image = $image;
         $this->title = $title;
         $this->subTitle = $subTitle;
         $this->theme = $theme;
         $this->desc = $desc;
+        $this->text = $text;
+
     }
     /**
      * Get the view / contents that represent the component.

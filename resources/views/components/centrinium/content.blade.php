@@ -4,7 +4,7 @@
         in entrance facilities, telecommunications rooms, data center and at the desk.
     </div>
 
-    <div class="flex flex-wrap lg:gap-36 gap-10 justify-center items-center lg:mb-28 mb-14">
+    <div class="flex flex-wrap lg:gap-20 gap-10 justify-center items-center lg:mb-28 mb-14">
         @php
             $text = ['Centrinium™️ UHD Series 1U 144F - LMP Networks®', 'Centrinium™ UHD Series 2U – 288F', 'Centrinium™ UHD Series 4U – 576F'];
         @endphp
@@ -12,8 +12,8 @@
             <div class="text-center flex flex-col items-center {{ 'centrinium-' . $i }}">
                 <img class="mb-4" src="{{ asset('images/centrinium/' . $i . '.png') }}" alt="">
 
-                <div class="text-medium mb">{{ $text[$i - 1] }}</div>
-                <div class="text-medium mb">{{ $i > 1 ? '48 Modules adapter panels. MPO - 6 LC DX Adapter' : '' }}
+                <div class="text-sm mb">{{ $text[$i - 1] }}</div>
+                <div class="text-sm mb">{{ $i > 1 ? '48 Modules adapter panels. MPO - 6 LC DX Adapter' : '' }}
                 </div>
 
             </div>
@@ -33,7 +33,7 @@
     </div>
 
     <div class="flex text-biru justify-end lg:text-xl text-lg fade">
-        <div class="cursor-pointer">PRODUCT -></div>
+        <a href="{{route('service')}}" class="cursor-pointer">PRODUCT -></a>
     </div>
 </div>
 
