@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="flex items-center xl:justify-center lg:justify-end w-1/2 image">
-                <img class="relative z-20 " src="{{ asset('images/product/rack/2-rack.png') }}" alt="">
+                <img class="relative z-20 " src="{{ asset('images/product/rack/2-Rack.png') }}" alt="">
             </div>
         </div>
 
@@ -55,7 +55,7 @@
 
             <div class="grid lg:grid-cols-2 grid-cols-1 gap-7">
                 @php
-                    $image = ['1-Rack', '2-Rack row', '3-Rack'];
+                    $image = ['1-Rack', '2-Rack Row', '3-Rack'];
                     $title = ['1-Rack MDC With Rack Cooling', '2-Rack MDC With Row Cooling', '3-Rack MDC With Rack Cooling'];
                     $desc = [
                         'MDC fully integrated with 1 rack space,

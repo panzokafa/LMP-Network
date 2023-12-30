@@ -63,7 +63,7 @@
         </div>
 
         <div>
-            <div class=" font-bold text-2xl mb-5 flex flex-row gap-24">
+            <div class=" font-bold text-2xl mb-5 flex flex-row lg:gap-24 gap-10">
                 Personal Data
                 <form action="{{ route('user.logout') }}" method="GET">
                     @csrf

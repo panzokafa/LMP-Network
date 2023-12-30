@@ -56,7 +56,7 @@
 
             <div class="grid lg:grid-cols-2 grid-cols-1 gap-7">
                 @php
-                    $image = ['2-Rack', '2-Rack row', '3-Rack'];
+                    $image = ['2-Rack', '2-Rack Row', '3-Rack'];
                     $title = ['2-Rack MDC With Rack Cooling', '2-Rack MDC With Row Cooling', '3-Rack MDC With Rack Cooling'];
                     $desc = [
                         '5k – 10k MDC fully integrated with closed rack,

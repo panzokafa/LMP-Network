@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="flex items-center xl:justify-center lg:justify-end w-1/2 image">
-                <img class="relative z-20 " src="{{ asset('images/product/rack/2-rack.png') }}" alt="">
+                <img class="relative z-20 " src="{{ asset('images/product/rack/2-Rack Row.png') }}" alt="">
             </div>
         </div>
 

@@ -15,7 +15,7 @@
       </div>
     @endif
         <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-        <div class="p-10 lg:px-96  mt-24 relative bg-white rounded-lg overflow-hidden shadow-xl max-w-screen-md  m-4"
+        <div class=" p-10 lg:px-96  mt-24 relative bg-white rounded-lg overflow-hidden shadow-xl max-w-screen-md  "
             x-transition:enter="transition ease-out duration-300 transform opacity-0 scale-95"
             x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
             x-transition:leave="transition ease-in duration-200 transform opacity-100 scale-100"
