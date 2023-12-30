@@ -2,7 +2,7 @@
     <div class="max-md:w-full">
         <img class="xl:w-44 w-32 h-auto mb-10 md:mx-auto xl:mx-0" src="{{ asset('images/logo2.png') }}" alt="">
 
-        <div class="ml-5 xl:flex-row flex-col-reverse flex max-xl:items-center xl:gap-44 gap-20 justify">
+        <div class="lg:ml-5 pr-4 pl-3 xl:flex-row flex-col-reverse flex max-xl:items-center xl:gap-44 gap-20 justify">
             <div>
                 <div class="opensans md:text-xl text-white mb-4 max-xl:text-center">Connect with us</div>
 
