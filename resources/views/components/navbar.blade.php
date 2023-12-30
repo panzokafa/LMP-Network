@@ -1,5 +1,5 @@
 <div id="normal"
-    class="max-lg:py-5 flex xl:px-20 md:px-12 px-6  justify-between items-center fixed z-50 bg-white shadow-lg w-full">
+    class="max-lg:py-5 select-none	 flex xl:px-20 md:px-12 px-6  justify-between items-center fixed z-50 bg-white shadow-lg w-full">
     <a href="{{ route('user.home') }}" class="sm:w-24 w-20 h-auto">
         <img src="{{ asset('images/logo1.png') }}" alt="">
     </a>
@@ -53,19 +53,20 @@
 
         </div>
     @else
-    <div class="flex items-center gap-2 max-lg:hidden">
-        <a href="{{ route('user.profile') }}" class="poppins font-semibold flex gap-3 items-center ">
-            {{-- <img src={{ auth()->user()->profile_picture }} alt=""> --}}
-            <div class="w-10 h-auto brand-image img-circle elevation-3 ">
-                @php($profile_picture = auth()->user()->profile_picture)
-                <img src="@if ($profile_picture == null) {{ asset('images/Person.png') }} @else {{ asset('storage/picture/' . auth()->user()->profile_picture) }} @endif"
-                    class="brand-image img-circle elevation-3 rounded-full border-solid border-2 border-sky-600" alt="">
-            </div>
+        <div class="flex items-center gap-2 max-lg:hidden">
+            <a href="{{ route('user.profile') }}" class="poppins font-semibold flex gap-3 items-center ">
+                {{-- <img src={{ auth()->user()->profile_picture }} alt=""> --}}
+                <div class="w-10 h-auto brand-image img-circle elevation-3 ">
+                    @php($profile_picture = auth()->user()->profile_picture)
+                    <img src="@if ($profile_picture == null) {{ asset('images/Person.png') }} @else {{ asset('storage/picture/' . auth()->user()->profile_picture) }} @endif"
+                        class="brand-image img-circle elevation-3 rounded-full border-solid border-2 border-sky-600"
+                        alt="">
+                </div>
 
-            <p class=" font-light">{{ auth()->user()->name }}</p>
+                <p class=" font-light">{{ auth()->user()->name }}</p>
 
-        </a>
-    </div>
+            </a>
+        </div>
 
         <div class="lg:hidden">
             <i id="navBtn" class="text-xl cursor-pointer fa-solid fa-bars lg:hidden block lg:text-black "></i>
@@ -81,20 +82,23 @@
         <div class="md:w-24 w-20 h-auto">
             <img src="{{ asset('images/logo1.png') }}" alt="">
         </div>
-    @guest
+        @guest
 
-        <div class="poppins font-semibold flex lg:gap-7 gap-4 items-center text-center">
-            <a href="{{ route('user.login') }}"
-                class="max-sm:text-sm text-white cursor-pointer hover:text-biru duration-300">Login</a>
-            <a href="{{ route('user.register') }}"
-                class="max-sm:text-sm relative cursor-pointer py-2 px-3 rounded-md text-white biru hover:bg-transparent hover:text-biru border-[#1780BB] border-2 duration-300">Sign
-                up</a>
+            <div class="poppins font-semibold flex lg:gap-7 gap-4 items-center text-center">
+                <a href="{{ route('user.login') }}"
+                    class="max-sm:text-sm text-white cursor-pointer hover:text-biru duration-300">Login</a>
+                <a href="{{ route('user.register') }}"
+                    class="max-sm:text-sm relative cursor-pointer py-2 px-3 rounded-md text-white biru hover:bg-transparent hover:text-biru border-[#1780BB] border-2 duration-300">Sign
+                    up</a>
 
-        </div>
-    @else
-        <i id="x" class="fa-solid fa-xmark text-2xl text-white cursor-pointer"></i>
+                <i id="x" class="fa-solid fa-xmark text-2xl text-white cursor-pointer"></i>
 
-    @endguest
+
+            </div>
+        @else
+            <i id="x" class="fa-solid fa-xmark text-2xl text-white cursor-pointer"></i>
+
+        @endguest
 
     </div>
 
@@ -104,37 +108,37 @@
             <div class="">Profile</div>
             <i class="fa-solid fa-arrow-right "></i>
         </a>
-        <a href="{{route('user.about')}}"
+        <a href="{{ route('user.about') }}"
             class="flex justify-between items-center py-5 text-white font-bold border-b-[1px] hover:bg-white cursor-pointer duration-100 hover:px-5 hover:text-black">
             <div class="">About</div>
             <i class="fa-solid fa-arrow-right "></i>
         </a>
 
-        <a href="{{route('service')}}"
+        <a href="{{ route('service') }}"
             class="flex justify-between items-center py-5 text-white font-bold border-b-[1px]  hover:bg-white cursor-pointer duration-100 hover:px-5 hover:text-black">
             <div class="">Product & Service</div>
             <i class="fa-solid fa-arrow-right "></i>
         </a>
 
-        <a href="{{route('solution')}}"
+        <a href="{{ route('solution') }}"
             class="flex justify-between items-center py-5 text-white font-bold border-b-[1px]  hover:bg-white cursor-pointer duration-100 hover:px-5 hover:text-black">
             <div class="">Solution</div>
             <i class="fa-solid fa-arrow-right "></i>
         </a>
 
-        <a href="{{route('partner')}}"
+        <a href="{{ route('partner') }}"
             class="flex justify-between items-center py-5 text-white font-bold border-b-[1px]  hover:bg-white cursor-pointer duration-100 hover:px-5 hover:text-black">
             <div class="">Partners</div>
             <i class="fa-solid fa-arrow-right "></i>
         </a>
 
-        <a href="{{route('contact')}}"
+        <a href="{{ route('contact') }}"
             class="flex justify-between items-center py-5 text-white font-bold border-b-[1px]  hover:bg-white cursor-pointer duration-100 hover:px-5 hover:text-black">
             <div class="">Contact</div>
             <i class="fa-solid fa-arrow-right "></i>
         </a>
 
-        <a href="{{route('support')}}"
+        <a href="{{ route('support') }}"
             class="flex justify-between items-center py-5 text-white font-bold border-b-[1px]  hover:bg-white cursor-pointer duration-100 hover:px-5 hover:text-black">
             <div class="">Support</div>
             <i class="fa-solid fa-arrow-right "></i>
@@ -174,5 +178,3 @@
         }
     </style>
 </div>
-
-

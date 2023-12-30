@@ -26,10 +26,23 @@
                     and Efficiency in Cooling Systems & Energy consumption</div>
 
                 <div class="flex flex-col lg:gap-6 gap-4">
-                    <div class="text-biru cursor-pointer">Cable Fiber Optic</div>
-                    <div class="text-biru cursor-pointer">Patchcord</div>
-                    <div class="text-biru cursor-pointer">Enclosure</div>
-                    <div class="text-biru cursor-pointer">Accessories</div>
+                    <div class="text-biru cursor-pointer link">Cable Fiber Optic <div
+                            class="inline opacity-0 duration-300 arrow ml-1">->
+                        </div>
+                    </div>
+                    <div class="text-biru cursor-pointer link">Patchcord <div
+                            class="inline opacity-0 duration-300 arrow ml-1">->
+                        </div>
+                    </div>
+                    <div class="text-biru cursor-pointer link">Enclosure <div
+                            class="inline opacity-0 duration-300 arrow ml-1">->
+                        </div>
+                    </div>
+                    <div class="text-biru cursor-pointer link">Accessories <div
+                            class="inline opacity-0 duration-300 arrow ml-1">
+                            ->
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -41,10 +54,22 @@
                     long term sustainability</div>
 
                 <div class="flex flex-col lg:gap-6 gap-4">
-                    <div class="text-biru cursor-pointer">Energy Storage</div>
-                    <div class="text-biru cursor-pointer">Electrolyzer</div>
-                    <div class="text-biru cursor-pointer">Fuel Cell</div>
-                    <div class="text-biru cursor-pointer">End To End Hydrogen Solution </div>
+                    <div class="text-biru cursor-pointer link">Energy Storage <div
+                            class="inline opacity-0 duration-300 arrow ml-1">->
+                        </div>
+                    </div>
+                    <div class="text-biru cursor-pointer link">Electrolyzer <div
+                            class="inline opacity-0 duration-300 arrow ml-1">->
+                        </div>
+                    </div>
+                    <div class="text-biru cursor-pointer link">Fuel Cell <div
+                            class="inline opacity-0 duration-300 arrow ml-1">->
+                        </div>
+                    </div>
+                    <div class="text-biru cursor-pointer link">End To End Hydrogen Solution <div
+                            class="inline opacity-0 duration-300 arrow ml-1">->
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -58,11 +83,24 @@
                     Suppression Systems, Monitoring Systems and DCIM.</div>
 
                 <div class="flex flex-col lg:gap-6 gap-4">
-                    <a href="{{route('product.centrinium.centrinium-containment')}}" class="text-biru cursor-pointer">Centrinium -></a>
-                    <a href="{{route('product.mdc.top')}}" class="text-biru cursor-pointer">Rack MDC -></a>
-                    <a href="{{route('product.rack.1')}}" class="text-biru cursor-pointer">Outdoor MDC -></a>
-                    <a href="{{route('product.mdc.row')}}" class="text-biru cursor-pointer">Row MDC -></a>
-                    <a href="{{route('product.container.10ft')}}" class="text-biru cursor-pointer">Container MDC -></a>
+                    <a href="{{ route('product.centrinium.centrinium-containment') }}"
+                        class="text-biru cursor-pointer link">Centrinium <div
+                            class="inline opacity-0 duration-300 arrow ml-1">
+                            ->
+                        </div>
+                    </a>
+                    <a href="{{ route('product.mdc.top') }}" class="text-biru cursor-pointer link">Rack MDC <div
+                            class="inline opacity-0 duration-300 arrow ml-1">->
+                        </div></a>
+                    <a href="{{ route('product.rack.1') }}" class="text-biru cursor-pointer link">Outdoor MDC <div
+                            class="inline opacity-0 duration-300 arrow ml-1">->
+                        </div></a>
+                    <a href="{{ route('product.mdc.row') }}" class="text-biru cursor-pointer link">Row MDC <div
+                            class="inline opacity-0 duration-300 arrow ml-1">->
+                        </div></a>
+                    <a href="{{ route('product.container.10ft') }}" class="text-biru cursor-pointer link">Container MDC <div
+                            class="inline opacity-0 duration-300 arrow ml-1">->
+                        </div></a>
                 </div>
             </div>
 
@@ -73,9 +111,19 @@
                     and Production for wide range Industry</div>
 
                 <div class="flex flex-col lg:gap-6 gap-4">
-                    <div class="text-biru cursor-pointer">Roset</div>
-                    <div class="text-biru cursor-pointer">OTP</div>
-                    <div class="text-biru cursor-pointer">Access Point IDU Hybrid</div>
+                    <div class="text-biru cursor-pointer link">Reset <div class="inline opacity-0 duration-300 arrow ml-1">
+                            ->
+                        </div>
+                    </div>
+                    <div class="text-biru cursor-pointer link">OTP <div class="inline opacity-0 duration-300 arrow ml-1">
+                            ->
+                        </div>
+                    </div>
+                    <div class="text-biru cursor-pointer link">Access Point IDU Hybrid <div
+                            class="inline opacity-0 duration-300 arrow ml-1">
+                            ->
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -88,13 +136,34 @@
                     support critical infrastructure needs</div>
 
                 <div class="flex flex-col lg:gap-6 gap-4">
-                    <div class="text-biru cursor-pointer">Project Service</div>
-                    <div class="text-biru cursor-pointer">UPS & Baterry Service</div>
-                    <div class="text-biru cursor-pointer">Thermal Service</div>
-                    <div class="text-biru cursor-pointer">Rack PDU Service</div>
-                    <div class="text-biru cursor-pointer">DC Power Service</div>
-                    <div class="text-biru cursor-pointer">Electrical Reliability Service</div>
-                    <div class="text-biru cursor-pointer">Electrical Safety & Compliance</div>
+                    <div class="text-biru cursor-pointer link">Project Service <div
+                            class="inline opacity-0 duration-300 arrow ml-1">->
+                        </div>
+                    </div>
+                    <div class="text-biru cursor-pointer link">UPS & Baterry Service <div
+                            class="inline opacity-0 duration-300 arrow ml-1">->
+                        </div>
+                    </div>
+                    <div class="text-biru cursor-pointer link">Thermal Service <div
+                            class="inline opacity-0 duration-300 arrow ml-1">->
+                        </div>
+                    </div>
+                    <div class="text-biru cursor-pointer link">Rack PDU Service <div
+                            class="inline opacity-0 duration-300 arrow ml-1">->
+                        </div>
+                    </div>
+                    <div class="text-biru cursor-pointer link">DC Power Service <div
+                            class="inline opacity-0 duration-300 arrow ml-1">->
+                        </div>
+                    </div>
+                    <div class="text-biru cursor-pointer link">Electrical Reliability Service <div
+                            class="inline opacity-0 duration-300 arrow ml-1">->
+                        </div>
+                    </div>
+                    <div class="text-biru cursor-pointer link">Electrical Safety & Compliance <div
+                            class="inline opacity-0 duration-300 arrow ml-1">->
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -108,7 +177,10 @@
                     processing by cutting the latency & secure.</div>
 
                 <div class="flex flex-col lg:gap-6 gap-4">
-                    <div class="text-biru cursor-pointer">Container MDC</div>
+                    <div class="text-biru cursor-pointer link">Container MDC <div
+                            class="inline opacity-0 duration-300 arrow ml-1">->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -139,4 +211,10 @@
             origin: 'left'
         });
     </script>
+
+    <style>
+        .link:hover .arrow {
+            opacity: 100%;
+        }
+    </style>
 @endsection

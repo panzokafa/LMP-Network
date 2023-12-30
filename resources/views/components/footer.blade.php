@@ -1,8 +1,8 @@
-<div class="biru-tua pt-5 flex justify-center md:px-16 px-3 xl:pb-20 pb-10 w-full">
+<div class="biru-tua pt-5 flex justify-center md:px-16 px-3 xl:pb-20 pb-10 w-full select-none">
     <div class="max-md:w-full">
         <img class="xl:w-44 w-32 h-auto mb-10 md:mx-auto xl:mx-0" src="{{ asset('images/logo2.png') }}" alt="">
 
-        <div class="lg:ml-5 pr-4 pl-3 xl:flex-row flex-col-reverse flex max-xl:items-center xl:gap-44 gap-20 justify">
+        <div class="lg:ml-5 pr-4 pl-3 xl:flex-row flex-col-reverse flex max-xl:items-center xl:gap-44 gap-16 justify">
             <div>
                 <div class="opensans md:text-xl text-white mb-4 max-xl:text-center">Connect with us</div>
 
@@ -26,7 +26,7 @@
                     <div>
                         <div id="homeBtn" onclick="home()"
                             class="flex items-center justify-between relative z-20 biru-tua  max-md:cursor-pointer max-md:duration-100 max-md:hover:px-5">
-                            <div class="font-bold py-5 text-lg">HOME</div>
+                            <div class="font-bold py-5 text-lg">Home</div>
                             <i class="fa-solid fa-arrow-right md:hidden"></i>
                         </div>
 

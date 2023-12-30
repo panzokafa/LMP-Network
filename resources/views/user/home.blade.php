@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <div class="relative">
+    <div class="relative overflow-hidden">
         <img class="banner object-cover lg:h-[65vh] sm:h-[40vh] h-[35vh]  w-full" src="{{ asset('images/banner.jpg') }}"
             alt="">
 
@@ -13,10 +13,10 @@
             Edge Data Center <span class="text-hijau">For
                 Greener Data Center</span></div>
 
-        <a  href="{{route('service')}}"
+        <a href="{{ route('service') }}"
             class="product md:text-xl  absolute lg:right-24 md:right-14 right-8 md:bottom-16 bottom-8 text-white cursor-pointer">
             Product <span class="text-biru">-></span>
-            </a>
+        </a>
     </div>
 
     <!--section 1-->
@@ -66,7 +66,7 @@
                         a modern lifestyle without distractions
                         the earth where we live.
                     </div>
-                    <a  href="{{route('user.about')}}"
+                    <a href="{{ route('user.about') }}"
                         class="desc hover:scale-110 max-lg:hidden text-biru hover font-medium text-xl relative max-lg:top-[-70px] cursor-pointer max-w-max">
                         WHY LMP ->
                     </a>
@@ -74,7 +74,7 @@
             </div>
         </div>
 
-        <a  href="{{route('user.about')}}"
+        <a href="{{ route('user.about') }}"
             class="title lg:hidden items-center flex justify-center text-center text-biru font-medium text-lg relative max-lg:top-[-70px] cursor-pointer max-w-max mx-auto">
             WHY LMP
         </a>
@@ -120,7 +120,8 @@
                 </div>
 
                 <div class="flex lg:justify-end justify-center relative lg:w-1/3 h-full max-lg:bottom-12 max-lg:left-5">
-                    <div class="image-1 lg:w-full w-11/12  bg-[#E6F6FE] absolute lg:left-1 lg:bottom-1 sm:right-8 right-5 h-full rounded z-10">
+                    <div
+                        class="image-1 lg:w-full w-11/12  bg-[#E6F6FE] absolute lg:left-1 lg:bottom-1 sm:right-8 right-5 h-full rounded z-10">
                     </div>
                     <img class="image-1 lg:w-full w-11/12 relative top-5 right-5 z-20"
                         src="{{ asset('images/turbine.jpg') }}" alt="">

@@ -109,11 +109,6 @@ Route::get('nex-t', function () {
 })->name('nex-t');
 
 
-Route::get('testing', function () {
-    return view('user.testing'); // You can return any response you want here
-})->name('testing');
-
-
 Route::get('learning', function () {
     return view('user.learning'); // You can return any response you want here
 })->name('learning');

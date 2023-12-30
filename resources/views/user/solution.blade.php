@@ -56,7 +56,7 @@
             Customized for your needs
         </div>
 
-        <div class="flex gap-16 overflow-x-scroll no-scrollbar pb-10 fade">
+        <div class="flex lg:gap-16 gap-10 overflow-x-scroll no-scrollbar pb-10 fade">
             @php
                 $title = ['Edge Data Center', 'Micro Data Center', 'Cable Landing Station'];
 
@@ -74,7 +74,7 @@ delivery. Our swift data center component deployments enable streamlined on-site
                 ];
             @endphp
             @for ($i = 0; $i < 3; $i++)
-                <div class="lg:min-w-[44%] min-w-[100%]">
+                <div class="lg:min-w-[44%] min-w-[80%]">
                     <div class="font-bold lg:text-2xl text-xl mb-3">
                         {{ $title[$i] }}
                     </div>
@@ -93,7 +93,7 @@ delivery. Our swift data center component deployments enable streamlined on-site
         </div>
 
         <div class="flex justify-end text-xl pb-14 fade">
-            <div class="cursor-pointer">Slide -></div>
+            <div class="cursor-pointer max-lg:hidden">Slide -></div>
         </div>
 
     </div>
