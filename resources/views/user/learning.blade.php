@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="py-12 max-lg:px-7 lg:pb-2">
-        <x-topsection title="LMP Service & Learning Center"
+        <x-top-section title="LMP Service & Learning Center"
             desc="Whether it's engineering, on-site project management,
             energy-consumption monitoring, or something else,
             LMP offers a wide range of programs and services to
