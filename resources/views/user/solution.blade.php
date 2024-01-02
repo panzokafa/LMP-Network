@@ -47,7 +47,7 @@
                     <img class="sm:mb-7 max-sm:scale-75" src="{{ asset('images/solution/' . $i . '.png') }}" alt="">
                     <div class="text-biru lg:text-2xl sm:text-xl text-lg font-bold lg:mb-7 mb-4">{{ $title[$i - 2] }}</div>
 
-                    <div class="font-semibold text-center">{{ $desc[$i - 2] }}</div>
+                    <div class="font-medium text-center">{{ $desc[$i - 2] }}</div>
                 </div>
             @endfor
         </div>

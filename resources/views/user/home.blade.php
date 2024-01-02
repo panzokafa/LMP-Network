@@ -30,7 +30,7 @@
                         GREEN
                     </div>
                     <div
-                        class="desc xl:leading-10 leading-8 xl:text-2xl lg:text-xl text-lg tracking-wide inter relative z-10 font-medium md:w-2/3">
+                        class="desc xl:leading-14 leading-8 xl:text-3xl lg:text-xl text-lg tracking-wide inter relative z-10 font-medium md:w-2/3">
                         Environmentally friendly technology
                         plays a crucial role in preserving the
                         sustainability of our planet
@@ -170,7 +170,7 @@
             <div class="flex lg:justify-between lg:flex-row flex-col-reverse items-center ">
                 <div class="lg:w-1/2 w-full relative max-lg:top-20">
                     <div class="title text-center text-biru lg:text-3xl sm:text-2xl text-2xl lg:mb-24 mb-16">
-                        LMP <span class="text-black">In Numbers</span>
+                        LMP Group <span class="text-black">In Numbers</span>
                     </div>
 
                     <div class="grid md:grid-cols-2 gap-x-24 lg:gap-y-36 gap-y-16 max-lg:px-10">

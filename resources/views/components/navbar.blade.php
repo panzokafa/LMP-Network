@@ -5,7 +5,7 @@
     </a>
 
 
-    <div class="poppins font-semibold items-center gap-12 text-sm xl:text-base text-center lg:flex hidden">
+    <div class="poppins font-medium items-center gap-12 text-sm xl:text-base text-center lg:flex hidden">
         <a href="{{ route('user.about') }}"
             class="xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer hover:text-biru duration-300 flex flex-col items-center">
             <div>About</div>
