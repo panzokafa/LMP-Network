@@ -14,7 +14,7 @@
                 Greener Data Center</span></div>
 
         <a href="{{ route('service') }}"
-            class="product md:text-xl  absolute lg:right-24 md:right-14 right-8 md:bottom-16 bottom-8 text-white cursor-pointer">
+            class="product md:text-xl absolute lg:right-24 md:right-14 right-8 md:bottom-16 font-medium bottom-8 text-white cursor-pointer">
             Product <span class="text-biru">-></span>
         </a>
     </div>

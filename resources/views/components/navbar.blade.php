@@ -75,7 +75,7 @@
 </div>
 
 
-<div id="nav" class="w-[100vw] h-[100vh] left-0 right-0 bottom-0 top-0 z-50 hidden">
+<div id="nav" class="w-[100vw] h-[100vh] inset-x-[100%] duration-300 bottom-0 top-0 z-50 fixed">
     <div class="h-full w-full absolute bg-black opacity-90 z-10"></div>
 
     <div class="flex py-5 xl:px-20 md:px-12 px-6 pr-10 justify-between items-center relative z-20 mb-14 z-20">
@@ -144,7 +144,7 @@
             <i class="fa-solid fa-arrow-right "></i>
         </a>
     </div>
-    <script>
+    {{-- <script>
         // Ambil referensi elemen
         var navBtn = document.getElementById('navBtn');
         var nav = document.getElementById('nav');
@@ -165,6 +165,34 @@
             // Toggle class 'hidden'
             nav.classList.toggle('hidden');
             nav.classList.toggle('fixed');
+
+            navNormal.classList.toggle('fixed');
+            navNormal.classList.toggle('hidden');
+        });
+    </script> --}}
+
+    <script>
+        // Ambil referensi elemen
+        var navBtn = document.getElementById('navBtn');
+        var nav = document.getElementById('nav');
+        var navNormal = document.getElementById('normal');
+        var x = document.getElementById('x');
+
+        // Tambahkan event listener untuk klik
+        navBtn.addEventListener('click', function() {
+            // Toggle class 'hidden'
+            nav.classList.add('inset-x-[0]');
+            nav.classList.remove('inset-x-[100%]');
+
+            navNormal.classList.toggle('fixed');
+            navNormal.classList.toggle('hidden');
+        });
+
+        x.addEventListener('click', function() {
+            // Toggle class 'hidden'
+            nav.classList.remove('inset-x-[0]');
+            nav.classList.add('inset-x-[100%]');
+
 
             navNormal.classList.toggle('fixed');
             navNormal.classList.toggle('hidden');
