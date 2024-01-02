@@ -89,9 +89,29 @@
                             ->
                         </div>
                     </a>
-                    <a href="{{ route('product.mdc.top') }}" class="text-biru cursor-pointer link">Rack MDC <div
-                            class="inline opacity-0 duration-300 arrow ml-1">->
-                        </div></a>
+                    <div class="text-biru cursor-pointer flex gap-4 relative max-w-max hover-link">
+                        <div> Rack MDC <div class="inline opacity-0 duration-300 arrow ml-1">->
+                            </div>
+
+                        </div>
+                        <div
+                            class="link hidden duration-300 border-[0.5px] border-black text-black text-sm absolute left-[100%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                            <a href="{{ route('product.mdc.top') }}"
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">MDC
+                                Top</a>
+                            <a href="{{ route('product.mdc.row') }}"
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">MDC
+                                Row</a>
+                            <a href="{{ route('product.mdc.rack-split') }}"
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">MDC Rack
+                                Split</a>
+                            <a href="{{ route('product.mdc.row-split') }}"
+                                class="py-2 px-4 hover:bg-[#1780BB] hover:text-white duration-300 block">MDC Row
+                                Split</a>
+
+                        </div>
+
+                    </div>
                     <a href="{{ route('product.rack.1') }}" class="text-biru cursor-pointer link">Outdoor MDC <div
                             class="inline opacity-0 duration-300 arrow ml-1">->
                         </div></a>
@@ -184,6 +204,13 @@
                 </div>
             </div>
         </div>
+
+        <style>
+            .hover-link:hover .link {
+                display: block;
+                opacity: 1;
+            }
+        </style>
 
 
     </div>

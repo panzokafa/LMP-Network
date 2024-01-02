@@ -110,7 +110,7 @@
                     </div>
                     <div class="desc">
                         <a href="{{ route('energy') }}"
-                            class="flex gap-2 items-center hover:gap-6 max-w-max duration-300 cursor-pointer xl:text-xl lg:text-lg max-lg:text-center text-biru font-semibold mx-auto">
+                            class="flex gap-2 items-center hover:gap-6 max-w-max duration-300 cursor-pointer xl:text-xl lg:text-lg max-lg:text-center text-biru font-semibold max-lg:mx-auto">
                             <div>Check Here</div>
                             <div>
                                 ->
@@ -143,7 +143,7 @@
 
                     <div class="desc">
                         <a href="{{ route('solution') }}"
-                            class="flex gap-2 items-center hover:gap-6 max-w-max duration-300 cursor-pointer xl:text-xl lg:text-lg max-lg:text-center text-biru font-semibold mx-auto">
+                            class="flex gap-2 items-center hover:gap-6 max-w-max duration-300 cursor-pointer xl:text-xl lg:text-lg max-lg:text-center text-biru font-semibold max-lg:mx-auto">
                             <div>Check Here</div>
                             <div>
                                 ->

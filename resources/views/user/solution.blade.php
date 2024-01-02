@@ -56,7 +56,7 @@
             Customized for your needs
         </div>
 
-        <div class="flex lg:gap-16 gap-10 overflow-x-scroll no-scrollbar pb-10 fade">
+        <div class=" lg:gap-16 gap-10 overflow-x-scroll no-scrollbar pb-10 fade sm:flex hidden">
             @php
                 $title = ['Edge Data Center', 'Micro Data Center', 'Cable Landing Station'];
 
@@ -89,12 +89,51 @@ delivery. Our swift data center component deployments enable streamlined on-site
                 </div>
             @endfor
 
-
         </div>
+
+        <section class="splide sm:hidden fade">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    @for ($i = 0; $i < 3; $i++)
+                        <div class="splide__slide px-14 text-center">
+                            <div class="font-bold lg:text-2xl text-xl mb-3">
+                                {{ $title[$i] }}
+                            </div>
+
+                            <div class="mb-3 lg:text-lg font-medium">
+                                {{ $title2[$i] }}
+                            </div>
+
+                            <div class="lg:text-lg">
+                                {{ $desc[$i] }}
+                            </div>
+                        </div>
+                    @endfor
+
+                </ul>
+            </div>
+        </section>
 
         <div class="flex justify-end text-xl pb-14 fade">
             <div class="cursor-pointer max-lg:hidden">Slide -></div>
         </div>
+
+        <style>
+            .splide__pagination {
+                bottom: -30px !important;
+            }
+
+            [type=button],
+            [type=reset],
+            [type=submit],
+            button {
+                background-color: #112645 !important;
+            }
+
+            .splide__arrow svg {
+                fill: white !important;
+            }
+        </style>
 
     </div>
 
