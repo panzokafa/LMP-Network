@@ -7,14 +7,22 @@
                 <div class="opensans md:text-xl text-white mb-4 max-xl:text-center">Connect with us</div>
 
                 <div class="flex items-center max-xl:justify-center gap-5 mb-4">
+                    <a href="https://www.facebook.com/profile.php?id=100092982135974"  target='_blank'>
                     <img class="lg:w-8 w-7 h-auto cursor-pointer duration-100 hover:scale-125"
                         src="{{ asset('images/sosmed/facebook.png') }}" alt="">
+                    </a>
+                    <a href="https://www.linkedin.com/company/lmp-networks/" target='_blank'>
                     <img class="lg:w-8 w-7 h-auto cursor-pointer duration-100 hover:scale-125"
                         src="{{ asset('images/sosmed/linkedin.png') }}" alt="">
+                    </a>
+                    <a href="">
                     <img class="lg:w-8 w-7 h-auto cursor-pointer duration-100 hover:scale-125"
                         src="{{ asset('images/sosmed/twitter.png') }}" alt="">
+                    </a>
+                    <a href="https://www.instagram.com/lmp.networks/" target='_blank'>
                     <img class="lg:w-8 w-7 h-auto cursor-pointer duration-100 hover:scale-125"
                         src="{{ asset('images/sosmed/instagram.png') }}" alt="">
+                    </a>
                 </div>
 
                 <div class="inter text-white max-md:text-sm max-md:text-center whitespace-nowrap">
