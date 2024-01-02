@@ -70,7 +70,7 @@
                 Similar products
             </div>
 
-            <div class="grid lg:grid-cols-2 grid-cols-1 gap-7">
+            <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
                 @php
                     $image = ['MDC Row Package', 'MDC Row Split', 'MDC Rack Split'];
                     $title = ['MDC Row Packgae Cooling', 'MDC Row Split Package Cooling', 'MDC Rack Split Package Cooling'];

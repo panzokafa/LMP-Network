@@ -15,7 +15,7 @@
 
         <a href="{{ route('service') }}"
             class="product md:text-xl absolute lg:right-24 md:right-14 right-8 md:bottom-16 font-medium bottom-8 text-white cursor-pointer">
-            Product <span class="text-biru">-></span>
+            Product <span class="text-biru font-semibold md:text-2xl tetx-xl">-></span>
         </a>
     </div>
 
@@ -30,7 +30,7 @@
                         GREEN
                     </div>
                     <div
-                        class="desc xl:leading-10 leading-8 xl:text-2xl lg:text-xl text-lg tracking-wide inter relative z-10 font-medium md:w-2/3">
+                        class="desc xl:leading-10 md:leading-8 xl:text-2xl lg:text-xl text-lg tracking-wide inter relative z-10 font-medium md:w-2/3 max-sm:pr-5">
                         Environmentally friendly technology
                         plays a crucial role in preserving the
                         sustainability of our planet
@@ -60,7 +60,7 @@
 
                 <div class=" relative lg:w-1/3 w-full max-lg:text-center">
                     <div
-                        class="title xl:text-2xl lg:text-xl text-lg tracking-wide inter font-medium xl:leading-10 leading-8 mb-5">
+                        class="title xl:text-2xl lg:text-xl text-lg tracking-wide inter font-medium xl:leading-10 sm:leading-8 mb-5">
                         This technology paves the way to a cleaner
                         and greener world, as much as we can live
                         a modern lifestyle without distractions
@@ -274,7 +274,7 @@
         });
 
         ScrollReveal().reveal('.banner', {
-            scale: 1.1,
+            scale: 1.2,
             opacity: 1,
             duration: 5000,
 

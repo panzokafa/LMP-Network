@@ -12,10 +12,10 @@
     </div>
 
     <div
-        class="flex flex-wrap lg:gap-x-24 gap-x-14 lg:gap-y-36 gap-y-24 w-full justify-center items-center sm:py-24 py-14 lg:px-44 sm:px-10 px-8">
+        class="flex flex-wrap lg:gap-x-24 gap-x-14 lg:gap-y-36 gap-y-24 w-full justify-center items-center sm:py-24 py-14 lg:px-44 sm:px-10 px-5">
         @for ($i = 1; $i < 9; $i++)
-            <img class="{{ 'partner-' . $i }} max-lg:w-[130px]" src="{{ asset('images/partner/' . $i . '.png') }}"
-                alt="">
+            <img class="{{ 'partner-' . $i }} max-lg:w-[130px] max-sm:w-[110px]"
+                src="{{ asset('images/partner/' . $i . '.png') }}" alt="">
         @endfor
     </div>
 

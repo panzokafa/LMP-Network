@@ -7,44 +7,60 @@
 
     <div class="poppins font-semibold items-center gap-12 text-sm xl:text-base text-center lg:flex hidden">
         <a href="{{ route('user.about') }}"
-            class="xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer hover:text-biru duration-300 flex flex-col items-center">
+            class="{{ Route::currentRouteName() == 'user.about' ? 'text-biru' : 'hover:text-biru' }} xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer duration-300 flex flex-col items-center">
             <div>About</div>
-            <div class="absolute bottom-0 h-0.5 biru garis w-0"></div>
+            <div
+                class="{{ Route::currentRouteName() == 'user.about' ? 'w-[120%]' : 'garis w-0' }} absolute bottom-0 h-0.5 biru">
+            </div>
         </a>
+
         <a href="{{ route('service') }}"
-            class="xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer hover:text-biru duration-300 flex flex-col items-center">
+            class="{{ Route::currentRouteName() == 'service' ? 'text-biru' : 'hover:text-biru' }} xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer duration-300 flex flex-col items-center">
             <div>Product & Service</div>
-            <div class="absolute bottom-0 h-0.5 biru garis w-0"></div>
+            <div
+                class="{{ Route::currentRouteName() == 'service' ? 'w-[120%]' : 'garis w-0' }} absolute bottom-0 h-0.5 biru">
+            </div>
         </a>
 
         <a href="{{ route('solution') }}"
-            class="xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer hover:text-biru duration-300 flex flex-col items-center">
+            class="{{ Route::currentRouteName() == 'solution' ? 'text-biru' : 'hover:text-biru' }} xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer duration-300 flex flex-col items-center">
             <div>Solution</div>
-            <div class="absolute bottom-0 h-0.5 biru garis w-0"></div>
+            <div
+                class="{{ Route::currentRouteName() == 'solution' ? 'w-[120%]' : 'garis w-0' }} absolute bottom-0 h-0.5 biru">
+            </div>
         </a>
 
         <a href="{{ route('partner') }}"
-            class="xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer hover:text-biru duration-300 flex flex-col items-center">
+            class="{{ Route::currentRouteName() == 'partner' ? 'text-biru' : 'hover:text-biru' }} xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer duration-300 flex flex-col items-center">
             <div>Partner</div>
-            <div class="absolute bottom-0 h-0.5 biru garis w-0"></div>
+            <div
+                class="{{ Route::currentRouteName() == 'partner' ? 'w-[120%]' : 'garis w-0' }} absolute bottom-0 h-0.5 biru">
+            </div>
         </a>
+
 
         <a href="{{ route('contact') }}"
-            class="xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer hover:text-biru duration-300 flex flex-col items-center">
+            class="{{ Route::currentRouteName() == 'contact' ? 'text-biru' : 'hover:text-biru' }} xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer duration-300 flex flex-col items-center">
             <div>Contact</div>
-            <div class="absolute bottom-0 h-0.5 biru garis w-0"></div>
+            <div
+                class="{{ Route::currentRouteName() == 'contact' ? 'w-[120%]' : 'garis w-0' }} absolute bottom-0 h-0.5 biru">
+            </div>
         </a>
 
+
         <a href="{{ route('support') }}"
-            class="xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer hover:text-biru duration-300 flex flex-col items-center">
+            class="{{ Route::currentRouteName() == 'support' ? 'text-biru' : 'hover:text-biru' }} xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer duration-300 flex flex-col items-center">
             <div>Support</div>
-            <div class="absolute bottom-0 h-0.5 biru garis w-0"></div>
+            <div
+                class="{{ Route::currentRouteName() == 'support' ? 'w-[120%]' : 'garis w-0' }} absolute bottom-0 h-0.5 biru">
+            </div>
         </a>
     </div>
 
     @guest
         <div class="poppins font-semibold flex sm:gap-7 gap-4 items-center text-center">
-            <a href="{{ route('user.login') }}" class="max-sm:text-sm cursor-pointer hover:text-biru duration-300">Login</a>
+            <a href="{{ route('user.login') }}"
+                class="max-sm:text-sm cursor-pointer hover:text-biru duration-300">Login</a>
             <a href="{{ route('user.register') }}"
                 class="max-sm:text-sm relative cursor-pointer py-2 px-3 rounded-md text-white biru hover:bg-white hover:text-biru border-[#1780BB] border-2 duration-300">Sign
                 up</a>

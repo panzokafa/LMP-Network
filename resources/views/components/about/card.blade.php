@@ -1,4 +1,4 @@
-<a href="{{ route($route) }}" class="flex lg:flex-row flex-col items-center relative py-5">
+<div class="flex lg:flex-row flex-col items-center relative py-5">
     <div class="image-1 relative z-20 lg:w-1/2 w-full max-lg:p-4 max-sm:p-2 max-sm:pb-0 biru-muda-2">
         <img class=" w-full" src="{{ asset('images/about/' . $image . '.jpg') }}" alt="">
     </div>
@@ -13,9 +13,9 @@
         </div>
 
 
-        <div
+        <a href="{{ route($route) }}"
             class="border hover:biru duration-300 hover:text-white border-[#2D5290] px-3 py-2 rounded text-biru font-medium poppins max-w-fit cursor-pointer max-lg:mx-auto ">
             Check here
-        </div>
+        </a>
     </div>
-</a>
+</div>

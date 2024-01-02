@@ -70,7 +70,7 @@ front and rear doors in the event of a high temperature or fire alarm',
                 Similar products
             </div>
 
-            <div class="grid lg:grid-cols-2 grid-cols-1 gap-7">
+            <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
                 @php
                     $image = ['MDC Top', 'MDC Row Split', 'MDC Rack Split'];
                     $title = ['MDC Top Packgae Cooling', 'MDC Row Split Package Cooling', 'MDC Rack Split Package Cooling'];

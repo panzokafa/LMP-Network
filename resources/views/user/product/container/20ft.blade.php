@@ -65,7 +65,7 @@ various options available',
                 Similar products
             </div>
 
-            <div class="grid lg:grid-cols-2 grid-cols-1 gap-7">
+            <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
                 @php
                     $image = ['10f', '40f', 'expandable'];
                     $title = ['10F Container Data Center', '40F Container Data Center', 'Expandable 40F Container Data Center'];

@@ -54,7 +54,7 @@
                 Similar products
             </div>
 
-            <div class="grid lg:grid-cols-2 grid-cols-1 gap-7">
+            <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
                 @php
                     $image = ['2-Rack', '2-Rack Row', '3-Rack'];
                     $title = ['2-Rack MDC With Rack Cooling', '2-Rack MDC With Row Cooling', '3-Rack MDC With Rack Cooling'];
