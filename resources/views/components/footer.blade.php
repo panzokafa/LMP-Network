@@ -32,24 +32,25 @@
 
                         <div id="homeList"
                             class="flex flex-col gap-3 text-sm max-md:px-3 max-md:mb-3 z-10 max-md:hidden duration-100 relative">
-                            <div
+                            <a href="{{ route('user.about') }}"
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
                                 About
-                            </div>
-                            <div
+                            </a>
+                            <a href="{{ route('service') }}"
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
-                                Product & Service</div>
-                            <div
+                                Product & Service</a>
+                            <a href="{{ route('solution') }}"
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
-                                Solutions</div>
-                            <div
+                                Solutions</a>
+                            <a href="{{ route('partner') }}"
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
-                                Partners</div>
-                            <div
+                                Partners</a>
+                            <a href="{{ route('contact') }}"
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
-                                Contact</div>
-                            <div class="cursor-pointer hover:text-biru duration-100 max-md:py-3">
-                                Support</div>
+                                Contact</a>
+                            <a href="{{ route('support') }}"
+                                class="cursor-pointer hover:text-biru duration-100 max-md:py-3">
+                                Support</a>
 
                         </div>
                     </div>

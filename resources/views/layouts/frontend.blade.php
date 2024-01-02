@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/logo2.png') }}">
+    <title>LMP Networks</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -109,7 +110,7 @@
     @include('components.navbar')
     <main class="relative top-20 mb-20 overflow-x-hidden">
         @yield('content')
-    @yield('javascript')
+        @yield('javascript')
 
     </main>
     <div class="relative bottom-0">
