@@ -23,7 +23,7 @@
     <div class="lg:px-20 md:px-10 px-5">
         <div class="lg:mb-44">
             <div class="flex lg:flex-row flex-col justify-between lg:items-center py-14">
-                <div class="lg:w-1/2 relative">
+                <div class="lg:w-3/5 relative">
                     {{-- <img class=" w-[140px] h-auto absolute top-[-100px] left-[-50px]" src="{{ asset('images/dot1.png') }}"
                         alt=""> --}}
                     <div class="title text-hijau lg:text-4xl sm:text-3xl text-2xl md:mb-12 mb-5 bruno relative z-10">
@@ -39,9 +39,9 @@
 
                 <div class="flex justify-end relative w-2/5 h-full max-lg:self-end top-10 image-1">
                     <div
-                        class="xl:w-1/2 lg:w-3/4 w-full  border-2 border-[#3F73AE] absolute right-10 max-lg:right-[-20px] max-lg:top-[-20px] max-md:right-[-8px] max-md:top-[-8px] h-full rounded">
+                        class="xl:w-96 lg:w-3/4 w-full  border-2 border-[#3F73AE] absolute right-10  max-lg:right-[-20px] max-lg:top-[-20px] max-md:right-[-8px] max-md:top-[-8px] h-full rounded">
                     </div>
-                    <img class="xl:w-1/2 lg:w-3/4 w-full  relative lg:top-8 lg:right-8 top-0 left-0"
+                    <img class="xl:w-96 lg:w-3/4 w-full  relative lg:top-8 lg:right-24 top-0 right-0 left-0"
                         src="{{ asset('images/2.jpg') }}" alt="">
                 </div>
             </div>
@@ -49,7 +49,7 @@
 
         <!--section 2-->
         <div class="lg:mb-48 max-lg:top-[-120px] relative">
-            <div class="flex lg:flex-row flex-col lg:items-center justify-center justify-between relative ">
+            <div class="flex lg:flex-row flex-col lg:items-center justify-between   relative ">
                 <div class="image-2 flex relative lg:w-1/3 w-1/2 h-full max-lg:mb-10">
                     <img class="w-full relative z-10 lg:bottom-8 md:bottom-5 bottom-2" src="{{ asset('images/1.jpg') }}"
                         alt="">
@@ -58,13 +58,10 @@
                     </div>
                 </div>
 
-                <div class=" relative lg:w-1/3 w-full max-lg:text-center">
+                <div class=" relative lg:w-5/12  w-full max-lg:text-center">
                     <div
                         class="title xl:text-2xl lg:text-xl text-lg tracking-wide inter font-medium xl:leading-10 sm:leading-8 mb-5">
-                        This technology paves the way to a cleaner
-                        and greener world, as much as we can live
-                        a modern lifestyle without distractions
-                        the earth where we live.
+                        This technology paves the way to a cleaner and greener world, as much as we can live a modern lifestyle without distractions the earth where we live.
                     </div>
                     <a href="{{ route('user.about') }}"
                         class="desc hover:scale-110 max-lg:hidden text-biru hover font-medium text-xl relative max-lg:top-[-70px] cursor-pointer max-w-max">
@@ -104,7 +101,7 @@
             <div class="flex lg:flex-row flex-col-reverse justify-between items-center">
                 <div class="lg:w-1/2 relative ">
                     <div
-                        class="title xl:text-2xl lg:text-xl text-lg tracking-wide inter relative z-10 font-medium lg:w-2/3 leading-relaxed lg:mb-5 mb-8 max-lg:text-center">
+                        class="title xl:text-2xl lg:text-xl text-lg tracking-wide inter relative z-10 font-medium lg:w-2/3 lg:leading-10 leading-relaxed lg:mb-5 mb-8 max-lg:text-center">
                         Renewable energy sources are emerging as bright stars in the shift towards a clean and sustainable
                         future.
                     </div>
@@ -121,9 +118,9 @@
 
                 <div class="flex lg:justify-end justify-center relative lg:w-1/3 h-full max-lg:bottom-12 max-lg:left-5">
                     <div
-                        class="image-1 lg:w-full w-11/12  bg-[#E6F6FE] absolute lg:left-1 lg:bottom-1 sm:right-8 right-5 h-full rounded z-10">
+                        class="image-1 xl:w-96 lg:w-full w-11/12  bg-[#E6F6FE] absolute lg:left-1 lg:bottom-1 sm:right-8 right-5 h-full rounded z-10">
                     </div>
-                    <img class="image-1 lg:w-full w-11/12 relative top-5 right-5 z-20"
+                    <img class="image-1 xl:w-96 lg:w-full w-11/12 relative top-5 right-5 z-20"
                         src="{{ asset('images/turbine.jpg') }}" alt="">
                     <img class="w-[140px] bottom-[-80px] left-[-80px] absolute" src="{{ asset('images/dot1.png') }}"
                         alt="">
