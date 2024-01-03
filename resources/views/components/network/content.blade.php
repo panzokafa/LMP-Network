@@ -1,5 +1,5 @@
 <div class="lg:px-20">
-    <div class="desc xl:text-2xl lg:text-xl sm:text-lg mb-26 lg:w-2/3">
+    <div class="desc xl:text-2xl lg:text-xl sm:text-lg mb-26 lg:w-full">
         Provide interconnect and cross-connect of applications over installations
         in entrance facilities, telecommunications rooms, data center and at the desk.
     </div>
@@ -20,7 +20,7 @@
         @endfor
     </div>
 
-    <a class="desc-2 xl:text-2xl lg:text-xl sm:text-lg xl:w-2/3 lg:mb-36 mb-10 block">
+    <a class="desc-2 xl:text-2xl lg:text-xl sm:text-lg xl:w-full lg:mb-36 mb-10 block">
         Patch cords support network applications in main, horizontal and equipment
         distribution areas and are available in low smoke zero halogen (LSZH) rated
         jacket materials to comply with local cabling ordinances. Pre-terminated fiber

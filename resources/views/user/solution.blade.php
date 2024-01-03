@@ -58,9 +58,9 @@
 
         <div class=" lg:gap-16 gap-10 overflow-x-scroll no-scrollbar pb-10 fade sm:flex hidden">
             @php
-                $title = ['Edge Data Center', 'Micro Data Center', 'Cable Landing Station'];
+                $title = ['Edge Data Center', 'Micro Data Center', 'Cable Landing Station', 'Core Data Center'];
 
-                $title2 = ['Customize your edge computing with LMP global solutions', 'LMP micro data centers tailored for your needs', 'Leverage LMP global solutions for customized cable landing stations'];
+                $title2 = ['Customize your edge computing with LMP global solutions', 'LMP micro data centers tailored for your needs', 'Leverage LMP global solutions for customized cable landing stations', 'Build flexible, scalable and efficient core data centers with LMP'];
                 $desc = [
                     'LMP Global Solutions revolutionizes the edge with cutting-edge, tailored data centers that supercharge deployment, reduce risks, and optimize expenses. Deploy an array of custom modular edge data centers, ranging from dozens to hundreds, to amplify flexibility, enhance scalability, and elevate efficiency.',
                     'LMP Global Solutions revolutionizes data centers, harmonizing power, cooling, monitoring, and racks to match your unique business demands. Our expert team partners with you, guiding from inception to implementation, freeing you to prioritize your core mission. Our micro data centers offer an innovative approach to flexibly deploy capacity anywhere.',
@@ -71,9 +71,11 @@ six continents. We specialize in providing tailor-made, pre-validated, and facto
 integrated cable landing station solutions that seamlessly blend value and rapid
 delivery. Our swift data center component deployments enable streamlined on-site assembly, requiring fewer personnel, no matter where you are in the world.
 ',
+'LMP Global Solutions streamlines core data center expansion effortlessly. Our innovative modular approach empowers clients, contractors, and consulting allies to seamlessly
+plan and construct data centers worldwide. We provide adaptable, scalable, and eco-efficient solutions that are pre-engineered, prefabricated, and rigorously pre-tested, ensuring swift on-site deployment and assembly. Our dedicated solutions team collaborates with IT, facilities, network, and security stakeholders, guiding you from inception to project completion.'
                 ];
             @endphp
-            @for ($i = 0; $i < 3; $i++)
+            @for ($i = 0; $i < 4; $i++)
                 <div class="lg:min-w-[44%] min-w-[80%]">
                     <div class="font-bold lg:text-2xl text-xl mb-3">
                         {{ $title[$i] }}
@@ -94,7 +96,7 @@ delivery. Our swift data center component deployments enable streamlined on-site
         <section class="splide sm:hidden fade">
             <div class="splide__track">
                 <ul class="splide__list">
-                    @for ($i = 0; $i < 3; $i++)
+                    @for ($i = 0; $i < 4; $i++)
                         <div class="splide__slide px-14 text-center">
                             <div class="font-bold lg:text-2xl text-xl mb-3">
                                 {{ $title[$i] }}

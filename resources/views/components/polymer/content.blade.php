@@ -12,7 +12,7 @@
         </div>
     @endfor
     <div>
-        <div class="desc-2 xl:text-2xl lg:text-xl sm:text-lg xl:w-2/3 lg:mb-36 mb-10">
+        <div class="desc-2 xl:text-2xl lg:text-xl sm:text-lg xl:w-full lg:mb-36 mb-10">
             This new business line strengthen our core business and deliver more comprehensive solution to our
             customer.
         </div>

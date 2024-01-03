@@ -77,20 +77,25 @@
 
                         <div id="productList"
                             class="flex flex-col gap-3 text-sm max-md:px-3 max-md:mb-3 z-10 max-md:hidden duration-100 relative">
-                            <div
+                            <a href="{{route('network')}}"
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
-                                LMP Networks</div>
-                            <div
+                                LMP Networks
+                            </a>
+                            <a href="{{route('energy')}}"
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
-                                LMP Renewable Energy</div>
-                            <div
+                                LMP Renewable Energy
+                            </a >
+                            <a
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
-                                LMP Edge DC</div>
-                            <div
+                                LMP Edge DC
+                            </a >
+                            <a href="{{route('polymer')}}"
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
-                                LMP Polymer</div>
-                            <div class="cursor-pointer hover:text-biru duration-100 max-md:py-3">
-                                LMP Service</div>
+                                LMP Polymer
+                            </a >
+                            <a href="{{route('service')}}" class="cursor-pointer hover:text-biru duration-100 max-md:py-3">
+                                LMP Service
+                            </a >
 
                         </div>
                     </div>
@@ -109,9 +114,9 @@
 
                         <div id="aboutList"
                             class="flex flex-col gap-3 text-sm max-md:px-3 max-md:mb-3 z-10 max-md:hidden duration-100 relative ">
-                            <div
+                            <a href="{{route('user.about')}}"
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
-                                About LMP</div>
+                                About LMP</a>
                             <div
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
                                 History LMP</div>

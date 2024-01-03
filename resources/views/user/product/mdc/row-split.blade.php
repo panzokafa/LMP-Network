@@ -6,7 +6,7 @@
         <div class="w-full flex lg:flex-row flex-col justify-between items-center mb-14 gap-12">
 
             <div class="inter  lg:w-1/2">
-                <div class="xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold mb-5">MDC Row Split Package Cooling</div>
+                <div class="xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold mb-5">MDC With Row Split Package Cooling</div>
 
 
                 <div class="lg:text-xl sm:text-lg mb-5">6k – 20k MDC fully integrated with closed rack,
@@ -74,7 +74,7 @@
             <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
                 @php
                     $image = ['MDC Top', 'MDC Row Package', 'MDC Rack Split'];
-                    $title = ['MDC Top Packgae Cooling', 'MDC Row Package Cooling', 'MDC Rack Split Package Cooling'];
+                    $title = ['MDC With Top Packgae Cooling', 'MDC With Row Package Cooling', 'MDC With Rack Split Package Cooling'];
                     $desc = [
                         '3k – 6k MDC fully integrated with closed rack,
                     package cooling, UPS, battery, power distribution, 

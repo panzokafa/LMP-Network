@@ -58,11 +58,11 @@
     </div>
 
     @guest
-        <div class="poppins font-semibold flex sm:gap-7 gap-4 items-center text-center">
+        <div class=" poppins font-semibold flex sm:gap-7 gap-4 items-center text-center">
             <a href="{{ route('user.login') }}"
-                class="max-sm:text-sm cursor-pointer hover:text-biru duration-300">Login</a>
+                class="hidden sm:block max-sm:text-sm cursor-pointer hover:text-biru duration-300">Login</a>
             <a href="{{ route('user.register') }}"
-                class="max-sm:text-sm relative cursor-pointer py-2 px-3 rounded-md text-white biru hover:bg-white hover:text-biru border-[#1780BB] border-2 duration-300">Sign
+                class="hidden sm:block max-sm:text-sm relative cursor-pointer py-2 px-3 rounded-md text-white biru hover:bg-white hover:text-biru border-[#1780BB] border-2 duration-300">Sign
                 up</a>
 
             <i id="navBtn" class="text-xl cursor-pointer fa-solid fa-bars lg:hidden block lg:text-black "></i>

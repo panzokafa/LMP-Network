@@ -19,11 +19,11 @@
         </div>
 
         <div class="flex flex-col lg:items-center">
-            <div class="desc-2 text-2xl font-semibold mb-5 w-4/5 max-lg:hidden">
+            <div class="desc-2 text-2xl font-semibold mb-5 w-full max-lg:hidden">
                 LMP Nex-T Edge DC 360
             </div>
 
-            <div class="desc-2 mb-7 lg:w-4/5 xl:text-xl lg:text-lg">Are Design & Build to dedicated to serve millions of
+            <div class="desc-2 mb-7 lg:w-full xl:text-xl lg:text-lg">Are Design & Build to dedicated to serve millions of
                 people and
                 thousands of
                 businesses
@@ -33,7 +33,7 @@
                 Our EDGE DC are placed as near as possible to user to give high user experience on data
                 processing by cutting the latency.</div>
 
-            <div class="desc-2 mb-12 lg:w-4/5 xl:text-xl lg:text-lgz">Additionally, LMP Nex-t Edge DC 360 has been advancing
+            <div class="desc-2 mb-12 lg:w-full xl:text-xl lg:text-lgz">Additionally, LMP Nex-t Edge DC 360 has been advancing
                 cooling
                 management
                 systems

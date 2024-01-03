@@ -1,7 +1,8 @@
 <div class="lg:px-20">
-    <div class="desc-2 lg:text-2xl md:text-xl sm:text-lg mb-24 lg:w-2/3">
-        Provide interconnect and cross-connect of applications over installations
-        in entrance facilities, telecommunications rooms, data center and at the desk.
+    <div class="desc-2 lg:text-2xl md:text-xl sm:text-lg mb-24 lg:w-full">
+        Centrinium™️ Rack Mount Drawer Indoor Fiber Enclosure ensures network reliability by housing, organizing,
+        managing and protecting up to 144 fibre optic cable, terminations, splices, connectors and patch cords using
+        12 Modules Cassette adapter panels.
     </div>
 
     <div class="flex flex-wrap lg:gap-20 gap-10 justify-center items-center lg:mb-28 mb-14">
@@ -24,10 +25,10 @@
         There are two type of module, Pre-conn type for MPO – LC and splice type for splicing method.
     </div>
 
-    <div class="desc-2 xl:text-xl lg:text-xl sm:text-lg xl:w-2/3 lg:mb-36 mb-10">
+    <div class="desc-2 xl:text-2xl lg:text-xl sm:text-lg xl:w-full lg:mb-36 mb-10">
         This solution makes it easier for network architects to design networks according to their needs
         Because of this versatility, the enclosure is able to serve as a transition from backbone cabling to
-        distribution switching, an interconnect to active equipment, <br> or as a cross-connect or interconnect
+        distribution switching, an interconnect to active equipment, or as a cross-connect or interconnect
         in a main or horizontal distribution area. Users can even easily access the fibres through front
         pull out Modules.
     </div>

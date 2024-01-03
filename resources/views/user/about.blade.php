@@ -3,12 +3,12 @@
 
 
 @section('content')
-    <div class="lg:px-0 md:px-10 px-5 lg:py-16 py-12">
+    <div class="lg:px-0 md:px-10 px-5 lg:py-36 py-12">
         <div
             class="title-2 inter lg:mb-20 sm:mb-8 mb-5 sm:px-20 px-10 lg:max-w-max w-full flex-col max-lg:items-center max-lg:text-center">
             <div class="lg:text-4xl text-2xl font-bold">About LMP</div>
 
-            <div class="h-1 lg:w-full w-2/3 max-lg:mx-auto biru lg:my-4 my-2"></div>
+            <div class="h-1 lg:w-3/5 w-2/3 max-lg:mx-auto biru lg:my-4 my-2"></div>
 
             <div class="text-lg"><span class="text-biru">Our mission </span>Evolving the way world thinks about connectivity.
             </div>
@@ -96,8 +96,11 @@
                         </div>
                         <div class="desc">
                             <a href="{{ route('research') }}"
-                                class="hover:text-biru-tua duration-300 cursor-pointer lg:text-xl text-lg text-biru font-medium">
+                                class="flex gap-1 hover:text-biru-tua duration-300 cursor-pointer lg:text-xl text-lg text-biru font-medium">
                                 Read more
+                                <div class="">
+                                    ->
+                                </div>
                             </a>
                         </div>
 

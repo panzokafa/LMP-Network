@@ -7,15 +7,15 @@
             alt="">
 
         <div
-            class="header tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-xl lg:leading-normal md:leading-normal leading-normal w-1/2 2xl:w-2/5 poppins  bruno text-white absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
+            class="header tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-xl lg:leading-normal md:leading-normal leading-normal w-1/2 2xl:w-2/5 xl:w-2/5 xl:pr-5 poppins  bruno text-white absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
             Ultra High
             Density
-            Edge Data Center <span class="text-hijau">For
+            Edge Data Center <span class="text-hijau  bruno">For
                 Greener Data Center</span></div>
 
         <a href="{{ route('service') }}"
-            class="product md:text-xl absolute lg:right-24 md:right-14 right-8 md:bottom-16 font-medium bottom-8 text-white cursor-pointer">
-            Product <span class="text-biru font-semibold md:text-2xl tetx-xl">-></span>
+            class="product md:text-xl absolute lg:right-24 md:right-14 right-8 md:bottom-16 font-normal bottom-8 text-white cursor-pointer">
+            Product <span class="text-biru font-medium md:text-2xl tetx-xl">-></span>
         </a>
     </div>
 
@@ -23,14 +23,14 @@
     <div class="lg:px-20 md:px-10 px-5">
         <div class="lg:mb-44">
             <div class="flex lg:flex-row flex-col justify-between lg:items-center py-14">
-                <div class="lg:w-3/5 relative">
+                <div class="lg:w-4/5 relative">
                     {{-- <img class=" w-[140px] h-auto absolute top-[-100px] left-[-50px]" src="{{ asset('images/dot1.png') }}"
                         alt=""> --}}
                     <div class="title text-hijau lg:text-4xl sm:text-3xl text-2xl md:mb-12 mb-5 bruno relative z-10">
                         GREEN
                     </div>
                     <div
-                        class="desc xl:leading-10 md:leading-8 xl:text-2xl lg:text-xl text-lg tracking-wide inter relative z-10 font-medium md:w-2/3 max-sm:pr-5">
+                        class="desc xl:leading-relaxed md:leading-8 leading-6  xl:text-3xl lg:text-xl text-lg tracking-wide inter relative z-10 font-normal md:w-2/3 max-sm:pr-5">
                         Environmentally friendly technology
                         plays a crucial role in preserving the
                         sustainability of our planet
@@ -50,7 +50,7 @@
         <!--section 2-->
         <div class="lg:mb-48 max-lg:top-[-120px] relative">
             <div class="flex lg:flex-row flex-col lg:items-center justify-between   relative ">
-                <div class="image-2 flex relative lg:w-1/3 w-1/2 h-full max-lg:mb-10">
+                <div class="image-2 flex relative lg:w-2/5 w-1/2 h-full max-lg:mb-10">
                     <img class="w-full relative z-10 lg:bottom-8 md:bottom-5 bottom-2" src="{{ asset('images/1.jpg') }}"
                         alt="">
                     <div
@@ -58,13 +58,13 @@
                     </div>
                 </div>
 
-                <div class=" relative lg:w-5/12  w-full max-lg:text-center">
+                <div class=" relative lg:w-7/12  w-full max-lg:text-center lg:px-11">
                     <div
-                        class="title xl:text-2xl lg:text-xl text-lg tracking-wide inter font-medium xl:leading-10 sm:leading-8 mb-5">
+                        class="title xl:text-3xl lg:text-xl text-lg tracking-wide inter font-normal xl:leading-10 sm:leading-8 mb-5">
                         This technology paves the way to a cleaner and greener world, as much as we can live a modern lifestyle without distractions the earth where we live.
                     </div>
                     <a href="{{ route('user.about') }}"
-                        class="desc hover:scale-110 max-lg:hidden text-biru hover font-medium text-xl relative max-lg:top-[-70px] cursor-pointer max-w-max">
+                        class="desc hover:scale-110 max-lg:hidden text-biru hover font-normal text-xl relative max-lg:top-[-70px] cursor-pointer max-w-max">
                         WHY LMP ->
                     </a>
                 </div>
@@ -72,7 +72,7 @@
         </div>
 
         <a href="{{ route('user.about') }}"
-            class="title lg:hidden items-center flex justify-center text-center text-biru font-medium text-lg relative max-lg:top-[-70px] cursor-pointer max-w-max mx-auto">
+            class="title lg:hidden items-center flex justify-center text-center text-biru font-medium text-lg relative max-lg:top-[-120px] cursor-pointer max-w-max mx-auto">
             WHY LMP
         </a>
 
@@ -99,15 +99,15 @@
 
         <div class="mb-36">
             <div class="flex lg:flex-row flex-col-reverse justify-between items-center">
-                <div class="lg:w-1/2 relative ">
+                <div class="lg:w-4/5 relative ">
                     <div
-                        class="title xl:text-2xl lg:text-xl text-lg tracking-wide inter relative z-10 font-medium lg:w-2/3 lg:leading-10 leading-relaxed lg:mb-5 mb-8 max-lg:text-center">
+                        class="title xl:text-3xl lg:text-xl text-lg tracking-widest inter relative z-10 font-light lg:w-4/5 xl:leading-relaxed leading-10 lg:mb-5 mb-8 max-lg:text-center">
                         Renewable energy sources are emerging as bright stars in the shift towards a clean and sustainable
                         future.
                     </div>
                     <div class="desc">
                         <a href="{{ route('energy') }}"
-                            class="flex gap-2 items-center hover:gap-6 max-w-max duration-300 cursor-pointer xl:text-xl lg:text-lg max-lg:text-center text-biru font-semibold max-lg:mx-auto">
+                            class="flex gap-2 items-center hover:gap-6 max-w-max duration-300 cursor-pointer xl:text-xl lg:text-lg max-lg:text-center text-biru font-normal max-lg:mx-auto">
                             <div>Check Here</div>
                             <div>
                                 ->
@@ -116,11 +116,11 @@
                     </div>
                 </div>
 
-                <div class="flex lg:justify-end justify-center relative lg:w-1/3 h-full max-lg:bottom-12 max-lg:left-5">
+                <div class="flex lg:justify-end justify-center relative lg:w-3/4 h-full max-lg:bottom-12 max-lg:left-5">
                     <div
-                        class="image-1 xl:w-96 lg:w-full w-11/12  bg-[#E6F6FE] absolute lg:left-1 lg:bottom-1 sm:right-8 right-5 h-full rounded z-10">
+                        class="image-1 lg:w-full w-11/12  bg-[#E6F6FE] absolute lg:left-1 lg:bottom-1 sm:right-8 right-5 h-full rounded z-10">
                     </div>
-                    <img class="image-1 xl:w-96 lg:w-full w-11/12 relative top-5 right-5 z-20"
+                    <img class="image-1  lg:w-full w-11/12 relative top-5 right-5 z-20"
                         src="{{ asset('images/turbine.jpg') }}" alt="">
                     <img class="w-[140px] bottom-[-80px] left-[-80px] absolute" src="{{ asset('images/dot1.png') }}"
                         alt="">
@@ -134,13 +134,13 @@
             <div class="flex lg:flex-row-reverse flex-col-reverse lg:justify-between justify-center items-center xl:pr-20">
                 <div class="lg:w-1/3 relative">
                     <div
-                        class="block title xl:text-2xl lg:text-xl text-lg tracking-wide inter relative z-10 font-medium lg:w-2/3 leading-relaxed lg:mb-5 mb-8 max-lg:text-center">
+                        class="block title xl:text-3xl lg:text-xl text-lg tracking-widest inter relative z-10 font-light lg:w-full xl:leading-relaxed leading-10 lg:mb-5 mb-8 max-lg:text-center">
                         Great solution to your interesting request
                     </div>
 
                     <div class="desc">
                         <a href="{{ route('solution') }}"
-                            class="flex gap-2 items-center hover:gap-6 max-w-max duration-300 cursor-pointer xl:text-xl lg:text-lg max-lg:text-center text-biru font-semibold max-lg:mx-auto">
+                            class="flex gap-2 items-center hover:gap-6 max-w-max duration-300 cursor-pointer xl:text-xl lg:text-lg max-lg:text-center text-biru font-normal max-lg:mx-auto">
                             <div>Check Here</div>
                             <div>
                                 ->
@@ -149,7 +149,7 @@
                     </div>
                 </div>
 
-                <div class="flex lg:justify-end justify-center relative lg:w-2/5 h-full max-lg:top-[-45px]">
+                <div class="flex lg:justify-end justify-center relative lg:w-7/12 h-full max-lg:top-[-45px]">
                     <div
                         class="image-2 lg:w-full w-11/12  bg-[#E6F6FE] absolute lg:left-7 lg:top-10 md:left-14 left-7 h-full rounded z-10">
                     </div>
@@ -165,7 +165,7 @@
 
         <div class="mb-36 inter">
             <div class="flex lg:justify-between lg:flex-row flex-col-reverse items-center ">
-                <div class="lg:w-1/2 w-full relative max-lg:top-20">
+                <div class="lg:w-2/5 w-full relative max-lg:top-20">
                     <div class="title text-center text-biru lg:text-3xl sm:text-2xl text-2xl lg:mb-24 mb-16">
                         LMP Group <span class="text-black">In Numbers</span>
                     </div>
@@ -222,7 +222,7 @@
                     </div>
                 </div>
 
-                <div class="image-1 flex justify-end relative lg:w-1/3 w-10/12 h-full max-md:left-2">
+                <div class="image-1 flex justify-end relative lg:w-1/2 w-10/12 h-full max-md:left-2">
 
                     <div class="w-full bg-[#E6F6FE] absolute lg:right-10 lg:top-10 right-6 top-6 h-full rounded"></div>
                     <img class="w-full relative" src="{{ asset('images/machine.jpg') }}" alt="">

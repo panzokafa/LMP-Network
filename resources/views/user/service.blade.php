@@ -12,14 +12,16 @@
                 <div class="h-1 lg:w-[130%] w-full biru lg:my-5 my-3"></div>
             </div>
 
-            <div class="desc lg:text-xl sm:text-lg">LMP offers essential infrastructure technology and
+            <div class="desc lg:text-lg pr-8 sm:text-lg">LMP offers essential infrastructure technology and
                 specialized solutions that can be swiftly implemented
                 to meet your business needs
             </div>
         </div>
         <div class="grid lg:grid-cols-2 lg:gap-36 gap-20">
             <div class="item">
-                <div class="xl:text-5xl lg:text-4xl sm:text-3xl text-2xl mb-5">LMP Networks</div>
+                <div class="mb-5">
+                    <a href="{{route('network')}}" class="xl:text-4xl lg:text-4xl sm:text-3xl text-2xl mb-5">LMP Networks</a>
+                </div>
 
                 <div class="lg:text-lg mb-12">LMP Networks provide Ultra High Density Solution
                     for connectivity in Data Center. Optimizing Space - Air flow
@@ -47,7 +49,9 @@
             </div>
 
             <div class="item">
-                <div class="xl:text-5xl lg:text-4xl sm:text-3xl text-2xl mb-5">LMP Renewable Energy</div>
+                <div class="mb-5">
+                    <a href="{{route('energy')}}" class="xl:text-4xl lg:text-4xl sm:text-3xl text-2xl mb-5">LMP Renewable Energy</a>
+                </div>
 
                 <div class="sm:text-lg mb-12">Renewable Energy is inexhaustible and canbe harnessed
                     continuously without depleting natural resources ensuring
@@ -74,7 +78,9 @@
             </div>
 
             <div class="item">
-                <div class="xl:text-5xl lg:text-4xl sm:text-3xl text-2xl mb-5">LMP Centrinium</div>
+                <div class="mb-5">
+                    <a href="{{route('centrinium')}}" class="xl:text-4xl lg:text-4xl sm:text-3xl text-2xl mb-5">LMP Centrinium</a>
+                </div>
 
                 <div class="sm:text-lg mb-12">LMP Centrinium provide wide range product solution
                     for Physical EDGE Data Center. from Cabinet Data
@@ -97,17 +103,17 @@
                         <div
                             class="link hidden duration-300 border-[0.5px] border-black text-black text-sm absolute left-[100%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
                             <a href="{{ route('product.mdc.top') }}"
-                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">MDC
-                                Top</a>
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">MDC With
+                                Top Cooling</a>
                             <a href="{{ route('product.mdc.row') }}"
-                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">MDC
-                                Row</a>
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">MDC With
+                                Row Cooling</a>
                             <a href="{{ route('product.mdc.rack-split') }}"
-                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">MDC Rack
-                                Split</a>
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">MDC With Rack
+                                Split Cooling</a>
                             <a href="{{ route('product.mdc.row-split') }}"
-                                class="py-2 px-4 hover:bg-[#1780BB] hover:text-white duration-300 block">MDC Row
-                                Split</a>
+                                class="py-2 px-4 hover:bg-[#1780BB] hover:text-white duration-300 block">MDC With Row
+                                Split Cooling</a>
 
                         </div>
 
@@ -121,16 +127,16 @@
                         <div
                             class="link hidden duration-300 border-[0.5px] border-black text-black text-sm absolute left-[100%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
                             <a href="{{ route('product.rack.1') }}"
-                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">1-Rack MDC
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">1-Rack MDC With Rack Cooling
                                 </a>
                             <a href="{{ route('product.rack.2') }}"
-                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">2-Rack MDC
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">2-Rack MDC With Rack Cooling
                                 </a>
                             <a href="{{ route('product.rack.2.row') }}"
-                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">2-Rack MDC Row
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">2-Rack MDC Row With Rack Cooling
                                 </a>
                             <a href="{{ route('product.rack.3') }}"
-                                class="py-2 px-4 hover:bg-[#1780BB] hover:text-white duration-300 block">3-Rack MDC
+                                class="py-2 px-4 hover:bg-[#1780BB] hover:text-white duration-300 block">3-Rack MDC With Rack Cooling
                                 </a>
 
                         </div>
@@ -170,13 +176,15 @@
             </div>
 
             <div class="item">
-                <div class="xl:text-5xl lg:text-4xl sm:text-3xl text-2xl mb-5">LMP Polymer</div>
+                <div class="mb-5">
+                    <a href="{{route('polymer')}}" class="xl:text-4xl lg:text-4xl sm:text-3xl text-2xl mb-5">LMP Polymer</a>
+                </div>
 
                 <div class="sm:text-lg mb-12">At LMP Polymer we deliver solution for Plastic Product Design
                     and Production for wide range Industry</div>
 
                 <div class="flex flex-col lg:gap-6 gap-4">
-                    <div class="text-biru cursor-pointer link">Reset <div class="inline opacity-0 duration-300 arrow ml-1">
+                    <div class="text-biru cursor-pointer link">Roset <div class="inline opacity-0 duration-300 arrow ml-1">
                             ->
                         </div>
                     </div>
@@ -193,7 +201,9 @@
             </div>
 
             <div class="item">
-                <div class="xl:text-5xl lg:text-4xl sm:text-3xl text-2xl mb-5">LMP Services & Learning Center</div>
+                <div class="mb-5">
+                    <a href="{{route('learning')}}" class="xl:text-4xl lg:text-4xl sm:text-3xl text-2xl mb-5">LMP Services & Learning Center</a>
+                </div>
 
                 <div class="sm:text-lg mb-12">Whether it's engineering, on-site project management,
                     energy-consumption monitoring, or something else,
@@ -233,7 +243,10 @@
             </div>
 
             <div class="item">
-                <div class="xl:text-5xl lg:text-4xl sm:text-3xl text-2xl mb-5">LMP Nex-T Edge DC 360</div>
+                <div class="mb-5">
+                    <a href="{{route('nex-t')}}" class="xl:text-4xl lg:text-4xl sm:text-3xl text-2xl mb-5">LMP Nex-T Edge DC 360
+                    </a>
+                </div>
 
                 <div class="sm:text-lg mb-12">As the first of Data Center Provider that serve Nation Wide of
                     People in Indonesia LMP NDC put his EDGE DC at every Main
