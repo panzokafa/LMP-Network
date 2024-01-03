@@ -76,10 +76,10 @@
 
             <div class="gap-20 lg:mb-44 mb-16">
                 <div class="flex lg:gap-20 sm:gap-10 gap-5 lg:flex-row flex-col items-center">
-                    <div class="card flex justify-end relative lg:w-1/3 w-11/12 h-full relative right-3">
+                    <div class="card flex justify-end relative lg:w-1/2 w-11/12 h-full relative right-3">
                         <div class="w-full border-2 border-[rgb(63,115,174)] absolute lg:left-8 left-4 h-full z-10">
                         </div>
-                        <img class="w-full relative lg:bottom-8 bottom-4 right-0 z-20" src="{{ asset('images/panel.jpg') }}"
+                        <img class="w-full relative lg:bottom-8 bottom-4 right-0 z-20" src="{{ asset('images/about/research.png') }}"
                             alt="">
                     </div>
 
@@ -88,7 +88,7 @@
                             Research & Development
                         </div>
                         <div
-                            class="desc lg:text-xl sm:text-lg  2xl:tracking-widest poppins relative z-10 leading-relaxed mb-5 relative">
+                            class="desc lg:text-xl sm:text-lg lg:leading-10  2xl:tracking-widest poppins relative z-10 leading-relaxed mb-5 relative">
                             The multidisciplinary nature of our focused
                             Philosophy Research Center has been the
                             major strength of our research since we

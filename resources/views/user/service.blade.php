@@ -112,15 +112,60 @@
                         </div>
 
                     </div>
-                    <a href="{{ route('product.rack.1') }}" class="text-biru cursor-pointer link">Outdoor MDC <div
+
+                    <div class="text-biru cursor-pointer flex gap-4 relative max-w-max hover-link">
+                        <div> Outdoor MDC <div class="inline opacity-0 duration-300 arrow ml-1">->
+                            </div>
+
+                        </div>
+                        <div
+                            class="link hidden duration-300 border-[0.5px] border-black text-black text-sm absolute left-[100%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                            <a href="{{ route('product.rack.1') }}"
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">1-Rack MDC
+                                </a>
+                            <a href="{{ route('product.rack.2') }}"
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">2-Rack MDC
+                                </a>
+                            <a href="{{ route('product.rack.2.row') }}"
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">2-Rack MDC Row
+                                </a>
+                            <a href="{{ route('product.rack.3') }}"
+                                class="py-2 px-4 hover:bg-[#1780BB] hover:text-white duration-300 block">3-Rack MDC
+                                </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <a href="{{ route('product.mdc.row') }}" class="text-biru cursor-pointer link">Row MDC
+                        <div
                             class="inline opacity-0 duration-300 arrow ml-1">->
-                        </div></a>
-                    <a href="{{ route('product.mdc.row') }}" class="text-biru cursor-pointer link">Row MDC <div
-                            class="inline opacity-0 duration-300 arrow ml-1">->
-                        </div></a>
-                    <a href="{{ route('product.container.10ft') }}" class="text-biru cursor-pointer link">Container MDC <div
-                            class="inline opacity-0 duration-300 arrow ml-1">->
-                        </div></a>
+                        </div>
+                    </a>
+
+                    <div class="text-biru cursor-pointer flex gap-4 relative max-w-max hover-link">
+                        <div> Container MDC <div class="inline opacity-0 duration-300 arrow ml-1">->
+                            </div>
+
+                        </div>
+                        <div
+                            class="link hidden duration-300 border-[0.5px] border-black text-black text-sm absolute left-[100%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                            <a href="{{ route('product.container.10ft') }}"
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">10F Container
+                                </a>
+                            <a href="{{ route('product.container.20ft') }}"
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">20F Container
+                                </a>
+                            <a href="{{ route('product.container.40ft') }}"
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">40F Container
+                                </a>
+                            <a href="{{ route('product.container.dual-container') }}"
+                                class="py-2 px-4 hover:bg-[#1780BB] hover:text-white duration-300 block">Expandable Container
+                                </a>
+
+                        </div>
+                    </div>
                 </div>
             </div>
 

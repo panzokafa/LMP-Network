@@ -54,13 +54,19 @@
                             Center
                         </div>
 
-                        <div class="lg:text-xl sm:text-lg lg:w-3/5 lg:tracking-wider max-lg:text-center fade">
+
+                            <div class="lg:text-xl sm:text-lg lg:w-3/5 lg:tracking-wider max-lg:text-center fade">
                             Our training and development courses can advance skills and technical
                             knowledge in both industry best practices and LMP products, to help
                             realize the full potential of your IT infrastructure or facilities. Standard or
                             specialized trainings can take place at LMP Learning or at your location
                             upon request.
-                        </div>
+
+                            <div class="text-biru text-base pt-5 desc-2 cursor-pointer">
+                                <a href="{{route('learning')}}" class="text-biru text-base pt-5 desc-2 arrow cursor-pointer">Read More -></a>
+                            </div>
+                            </div>
+
                     </div>
 
                 </div>
