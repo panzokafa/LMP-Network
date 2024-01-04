@@ -142,7 +142,7 @@
 
                         <div class="history-3">
                             <div class="xl:text-2xl sm:text-xl text-lg poppins lg:mb-3 mb-2 font-medium">
-                                2023
+                                2023 March
                             </div>
 
                             <div class="xl:text-xl lg:text-lg sm:text-base text-sm">

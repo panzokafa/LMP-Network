@@ -77,11 +77,11 @@
 
     <!--section 1-->
     <div class="lg:px-20 md:px-10 px-5">
-        <div class="lg:mb-44 ">
-            <div class="flex lg:flex-row flex-col-reverse justify-between items-center py-14">
+        <div class="lg:mb-36 ">
+            <div class="flex lg:flex-row flex-col-reverse justify-between items-center lg:pt-28 py-14">
                 <div class="lg:w-4/5 relative">
-                    {{-- <img class=" w-[140px] h-auto absolute top-[-100px] left-[-50px]" src="{{ asset('images/dot1.png') }}"
-                        alt=""> --}}
+                    <img class=" w-[140px] h-auto absolute top-[-80px] left-[-40px]" src="{{ asset('images/dot1.png') }}"
+                        alt="">
                     <div
                         class="title text-hijau lg:text-4xl sm:text-3xl max-lg:text-center text-2xl md:mb-12 mb-5 bruno relative z-10">
                         GREEN
@@ -130,7 +130,7 @@
         </div>
 
         <a href="{{ route('user.about') }}"
-            class="title lg:hidden items-center flex justify-center text-center text-biru font-medium text-lg relative cursor-pointer max-w-max mx-auto mb-10">
+            class="title lg:hidden items-center flex justify-center text-center text-biru font-medium text-lg relative cursor-pointer max-w-max mx-auto mb-24">
             WHY LMP
         </a>
 
@@ -223,7 +223,7 @@
 
         <!--machine section--->
 
-        <div class="mb-36 inter">
+        <div class=" lg:my-60 mb-36 inter">
             <div class="flex lg:justify-between lg:flex-row flex-col-reverse items-center ">
                 <div class="lg:w-2/5 w-full relative max-lg:top-20">
                     <div class="title text-center text-biru lg:text-3xl sm:text-2xl text-2xl lg:mb-24 mb-16">
@@ -284,9 +284,12 @@
 
                 <div class="image-1 flex justify-end relative lg:w-1/2 w-10/12 h-full max-md:left-2">
 
-                    <div class="w-full bg-[#E6F6FE] absolute lg:right-10 lg:top-10 right-6 top-6 h-full rounded"></div>
-                    <img class="w-full relative" src="{{ asset('images/machine.jpg') }}" alt="">
+                    <div class="w-full bg-[#E6F6FE] absolute lg:right-10 lg:top-10 right-6 top-6 h-full rounded z-20"></div>
+                    <img class="w-full relative z-20" src="{{ asset('images/machine.jpg') }}" alt="">
+                    <img class="w-[140px] md:bottom-[-40px] md:right-[-20px] lg:bottom-[-250px] bottom-[-80px] right-[-80px] absolute"
+                        src="{{ asset('images/dot1.png') }}" alt="">
                 </div>
+
             </div>
         </div>
 

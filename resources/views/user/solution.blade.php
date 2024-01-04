@@ -147,7 +147,7 @@ plan and construct data centers worldwide. We provide adaptable, scalable, and e
         </section>
         <style>
             .marquee div {
-                animation: marquee 1s linear infinite;
+                animation: marquee 5s linear infinite;
             }
 
             .marquee span {
@@ -169,12 +169,10 @@ plan and construct data centers worldwide. We provide adaptable, scalable, and e
                 bottom: -30px !important;
             }
 
-            [type=button],
+
             [type=reset],
             [type=submit],
-            button {
-                background-color: #112645 !important;
-            }
+
 
             .splide__arrow svg {
                 fill: white !important;
