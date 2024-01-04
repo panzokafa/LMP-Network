@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    <div class="min-h-screen flex flex-col items-center justify-center bg-white">
+    <div class="py-16 min-h-screen flex flex-col items-center justify-center bg-white">
         <div
             class="
           flex flex-col
