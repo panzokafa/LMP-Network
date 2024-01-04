@@ -64,6 +64,10 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 //     })->name('product');
 // });
 
+Route::get('testing', function () {
+    return view('user.testing'); // You can return any response you want here
+})->name('testing');
+
 Route::get('research', function () {
     return view('user.research'); // You can return any response you want here
 })->name('research');
@@ -134,6 +138,10 @@ Route::group(['prefix' => 'product'], function () {
         return view('user.product.mdc.row');
     })->name('product.mdc.row');
 
+    Route::get('mdc-outdoor', function () {
+        return view('user.product.mdc.outdoor');
+    })->name('product.mdc.outdoor');
+
     //Rack
 
     Route::get('rack-1', function () {
@@ -171,9 +179,21 @@ Route::group(['prefix' => 'product'], function () {
     })->name('product.container.dual-container');
 
     //centrinium
-    Route::get('containment-centrinium', function () {
-        return view('user.product.centrinium.centrinium-containment');
-    })->name('product.centrinium.centrinium-containment');
+    Route::get('centrinium-containment', function () {
+        return view('user.product.containment.centrinium-containment');
+    })->name('product.containment.centrinium-containment');
+
+    Route::get('hot-aisle-containment', function () {
+        return view('user.product.containment.hot-aisle-containment');
+    })->name('product.containment.hot-aisle-containment');
+
+    Route::get('cold-aisle-containment', function () {
+        return view('user.product.containment.cold-aisle-containment');
+    })->name('product.containment.cold-aisle-containment');
+
+    Route::get('half-containment', function () {
+        return view('user.product.containment.half-containment');
+    })->name('product.containment.half-containment');
 
 });
 // Route::get('/', function () {

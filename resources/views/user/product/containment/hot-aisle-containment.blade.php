@@ -6,13 +6,20 @@
         <div class="w-full flex lg:flex-row flex-col justify-between items-center mb-14 gap-12">
 
             <div class="inter  lg:w-1/2">
-                <div class="title xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold mb-5">Centrinium Containment
+                <div class="title xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold mb-5">Hot Aisle Containment
                 </div>
 
 
-                <div class="desc lg:text-xl sm:text-lg mb-5">Containment Data Center Cabinet Capacity 20 racks (Compatible
-                    with rack 42 - 45 RU environment monitoring system, sensor, automatic
-                    sliding door, fire suppression, Precission Air Conditioning and DCIM).
+                <div class="desc lg:text-xl sm:text-lg mb-5">Containment is a frame designed to regulate
+                    or trap air within it, both hot air and cold air.
+                    General description of Containment on the
+                    front and back there are doors using Temper
+                    Glass, on the right and left sides covered with
+                    Rack and on the top there is a ceiling in the
+                    form of UL94 (Fire Resistant) polycarbonate
+                    which can open automatically in the event of a
+                    fire and is also equipped with a cooling system,
+                    system security, Tray Cable Systems and EMS
                 </div>
 
                 <div class="desc flex lg:flex-row flex-col lg:gap-7 gap-4  items-center">
@@ -27,7 +34,8 @@
                 </div>
             </div>
             <div class="flex items-center xl:justify-center lg:justify-end w-1/2 image flex flex-col items-center">
-                <img class="relative z-20 mb-5" src="{{ asset('images/product/centrinium.png') }}" alt="">
+                <img class="relative z-20 mb-5" src="{{ asset('images/product/containment/hot-aisle-containment.png') }}"
+                    alt="">
                 <div class="flex gap-10 items-center">
                     <img class="max-lg:scale-75" src="{{ asset('images/product/p3dn.png') }}" alt="">
 
@@ -64,6 +72,43 @@ style as the server rack',
                     <div class="flex items-center gap-2 text-lg {{ 'item-' . $i }}">
                         <div class="lg:min-h-3  lg:min-w-3 min-w-2 min-h-2 bg-[#A0A0A0] rounded-full"></div>
                         <div class="max-lg:text-sm">{{ $char[$i] }}</div>
+                    </div>
+                @endfor
+            </div>
+
+            <div class="lg:text-3xl sm:text-2xl text-xl font-semibold text-biru mb-7">
+                Similar products
+            </div>
+
+            <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
+                @php
+                    $image = ['half-containment', 'centrinium-containment', 'cold-aisle-containment'];
+                    $title = ['Half Containment ', 'Centrinium Containment', 'Cold Aisle Containment'];
+                    $desc = [
+                        'The containment design is adjusted space
+                        in the data center roomwhich usually has 1
+                        rowadjacent to the wall so that onthe part
+                        adjacent to the wall is replacedwith temper
+                        glass.',
+                        'Containment Data Center Cabinet Capacity 20 racks (Compatible
+with rack 42 - 45 RU environment monitoring system, sensor, automatic
+sliding door, fire suppression, Precission Air Conditioning and DCIM).',
+                        'Containment is a frame designed to regulate
+                        or trap air within it, both hot air and cold air.
+                        General description of Containment on the
+                        front and back there are doors using Temper
+                        Glass, on the right and left sides covered with
+                        Rack and on the top there is a ceiling in the
+                        form of UL94 (Fire Resistant) polycarbonate
+                        which can open automatically in the event of a
+                        fire and is also equipped with a cooling system,
+                        system security, Tray Cable Systems and EMS',
+                    ];
+                    $route = ['product.containment.half-containment', 'product.containment.centrinium-containment', 'product.containment.cold-aisle-containment'];
+                @endphp
+                @for ($i = 0; $i < 3; $i++)
+                    <div class="{{ 'product-' . $i }}"><x-product.box title="{{ $title[$i] }}" desc="{{ $desc[$i] }}"
+                            route="{{ $route[$i] }}" image="{{ 'containment/' . $image[$i] }}" />
                     </div>
                 @endfor
             </div>

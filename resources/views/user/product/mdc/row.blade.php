@@ -10,9 +10,9 @@
                 </div>
 
 
-                <div class="lg:text-xl sm:text-lg mb-5 desc">MDC fully integrated with closed rack, split cooling, 
+                <div class="lg:text-xl sm:text-lg mb-5 desc">MDC fully integrated with closed rack, split cooling,
                     UPS, battery, power distribution, security, monitoring
-                    and fire systems. Row cooling seamless integration 
+                    and fire systems. Row cooling seamless integration
                     with rack row and capacity expansion.
                 </div>
 
@@ -44,21 +44,31 @@
             </div>
             <div class="flex flex-col justify-center gap-4 mb-20 lg:mb-12">
                 @php
-                    $char = ['Standard 19-inch server cabinet, glass front door, sheet metal back door',
-                            '3 in 1 access control system(Pin/Fingerprint/RFID) and video monitoring system',
-                            'Rack mount power distribution, metering, and management for all the power lines',
-                            '2.5kW – 90kW rack / row mount precision cooling, seamlessly matched to the rack.',
-                            '48VDC power, or 3kVA – 200kVA rack mount or modular UPS system protect power continuity',
-                            'Independent cold / hot closed aisle are integrated at the front and rear of the cabinet, respectively',
-                            'Standard 10-inch integrated touch monitor screen, the monitoring system does not take up U space of the cabinet'];
+                    $char = ['Standard 19-inch server cabinet, glass front door, sheet metal back door', '3 in 1 access control system(Pin/Fingerprint/RFID) and video monitoring system', 'Rack mount power distribution, metering, and management for all the power lines', '2.5kW – 90kW rack / row mount precision cooling, seamlessly matched to the rack.', '48VDC power, or 3kVA – 200kVA rack mount or modular UPS system protect power continuity', 'Independent cold / hot closed aisle are integrated at the front and rear of the cabinet, respectively', 'Standard 10-inch integrated touch monitor screen, the monitoring system does not take up U space of the cabinet'];
                 @endphp
                 @for ($i = 0; $i < 7; $i++)
-                        <div class="flex items-center gap-2 text-lg {{ 'item-' . $i }}">
-                            <div class="lg:min-h-3  lg:min-w-3 min-w-2 min-h-2 bg-[#A0A0A0] rounded-full"></div>
-                            <div class="max-lg:text-sm">{{ $char[$i] }}</div>
-                        </div>
-
+                    <div class="flex items-center gap-2 text-lg {{ 'item-' . $i }}">
+                        <div class="lg:min-h-3  lg:min-w-3 min-w-2 min-h-2 bg-[#A0A0A0] rounded-full"></div>
+                        <div class="max-lg:text-sm">{{ $char[$i] }}</div>
+                    </div>
                 @endfor
+            </div>
+
+            <div class="lg:text-3xl sm:text-2xl text-xl font-semibold text-biru mb-7 title">
+                Similar products
+            </div>
+
+            <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
+                <div class="product-1"><x-product.box title="MDC Outdoor 3-Rack With Rack
+                    Cooling"
+                        desc="MDC fully integrated with 3 rack space,
+                        rack cooling, AC/DC power, battery, power 
+                        distribution, security, monitoring and fire
+                        systems. IP55 protection and thermal insulated
+                        for outdoor deployment -35C ~ 45C ambient."
+                        route="product.mdc.outdoor" image="mdc/mdc outdoor" />
+                </div>
+
             </div>
 
         </div>

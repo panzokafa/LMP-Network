@@ -6,16 +6,19 @@
         <div class="w-full flex lg:flex-row flex-col justify-between items-center mb-14 gap-12">
 
             <div class="inter  lg:w-1/2">
-                <div class="title xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold mb-5">Centrinium Containment
+                <div class="xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold mb-5 title">MDC Outdoor 3-Rack With Rack
+                    Cooling
                 </div>
 
 
-                <div class="desc lg:text-xl sm:text-lg mb-5">Containment Data Center Cabinet Capacity 20 racks (Compatible
-                    with rack 42 - 45 RU environment monitoring system, sensor, automatic
-                    sliding door, fire suppression, Precission Air Conditioning and DCIM).
+                <div class="lg:text-xl sm:text-lg mb-5 desc">MDC fully integrated with 3 rack space,
+                    rack cooling, AC/DC power, battery, power
+                    distribution, security, monitoring and fire
+                    systems. IP55 protection and thermal insulated
+                    for outdoor deployment -35C ~ 45C ambient.
                 </div>
 
-                <div class="desc flex lg:flex-row flex-col lg:gap-7 gap-4  items-center">
+                <div class="flex lg:flex-row flex-col lg:gap-7 gap-4  items-center desc">
                     <div
                         class="font-semibold cursor-pointer hover:bg-white hover:border-2 hover:text-biru duration-300 hover:border-[#1780BB] border-2 border-[#3F73AE] py-3 px-4 bg-[#3F73AE] text-white rounded-md max-lg:w-full max-lg:text-center">
                         Pre
@@ -26,39 +29,24 @@
 
                 </div>
             </div>
-            <div class="flex items-center xl:justify-center lg:justify-end w-1/2 image flex flex-col items-center">
-                <img class="relative z-20 mb-5" src="{{ asset('images/product/centrinium.png') }}" alt="">
-                <div class="flex gap-10 items-center">
-                    <img class="max-lg:scale-75" src="{{ asset('images/product/p3dn.png') }}" alt="">
+            {{-- <div class="relative w-3/5">
+                <img class="relative z-20 w-full" src="{{ asset('images/research/1.jpg') }}" alt="">
+                <div class="absolute w-full h-full bg-[#E6F6FE] top-8 right-8">
 
-                    <div class="lg:text-2xl sm:txt-lg">46.99</div>
                 </div>
+            </div> --}}
+            <div class="flex items-center xl:justify-center lg:justify-end w-1/2">
+                <img class="relative z-20 " src="{{ asset('images/product/mdc/mdc outdoor.png') }}" alt="">
             </div>
         </div>
 
         <div>
-            <div class="title text-biru font-semibold lg:text-3xl sm:text-2xl text-xl mb-8">
+            <div class="text-biru font-semibold lg:text-3xl sm:text-2xl text-xl mb-8 title">
                 Key Characteristics
             </div>
-
             <div class="flex flex-col justify-center gap-4 mb-20 lg:mb-12">
                 @php
-                    $char = [
-                        'Monitoring System : Module-level monitoring system +  local touch screen, supporting 3D, 
-temperature cloud map and asset management, etc',
-                        'Cabling System : Row-level cable ladder supports wiring between two columns of racks,
-and M-type cabling on the top of the rack supports isolated wiring',
-                        'Closed Aisle System : It consists of horizontally expanding modular skylights, supports and
-doors, which can be opened automatically.',
-                        'Access Door : All-glass door design  electric sliding door  assembly, support  fingerprint +
-password +  RFID access control',
-                        'Power System : Integrated design of modular UPS and power distribution cabinet, Independent
-configuration  is optional',
-                        'Server Rack : Standard 19-inch server cabinet, 75% front and rear mesh door through-hole ratio,
-static load up to 1800kg',
-                        'Cooling System : Row-mount Cooling system with DX or CW, the same appearance
-style as the server rack',
-                    ];
+                    $char = ['Standard 19-inch server cabinet, glass front door, sheet metal back door', '3 in 1 access control system(Pin/Fingerprint/RFID) and video monitoring system', 'Rack mount power distribution, metering, and management for all the power lines', '2.5kW – 90kW rack / row mount precision cooling, seamlessly matched to the rack.', '48VDC power, or 3kVA – 200kVA rack mount or modular UPS system protect power continuity', 'Independent cold / hot closed aisle are integrated at the front and rear of the cabinet, respectively', 'Standard 10-inch integrated touch monitor screen, the monitoring system does not take up U space of the cabinet'];
                 @endphp
                 @for ($i = 0; $i < 7; $i++)
                     <div class="flex items-center gap-2 text-lg {{ 'item-' . $i }}">
@@ -67,6 +55,22 @@ style as the server rack',
                     </div>
                 @endfor
             </div>
+
+            <div class="lg:text-3xl sm:text-2xl text-xl font-semibold text-biru mb-7 title">
+                Similar products
+            </div>
+
+            <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
+                <div class="product-1"><x-product.box title="MDC Row "
+                        desc="MDC fully integrated with closed rack, split cooling, 
+                        UPS, battery, power distribution, security, monitoring
+                        and fire systems. Row cooling seamless integration 
+                        with rack row and capacity expansion."
+                        route="product.mdc.row" image="mdc/MDC Row" />
+                </div>
+
+            </div>
+
         </div>
     </div>
 
@@ -99,7 +103,7 @@ style as the server rack',
             distance: '50px',
             origin: 'bottom'
         });
-        for (let i = 0; i < 9; i++) {
+        for (let i = 0; i < 10; i++) {
             ScrollReveal().reveal('.item-' + i, {
                 delay: 500 + i * 100,
                 duration: 1000,

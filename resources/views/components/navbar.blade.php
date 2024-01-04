@@ -15,10 +15,10 @@
         </a>
 
         <div
-            class="{{ Route::currentRouteName() == 'service' ? 'text-biru' : 'hover:text-biru' }} nav-hover nav h-full max-w-max cursor-pointer duration-300 flex flex-col items-center">
+            class="{{ Route::currentRouteName() == 'service' ? 'text-biru' : '' }} nav-hover nav h-full max-w-max cursor-pointer duration-300 flex flex-col items-center">
 
             <a href="{{ route('service') }}" class="relative">
-                <div class="xl:py-7 py-8">Product & Service</div>
+                <div class="xl:py-7 py-8 hover:text-biru">Product & Service</div>
                 <div
                     class="{{ Route::currentRouteName() == 'service' ? 'w-[120%]' : 'garis w-0' }} absolute right-[-10%] bottom-0 h-0.5 biru">
                 </div>
