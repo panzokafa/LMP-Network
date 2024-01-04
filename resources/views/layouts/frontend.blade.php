@@ -20,11 +20,24 @@
         rel="stylesheet">
 
     <!--splide-->
+    <script
+        src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js">
+    </script>
+
     <script>
+        new Splide('.splide').mount(window.splide.Extensions);
         document.addEventListener('DOMContentLoaded', function() {
 
+            const splide = new Splide('.splide', {
+                type: 'loop',
+                drag: 'free',
+                focus: 'center',
+                perPage: 3,
+                autoScroll: {
+                    speed: 1,
+                },
+            });
 
-            var splide = new Splide('.splide');
             splide.mount();
         });
     </script>

@@ -71,8 +71,8 @@ six continents. We specialize in providing tailor-made, pre-validated, and facto
 integrated cable landing station solutions that seamlessly blend value and rapid
 delivery. Our swift data center component deployments enable streamlined on-site assembly, requiring fewer personnel, no matter where you are in the world.
 ',
-'LMP Global Solutions streamlines core data center expansion effortlessly. Our innovative modular approach empowers clients, contractors, and consulting allies to seamlessly
-plan and construct data centers worldwide. We provide adaptable, scalable, and eco-efficient solutions that are pre-engineered, prefabricated, and rigorously pre-tested, ensuring swift on-site deployment and assembly. Our dedicated solutions team collaborates with IT, facilities, network, and security stakeholders, guiding you from inception to project completion.'
+                    'LMP Global Solutions streamlines core data center expansion effortlessly. Our innovative modular approach empowers clients, contractors, and consulting allies to seamlessly
+plan and construct data centers worldwide. We provide adaptable, scalable, and eco-efficient solutions that are pre-engineered, prefabricated, and rigorously pre-tested, ensuring swift on-site deployment and assembly. Our dedicated solutions team collaborates with IT, facilities, network, and security stakeholders, guiding you from inception to project completion.',
                 ];
             @endphp
             @for ($i = 0; $i < 4; $i++)
@@ -93,7 +93,7 @@ plan and construct data centers worldwide. We provide adaptable, scalable, and e
 
         </div>
 
-        <section class="splide sm:hidden fade">
+        {{-- <section class="splide sm:hidden fade">
             <div class="splide__track">
                 <ul class="splide__list">
                     @for ($i = 0; $i < 4; $i++)
@@ -114,13 +114,49 @@ plan and construct data centers worldwide. We provide adaptable, scalable, and e
 
                 </ul>
             </div>
-        </section>
+        </section> --}}
+
+        <div class="marquee w-full h-[100px] overflow-hidden relative">
+            <div class="block w-[200%] absolute overflow-hidden">
+                <span>
+                    <div>test</div>
+                    <div>test</div>
+                </span>
+                <span>
+                    <div>test</div>
+                    <div>test</div>
+                </span>
+                <span>
+                    <div>test</div>
+                    <div>test</div>
+                </span>
+            </div>
+        </div>
 
         <div class="flex justify-end text-xl pb-14 fade">
             <div class="cursor-pointer max-lg:hidden">Slide -></div>
         </div>
 
         <style>
+            .marquee div {
+                animation: marquee 1s linear infinite;
+            }
+
+            .marquee span {
+                float: left;
+                width: 50%;
+            }
+
+            @keyframes marquee {
+                0% {
+                    left: 0;
+                }
+
+                100% {
+                    left: -100%;
+                }
+            }
+
             .splide__pagination {
                 bottom: -30px !important;
             }

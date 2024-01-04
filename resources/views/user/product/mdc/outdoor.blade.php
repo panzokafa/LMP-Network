@@ -6,14 +6,16 @@
         <div class="w-full flex lg:flex-row flex-col justify-between items-center mb-14 gap-12">
 
             <div class="inter  lg:w-1/2">
-                <div class="xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold mb-5 title">MDC Row
+                <div class="xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold mb-5 title">MDC Outdoor 3-Rack With Rack
+                    Cooling
                 </div>
 
 
-                <div class="lg:text-xl sm:text-lg mb-5 desc">MDC fully integrated with closed rack, split cooling,
-                    UPS, battery, power distribution, security, monitoring
-                    and fire systems. Row cooling seamless integration
-                    with rack row and capacity expansion.
+                <div class="lg:text-xl sm:text-lg mb-5 desc">MDC fully integrated with 3 rack space,
+                    rack cooling, AC/DC power, battery, power
+                    distribution, security, monitoring and fire
+                    systems. IP55 protection and thermal insulated
+                    for outdoor deployment -35C ~ 45C ambient.
                 </div>
 
                 <div class="flex lg:flex-row flex-col lg:gap-7 gap-4  items-center desc">
@@ -34,7 +36,7 @@
                 </div>
             </div> --}}
             <div class="flex items-center xl:justify-center lg:justify-end w-1/2">
-                <img class="relative z-20 " src="{{ asset('images/product/mdc/MDC Row.png') }}" alt="">
+                <img class="relative z-20 " src="{{ asset('images/product/mdc/mdc outdoor.png') }}" alt="">
             </div>
         </div>
 
@@ -59,14 +61,12 @@
             </div>
 
             <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
-                <div class="product-1"><x-product.box title="MDC Outdoor 3-Rack With Rack
-                    Cooling"
-                        desc="MDC fully integrated with 3 rack space,
-                        rack cooling, AC/DC power, battery, power 
-                        distribution, security, monitoring and fire
-                        systems. IP55 protection and thermal insulated
-                        for outdoor deployment -35C ~ 45C ambient."
-                        route="product.mdc.outdoor" image="mdc/mdc outdoor" />
+                <div class="product-1"><x-product.box title="MDC Row "
+                        desc="MDC fully integrated with closed rack, split cooling, 
+                        UPS, battery, power distribution, security, monitoring
+                        and fire systems. Row cooling seamless integration 
+                        with rack row and capacity expansion."
+                        route="product.mdc.row" image="mdc/MDC Row" />
                 </div>
 
             </div>
