@@ -1,6 +1,8 @@
 <div
     class="nav-menu rounded-md shadow-lg z-30 absolute opacity-0 invisible w-full inset-x-0  duration-300 xl:top-[80px] top-[84px] bg-white py-12 px-20 text-left flex flex-col items-center">
     <div class="flex flex-wrap justify-between mb-10 w-full gap-x-5 gap-y-10">
+
+        <!--menu network-->
         <div class="">
             <div class="mb-8">
             <a href="{{route('network')}}" class="text-lg text-black font-semibold mb-8">LMP Networks</a>
@@ -88,12 +90,13 @@
 
                 {{-- </div> --}}
 
+                <!--menu Container MDC-->
                 <div class="text-biru cursor-pointer flex gap-4 relative max-w-max hover-link">
                     <div>Container MDC <i class="fa-solid fa-caret-right ml-2"></i>
 
                     </div>
 
-                    <!--Sub menu Rack-->
+                    <!--Sub menu container-->
                     <div
                         class="link invisible opacity-0 duration-300 border-[0.5px] border-black text-black text-sm absolute left-[120%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
                         <a href="{{ route('product.container.10ft') }}"

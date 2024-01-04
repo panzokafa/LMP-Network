@@ -2,21 +2,77 @@
 
 
 @section('content')
-    <div class="relative overflow-hidden">
-        <img class="banner object-cover lg:h-[65vh] sm:h-[40vh] h-[35vh]  w-full" src="{{ asset('images/banner/1.jpg') }}"
-            alt="">
+    <div class="slider">
+        <div class="relative overflow-hidden">
+            <img class="banner object-cover lg:h-[65vh] sm:h-[40vh] h-[35vh]  w-full" src="{{ asset('images/banner/1.jpg') }}"
+                alt="">
 
-        <div
-            class="header tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-xl lg:leading-normal md:leading-normal leading-normal w-1/2 2xl:w-2/5 xl:w-2/5 xl:pr-5 poppins  bruno text-white absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
-            Ultra High
-            Density
-            Edge Data Center <span class="text-hijau  bruno">For
-                Greener Data Center</span></div>
+            <div
+                class="header tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-xl lg:leading-normal md:leading-normal leading-normal w-1/2 2xl:w-2/5 xl:w-2/5 xl:pr-5 poppins  bruno text-white absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
+                Ultra High
+                Density
+                Edge Data Center <span class="text-hijau  bruno">For
+                    Greener Data Center</span></div>
 
-        <a href="{{ route('service') }}"
-            class="product md:text-xl absolute lg:right-24 md:right-14 right-8 md:bottom-16 font-normal bottom-8 text-white cursor-pointer">
-            Product <span class="text-biru font-medium md:text-2xl tetx-xl">-></span>
-        </a>
+            <a href="{{ route('service') }}"
+                class="product inter md:text-xl absolute lg:right-24 md:right-14 right-8 md:bottom-16 font-light bottom-8 text-white cursor-pointer">
+                PRODUCT <span class="text-biru font-medium md:text-2xl tetx-xl">-></span>
+            </a>
+        </div>
+
+        <!--Slide 2-->
+        <div class="relative overflow-hidden">
+            <img class="banner object-cover lg:h-[65vh] sm:h-[40vh] h-[35vh]  w-full"
+                src="{{ asset('images/banner/2.jpg') }}" alt="">
+            <div class="absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
+                <div
+                    class="header mb-8 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-xl lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
+                    Training & <br>
+                    Learning Center</div>
+
+                <a href="{{ route('learning') }}"
+                    class="font-medium hover:bg-white relativez-20 hover:text-black duration-300 lg:p-3 p-2 border rounded-lg text-white max-w-max poppins tracking-widest lg:text-base text-sm">Check
+                    Here <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+
+
+        </div>
+        <!--Slide 3-->
+        <div class="relative overflow-hidden">
+            <img class=" object-cover lg:h-[65vh] sm:h-[40vh] h-[35vh]  w-full" src="{{ asset('images/banner/3.jpg') }}"
+                alt="">
+            <div class="absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
+                <div
+                    class=" mb-8 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-xl lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
+                    Research & Developent</div>
+
+                <a href="{{ route('research') }}"
+                    class="font-medium hover:bg-white relativez-20 hover:text-black duration-300 lg:p-3 p-2 border rounded-lg text-white max-w-max poppins tracking-widest lg:text-base text-sm">Check
+                    Here <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+
+
+        </div>
+
+        <!--Slide 4-->
+        <div class="relative overflow-hidden">
+            <img class=" object-cover lg:h-[65vh] sm:h-[40vh] h-[35vh]  w-full" src="{{ asset('images/banner/4.jpg') }}"
+                alt="">
+            <div class="absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
+                <div
+                    class=" mb-8 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-xl lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
+                    Centrinium Container</div>
+
+                <a href="{{ route('centrinium') }}"
+                    class="font-medium hover:bg-white relativez-20 hover:text-black duration-300 lg:p-3 p-2 border rounded-lg text-white max-w-max poppins tracking-widest lg:text-base text-sm">Check
+                    Here <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+
+
+        </div>
     </div>
 
     <!--section 1-->
@@ -274,6 +330,35 @@
             <div class="inter font-semibold md:text-2xl text-lg pb-24">and many more... </div>
         </div>
     </div>
+    <style>
+        .bx-wrapper .bx-controls-direction a {
+            z-index: 0 !important;
+        }
+
+        .bx-wrapper .bx-pager {
+            bottom: 15px !important;
+        }
+
+        .bx-wrapper .bx-pager.bx-default-pager a:hover,
+        .bx-wrapper .bx-pager.bx-default-pager a.active,
+        .bx-wrapper .bx-pager.bx-default-pager a:focus {
+            background: white;
+
+        }
+
+        .bx-wrapper .bx-pager.bx-default-pager a {
+            background: none;
+            border: 1px white solid
+        }
+
+        .bx-wrapper {
+            margin-bottom: 0px !important;
+        }
+
+        .bx-wrapper {
+            border: 0 solid #fff !important;
+        }
+    </style>
 
 
     <script>

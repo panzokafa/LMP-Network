@@ -79,8 +79,8 @@
                     <div class="card flex justify-end relative lg:w-1/2 w-11/12 h-full relative right-3">
                         <div class="w-full border-2 border-[rgb(63,115,174)] absolute lg:left-8 left-4 h-full z-10">
                         </div>
-                        <img class="w-full relative lg:bottom-8 bottom-4 right-0 z-20" src="{{ asset('images/about/research.png') }}"
-                            alt="">
+                        <img class="w-full relative lg:bottom-8 bottom-4 right-0 z-20"
+                            src="{{ asset('images/about/research.png') }}" alt="">
                     </div>
 
                     <div class="xl:w-1/3 lg:w-1/2 relative max-lg:text-center">
@@ -96,7 +96,7 @@
                         </div>
                         <div class="desc">
                             <a href="{{ route('research') }}"
-                                class="flex gap-1 hover:text-biru-tua duration-300 cursor-pointer lg:text-xl text-lg text-biru font-medium">
+                                class="flex gap-1 max-lg:justify-center hover:text-biru-tua duration-300 cursor-pointer lg:text-xl text-lg text-biru font-medium">
                                 Read more
                                 <div class="">
                                     ->
