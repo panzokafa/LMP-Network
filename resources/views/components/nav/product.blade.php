@@ -1,8 +1,11 @@
 <div
     class="nav-menu rounded-md shadow-lg z-30 absolute opacity-0 invisible w-full inset-x-0  duration-300 xl:top-[80px] top-[84px] bg-white py-12 px-20 text-left flex flex-col items-center">
     <div class="flex flex-wrap justify-between mb-10 w-full gap-x-5 gap-y-10">
+
+        <!--menu network-->
         <div class="">
             <div class="text-lg font-semibold mb-8">LMP Networks</div>
+            <!--Sub menu network-->
 
             <div class="flex flex-col gap-4 text-sm">
                 <div class="text-biru cursor-pointer link">Cable Fiber Optic <i class="fa-solid fa-caret-right ml-2"></i>
