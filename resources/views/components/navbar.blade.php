@@ -69,7 +69,7 @@
 
         </div>
     @else
-        <div class="flex items-center gap-2 max-lg:hidden">
+        <div class="flex items-center gap-5 ">
             <a href="{{ route('user.profile') }}" class="poppins font-semibold flex gap-3 items-center ">
                 {{-- <img src={{ auth()->user()->profile_picture }} alt=""> --}}
                 <div class="w-10 h-auto brand-image img-circle elevation-3 ">
@@ -79,14 +79,15 @@
                         alt="">
                 </div>
 
-                <p class=" font-light">{{ auth()->user()->name }}</p>
+                <p class="max-lg:hidden font-light">{{ auth()->user()->name }}</p>
 
             </a>
-        </div>
 
-        <div class="lg:hidden">
+        <div class="lg:hidden ">
             <i id="navBtn" class="text-xl cursor-pointer fa-solid fa-bars lg:hidden block lg:text-black "></i>
         </div>
+    </div>
+
     @endguest
 </div>
 
@@ -98,23 +99,8 @@
         <div class="md:w-24 w-20 h-auto">
             <img src="{{ asset('images/logo1.png') }}" alt="">
         </div>
-        @guest
 
-            <div class="poppins font-semibold flex lg:gap-7 gap-4 items-center text-center">
-                <a href="{{ route('user.login') }}"
-                    class="max-sm:text-sm text-white cursor-pointer hover:text-biru duration-300">Login</a>
-                <a href="{{ route('user.register') }}"
-                    class="max-sm:text-sm relative cursor-pointer py-2 px-3 rounded-md text-white biru hover:bg-transparent hover:text-biru border-[#1780BB] border-2 duration-300">Sign
-                    up</a>
-
-                <i id="x" class="fa-solid fa-xmark text-2xl text-white cursor-pointer"></i>
-
-
-            </div>
-        @else
-            <i id="x" class="fa-solid fa-xmark text-2xl text-white cursor-pointer"></i>
-
-        @endguest
+        <i id="x" class="fa-solid fa-xmark text-2xl text-white cursor-pointer"></i>
 
     </div>
 
@@ -159,6 +145,23 @@
             <div class="">Support</div>
             <i class="fa-solid fa-arrow-right "></i>
         </a>
+
+        @guest
+
+            <a href="{{ route('user.login') }}"
+                class=" text-center justify-center font-medium mt-10 max-sm:text-sm relative cursor-pointer py-2 px-3  text-black white hover:bg-transparent hover:text-white bg-white border-[#fff] border-2 duration-300">Login</a>
+            <a href="{{ route('user.register') }}"
+                class=" text-center justify-center font-medium mt-3 max-sm:text-sm relative cursor-pointer py-2 px-3  text-white biru hover:bg-transparent hover:text-biru border-[#1780BB] border-2 duration-300">Sign
+                up</a>
+
+        @else
+        <form action="{{ route('user.logout') }}" method="GET">
+            @csrf
+            <button type="submit"
+                class=" mt-5 rounded-sm bg-red-600 lg:block px-4  py-2 text-sm text-white hover:bg-red-500 ">Log out</button>
+        </form>
+
+        @endguest
     </div>
     {{-- <script>
         // Ambil referensi elemen
