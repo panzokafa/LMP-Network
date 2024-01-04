@@ -48,10 +48,10 @@ Bekasi - Jawa Barat',
         <div class="tracking-[5px] font-semibold opensans lg:text-3xl sm:-2xl text-xl mb-3">SUBSCRIBE</div>
         <div class="lg:mb-6 mb-4 lg:text-xl sm:text-lg inter">Join us to receive product news and industry updates from us
         </div>
-        <a href="{{route('user.login')}}"
+        <a href="{{ route('user.login') }}"
             class="hover:biru duration-300 hover:text-white text-biru inter font-bold lg:text-xl sm:text-lg lg:px-5 px-3 lg:py-3 py-2 bg-white border border-[#2D5290] rounded cursor-pointer">
             JOIN WITH US
-        <a>
+        </a>
     </div>
 
     <script>

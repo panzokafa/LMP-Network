@@ -14,13 +14,18 @@
             </div>
         </a>
 
-        <a href="{{ route('service') }}"
-            class="{{ Route::currentRouteName() == 'service' ? 'text-biru' : 'hover:text-biru' }} xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer duration-300 flex flex-col items-center">
-            <div>Product & Service</div>
-            <div
-                class="{{ Route::currentRouteName() == 'service' ? 'w-[120%]' : 'garis w-0' }} absolute bottom-0 h-0.5 biru">
-            </div>
-        </a>
+        <div
+            class="{{ Route::currentRouteName() == 'service' ? 'text-biru' : 'hover:text-biru' }} nav-hover nav h-full max-w-max cursor-pointer duration-300 flex flex-col items-center">
+
+            <a href="{{ route('service') }}" class="relative">
+                <div class="xl:py-7 py-8">Product & Service</div>
+                <div
+                    class="{{ Route::currentRouteName() == 'service' ? 'w-[120%]' : 'garis w-0' }} absolute right-[-10%] bottom-0 h-0.5 biru">
+                </div>
+            </a>
+
+            <x-nav.product />
+        </div>
 
         <a href="{{ route('solution') }}"
             class="{{ Route::currentRouteName() == 'solution' ? 'text-biru' : 'hover:text-biru' }} xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer duration-300 flex flex-col items-center">
@@ -219,6 +224,11 @@
         .nav:hover .garis {
             transition-duration: 300ms;
             width: 120%
+        }
+
+        .nav-hover:hover .nav-menu {
+            opacity: 1;
+            visibility: visible;
         }
     </style>
 </div>

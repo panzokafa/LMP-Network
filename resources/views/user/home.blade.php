@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="relative overflow-hidden">
-        <img class="banner object-cover lg:h-[65vh] sm:h-[40vh] h-[35vh]  w-full" src="{{ asset('images/banner.jpg') }}"
+        <img class="banner object-cover lg:h-[65vh] sm:h-[40vh] h-[35vh]  w-full" src="{{ asset('images/banner/1.jpg') }}"
             alt="">
 
         <div
@@ -21,36 +21,37 @@
 
     <!--section 1-->
     <div class="lg:px-20 md:px-10 px-5">
-        <div class="lg:mb-44">
-            <div class="flex lg:flex-row flex-col justify-between lg:items-center py-14">
+        <div class="lg:mb-44 ">
+            <div class="flex lg:flex-row flex-col-reverse justify-between items-center py-14">
                 <div class="lg:w-4/5 relative">
                     {{-- <img class=" w-[140px] h-auto absolute top-[-100px] left-[-50px]" src="{{ asset('images/dot1.png') }}"
                         alt=""> --}}
-                    <div class="title text-hijau lg:text-4xl sm:text-3xl text-2xl md:mb-12 mb-5 bruno relative z-10">
+                    <div
+                        class="title text-hijau lg:text-4xl sm:text-3xl max-lg:text-center text-2xl md:mb-12 mb-5 bruno relative z-10">
                         GREEN
                     </div>
                     <div
-                        class="desc xl:leading-relaxed md:leading-8 leading-6  xl:text-3xl lg:text-xl text-lg tracking-wide inter relative z-10 font-normal md:w-2/3 max-sm:pr-5">
+                        class="desc xl:leading-relaxed md:leading-8 leading-6  xl:text-3xl lg:text-2xl sm:text-lg tracking-wide inter relative z-10 lg:font-normal font-medium md:w-2/3 max-lg:mx-auto max-lg:text-center max-lg:px-10">
                         Environmentally friendly technology
                         plays a crucial role in preserving the
                         sustainability of our planet
                     </div>
                 </div>
 
-                <div class="flex justify-end relative w-2/5 h-full max-lg:self-end top-10 image-1">
+                <div class="flex justify-end relative sm:w-2/5 w-3/5 h-full max-lg:mb-6 image-1">
                     <div
                         class="xl:w-96 lg:w-3/4 w-full  border-2 border-[#3F73AE] absolute right-10  max-lg:right-[-20px] max-lg:top-[-20px] max-md:right-[-8px] max-md:top-[-8px] h-full rounded">
                     </div>
-                    <img class="xl:w-96 lg:w-3/4 w-full  relative lg:top-8 lg:right-24 top-0 right-0 left-0"
+                    <img class="xl:w-96 lg:w-3/4  relative lg:top-8 lg:right-24 top-0 right-0 left-0"
                         src="{{ asset('images/2.jpg') }}" alt="">
                 </div>
             </div>
         </div>
 
         <!--section 2-->
-        <div class="lg:mb-48 max-lg:top-[-120px] relative">
-            <div class="flex lg:flex-row flex-col lg:items-center justify-between   relative ">
-                <div class="image-2 flex relative lg:w-2/5 w-1/2 h-full max-lg:mb-10">
+        <div class="lg:mb-48 relative z-10">
+            <div class="flex lg:flex-row flex-col items-center lg:justify-between justify-center  relative ">
+                <div class="image-2 flex relative lg:w-1/3 w-4/5 h-full max-lg:mb-10">
                     <img class="w-full relative z-10 lg:bottom-8 md:bottom-5 bottom-2" src="{{ asset('images/1.jpg') }}"
                         alt="">
                     <div
@@ -60,8 +61,9 @@
 
                 <div class=" relative lg:w-7/12  w-full max-lg:text-center lg:px-11">
                     <div
-                        class="title xl:text-3xl lg:text-xl text-lg tracking-wide inter font-normal xl:leading-10 sm:leading-8 mb-5">
-                        This technology paves the way to a cleaner and greener world, as much as we can live a modern lifestyle without distractions the earth where we live.
+                        class="title xl:text-3xl lg:text-2xl sm:text-lg tracking-wide inter lg:font-normal font-medium xl:leading-10 sm:leading-8 mb-5">
+                        This technology paves the way to a cleaner and greener world, as much as we can live a modern
+                        lifestyle without distractions the earth where we live.
                     </div>
                     <a href="{{ route('user.about') }}"
                         class="desc hover:scale-110 max-lg:hidden text-biru hover font-normal text-xl relative max-lg:top-[-70px] cursor-pointer max-w-max">
@@ -72,9 +74,11 @@
         </div>
 
         <a href="{{ route('user.about') }}"
-            class="title lg:hidden items-center flex justify-center text-center text-biru font-medium text-lg relative max-lg:top-[-120px] cursor-pointer max-w-max mx-auto">
+            class="title lg:hidden items-center flex justify-center text-center text-biru font-medium text-lg relative cursor-pointer max-w-max mx-auto mb-10">
             WHY LMP
         </a>
+
+
 
 
         <!--banner biru--->
@@ -241,22 +245,28 @@
                 benefits solutions to meet all their needs.</div>
 
             <div
-                class="flex flex-wrap xl:gap-x-32 gap-x-20 items-center justify-center  gap-y-16 md:mb-24 mb-10 2xl:px-44">
+                class="lg:grid lg:grid-cols-5 max-lg:flex flex-wrap xl:gap-x-32 gap-x-20 items-center justify-center  gap-y-16 md:mb-24 mb-10 2xl:px-44">
+                <img src="{{ null }}" class="logo-1 md:w-32 w-28 h-auto max-lg:hidden">
                 <img src="{{ asset('images/sponsor/keuangan.png') }}" class="logo-1 md:w-32 w-28 h-auto">
                 <img src="{{ asset('images/sponsor/kementrian.png') }}" class="logo-2 md:w-32 w-28 h-auto">
                 <img src="{{ asset('images/sponsor/kominfo.png') }}" class="logo-3 md:w-32 w-28 h-auto">
+                <img src="{{ null }}" class="logo-1 md:w-32 w-28 h-auto max-lg:hidden">
                 <img src="{{ asset('images/sponsor/psn.png') }}" class="logo-4 md:w-32 w-28 h-auto">
                 <img src="{{ asset('images/sponsor/mandiri.png') }}" class="logo-4 md:w-32 w-28 h-auto">
                 <img src="{{ asset('images/sponsor/telkomsel.png') }}" class="logo-6 md:w-32 w-28 h-auto">
                 <img src="{{ asset('images/sponsor/telkomsigma.png') }}" class="logo-7 md:w-32 w-28 h-auto">
                 <img src="{{ asset('images/sponsor/telkomakses.png') }}" class="logo-8 md:w-32 w-28 h-auto">
+                <img src="{{ asset('images/sponsor/tcm.png') }}" class="logo-8 md:w-32 w-28 h-auto">
                 <img src="{{ asset('images/sponsor/indosat.png') }}" class="logo-9 md:w-32 w-28 h-auto">
                 <img src="{{ asset('images/sponsor/jasamarga.png') }}" class="logo-10 md:w-32 w-28 h-auto">
                 <img src="{{ asset('images/sponsor/peruri.png') }}" class="logo-11 md:w-32 w-28 h-auto">
                 <img src="{{ asset('images/sponsor/snl.png') }}" class="logo-12 md:w-32 w-28 h-auto">
+                <img src="{{ null }}" class="logo-1 md:w-32 w-28 h-auto max-lg:hidden">
                 <img src="{{ asset('images/sponsor/pegadaian.png') }}" class="logo-13 md:w-32 w-28 h-auto">
                 <img src="{{ asset('images/sponsor/freeport.png') }}" class="logo-14 md:w-32 w-28 h-auto">
                 <img src="{{ asset('images/sponsor/bukopin.png') }}" class="logo-15 md:w-32 w-28 h-auto">
+                <img src="{{ null }}" class="logo-1 md:w-32 w-28 h-auto max-lg:hidden">
+
             </div>
             <div class="inter font-semibold md:text-2xl text-lg pb-24">and many more... </div>
         </div>
