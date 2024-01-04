@@ -45,6 +45,9 @@
                     </div>
 
                 </div>
+
+                <!--menu Outdoor MDC-->
+
                 <div>Outdoor MDC <i class="fa-solid fa-caret-right ml-2"></i>
 
                 </div>
@@ -54,7 +57,7 @@
 
                     </div>
 
-                    <!--Sub menu Rack-->
+                    <!--Sub Row Rack-->
                     <div
                         class="link invisible opacity-0 duration-300 border-[0.5px] border-black text-black text-sm absolute left-[120%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
                         <a href="{{ route('product.mdc.top') }}"
@@ -71,12 +74,13 @@
 
                 </div>
 
+                <!--menu Container MDC-->
                 <div class="text-biru cursor-pointer flex gap-4 relative max-w-max hover-link">
                     <div>Container MDC <i class="fa-solid fa-caret-right ml-2"></i>
 
                     </div>
 
-                    <!--Sub menu Rack-->
+                    <!--Sub menu container-->
                     <div
                         class="link invisible opacity-0 duration-300 border-[0.5px] border-black text-black text-sm absolute left-[120%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
                         <a href="{{ route('product.mdc.top') }}"
@@ -97,6 +101,7 @@
         <div class="">
             <div class="text-lg font-semibold mb-8">LMP Renewable Energy</div>
 
+            <!--Sub menu Energy-->
             <div class="flex flex-col gap-4 text-sm whitespace-nowrap">
                 <div class="text-biru cursor-pointer link">Energy Storage <i class="fa-solid fa-caret-right ml-2"></i>
                 </div>
