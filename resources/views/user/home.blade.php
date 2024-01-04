@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <div class="slider">
+    <div class="slider absolute">
         <div class="relative overflow-hidden">
             <img class="banner object-cover lg:h-[65vh] sm:h-[40vh] h-[35vh]  w-full" src="{{ asset('images/banner/1.jpg') }}"
                 alt="">
@@ -161,13 +161,13 @@
             <div class="flex lg:flex-row flex-col-reverse justify-between items-center">
                 <div class="lg:w-4/5 relative ">
                     <div
-                        class="title xl:text-3xl lg:text-xl text-lg tracking-widest inter relative z-10 font-light lg:w-4/5 xl:leading-relaxed leading-10 lg:mb-5 mb-8 max-lg:text-center">
+                        class="title xl:text-3xl lg:text-xl sm:text-lg lg:tracking-widest tracking-wider inter relative z-10 lg:font-light lg:w-4/5 xl:leading-relaxed lg:leading-10 lg:mb-5 mb-8 max-lg:text-center">
                         Renewable energy sources are emerging as bright stars in the shift towards a clean and sustainable
                         future.
                     </div>
                     <div class="desc">
                         <a href="{{ route('energy') }}"
-                            class="flex gap-2 items-center hover:gap-6 max-w-max duration-300 cursor-pointer xl:text-xl lg:text-lg max-lg:text-center text-biru font-normal max-lg:mx-auto">
+                            class="flex gap-2 items-center hover:gap-6 max-w-max duration-300 cursor-pointer xl:text-xl lg:text-lg max-lg:text-center text-biru font-medium max-lg:mx-auto">
                             <div>Check Here</div>
                             <div>
                                 ->
@@ -194,13 +194,13 @@
             <div class="flex lg:flex-row-reverse flex-col-reverse lg:justify-between justify-center items-center xl:pr-20">
                 <div class="lg:w-1/3 relative">
                     <div
-                        class="block title xl:text-3xl lg:text-xl text-lg tracking-widest inter relative z-10 font-light lg:w-full xl:leading-relaxed leading-10 lg:mb-5 mb-8 max-lg:text-center">
+                        class="block title xl:text-3xl lg:text-xl sm:text-lg lg:tracking-widest tracking-wider inter relative z-10 lg:font-light lg:w-full xl:leading-relaxed lg:leading-10 lg:mb-5 mb-8 max-lg:text-center">
                         Great solution to your interesting request
                     </div>
 
                     <div class="desc">
                         <a href="{{ route('solution') }}"
-                            class="flex gap-2 items-center hover:gap-6 max-w-max duration-300 cursor-pointer xl:text-xl lg:text-lg max-lg:text-center text-biru font-normal max-lg:mx-auto">
+                            class="flex gap-2 items-center hover:gap-6 max-w-max duration-300 cursor-pointer xl:text-xl lg:text-lg max-lg:text-center text-biru font-medium max-lg:mx-auto">
                             <div>Check Here</div>
                             <div>
                                 ->
@@ -373,7 +373,7 @@
         });
 
         ScrollReveal().reveal('.product', {
-            delay: 600,
+            delay: 00,
             duration: 1000,
             distance: '100px',
             origin: 'right'

@@ -14,8 +14,14 @@
 
     <div class="lg:px-20 sm:px-10 px-5">
 
-        <div class="xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold text-center lg:mb-24 mb-12 title-2">
-            Efficient & Personalized Process
+        <div
+            class="relative xl:text-4xl max-w-max mx-auto lg:text-3xl sm:text-2xl text-xl font-bold text-center lg:mb-24 mb-12 title-2">
+            <div class="relative z-10">
+                Efficient & Personalized Process
+            </div>
+
+            <img class="lg:w-36 w-20 absolute lg:top-[-230%] top-[-100%] lg:left-[-50px] left-[-30px]"
+                src="{{ asset('images/dot1.png') }}" alt="">
         </div>
 
         <div class="grid xl:grid-cols-4 lg:grid-cols-2 justify-center lg:gap-8 gap-12 items-center lg:mb-40 lg:mb-20 mb-16">
@@ -55,26 +61,8 @@
         <div class="xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold text-center lg:mb-20 mb-16 title-2">
             Customized for your needs
         </div>
-
+        {{--
         <div class=" lg:gap-16 gap-10 overflow-x-scroll no-scrollbar pb-10 fade sm:flex hidden">
-            @php
-                $title = ['Edge Data Center', 'Micro Data Center', 'Cable Landing Station', 'Core Data Center'];
-
-                $title2 = ['Customize your edge computing with LMP global solutions', 'LMP micro data centers tailored for your needs', 'Leverage LMP global solutions for customized cable landing stations', 'Build flexible, scalable and efficient core data centers with LMP'];
-                $desc = [
-                    'LMP Global Solutions revolutionizes the edge with cutting-edge, tailored data centers that supercharge deployment, reduce risks, and optimize expenses. Deploy an array of custom modular edge data centers, ranging from dozens to hundreds, to amplify flexibility, enhance scalability, and elevate efficiency.',
-                    'LMP Global Solutions revolutionizes data centers, harmonizing power, cooling, monitoring, and racks to match your unique business demands. Our expert team partners with you, guiding from inception to implementation, freeing you to prioritize your core mission. Our micro data centers offer an innovative approach to flexibly deploy capacity anywhere.',
-                    '
-LMP Global Solutions boasts an unparalleled global presence in crafting modular
-data centers, spanning the globe with successful cable landing station setups on
-six continents. We specialize in providing tailor-made, pre-validated, and factory-
-integrated cable landing station solutions that seamlessly blend value and rapid
-delivery. Our swift data center component deployments enable streamlined on-site assembly, requiring fewer personnel, no matter where you are in the world.
-',
-                    'LMP Global Solutions streamlines core data center expansion effortlessly. Our innovative modular approach empowers clients, contractors, and consulting allies to seamlessly
-plan and construct data centers worldwide. We provide adaptable, scalable, and eco-efficient solutions that are pre-engineered, prefabricated, and rigorously pre-tested, ensuring swift on-site deployment and assembly. Our dedicated solutions team collaborates with IT, facilities, network, and security stakeholders, guiding you from inception to project completion.',
-                ];
-            @endphp
             @for ($i = 0; $i < 4; $i++)
                 <div class="lg:min-w-[44%] min-w-[80%]">
                     <div class="font-bold lg:text-2xl text-xl mb-3">
@@ -91,13 +79,33 @@ plan and construct data centers worldwide. We provide adaptable, scalable, and e
                 </div>
             @endfor
 
-        </div>
+        </div> --}}
 
-        {{-- <section class="splide sm:hidden fade">
+        @php
+            $title = ['Edge Data Center', 'Micro Data Center', 'Cable Landing Station', 'Core Data Center'];
+
+            $title2 = ['Customize your edge computing with LMP global solutions', 'LMP micro data centers tailored for your needs', 'Leverage LMP global solutions for customized cable landing stations', 'Build flexible, scalable and efficient core data centers with LMP'];
+            $desc = [
+                'LMP Global Solutions revolutionizes the edge with cutting-edge, tailored data centers that supercharge deployment, reduce risks, and optimize expenses. Deploy an array of custom modular edge data centers, ranging from dozens to hundreds, to amplify flexibility, enhance scalability, and elevate efficiency.',
+                'LMP Global Solutions revolutionizes data centers, harmonizing power, cooling, monitoring, and racks to match your unique business demands. Our expert team partners with you, guiding from inception to implementation, freeing you to prioritize your core mission. Our micro data centers offer an innovative approach to flexibly deploy capacity anywhere.',
+                '
+LMP Global Solutions boasts an unparalleled global presence in crafting modular
+data centers, spanning the globe with successful cable landing station setups on
+six continents. We specialize in providing tailor-made, pre-validated, and factory-
+integrated cable landing station solutions that seamlessly blend value and rapid
+delivery. Our swift data center component deployments enable streamlined on-site assembly, requiring fewer personnel, no matter where you are in the world.
+',
+                'LMP Global Solutions streamlines core data center expansion effortlessly. Our innovative modular approach empowers clients, contractors, and consulting allies to seamlessly
+plan and construct data centers worldwide. We provide adaptable, scalable, and eco-efficient solutions that are pre-engineered, prefabricated, and rigorously pre-tested, ensuring swift on-site deployment and assembly. Our dedicated solutions team collaborates with IT, facilities, network, and security stakeholders, guiding you from inception to project completion.',
+            ];
+        @endphp
+
+        <!--SLIDER DESKTOP-->
+        <section id="splide" class="splide max-md:hidden mb-36">
             <div class="splide__track">
                 <ul class="splide__list">
                     @for ($i = 0; $i < 4; $i++)
-                        <div class="splide__slide px-14 text-center">
+                        <div class="splide__slide px-14">
                             <div class="font-bold lg:text-2xl text-xl mb-3">
                                 {{ $title[$i] }}
                             </div>
@@ -111,32 +119,32 @@ plan and construct data centers worldwide. We provide adaptable, scalable, and e
                             </div>
                         </div>
                     @endfor
-
                 </ul>
             </div>
-        </section> --}}
+        </section>
 
-        <div class="marquee w-full h-[100px] overflow-hidden relative">
-            <div class="block w-[200%] absolute overflow-hidden">
-                <span>
-                    <div>test</div>
-                    <div>test</div>
-                </span>
-                <span>
-                    <div>test</div>
-                    <div>test</div>
-                </span>
-                <span>
-                    <div>test</div>
-                    <div>test</div>
-                </span>
+        <!--SLIDER MOBILE-->
+        <section id="splide2" class="splide md:hidden mb-16">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    @for ($i = 0; $i < 4; $i++)
+                        <div class="splide__slide px-5">
+                            <div class="font-bold text-lg mb-3">
+                                {{ $title[$i] }}
+                            </div>
+
+                            <div class="mb-3 lg:text-lg font-medium">
+                                {{ $title2[$i] }}
+                            </div>
+
+                            <div class="lg:text-lg">
+                                {{ $desc[$i] }}
+                            </div>
+                        </div>
+                    @endfor
+                </ul>
             </div>
-        </div>
-
-        <div class="flex justify-end text-xl pb-14 fade">
-            <div class="cursor-pointer max-lg:hidden">Slide -></div>
-        </div>
-
+        </section>
         <style>
             .marquee div {
                 animation: marquee 1s linear infinite;

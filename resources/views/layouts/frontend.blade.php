@@ -41,20 +41,32 @@
     </script>
 
     <script>
-        new Splide('.splide').mount(window.splide.Extensions);
         document.addEventListener('DOMContentLoaded', function() {
 
-            const splide = new Splide('.splide', {
+            const splide = new Splide('#splide', {
                 type: 'loop',
                 drag: 'free',
                 focus: 'center',
-                perPage: 3,
+                perPage: 2,
                 autoScroll: {
                     speed: 1,
                 },
             });
+            splide.mount(window.splide.Extensions);
+        });
 
-            splide.mount();
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const splide2 = new Splide('#splide2', {
+                type: 'loop',
+                drag: 'free',
+                focus: 'center',
+                perPage: 1,
+                autoScroll: {
+                    speed: 1,
+                },
+            });
+            splide2.mount(window.splide.Extensions);
         });
     </script>
     <!--font awesome-->
