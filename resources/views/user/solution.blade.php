@@ -56,7 +56,7 @@
             Customized for your needs
         </div>
 
-        <div class=" lg:gap-16 gap-10 overflow-x-scroll no-scrollbar pb-10 fade sm:flex hidden">
+        <div class=" lg:gap-16 gap-10 overflow-x-scroll no-scrollbar pb-10 fade sm:flex hidden ">
             @php
                 $title = ['Edge Data Center', 'Micro Data Center', 'Cable Landing Station', 'Core Data Center'];
 
@@ -119,11 +119,11 @@ plan and construct data centers worldwide. We provide adaptable, scalable, and e
         <div class="marquee w-full h-[100px] overflow-hidden relative">
             <div class="block w-[200%] absolute overflow-hidden">
                 <span>
-                    <div>test</div>
+                    <div>WOII</div>
                     <div>test</div>
                 </span>
                 <span>
-                    <div>test</div>
+                    <div>MANTAB</div>
                     <div>test</div>
                 </span>
                 <span>
@@ -139,7 +139,7 @@ plan and construct data centers worldwide. We provide adaptable, scalable, and e
 
         <style>
             .marquee div {
-                animation: marquee 1s linear infinite;
+                animation: marquee 5s linear infinite;
             }
 
             .marquee span {

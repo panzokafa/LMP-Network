@@ -74,8 +74,8 @@
 
         </div>
     @else
-        <div class="  relative flex items-center gap-5 nav-hover">
-            <div  class="poppins font-semibold flex gap-3 items-center nav-hover ">
+        <div class="  relative flex items-center gap-5 ">
+            <div  class="poppins font-semibold flex gap-3 items-center  hover-link">
                 {{-- <img src={{ auth()->user()->profile_picture }} alt=""> --}}
                 <div class="w-10 h-auto brand-image img-circle elevation-3 ">
                     @php($profile_picture = auth()->user()->profile_picture)
@@ -86,7 +86,7 @@
 
                 <p class="max-lg:hidden font-light">{{ auth()->user()->name }}</p>
                 <div
-                class="nav-menu opacity-0 duration-300 border-[0.5px] border-black text-black text-sm absolute w-40 xl:top-[50px] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                class="link opacity-0 duration-300 border-[0.5px] border-black text-black text-sm absolute w-40 xl:top-[50px] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
                 <a href="{{ route('user.profile') }}"
                     class="py-2 px-4 border-b w-3/4  duration-300 block">Profile</a>
                     <form action="{{ route('user.logout') }}" method="GET">
