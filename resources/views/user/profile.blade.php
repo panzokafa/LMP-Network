@@ -63,13 +63,9 @@
         </div>
 
         <div>
-            <div class="justify-center text-center font-bold text-2xl lg:mb-5 mb-10 flex flex-row lg:gap-24 ">
+            <div class=" lg:justify-start justify-center text-center font-bold text-2xl lg:mb-5 mb-10 flex flex-row lg:gap-24 ">
                 Personal Data
-                <form action="{{ route('user.logout') }}" method="GET">
-                    @csrf
-                    <button type="submit"
-                        class=" rounded-sm bg-red-600 lg:block px-4 hidden py-2 text-sm text-white hover:bg-red-500 ">Log out</button>
-                </form>
+
             </div>
 
 

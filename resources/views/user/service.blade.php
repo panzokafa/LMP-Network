@@ -89,7 +89,7 @@
                     Suppression Systems, Monitoring Systems and DCIM.</div>
 
                 <div class="flex flex-col lg:gap-6 gap-4">
-                    <a href="{{ route('product.centrinium.centrinium-containment') }}"
+                    <a href="{{ route('product.containment.centrinium-containment') }}"
                         class="text-biru cursor-pointer link">Centrinium <div
                             class="inline opacity-0 duration-300 arrow ml-1">
                             ->

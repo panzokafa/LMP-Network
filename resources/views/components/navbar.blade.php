@@ -74,8 +74,8 @@
 
         </div>
     @else
-        <div class="flex items-center gap-5 ">
-            <a href="{{ route('user.profile') }}" class="poppins font-semibold flex gap-3 items-center ">
+        <div class="  relative flex items-center gap-5 nav-hover">
+            <div  class="poppins font-semibold flex gap-3 items-center nav-hover ">
                 {{-- <img src={{ auth()->user()->profile_picture }} alt=""> --}}
                 <div class="w-10 h-auto brand-image img-circle elevation-3 ">
                     @php($profile_picture = auth()->user()->profile_picture)
@@ -85,8 +85,20 @@
                 </div>
 
                 <p class="max-lg:hidden font-light">{{ auth()->user()->name }}</p>
+                <div
+                class="nav-menu opacity-0 duration-300 border-[0.5px] border-black text-black text-sm absolute w-40 xl:top-[50px] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                <a href="{{ route('user.profile') }}"
+                    class="py-2 px-4 border-b w-3/4  duration-300 block">Profile</a>
+                    <form action="{{ route('user.logout') }}" method="GET">
+                        @csrf
+                        <button type="submit"
+                            class="py-2 px-4 border-b w-1/2 duration-300 block text-red-500">Log out</button>
+                    </form>
 
-            </a>
+
+
+            </div>
+            </div>
 
         <div class="lg:hidden ">
             <i id="navBtn" class="text-xl cursor-pointer fa-solid fa-bars lg:hidden block lg:text-black "></i>
@@ -104,9 +116,19 @@
         <div class="md:w-24 w-20 h-auto">
             <img src="{{ asset('images/logo1.png') }}" alt="">
         </div>
+        <div class="flex gap-5 justify-normal">
+        @guest
 
-        <i id="x" class="fa-solid fa-xmark text-2xl text-white cursor-pointer"></i>
+        @else
+        <form action="{{ route('user.logout') }}" method="GET">
+            @csrf
+            <button type="submit"
+                class=" mt-5 rounded-sm bg-red-600 lg:block px-4  py-2 text-sm text-white hover:bg-red-500 ">Log out</button>
+        </form>
+        @endguest
 
+        <i id="x" class=" mt-5 fa-solid fa-xmark text-2xl text-white cursor-pointer"></i>
+        </div>
     </div>
 
     <div class="relative z-20 px-8 pr-12 flex flex-col ">
@@ -160,11 +182,7 @@
                 up</a>
 
         @else
-        <form action="{{ route('user.logout') }}" method="GET">
-            @csrf
-            <button type="submit"
-                class=" mt-5 rounded-sm bg-red-600 lg:block px-4  py-2 text-sm text-white hover:bg-red-500 ">Log out</button>
-        </form>
+
 
         @endguest
     </div>
@@ -233,5 +251,11 @@
             opacity: 1;
             visibility: visible;
         }
+
+        .hover-link:hover .link {
+        visibility: visible;
+        opacity: 1;
+    }
+
     </style>
 </div>
