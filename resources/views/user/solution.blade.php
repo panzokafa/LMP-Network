@@ -161,12 +161,10 @@ plan and construct data centers worldwide. We provide adaptable, scalable, and e
                 bottom: -30px !important;
             }
 
-            [type=button],
+
             [type=reset],
             [type=submit],
-            button {
-                background-color: #112645 !important;
-            }
+
 
             .splide__arrow svg {
                 fill: white !important;
