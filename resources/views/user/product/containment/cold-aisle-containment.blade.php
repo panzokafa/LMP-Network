@@ -43,22 +43,53 @@
                 </div>
             </div>
         </div>
+        <div>
+            <div class="title text-biru font-semibold lg:text-3xl sm:text-2xl text-xl mb-8">
+                Key Characteristics
+            </div>
 
-        <div class="lg:text-3xl sm:text-2xl text-xl font-semibold text-biru mb-7">
-            Similar products
-        </div>
+            <div class="flex flex-col justify-center gap-4 mb-20 lg:mb-12">
+                @php
+                    $char = [
+                        'Monitoring System : Module-level monitoring system +  local touch screen, supporting 3D, 
+temperature cloud map and asset management, etc',
+                        'Cabling System : Row-level cable ladder supports wiring between two columns of racks,
+and M-type cabling on the top of the rack supports isolated wiring',
+                        'Closed Aisle System : It consists of horizontally expanding modular skylights, supports and
+doors, which can be opened automatically.',
+                        'Access Door : All-glass door design  electric sliding door  assembly, support  fingerprint +
+password +  RFID access control',
+                        'Power System : Integrated design of modular UPS and power distribution cabinet, Independent
+configuration  is optional',
+                        'Server Rack : Standard 19-inch server cabinet, 75% front and rear mesh door through-hole ratio,
+static load up to 1800kg',
+                        'Cooling System : Row-mount Cooling system with DX or CW, the same appearance
+style as the server rack',
+                    ];
+                @endphp
+                @for ($i = 0; $i < 7; $i++)
+                    <div class="flex items-center gap-2 text-lg {{ 'item-' . $i }}">
+                        <div class="lg:min-h-3  lg:min-w-3 min-w-2 min-h-2 bg-[#A0A0A0] rounded-full"></div>
+                        <div class="max-lg:text-sm">{{ $char[$i] }}</div>
+                    </div>
+                @endfor
+            </div>
 
-        <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
-            @php
-                $image = ['half-containment', 'hot-aisle-containment', 'centrinium-containment'];
-                $title = ['Half Containment ', 'Hot Aisle Containment', 'Centrinium Containment'];
-                $desc = [
-                    'The containment design is adjusted space
+            <div class="lg:text-3xl sm:text-2xl text-xl font-semibold text-biru mb-7">
+                Similar products
+            </div>
+
+            <div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
+                @php
+                    $image = ['half-containment', 'hot-aisle-containment', 'centrinium-containment'];
+                    $title = ['Half Containment ', 'Hot Aisle Containment', 'Centrinium Containment'];
+                    $desc = [
+                        'The containment design is adjusted space
                     in the data center roomwhich usually has 1
                     rowadjacent to the wall so that onthe part
                     adjacent to the wall is replacedwith temper
                     glass.',
-                    'Containment is a frame designed to regulate
+                        'Containment is a frame designed to regulate
                     or trap air within it, both hot air and cold air.
                     General description of Containment on the
                     front and back there are doors using Temper
@@ -68,19 +99,19 @@
                     which can open automatically in the event of a
                     fire and is also equipped with a cooling system,
                     system security, Tray Cable Systems and EMS',
-                    'Containment Data Center Cabinet Capacity 20 racks (Compatible
+                        'Containment Data Center Cabinet Capacity 20 racks (Compatible
                     with rack 42 - 45 RU environment monitoring system, sensor, automatic
                     sliding door, fire suppression, Precission Air Conditioning and DCIM).',
-                ];
-                $route = ['product.containment.half-containment', 'product.containment.hot-aisle-containment', 'product.containment.centrinium-containment'];
-            @endphp
-            @for ($i = 0; $i < 3; $i++)
-                <div class="{{ 'product-' . $i }}"><x-product.box title="{{ $title[$i] }}" desc="{{ $desc[$i] }}"
-                        route="{{ $route[$i] }}" image="{{ 'containment/' . $image[$i] }}" />
-                </div>
-            @endfor
+                    ];
+                    $route = ['product.containment.half-containment', 'product.containment.hot-aisle-containment', 'product.containment.centrinium-containment'];
+                @endphp
+                @for ($i = 0; $i < 3; $i++)
+                    <div class="{{ 'product-' . $i }}"><x-product.box title="{{ $title[$i] }}" desc="{{ $desc[$i] }}"
+                            route="{{ $route[$i] }}" image="{{ 'containment/' . $image[$i] }}" />
+                    </div>
+                @endfor
+            </div>
         </div>
-    </div>
     </div>
 
     <script>

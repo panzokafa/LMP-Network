@@ -7,21 +7,21 @@
                 <div class="opensans md:text-xl text-white mb-4 max-xl:text-center">Connect with us</div>
 
                 <div class="flex items-center max-xl:justify-center gap-5 mb-4">
-                    <a href="https://www.facebook.com/profile.php?id=100092982135974"  target='_blank'>
-                    <img class="lg:w-8 w-7 h-auto cursor-pointer duration-100 hover:scale-125"
-                        src="{{ asset('images/sosmed/facebook.png') }}" alt="">
+                    <a href="https://www.facebook.com/profile.php?id=100092982135974" target='_blank'>
+                        <img class="lg:w-8 w-7 h-auto cursor-pointer duration-100 hover:scale-125"
+                            src="{{ asset('images/sosmed/facebook.png') }}" alt="">
                     </a>
                     <a href="https://www.linkedin.com/company/lmp-networks/" target='_blank'>
-                    <img class="lg:w-8 w-7 h-auto cursor-pointer duration-100 hover:scale-125"
-                        src="{{ asset('images/sosmed/linkedin.png') }}" alt="">
+                        <img class="lg:w-8 w-7 h-auto cursor-pointer duration-100 hover:scale-125"
+                            src="{{ asset('images/sosmed/linkedin.png') }}" alt="">
                     </a>
                     <a href="">
-                    <img class="lg:w-8 w-7 h-auto cursor-pointer duration-100 hover:scale-125"
-                        src="{{ asset('images/sosmed/twitter.png') }}" alt="">
+                        <img class="lg:w-8 w-7 h-auto cursor-pointer duration-100 hover:scale-125"
+                            src="{{ asset('images/sosmed/twitter.png') }}" alt="">
                     </a>
                     <a href="https://www.instagram.com/lmp.networks/" target='_blank'>
-                    <img class="lg:w-8 w-7 h-auto cursor-pointer duration-100 hover:scale-125"
-                        src="{{ asset('images/sosmed/instagram.png') }}" alt="">
+                        <img class="lg:w-8 w-7 h-auto cursor-pointer duration-100 hover:scale-125"
+                            src="{{ asset('images/sosmed/instagram.png') }}" alt="">
                     </a>
                 </div>
 
@@ -77,25 +77,30 @@
 
                         <div id="productList"
                             class="flex flex-col gap-3 text-sm max-md:px-3 max-md:mb-3 z-10 max-md:hidden duration-100 relative">
-                            <a href="{{route('network')}}"
+                            <a href="{{ route('network') }}"
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
                                 LMP Networks
                             </a>
-                            <a href="{{route('energy')}}"
+                            <a href="{{ route('centrinium') }}"
+                                class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
+                                LMP Centrinium
+                            </a>
+                            <a href="{{ route('energy') }}"
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
                                 LMP Renewable Energy
-                            </a >
+                            </a>
                             <a
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
                                 LMP Edge DC
-                            </a >
-                            <a href="{{route('polymer')}}"
+                            </a>
+                            <a href="{{ route('polymer') }}"
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
                                 LMP Polymer
-                            </a >
-                            <a href="{{route('service')}}" class="cursor-pointer hover:text-biru duration-100 max-md:py-3">
+                            </a>
+                            <a href="{{ route('service') }}"
+                                class="cursor-pointer hover:text-biru duration-100 max-md:py-3">
                                 LMP Service
-                            </a >
+                            </a>
 
                         </div>
                     </div>
@@ -114,7 +119,7 @@
 
                         <div id="aboutList"
                             class="flex flex-col gap-3 text-sm max-md:px-3 max-md:mb-3 z-10 max-md:hidden duration-100 relative ">
-                            <a href="{{route('user.about')}}"
+                            <a href="{{ route('user.about') }}"
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
                                 About LMP</a>
                             <div
