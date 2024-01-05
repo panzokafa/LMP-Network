@@ -12,7 +12,7 @@
                 <div class="h-1 lg:w-[130%] w-full biru lg:my-5 my-3"></div>
             </div>
 
-            <div class="desc lg:text-lg pr-8 sm:text-lg">LMP offers essential infrastructure technology and
+            <div class="desc lg:text-lg lg:pr-8 sm:text-lg">LMP offers essential infrastructure technology and
                 specialized solutions that can be swiftly implemented
                 to meet your business needs
             </div>
@@ -79,7 +79,7 @@
                 </div>
             </div>
 
-            <div class="item">
+            <div class="item relative z-10">
                 <div class="mb-5 relative">
                     <a href="{{ route('centrinium') }}"
                         class="relative z-10 xl:text-4xl lg:text-4xl sm:text-3xl text-2xl mb-5">LMP
@@ -107,20 +107,19 @@
                             </div>
                         </div>
                         <div
-                            class="link invisible duration-300 opacity-0 border-[0.5px] border-black text-black text-sm absolute left-[100%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
-                            <a href="{{ route('product.mdc.top') }}"
-                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">MDC With
-                                Top Cooling</a>
-                            <a href="{{ route('product.mdc.row') }}"
-                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">MDC With
-                                Row Cooling</a>
-                            <a href="{{ route('product.mdc.rack-split') }}"
-                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">MDC With
-                                Rack
-                                Split Cooling</a>
-                            <a href="{{ route('product.mdc.row-split') }}"
-                                class="py-2 px-4 hover:bg-[#1780BB] hover:text-white duration-300 block">MDC With Row
-                                Split Cooling</a>
+                            class="link z-20 invisible duration-300 opacity-0 border-[0.5px] border-black text-black text-sm absolute lg:left-[100%] left-[90%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                            <a href="{{ route('product.rack.1') }}"
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">1-Rack
+                                MDC With Rack Cooling</a>
+                            <a href="{{ route('product.rack.2') }}"
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">2-Rack
+                                MDC With Rack Cooling</a>
+                            <a href="{{ route('product.rack.2.row') }}"
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">2-Rack
+                                MDC Row With Rack Cooling</a>
+                            <a href="{{ route('product.rack.3') }}"
+                                class="py-2 px-4 hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">3-Rack
+                                MDC With Rack Cooling</a>
 
                         </div>
 
@@ -141,18 +140,22 @@
                             </div>
                         </div>
                         <div
-                            class="link invisible duration-300 opacity-0 border-[0.5px] border-black text-black text-sm absolute left-[100%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                            class="z-20 link invisible duration-300 opacity-0 border-[0.5px] border-black text-black text-sm absolute lg:left-[100%] left-[90%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
                             <a href="{{ route('product.mdc.top') }}"
-                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">MDC With
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">MDC
+                                With
                                 Top Cooling</a>
                             <a href="{{ route('product.mdc.row') }}"
-                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">MDC With
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">MDC
+                                With
                                 Row Cooling</a>
                             <a href="{{ route('product.mdc.rack-split') }}"
-                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">MDC With
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">MDC
+                                With
                                 Rack Split Cooling</a>
                             <a href="{{ route('product.mdc.row-split') }}"
-                                class="py-2 px-4 hover:bg-[#1780BB] hover:text-white duration-300 block">MDC With Row Split
+                                class="py-2 px-4 hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">MDC
+                                With Row Split
                                 Cooling</a>
 
                         </div>
@@ -164,18 +167,18 @@
                             </div>
                         </div>
                         <div
-                            class="link invisible duration-300 opacity-0 border-[0.5px] border-black text-black text-sm absolute left-[100%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                            class="link invisible duration-300 opacity-0 border-[0.5px] border-black text-black text-sm absolute lg:left-[100%] left-[90%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
                             <a href="{{ route('product.container.10ft') }}"
-                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">10F
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">10F
                                 Container</a>
                             <a href="{{ route('product.container.20ft') }}"
-                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">20F
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">20F
                                 Container</a>
                             <a href="{{ route('product.container.40ft') }}"
-                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block">40F
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">40F
                                 Container</a>
                             <a href="{{ route('product.container.dual-container') }}"
-                                class="py-2 px-4 hover:bg-[#1780BB] hover:text-white duration-300 block">Expandable
+                                class="py-2 px-4 hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">Expandable
                                 Container</a>
 
                         </div>
