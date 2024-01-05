@@ -14,11 +14,11 @@
             <div class="title w-full h-1 biru relative z-10"></div>
         </div>
 
-        <div class="grid xl:grid-cols-4 sm:grid-cols-2 gap-20 justify-center items-center">
+        <div class="grid xl:grid-cols-4 sm:grid-cols-2 gap-20 justify-center items-start">
             @php
                 $title = ['Visit Us', 'WhatsApp', 'Call Us', 'Email'];
 
-                $link = [null, 'WhatsApp', null, 'Email'];
+                $link = [null, 'https://wa.me/082320218200', null, 'https://mail.google.com/mail/u/0/#inbox?compose=info@lmp-networks.com'];
 
                 $desc = [
                     'Harapan Indah Boulevard

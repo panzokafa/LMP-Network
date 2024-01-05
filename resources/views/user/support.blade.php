@@ -62,8 +62,14 @@
                             specialized trainings can take place at LMP Learning or at your location
                             upon request.
 
-                            <div class="text-biru text-base pt-5 desc-2 cursor-pointer">
-                                <a href="{{route('learning')}}" class="text-biru text-base pt-5 desc-2 arrow cursor-pointer">Read More -></a>
+                            <div class="text-biru text-base pt-5 desc poppins relative cursor-pointer lg:tracking-normal">
+                                <a href="{{ route('learning') }}"
+                                class="flex gap-1 max-lg:justify-center hover:text-biru-tua duration-300 cursor-pointer lg:text-xl text-lg text-biru font-normal">
+                                Read More
+                                <div class="">
+                                    ->
+                                </div>
+                            </a>
                             </div>
                             </div>
 

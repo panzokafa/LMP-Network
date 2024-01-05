@@ -96,8 +96,8 @@
                         </div>
                         <div class="desc">
                             <a href="{{ route('research') }}"
-                                class="flex gap-1 max-lg:justify-center hover:text-biru-tua duration-300 cursor-pointer lg:text-xl text-lg text-biru font-medium">
-                                Read more
+                                class="flex gap-1 max-lg:justify-center hover:text-biru-tua duration-300 cursor-pointer lg:text-xl text-lg text-biru font-normal">
+                                Read More
                                 <div class="">
                                     ->
                                 </div>

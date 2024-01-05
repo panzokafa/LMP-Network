@@ -8,7 +8,7 @@
                 alt="">
 
             <div
-                class="header tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal w-1/2 2xl:w-2/5 xl:w-2/5 xl:pr-5 poppins  bruno text-white absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
+                class="header tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal w-1/2 2xl:w-2/5 xl:w-2/5 xl:pr-5 poppins  bruno text-white absolute  sm:top-[35%] top-[30%] left-6 md:left-10 lg:left-20">
                 Ultra High
                 Density
                 Edge Data Center <span class="text-hijau  bruno">For
@@ -26,7 +26,7 @@
                 src="{{ asset('images/banner/2.jpg') }}" alt="">
             <div class="absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
                 <div
-                    class="header lg:mb-8 mb-5 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
+                    class="lg:mb-8 mb-5 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
                     Training & <br>
                     Learning Center</div>
 
