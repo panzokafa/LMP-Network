@@ -18,7 +18,7 @@
             @php
                 $title = ['Visit Us', 'WhatsApp', 'Call Us', 'Email'];
 
-                $link = [null, 'https://wa.me/082320218200', null, 'https://mail.google.com/mail/u/0/#inbox?compose=info@lmp-networks.com'];
+                $link = [null, 'https://wa.me/082320218200', null, 'mailto:info@lmp-networks.com'];
 
                 $desc = [
                     'Harapan Indah Boulevard

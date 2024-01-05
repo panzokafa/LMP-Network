@@ -8,7 +8,20 @@
                 Partner </div>
             <div class="w-full h-1 biru"></div>
         </div>
+
         <img class="object-cover w-full h-full banner" src="{{ asset('images/partner/bg.jpg') }}" alt="">
+    </div>
+
+    <div class="flex flex-col lg:gap-x-24 gap-x-14  w-full justify-center items-center lg:pt-16 pt-12 lg:px-44 sm:px-10 px-5">
+        <div class="tracking-wider poppins lg:text-2xl text-lg">
+            Member Of
+        </div>
+        <div class="lg:mr-4 mr-2">
+        <img class="lg:mr-4 mr-2 max-lg:w-[130px] max-sm:w-[110px] " src="{{asset('images/partner/Ashrae.jpg')}}" alt="">
+        </div>
+        <div class="tracking-wider poppins lg:text-2xl text-lg">
+            Since December 2023
+        </div>
     </div>
 
     <div
