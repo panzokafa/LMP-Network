@@ -85,15 +85,15 @@
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
                                 LMP Renewable Energy
                             </a >
-                            <a
+                            <a href="{{route('nex-t')}}"
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
-                                LMP Edge DC
+                                LMP Nex-T Edge DC 360
                             </a >
                             <a href="{{route('polymer')}}"
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
                                 LMP Polymer
                             </a >
-                            <a href="{{route('service')}}" class="cursor-pointer hover:text-biru duration-100 max-md:py-3">
+                            <a href="{{route('learning')}}" class="cursor-pointer hover:text-biru duration-100 max-md:py-3">
                                 LMP Service
                             </a >
 

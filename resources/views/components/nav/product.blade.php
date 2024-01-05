@@ -36,7 +36,7 @@
                     class="link invisible opacity-0 duration-300 border-[0.5px] border-black text-black text-sm absolute left-[120%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
                     <a href="{{ route('product.mdc.top') }}"
                         class="py-2 px-4 border-b hover:bg-[#E6F6FE] duration-300 block">MDC With Top Cooling</a>
-                    <a href="{{ route('product.mdc.row') }}"
+                    <a href="{{ route('product.mdc.row-package') }}"
                         class="py-2 px-4 border-b hover:bg-[#E6F6FE]  duration-300 block">MDC With Row Cooling</a>
                     <a href="{{ route('product.mdc.rack-split') }}"
                         class="py-2 px-4 border-b hover:bg-[#E6F6FE]  duration-300 block">MDC With Rack Split

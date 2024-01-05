@@ -6,7 +6,7 @@
 
     <div class="flex flex-wrap lg:gap-36 gap-10 justify-center items-center lg:mb-28 mb-14">
         @php
-            $text = ['Single Mode Patchcord Jumper', 'Multi Mode OM3 Jumper', 'Multi Mode OM4 Jumper'];
+            $text = ['Single Mode OM2 Jumper', 'Multi Mode OM3 Jumper', 'Multi Mode OM4 Jumper'];
         @endphp
         @for ($i = 1; $i < 4; $i++)
             <div class="text-center {{ 'content-' . $i }}">
