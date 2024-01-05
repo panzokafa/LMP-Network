@@ -8,15 +8,15 @@
                 alt="">
 
             <div
-                class="header tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-xl lg:leading-normal md:leading-normal leading-normal w-1/2 2xl:w-2/5 xl:w-2/5 xl:pr-5 poppins  bruno text-white absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
+                class="header tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal w-1/2 2xl:w-2/5 xl:w-2/5 xl:pr-5 poppins  bruno text-white absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
                 Ultra High
                 Density
                 Edge Data Center <span class="text-hijau  bruno">For
                     Greener Data Center</span></div>
 
             <a href="{{ route('service') }}"
-                class="product inter md:text-xl absolute lg:right-24 md:right-14 right-8 md:bottom-16 font-light bottom-8 text-white cursor-pointer">
-                PRODUCT <span class="text-biru font-medium md:text-2xl tetx-xl">-></span>
+                class="product inter sm:text-xl text-sm absolute lg:right-24 md:right-14 right-8 md:bottom-16 font-light bottom-8 text-white cursor-pointer">
+                PRODUCT <span class="text-biru font-medium md:text-2xl sm:tetx-xl text-lg">-></span>
             </a>
         </div>
 
@@ -26,12 +26,12 @@
                 src="{{ asset('images/banner/2.jpg') }}" alt="">
             <div class="absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
                 <div
-                    class="header mb-8 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-xl lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
+                    class="header lg:mb-8 mb-5 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
                     Training & <br>
                     Learning Center</div>
 
                 <a href="{{ route('learning') }}"
-                    class="font-medium hover:bg-white relativez-20 hover:text-black duration-300 lg:p-3 p-2 border rounded-lg text-white max-w-max poppins tracking-widest lg:text-base text-sm">Check
+                    class="font-medium hover:bg-white relativez-20 hover:text-black duration-300 lg:p-3 p-2 border rounded-lg text-white max-w-max poppins tracking-widest lg:text-base sm:text-sm text-xs">Check
                     Here <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
@@ -44,11 +44,11 @@
                 alt="">
             <div class="absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
                 <div
-                    class=" mb-8 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-xl lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
+                    class=" lg:mb-8 mb-5 pr-5 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
                     Research & Developent</div>
 
                 <a href="{{ route('research') }}"
-                    class="font-medium hover:bg-white relativez-20 hover:text-black duration-300 lg:p-3 p-2 border rounded-lg text-white max-w-max poppins tracking-widest lg:text-base text-sm">Check
+                    class="font-medium hover:bg-white relativez-20 hover:text-black duration-300 lg:p-3 p-2 border rounded-lg text-white max-w-max poppins tracking-widest lg:text-base sm:text-sm text-xs">Check
                     Here <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
@@ -62,11 +62,11 @@
                 alt="">
             <div class="absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
                 <div
-                    class=" mb-8 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-xl lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
+                    class=" lg:mb-8 mb-5 pr-5 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
                     Centrinium Container</div>
 
                 <a href="{{ route('centrinium') }}"
-                    class="font-medium hover:bg-white relativez-20 hover:text-black duration-300 lg:p-3 p-2 border rounded-lg text-white max-w-max poppins tracking-widest lg:text-base text-sm">Check
+                    class="font-medium hover:bg-white relativez-20 hover:text-black duration-300 lg:p-3 p-2 border rounded-lg text-white max-w-max poppins tracking-widest lg:text-base sm:text-sm text-xs">Check
                     Here <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
@@ -284,7 +284,8 @@
 
                 <div class="image-1 flex justify-end relative lg:w-1/2 w-10/12 h-full max-md:left-2">
 
-                    <div class="w-full bg-[#E6F6FE] absolute lg:right-10 lg:top-10 right-6 top-6 h-full rounded z-20"></div>
+                    <div class="w-full bg-[#E6F6FE] absolute lg:right-10 lg:top-10 right-6 top-6 h-full rounded z-20">
+                    </div>
                     <img class="w-full relative z-20" src="{{ asset('images/machine.jpg') }}" alt="">
                     <img class="w-[140px] md:bottom-[-40px] md:right-[-20px] lg:bottom-[-250px] bottom-[-80px] right-[-80px] absolute"
                         src="{{ asset('images/dot1.png') }}" alt="">
