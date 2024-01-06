@@ -18,7 +18,7 @@
             class="{{ Route::currentRouteName() == 'service' ? 'text-biru' : '' }} nav-hover nav h-full max-w-max cursor-pointer duration-300 flex flex-col items-center">
 
             <a href="{{ route('service') }}" class="relative">
-                <div class="xl:py-7 py-8 hover:text-biru">Product & Service</div>
+                <div class="xl:py-7 py-8 hover:text-biru">Product & Solution</div>
                 <div
                     class="{{ Route::currentRouteName() == 'service' ? 'w-[120%]' : 'garis w-0' }} absolute right-[-10%] bottom-0 h-0.5 biru">
                 </div>
@@ -29,7 +29,7 @@
 
         <a href="{{ route('solution') }}"
             class="{{ Route::currentRouteName() == 'solution' ? 'text-biru' : 'hover:text-biru' }} xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer duration-300 flex flex-col items-center">
-            <div>Solution</div>
+            <div>Services</div>
             <div
                 class="{{ Route::currentRouteName() == 'solution' ? 'w-[120%]' : 'garis w-0' }} absolute bottom-0 h-0.5 biru">
             </div>
@@ -145,13 +145,13 @@
 
         <a href="{{ route('service') }}"
             class="flex justify-between items-center py-5 text-white font-bold border-b-[1px]  hover:bg-white cursor-pointer duration-100 hover:px-5 hover:text-black">
-            <div class="">Product & Service</div>
+            <div class="">Product & Solution</div>
             <i class="fa-solid fa-arrow-right "></i>
         </a>
 
         <a href="{{ route('solution') }}"
             class="flex justify-between items-center py-5 text-white font-bold border-b-[1px]  hover:bg-white cursor-pointer duration-100 hover:px-5 hover:text-black">
-            <div class="">Solution</div>
+            <div class="">Services</div>
             <i class="fa-solid fa-arrow-right "></i>
         </a>
 

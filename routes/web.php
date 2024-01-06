@@ -72,11 +72,13 @@ Route::get('research', function () {
     return view('user.research'); // You can return any response you want here
 })->name('research');
 
-Route::get('service', function () {
+// ini sebenarnya service tapi revisi
+Route::get('product&solution', function () {
     return view('user.service'); // You can return any response you want here
 })->name('service');
 
-Route::get('solution', function () {
+// ini sebenarnya solution tapi revisi
+Route::get('services', function () {
     return view('user.solution'); // You can return any response you want here
 })->name('solution');
 

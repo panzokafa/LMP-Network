@@ -3,6 +3,7 @@
 
 @section('content')
     <div class="slider absolute">
+        {{-- slide ultra high --}}
         <div class="relative overflow-hidden">
             <img class="banner object-cover lg:h-[65vh] sm:h-[40vh] h-[35vh]  w-full" src="{{ asset('images/banner/1.jpg') }}"
                 alt="">
@@ -20,50 +21,14 @@
             </a>
         </div>
 
-        <!--Slide 2-->
-        <div class="relative overflow-hidden">
-            <img class="banner object-cover lg:h-[65vh] sm:h-[40vh] h-[35vh]  w-full"
-                src="{{ asset('images/banner/2.jpg') }}" alt="">
-            <div class="absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
-                <div
-                    class="lg:mb-8 mb-5 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
-                    Training & <br>
-                    Learning Center</div>
-
-                <a href="{{ route('learning') }}"
-                    class="font-medium hover:bg-white relativez-20 hover:text-black duration-300 lg:p-3 p-2 border rounded-lg text-white max-w-max poppins tracking-widest lg:text-base sm:text-sm text-xs">Check
-                    Here <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-
-
-
-        </div>
-        <!--Slide 3-->
-        <div class="relative overflow-hidden">
-            <img class=" object-cover object-left lg:h-[65vh] sm:h-[40vh] h-[35vh] relative w-full"
-                src="{{ asset('images/banner/3.jpg') }}" alt="">
-            <div class="absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
-                <div
-                    class=" lg:mb-8 mb-5 pr-5 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
-                    Research & Developent</div>
-
-                <a href="{{ route('research') }}"
-                    class="font-medium hover:bg-white relativez-20 hover:text-black duration-300 lg:p-3 p-2 border rounded-lg text-white max-w-max poppins tracking-widest lg:text-base sm:text-sm text-xs">Check
-                    Here <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-
-
-
-        </div>
-
-        <!--Slide 4-->
+        <!--Slide Containment-->
         <div class="relative overflow-hidden">
             <img class=" object-cover lg:h-[65vh] sm:h-[40vh] h-[35vh]  w-full" src="{{ asset('images/banner/4.jpg') }}"
                 alt="">
             <div class="absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
                 <div
                     class=" lg:mb-8 mb-5 pr-5 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
-                    Centrinium Container</div>
+                    Centrinium Containment</div>
 
                 <a href="{{ route('centrinium') }}"
                     class="font-medium hover:bg-white relativez-20 hover:text-black duration-300 lg:p-3 p-2 border rounded-lg text-white max-w-max poppins tracking-widest lg:text-base sm:text-sm text-xs">Check
@@ -73,7 +38,123 @@
 
 
         </div>
+
+    <!--Slide Research-->
+    <div class="relative overflow-hidden">
+        <img class=" object-cover object-left lg:h-[65vh] sm:h-[40vh] h-[35vh] relative w-full"
+            src="{{ asset('images/banner/3.jpg') }}" alt="">
+        <div class="absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
+            <div
+                class=" lg:mb-8 mb-5 pr-5 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
+                Research & Developent</div>
+
+            <a href="{{ route('research') }}"
+                class="font-medium hover:bg-white relativez-20 hover:text-black duration-300 lg:p-3 p-2 border rounded-lg text-white max-w-max poppins tracking-widest lg:text-base sm:text-sm text-xs">Check
+                Here <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+
+
     </div>
+
+
+
+
+    <!--Slide MDC-->
+    <div class="relative overflow-hidden">
+        <img class=" object-cover object-left lg:h-[65vh] sm:h-[40vh] h-[35vh] relative w-full"
+            src="{{ asset('images/banner/mdcrow.jpg') }}" alt="">
+        <div class="absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
+            <div
+                class=" lg:mb-8 mb-5 pr-5 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
+                MDC ROW</div>
+        </div>
+
+
+
+    </div>
+
+    <!--Slide Centrinium-->
+    <div class="relative overflow-hidden">
+        <img class=" object-cover object-left lg:h-[65vh] sm:h-[40vh] h-[35vh] relative w-full"
+            src="{{ asset('images/banner/centrinium.jpg') }}" alt="">
+        <div class="absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
+            <div
+                class=" lg:mb-8 mb-5 pr-5 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
+                Centrinium OTB UHD</div>
+        </div>
+
+
+
+    </div>
+
+    <!--Slide Container-->
+    <div class="relative overflow-hidden">
+        <img class=" object-cover object-left lg:h-[65vh] sm:h-[40vh] h-[35vh] relative w-full"
+            src="{{ asset('images/banner/container.jpg') }}" alt="">
+        <div class="absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
+            <div
+                class=" lg:mb-8 mb-5 pr-5 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
+                AIO Container Data Center</div>
+        </div>
+
+
+
+    </div>
+
+    <!--Slide Training-->
+    <div class="relative overflow-hidden">
+        <img class="banner object-cover lg:h-[65vh] sm:h-[40vh] h-[35vh]  w-full" src="{{ asset('images/banner/2.jpg') }}"
+            alt="">
+        <div class="absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
+            <div
+                class="lg:mb-8 mb-5 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
+                Training Center</div>
+
+            <a href="{{ route('learning') }}"
+                class="font-medium hover:bg-white relativez-20 hover:text-black duration-300 lg:p-3 p-2 border rounded-lg text-white max-w-max poppins tracking-widest lg:text-base sm:text-sm text-xs">Check
+                Here <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+
+
+    </div>
+
+    <!--Slide Learning-->
+    <div class="relative overflow-hidden">
+        <img class=" object-cover object-left lg:h-[65vh] sm:h-[40vh] h-[35vh] relative w-full"
+            src="{{ asset('images/banner/learning.jpg') }}" alt="">
+        <div class="absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
+            <div
+                class=" lg:mb-8 mb-5 pr-5 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
+                Learning Center</div>
+
+            <a href="{{ route('learning') }}"
+                class="font-medium hover:bg-white relativez-20 hover:text-black duration-300 lg:p-3 p-2 border rounded-lg text-white max-w-max poppins tracking-widest lg:text-base sm:text-sm text-xs">Check
+                Here <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+
+
+    </div>
+
+    <!--Slide Corporate-->
+    <div class="relative overflow-hidden">
+        <img class=" object-cover object-left lg:h-[65vh] sm:h-[40vh] h-[35vh] relative w-full"
+            src="{{ asset('images/banner/corporate.jpg') }}" alt="">
+        <div class="absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
+            <div
+                class=" lg:mb-8 mb-5 pr-5 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
+                Corporate Social Responsibility</div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
 
     <!--section 1-->
     <div class="lg:px-20 md:px-10 px-5">
@@ -139,7 +220,8 @@
 
         <!--banner biru--->
         <div class="relative flex justify-center mb-32 max-w-fit m-auto ">
-            <img class="absolute w-36 h-auto left-[-50px] bottom-16" src="{{ asset('images/dot1.png') }}" alt="">
+            <img class="absolute w-36 h-auto left-[-50px] bottom-16" src="{{ asset('images/dot1.png') }}"
+                alt="">
             <div
                 class="box relative z-10 biru-muda flex-col flex md:gap-5 gap-2 md:py-7 py-4 lg:px-24 md:px-8 px-3 text-center max-w-max rounded">
                 <div class="inter font-bold xl:text-3xl lg:text-2xl sm:text-md text-lg">Your business needs a competitive

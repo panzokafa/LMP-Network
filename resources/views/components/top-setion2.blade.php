@@ -1,7 +1,7 @@
 <div
     class="w-full flex lg:flex-row flex-col-reverse justify-between items-center sm:mb-36 mb-28 max-lg:pt-14  max-lg:px-7">
 
-    <div class="inter lg:pl-20 lg:w-1/2 text-center lg:text-left 2xl:mt-0 relative lg:top-20 top-14">
+    <div class="inter lg:pl-20 lg:w-1/2 text-center lg:text-left 2xl:mt-0 relative lg:top-10 top-14">
 
         <div class="max-w-max max-lg:mx-auto lg:mb-10 mb-5 title">
             <div

@@ -2,228 +2,83 @@
 
 
 @section('content')
-    <x-top-setion2 title="Data Center Solution" subTitle="Architecture" theme="solution" image="solution/1"
-        desc="We present LMP EDGE DC, a revolutionary solution
-        to enhance efficiency, improve performance, and
-        optimize your best Edge data center. With an
-        approach that brings data processing closer to its
-        source, we deliver remarkable latency reduction for
-        maximum results in energy, cooling, and connectivity."
-        text="" />
+    <div class="py-12 max-lg:px-7 lg:pb-2">
+        <x-top-section title="LMP Service & Learning Center"
+            desc="Whether it's engineering, on-site project management,
+            energy-consumption monitoring, or something else,
+            LMP offers a wide range of programs and services to
+            support critical infrastructure needs"
+            image="learning/bg.jpg" />
 
-
-    <div class="lg:px-20 sm:px-10 px-5">
-
-        <div
-            class="relative xl:text-4xl max-w-max mx-auto lg:text-3xl sm:text-2xl text-xl font-bold text-center lg:mb-24 mb-12 title-2">
-            <div class="relative z-10">
-                Efficient & Personalized Process
-            </div>
-
-            <img class="lg:w-36 w-20 absolute lg:top-[-230%] top-[-100%] lg:left-[-50px] left-[-30px]"
-                src="{{ asset('images/dot1.png') }}" alt="">
-        </div>
-
-        <div class="grid xl:grid-cols-4 lg:grid-cols-2 justify-center lg:gap-8 gap-12 items-center lg:mb-40 lg:mb-20 mb-16">
-
-
+        <div class="content lg:px-20 flex flex-wrap lg:gap-28 gap-14 items-center justify-center lg:pb-36 pb-20">
             @php
-                $desc = [
-                    'A simple, repeatable system that
-                creates efficiency in construction,
-                automatic design, and low-risk
-                processes.',
-                    'Integration of mechanical & electrical
-                systems in a factory for optimal
-                quality & production speed.',
-                    'Good documentation and a dedicated
-                engineering team make it easier for
-                the factory team to assemble
-                modules smoothly',
-                    'Performing various types of maintenance
-                and service performance enhancements
-                to improve efficiency and reduce
-                complexity at various locations.',
+                $text = [
+                    'Data Center Design',
+                    'Data Center Cooling
+Management Assessment',
+                    'MPO Tier 1 Testing',
                 ];
-
-                $title = ['Rapid Design', 'Tailored Integration', 'Simplistic Assembly', 'Global Service'];
             @endphp
-            @for ($i = 2; $i < 6; $i++)
-                <div class="flex flex-col items-center {{ 'solution-' . $i }}">
-                    <img class="sm:mb-7 max-sm:scale-75" src="{{ asset('images/solution/' . $i . '.png') }}" alt="">
-                    <div class="text-biru lg:text-2xl sm:text-xl text-lg font-bold lg:mb-7 mb-4">{{ $title[$i - 2] }}</div>
+            @for ($i = 1; $i < 4; $i++)
+                {{-- <div
+                    class="{{ 'support-' . $i }} relative biru flex flex-col items-center justify-center text-center p-8 rounded-lg">
+                    <img class="mb-7 relative z-20" src="{{ asset('images/support/' . $i . '.png') }}" alt="">
 
-                    <div class="font-medium text-center">{{ $desc[$i - 2] }}</div>
-                </div>
+                    <div class="lg:text-2xl sm:text-xl text-lg text-white font-bold ">{{ $text[$i - 1] }}</div>
+                </div> --}}
+
+                <x-box image='learning/{{ $i }}' title="{{ $text[$i - 1] }}" />
             @endfor
         </div>
 
-        <div class="xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold text-center lg:mb-20 mb-16 title-2">
-            Customized for your needs
-        </div>
-        {{--
-        <div class=" lg:gap-16 gap-10 overflow-x-scroll no-scrollbar pb-10 fade sm:flex hidden">
-            @for ($i = 0; $i < 4; $i++)
-                <div class="lg:min-w-[44%] min-w-[80%]">
-                    <div class="font-bold lg:text-2xl text-xl mb-3">
-                        {{ $title[$i] }}
-                    </div>
-
-                    <div class="mb-3 lg:text-lg font-medium">
-                        {{ $title2[$i] }}
-                    </div>
-
-                    <div class="lg:text-lg">
-                        {{ $desc[$i] }}
-                    </div>
+        <div class="flex lg:flex-row flex-col items-center justify-center lg:justify-evenly lg:gap-6 gap-4 lg:pb-8    max-lg:px-7  text-lg">
+            <div class="text-biru cursor-pointer link">Project Service <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
                 </div>
-            @endfor
-
-        </div> --}}
-
-        @php
-            $title = ['Edge Data Center', 'Micro Data Center', 'Cable Landing Station', 'Core Data Center'];
-
-            $title2 = ['Customize your edge computing with LMP global solutions', 'LMP micro data centers tailored for your needs', 'Leverage LMP global solutions for customized cable landing stations', 'Build flexible, scalable and efficient core data centers with LMP'];
-            $desc = [
-                'LMP Global Solutions revolutionizes the edge with cutting-edge, tailored data centers that supercharge deployment, reduce risks, and optimize expenses. Deploy an array of custom modular edge data centers, ranging from dozens to hundreds, to amplify flexibility, enhance scalability, and elevate efficiency.',
-                'LMP Global Solutions revolutionizes data centers, harmonizing power, cooling, monitoring, and racks to match your unique business demands. Our expert team partners with you, guiding from inception to implementation, freeing you to prioritize your core mission. Our micro data centers offer an innovative approach to flexibly deploy capacity anywhere.',
-                '
-LMP Global Solutions boasts an unparalleled global presence in crafting modular
-data centers, spanning the globe with successful cable landing station setups on
-six continents. We specialize in providing tailor-made, pre-validated, and factory-
-integrated cable landing station solutions that seamlessly blend value and rapid
-delivery. Our swift data center component deployments enable streamlined on-site assembly, requiring fewer personnel, no matter where you are in the world.
-',
-                'LMP Global Solutions streamlines core data center expansion effortlessly. Our innovative modular approach empowers clients, contractors, and consulting allies to seamlessly
-plan and construct data centers worldwide. We provide adaptable, scalable, and eco-efficient solutions that are pre-engineered, prefabricated, and rigorously pre-tested, ensuring swift on-site deployment and assembly. Our dedicated solutions team collaborates with IT, facilities, network, and security stakeholders, guiding you from inception to project completion.',
-            ];
-        @endphp
-
-        <!--SLIDER DESKTOP-->
-        <section id="splide" class="splide max-md:hidden mb-36">
-            <div class="splide__track">
-                <ul class="splide__list">
-                    @for ($i = 0; $i < 4; $i++)
-                        <div class="splide__slide px-14">
-                            <div class="font-bold lg:text-2xl text-xl mb-3">
-                                {{ $title[$i] }}
-                            </div>
-
-                            <div class="mb-3 lg:text-lg font-medium">
-                                {{ $title2[$i] }}
-                            </div>
-
-                            <div class="lg:text-lg">
-                                {{ $desc[$i] }}
-                            </div>
-                        </div>
-                    @endfor
-                </ul>
             </div>
-        </section>
-
-        <!--SLIDER MOBILE-->
-        <section id="splide2" class="splide md:hidden mb-16">
-            <div class="splide__track">
-                <ul class="splide__list">
-                    @for ($i = 0; $i < 4; $i++)
-                        <div class="splide__slide px-5">
-                            <div class="font-bold text-lg mb-3">
-                                {{ $title[$i] }}
-                            </div>
-
-                            <div class="mb-3 lg:text-lg font-medium">
-                                {{ $title2[$i] }}
-                            </div>
-
-                            <div class="lg:text-lg">
-                                {{ $desc[$i] }}
-                            </div>
-                        </div>
-                    @endfor
-                </ul>
+            <div class="text-biru cursor-pointer link">Rack PDU Service <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div>
             </div>
-        </section>
-        <style>
-            .marquee div {
-                animation: marquee 5s linear infinite;
-            }
+            <div class="text-biru cursor-pointer link">UPS & Battery Service <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div>
+            </div>
+            <div class="text-biru cursor-pointer link">Electrical Safety & Compliance <div
+                    class="inline opacity-0 duration-300 arrow ml-1">
+                    ->
+                </div>
+            </div>
+        </div>
 
-            .marquee span {
-                float: left;
-                width: 50%;
-            }
-
-            @keyframes marquee {
-                0% {
-                    left: 0;
-                }
-
-                100% {
-                    left: -100%;
-                }
-            }
-
-            .splide__pagination {
-                bottom: -30px !important;
-            }
-
-
-            [type=reset],
-            [type=submit],
-
-
-            .splide__arrow svg {
-                fill: white !important;
-            }
-        </style>
+        <div class="flex lg:flex-row flex-col items-center lg:gap-6 gap-4  justify-center lg:justify-evenly mb-1 lg:mb-28 py-4 lg:py-8 max-lg:px-7 lg:pb-2 text-lg">
+            <div class="text-biru cursor-pointer link">Thermal Service <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div>
+            </div>
+            <div class="text-biru cursor-pointer link">DC Power Service <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div>
+            </div>
+            <div class="text-biru cursor-pointer link">Electrical Reliability Service <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div>
+            </div>
+        </div>
 
     </div>
 
     <script>
-        ScrollReveal().reveal('.image-1', {
-            delay: 350,
-            duration: 1000,
-            distance: '800px',
-            opacity: 1,
-            origin: 'right',
-        });
-
-        ScrollReveal().reveal('.title', {
-            delay: 700,
+        ScrollReveal().reveal('.content', {
+            delay: 300,
             duration: 1000,
             distance: '100px',
             origin: 'bottom'
         });
-
-        ScrollReveal().reveal('.title-2', {
-            delay: 350,
-            duration: 1000,
-            distance: '100px',
-            origin: 'bottom'
-        });
-
-        ScrollReveal().reveal('.desc', {
-            delay: 1000,
-            duration: 1000,
-            distance: '100px',
-            origin: 'bottom'
-        });
-        ScrollReveal().reveal('.fade', {
-            delay: 500,
-            duration: 1000,
-            opacity: 0,
-            distance: '50px',
-            origin: 'bottom'
-        });
-        for (let i = 1; i < 6; i++) {
-            ScrollReveal().reveal('.solution-' + i, {
-                delay: 700 + i * 100,
-                duration: 1000,
-                distance: '100px',
-                origin: 'bottom'
-            });
-        }
     </script>
+    <style>
+        .link:hover .arrow {
+            opacity: 100%;
+        }
+    </style>
 @endsection
