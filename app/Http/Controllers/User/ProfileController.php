@@ -75,18 +75,17 @@ class ProfileController extends Controller
 
         $users = User::find($id);
 
-        if ($request->profile_picture) {
-            # save new image
-            $ProfilePicture = $request->profile_picture;
-            $originalProfileName = Str::random(10) . $ProfilePicture->getClientOriginalName();
-            $ProfilePicture->storeAs('public/picture', $originalProfileName);
-            $data['profile_picture'] = $originalProfileName;
+        $profile_picture = time() . '.' . $request->profile_picture->extension();
+        $request->profile_picture->move(public_path('image'), $profile_picture);
 
-            # delete old image
-            Storage::delete('public/picture/' . $users->profile_picture);
-        }
 
-        User::where('id', $Id)->update([
+        // if (public_path('image/' . $users->profile_picture))
+        //     unlink(public_path('image/' . $users->profile_picture));
+
+
+
+
+        User::where('id', $request->id)->update([
             'name' => $request->name,
             'email' => $request->email,
             'company' => $request->company,
@@ -94,7 +93,7 @@ class ProfileController extends Controller
             'phone_number' => $request->phone_number,
             'linkedin' => $request->linkedin,
             'instagram' => $request->instagram,
-            'profile_picture' => $originalProfileName,
+            'profile_picture' => $profile_picture,
         ]);
 
         return redirect()

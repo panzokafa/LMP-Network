@@ -58,7 +58,7 @@
         ">
         <div class="flex justify-center content-center lg:ml-20 mb-6">
             <a href="/" class=" flex  lg:block justify-center content-center">
-                <img src="{{ asset('assets/img/LMP_logo.png') }}" alt="LMP" />
+                <img src="{{ asset('images/logo1.png') }}" alt="LMP" />
             </a>
         </div>
 

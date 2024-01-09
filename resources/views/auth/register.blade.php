@@ -23,7 +23,7 @@
         ">
             <div class="flex justify-center content-center lg:ml-20">
                 <a href="/" class=" flex  lg:block justify-center content-center">
-                    <img src="{{ asset('assets/img/LMP_logo.png') }}" alt="LMP" />
+                    <img src="{{ asset('images/logo1.png') }}" alt="LMP" />
                 </a>
             </div>
 
@@ -48,6 +48,7 @@
                                 py-2
                                 focus:outline-none focus:bg-gray-300
                                 "
+                                value="{{ old('name') }}"
                                 placeholder="Full Name" />
 
                         </div>
@@ -254,6 +255,10 @@
                             </span>
                         @enderror
                     </div>
+
+                    {{-- <input id="profile_picture" type="text" name="profile_picture" value="Person.png"
+                    class=""
+                     /> --}}
 
                     <div class="flex w-full">
                         <button type="submit"

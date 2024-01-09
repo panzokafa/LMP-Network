@@ -79,14 +79,14 @@
                 {{-- <img src={{ auth()->user()->profile_picture }} alt=""> --}}
                 <div class="w-10 h-auto brand-image img-circle elevation-3 ">
                     @php($profile_picture = auth()->user()->profile_picture)
-                    <img src="@if ($profile_picture == null) {{ asset('images/Person.png') }} @else {{ asset('storage/picture/' . auth()->user()->profile_picture) }} @endif"
-                        class="brand-image img-circle elevation-3 rounded-full border-solid border-2 border-sky-600"
+                    <img src="@if ($profile_picture == null) {{ asset('images/Person.png') }} @else {{ asset('image/' . auth()->user()->profile_picture) }} @endif"
+                        class="w-10 h-10 brand-image img-circle elevation-3 rounded-full border-solid border-2 border-sky-600"
                         alt="">
                 </div>
 
                 <p class="max-lg:hidden font-light">{{ auth()->user()->name }}</p>
                 <div
-                class="link hidden lg:block  opacity-0 duration-500 border-[0.5px] border-black text-black text-sm absolute w-40 xl:top-[50px] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                class="link invisible hidden lg:block  opacity-0 duration-100 border-[0.5px] border-black text-black text-sm absolute w-44 xl:top-[40px] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
                 <a href="{{ route('user.profile') }}"
                     class="py-2 px-4 border-b w-3/4  duration-300 block">Profile</a>
                     <form action="{{ route('user.logout') }}" method="GET">

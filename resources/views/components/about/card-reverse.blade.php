@@ -3,12 +3,12 @@
         <img class="w-full" src="{{ asset('images/about/' . $image . '.jpg') }}" alt="">
     </div>
     <div
-        class="box-2 h-full biru-muda-2 lg:w-[55%] w-full lg:absolute max-lg:p-5 left-0 flex-col justify-center flex lg:pl-36 pt lg:pr-60 right-0 max-lg:text-center">
+        class="box-2 h-full biru-muda-2 lg:w-[55%] w-full lg:absolute max-lg:p-5 left-0 flex-col justify-center flex lg:pl-36 pt  right-0 max-lg:text-center">
         <div class="font-bold sm:text-xl text-lg">
             {{ $title }}
         </div>
 
-        <div class="xl:py-8 sm:py-4 py-3 sm:text-lg inter">
+        <div class="xl:py-8 sm:py-4 py-3 sm:text-lg inter lg:w-3/5">
             {{ $desc }}
         </div>
 

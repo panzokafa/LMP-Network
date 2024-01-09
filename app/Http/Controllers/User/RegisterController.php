@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Laravolt\Avatar\Facade as Avatar;
 
 class RegisterController extends Controller
 {
@@ -44,7 +45,7 @@ class RegisterController extends Controller
                 ])
                 ->withInput();
         } else {
-            User::create([
+           $users = User::create([
                 'name'         => $request->name,
                 'email'         => $request->email,
                 'password'   => Hash::make($request->password),
@@ -55,6 +56,8 @@ class RegisterController extends Controller
                 'instagram'         => $request->instagram,
                 'role' => 'user'
             ]);
+
+            Avatar::create($request->name)->save(public_path('image/avatar-' . $users->id . '.png'));
         }
 
         return redirect()->route('user.login')->with('success', 'Success Register');

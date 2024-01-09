@@ -42,11 +42,11 @@
     @endif
     {{-- @include('user.p-edit') --}}
     <div
-        class="flex lg:flex-row flex-col justify-center items-center lg:gap-52  gap-12 py-20 xl:px-44 lg:px-28 sm:px-10 px-5">
+        class="flex lg:flex-row flex-col justify-center items-center lg:gap-52  gap-12 py-20 xl:px-28 lg:px-28 sm:px-10 px-5">
 
         <div class="">
             @php($profile_picture = auth()->user()->profile_picture)
-            <img src="@if ($profile_picture == null) {{ asset('images/Person.png') }} @else {{ asset('storage/picture/' . auth()->user()->profile_picture) }} @endif  "
+            <img src="@if ($profile_picture == null) {{ asset('images/Person.png') }} @else {{ asset('image/' . auth()->user()->profile_picture) }} @endif  "
                 class="lg:h-[340px] lg:w-[340px] h-[150px] w-[150px] lg:rounded rounded-full mb-8 " id='profile_picture' alt="PP">
 
             {{-- @include('components.modal') --}}
@@ -63,7 +63,7 @@
         </div>
 
         <div>
-            <div class=" lg:justify-start justify-center text-center font-bold text-2xl lg:mb-5 mb-10 flex flex-row lg:gap-24 ">
+            <div class=" lg:justify-start justify-center text-center font-bold lg:text-2xl text-lg lg:mb-10 mb-10 flex flex-row lg:gap-24 ">
                 Personal Data
 
             </div>
@@ -72,7 +72,7 @@
 
 
 
-            <div class="flex gap-28 items-center">
+            <div class="flex gap-12 items-center text-xs">
                 <div class="flex-col flex gap-8 font-semibold">
                     <div>
                         Full Name
@@ -149,7 +149,7 @@
 
         </div>
         <a  href="{{ route('user.edit', auth()->user()->id) }}"
-            class="w-full hover:biru-tua hover:border-[#112645] hover:text-white duration-300 py-3 sm:hidden font-bold text-center border-2 rounded-md border-[#888888] ">
+            class="w-full hover:biru-tua hover:border-[#112645] text-base hover:text-white duration-300 py-3 sm:hidden font-bold text-center border-2 rounded-md border-[#888888] ">
             <div  data-toggle="modal" data-target="#ModalEdit">
 
                 Change Profile

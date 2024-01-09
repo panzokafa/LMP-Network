@@ -109,27 +109,10 @@
         <div class="absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
             <div
                 class="lg:mb-8 mb-5 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
-                Training Center</div>
+                Service &<br>Learning Center
+            </div>
 
-            <a href="{{ route('learning') }}"
-                class="font-medium hover:bg-white relativez-20 hover:text-black duration-300 lg:p-3 p-2 border rounded-lg text-white max-w-max poppins tracking-widest lg:text-base sm:text-sm text-xs">Check
-                Here <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-
-
-    </div>
-
-    <!--Slide Learning-->
-    <div class="relative overflow-hidden">
-        <img class=" object-cover object-left lg:h-[65vh] sm:h-[40vh] h-[35vh] relative w-full"
-            src="{{ asset('images/banner/learning.jpg') }}" alt="">
-        <div class="absolute  sm:top-[40%] top-[30%] left-6 md:left-10 lg:left-20">
-            <div
-                class=" lg:mb-8 mb-5 pr-5 tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal xl:pr-5  bruno text-white">
-                Learning Center</div>
-
-            <a href="{{ route('learning') }}"
+            <a href="{{ route('solution') }}"
                 class="font-medium hover:bg-white relativez-20 hover:text-black duration-300 lg:p-3 p-2 border rounded-lg text-white max-w-max poppins tracking-widest lg:text-base sm:text-sm text-xs">Check
                 Here <i class="fa-solid fa-arrow-right"></i></a>
         </div>
