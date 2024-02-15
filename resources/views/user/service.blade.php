@@ -367,7 +367,7 @@
         </div>
 
 
-        <div class="flex relative lg:w-2/5 h-full relative max-lg:left-3 image-1">
+        <div class="flex lg:w-2/5 h-full relative max-lg:left-3 image-1">
             <div class="flex items-center justify-center w-full">
                 <div class="absolute z-30 p-10">
                     <div class="bruno xl:text-xl lg:text-2xl sm:text-xl text-lg text-white lg:mb-3 mb-2 text-center px-5">
