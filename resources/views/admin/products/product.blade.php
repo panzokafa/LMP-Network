@@ -33,7 +33,7 @@
                   <tr>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Type</th>
+                    <th>Key Character</th>
                     <th>Image</th>
                     <th>Action</th>
                   </tr>
@@ -44,9 +44,9 @@
                     <tr>
                       <td>{{ $product->name }}</td>
                       <td>{{ $product->desc }}</td>
-                      <td>{{ $product->type}}</td>
+                      <td>{{ $product->char}}</td>
                       <td>
-                        <img src="{{ asset('storage/product/'.$product->image) }}" width="50%" >
+                        <img src="{{ asset('image/' . $product->image) }}" width="50%" >
                     </td>
                     <td class="flex flex-row gap-5">
                         <a href="{{ route('admin.product.edit', $product->id )}}" class="btn btn-warning">

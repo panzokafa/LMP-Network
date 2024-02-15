@@ -30,24 +30,25 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->except('_token');
+
 
         $request->validate([
             'name' => 'required|string',
             'image' => 'required|image|mimes:jpeg,jpg,png',
             'desc' => 'required|string',
-            'type' => 'required',
+            'char' => 'required',
         ]);
 
-        $Image = $request->image;
+        $image = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('image'), $image);
 
-        $originalImageName = Str::random(10) . $Image->getClientOriginalName();
 
-        $Image->storeAs('public/product', $originalImageName);
-
-        $data['image'] = $originalImageName;
-
-        Product::create($data);
+        Product::create([
+            'name' => $request->name,
+            'image' => $image,
+            'desc' => $request->desc,
+            'char' => $request->char,
+        ]);
 
         return redirect()
             ->route('admin.product')
@@ -56,29 +57,48 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = $request->except('_token');
 
         $request->validate([
             'name' => 'required|string',
             'image' => 'image|mimes:jpeg,jpg,png',
             'desc' => 'required|string',
-            'type' => 'required',
+            'char' => 'required',
         ]);
 
         $products = Product::find($id);
 
-        if ($request->image) {
-            # save new image
-            $Image = $request->image;
-            $originalImageName = Str::random(10) . $Image->getClientOriginalName();
-            $Image->storeAs('public/product', $originalImageName);
-            $data['image'] = $originalImageName;
+        if (!$request->image) {
+            $request->validate([
+                'name' => 'required|string',
+                'desc' => 'required|string',
+                'char' => 'required',
+            ]);
 
-            # delete old image
-            Storage::delete('public/product/' . $products->image);
+            Product::where('id', $request->id)
+                ->update(([
+                    'name'         => $request->name,
+                    'desc'   => $request->desc,
+                    'char'   => $request->char,
+                ]));
+
+            return redirect()->route('admin.product')->with('success', 'Product updated');
         }
 
-        $products->update($data);
+        $products = Product::find($id);
+
+        if (public_path('image/' . $products->image))
+            unlink(public_path('image/' . $products->image));
+
+        $image = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('image'), $image);
+
+        Product::where('id', $request->id)
+                ->update(([
+                    'name'   => $request->name,
+                    'image'  => $image,
+                    'desc'   => $request->desc,
+                    'char'   => $request->char,
+                ]));
 
         return redirect()
             ->route('admin.product')

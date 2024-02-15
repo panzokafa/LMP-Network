@@ -1,5 +1,5 @@
 <div id="normal"
-    class="max-lg:py-5 select-none	 flex xl:px-20 md:px-12 px-6  justify-between items-center fixed z-50 bg-white shadow-lg w-full">
+    class="max-lg:py-5 select-none	 flex xl:px-20 md:px-12 px-6  justify-between items-center fixed z-50 bg-white drop-shadow-lg shadow-lg w-full">
     <a href="{{ route('user.home') }}" class="sm:w-24 w-20 h-auto">
         <img src="{{ asset('images/logo1.png') }}" alt="">
     </a>
@@ -60,8 +60,11 @@
                 class="{{ Route::currentRouteName() == 'support' ? 'w-[120%]' : 'garis w-0' }} absolute bottom-0 h-0.5 biru">
             </div>
         </a>
+
+
     </div>
 
+<div class="flex flex-row gap-5">
     @guest
         <div class=" poppins font-semibold flex sm:gap-7 gap-4 items-center text-center">
             <a href="{{ route('user.login') }}"
@@ -83,10 +86,10 @@
                         class="w-10 h-10 brand-image img-circle elevation-3 rounded-full border-solid border-2 border-sky-600"
                         alt="">
                 </div>
-
-                <p class="max-lg:hidden font-light">{{ auth()->user()->name }}</p>
+                @php($name = auth()->user()->name)
+                <p class="max-lg:hidden font-light">{{ strtok($name, ' ') }}</p>
                 <div
-                class="link invisible hidden lg:block  opacity-0 duration-100 border-[0.5px] border-black text-black text-sm absolute w-44 xl:top-[40px] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                class="link invisible hidden lg:block  opacity-0 duration-100 border-[0.5px] border-black text-black text-sm absolute w-44 lg:top-[40px]  whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
                 <a href="{{ route('user.profile') }}"
                     class="py-2 px-4 border-b w-3/4  duration-300 block">Profile</a>
                     <form action="{{ route('user.logout') }}" method="GET">
@@ -106,6 +109,16 @@
     </div>
 
     @endguest
+    <div class="hidden lg:block nav-hover nav h-full max-w-max cursor-pointer duration-1000 flex-col items-center xl:py-7 py-8 hover:text-biru">
+        <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+          </svg>
+
+          <x-nav.search />
+
+    </div>
+</div>
+
 </div>
 
 

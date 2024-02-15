@@ -6,13 +6,11 @@
         <div class="w-full flex lg:flex-row flex-col justify-between items-center mb-14 gap-12">
 
             <div class="inter  lg:w-1/2">
-                <div class="xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold mb-5">MDC Top Package Cooling</div>
+                <div class="xl:text-4xl lg:text-3xl sm:text-2xl text-xl font-bold mb-5">{{ $product->name }}</div>
 
 
-                <div class="lg:text-xl sm:text-lg mb-5">3k – 6k MDC fully integrated with closed rack,
-                    package cooling, UPS, battery, power distribution,
-                    security, monitoring and fire systems. No complex
-                    piping of remote condenser installation.
+                <div class="lg:text-xl sm:text-lg mb-5">
+                    {{ $product->desc }}
                 </div>
 
                 <div class="flex lg:flex-row flex-col lg:gap-7 gap-4  items-center">
@@ -33,7 +31,7 @@
                 </div>
             </div> --}}
             <div class="flex items-center xl:justify-center lg:justify-end w-1/2">
-                <img class="relative z-20 " src="{{ asset('images/product/product.png') }}" alt="">
+                <img class="relative z-20 " src="{{ asset('image/'.$product->image) }}" alt="">
             </div>
         </div>
 
@@ -61,7 +59,7 @@ front and rear doors in the event of a high temperature or fire alarm',
                 @for ($i = 0; $i < 9; $i++)
                     <div class="flex items-center gap-2 text-lg">
                         <div class="lg:min-h-3  lg:min-w-3 min-w-2 min-h-2 bg-[#A0A0A0] rounded-full"></div>
-                        <div class="max-lg:text-sm">{{ $char[$i] }}</div>
+                        <div class="max-lg:text-sm">{{ $product->char[$i] }}</div>
                     </div>
                 @endfor
             </div>
@@ -72,22 +70,20 @@ front and rear doors in the event of a high temperature or fire alarm',
 
             <div class="grid lg:grid-cols-2 grid-cols-1 gap-7">
                 @for ($i = 0; $i < 3; $i++)
-                    <div class="flex justify-center items-center bg-[#DDEDFB] lg:px-12 px-6 py-8 cursor-pointer">
-                        <div>
-                            <div class="lg:text-xl sm:text-lg  mb-5 font-medium">
-                                MDC Row Packgae Cooling
-                            </div>
-
-                            <div class="lg:text-base sm:text-base text-xs">
-                                5k – 10k MDC fully integrated with closed rack,
-                                package cooling, UPS, battery, power distribution,
-                                security, monitoring and fire systems. No complex
-                                piping of remote condenser installation.
-                            </div>
-                        </div>
-
-                        <img class="w-1/2" src="{{ asset('images/product/product.png') }}" alt="">
+                <a href="{{ route('user.product', $product->id)}}"
+                class="flex hover:border-[#A8D5FB] border-4 border-white duration-300 justify-center items-center bg-[#DDEDFB] px-6 py-8 cursor-pointer h-full">
+                <div>
+                    <div class="lg:text-xl sm:text-lg  mb-5 font-medium">
+                        {{ $product->name  }}
                     </div>
+
+                    <div class="lg:text-base sm:text-base text-xs">
+                        {{ $product->desc}}
+                    </div>
+                </div>
+
+                <img class="w-1/2" src="{{ asset('image/'.$product->image)}}" alt="">
+            </a>
                 @endfor
             </div>
         </div>

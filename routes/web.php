@@ -8,8 +8,11 @@ use App\Http\Controllers\Admin\LoginController;
 
 use App\Http\Controllers\User\RegisterController;
 use App\Http\Controllers\User\LoginController as UserLoginController;
+use App\Http\Controllers\User\ProductController as UserProductController;
 use App\Http\Controllers\User\PageController;
 use App\Http\Controllers\User\ProfileController;
+use App\Http\Controllers\User\SearchController;
+
 // use App\Http\Controllers\User\Profile2Controller;
 
 /*
@@ -51,6 +54,11 @@ Route::get('/logout', [UserLoginController::class, 'logout'])->name('user.logout
 
 Route::get('/', [PageController::class, 'index'])->name('user.home');
 Route::get('/about', [PageController::class, 'about'])->name('user.about');
+
+Route::get('/search', [SearchController::class, 'search'])->name('user.search');
+
+Route::get('/product/{id}', [UserProductController::class, 'show'])->name('user.product');
+
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('user.profile');

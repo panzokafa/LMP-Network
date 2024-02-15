@@ -66,32 +66,32 @@
                     and builds future leaders through experiential
                     service and learning" />
 
-                    <div class="flex lg:flex-row-reverse flex-col items-center relative py-5">
-                        <div class="image-2 relative z-20 lg:w-1/2 w-full max-lg:p-4 max-sm:p-2 max-sm:pb-0 biru-muda-2">
-                            <img class="w-full" src="{{ asset('images/about/6.jpg') }}" alt="">
-                        </div>
-                        <div
-                            class="box-2 h-full biru-muda-2 lg:w-[55%] w-full lg:absolute max-lg:p-5 left-0 flex-col justify-center flex lg:pl-36 pt  right-0 max-lg:text-center">
-                            <div class="font-bold sm:text-xl text-lg">
-                                LMP Nex-T Edge DC 360
-                            </div>
-
-                            <div class="xl:py-8 sm:py-4 py-3 sm:text-lg inter lg:w-3/5">
-                                Neutral edge data center for colocation,
-                                leading challenges explore excellence
-                                with the LMP Nex-T Edge DC 360
-                            </div>
-
-
-                            <a href="{{ route('nex-t') }}"
-                                class="flex gap-1 border hover:biru duration-300 hover:text-white border-[#2D5290] px-3 py-2 rounded text-biru font-medium poppins max-w-fit cursor-pointer max-lg:mx-auto ">
-                                Check here
-                                <div class="">
-                                    ->
-                                </div>
-                            </a>
-                        </div>
+                <div class="flex lg:flex-row-reverse flex-col items-center relative py-5">
+                    <div class="image-2 relative z-20 lg:w-1/2 w-full max-lg:p-4 max-sm:p-2 max-sm:pb-0 biru-muda-2">
+                        <img class="w-full" src="{{ asset('images/about/6.jpg') }}" alt="">
                     </div>
+                    <div
+                        class="box-2 h-full biru-muda-2 lg:w-[55%] w-full lg:absolute max-lg:p-5 left-0 flex-col justify-center flex lg:pl-36 pt  right-0 max-lg:text-center">
+                        <div class="font-bold sm:text-xl text-lg">
+                            LMP Nex-T Edge DC 360
+                        </div>
+
+                        <div class="xl:py-8 sm:py-4 py-3 sm:text-lg inter lg:w-3/5">
+                            Neutral edge data center for colocation,
+                            leading challenges explore excellence
+                            with the LMP Nex-T Edge DC 360
+                        </div>
+
+
+                        <a href="{{ route('nex-t') }}"
+                            class="flex gap-1 border hover:biru duration-300 hover:text-white border-[#2D5290] px-3 py-2 rounded text-biru font-medium poppins max-w-fit cursor-pointer max-lg:mx-auto ">
+                            Check here
+                            <div class="">
+                                ->
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
 
 
@@ -135,7 +135,7 @@
             </div>
 
             <!--history section--->
-            <div class="flex flex-col xl:px-44 lg:px-28 px-5 relative">
+            <div class="flex flex-col xl:px-44 lg:px-28 px-5 relative lg:block hidden">
 
                 <img class="absolute lg:w-36 w-24 top-[-10%] lg:left-0 left-[-40px]" src="{{ asset('images/dot1.png') }}"
                     alt="">
@@ -218,7 +218,60 @@
 
             </div>
 
+            <div class="flex items-center justify-center hidden max-lg:block">
+                <div class="flex flex-col justify-center w-full px-5">
+
+                    @php
+                        $history = [
+                            'MTE Established in Bekasi,
+                            West Java Indonesia',
+                            'Established Fiber Optic Assembling
+                            Plant & Launch LMP Networks Fiber
+                            Optic Patchcord MPO Manageable.
+                            The 1st Manageable MPO that
+                            produce in Indonesia. Support By
+                            Global Manufactures',
+                            'Launch LMP Ultra High Density
+                            Enclosure Solution for Hyperscale
+                            Data Center. Pointed Two
+                            Authorized Distributor',
+                            'Launch LMP Network Cooper cable,
+                            Smart Patch Panel (Fiber & Cooper)
+                            & DCIM, AIO Container DC. Pointed
+                            Five Authorized Distributor',
+                            'Launch LMP Cooling System, Ups,
+                            Cold Aisle Containment & Hot Aisle
+                            Containment',
+                        ];
+                    @endphp
+                    @for ($i = 0; $i < 5; $i++)
+                        <div class="mt-[-7px] flex flex-col items-center justify-center relative">
+                            <div class="h-4 w-4 biru rounded-full relative z-10"></div>
+                            <div class="w-1.5 sm:h-[150px] h-[200px] biru-muda relative top-[-5px]"></div>
+
+                            <div
+                                class="history-1 w-1/2 mx-auto absolute top-0 {{ $i % 2 == 0 ? 'text-right sm:right-[53%] right-[57%]' : 'sm:left-[53%] left-[57%] text-left' }}">
+                                <div class="xl:text-2xl sm:text-xl text-lg poppins lg:mb-3 mb-2 font-medium">
+                                    {{ 2018 + $i }} October
+                                </div>
+
+                                <div class="xl:text-xl lg:text-lg sm:text-base text-sm">
+                                    {{ $history[$i] }}
+                                </div>
+                            </div>
+                        </div>
+                    @endfor
+                    <div class="h-4 w-4 biru rounded-full relative self-center z-10 mt-[-7px]"></div>
+                </div>
+            </div>
         </div>
+        <style>
+            #wrap:after {
+                display: table;
+                content: "";
+                clear: both;
+            }
+        </style>
         <script>
             ScrollReveal().reveal('.image-2', {
                 delay: 300,

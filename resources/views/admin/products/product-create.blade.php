@@ -38,6 +38,11 @@
             </div>
 
             <div class="form-group">
+                <label for="char">Key Character</label>
+                <input type="text" class="form-control" id="char" name="char" value="{{ old('char')}}" placeholder="  - 5k - 10k MDC fully integrated with closed rack ">
+              </div>
+
+            {{-- <div class="form-group">
                 <label for="type">Type</label>
                 <select class="custom-select" name="type">
                     <option value="MDC" {{ old('type') === 'MDC' ? "selected" : ""}}>MDC</option>
@@ -45,9 +50,12 @@
                     <option value="Container" {{ old('type') === 'Container ' ? "selected" : ""}}>Container</option>
                     <option value="Centrinium" {{ old('type') === 'Centrinium ' ? "selected" : ""}}>Centrinium</option>
                   </select>
-              </div>
+              </div> --}}
 
             <div class="form-group">
+                <div class="mb-3">
+                    <img src="" class="img-thumbnail mt-3 mb-3 d-none w-25" id="preview">
+                </div>
               <label for="image">Image</label>
               <input type="file" class="form-control" name="image">
             </div>
@@ -72,4 +80,28 @@
         format: 'YYYY-MM-DD'
     })
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
+<script>
+    $(function() {
+        $('input[name=image]').change(function() {
+            imagePreview(this);
+        });
+    });
+
+    function imagePreview(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $("#preview").removeClass("d-none");
+                $("#preview").attr("src", e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+
 @endsection

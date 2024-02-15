@@ -40,6 +40,11 @@
               </div>
 
               <div class="form-group">
+                <label for="char">Key Character</label>
+                <input type="text" class="form-control" id="char" name="char" value="{{ $products->char }}" placeholder="5k - 10k MDC fully integrated with closed rack ">
+              </div>
+
+              {{-- <div class="form-group">
                   <label for="type">Type</label>
                   <select class="custom-select" name="type">
                       <option value="MDC" {{ $products->type === 'MDC' ? "selected" : ""}}>MDC</option>
@@ -47,7 +52,7 @@
                       <option value="Container" {{ $products->type === 'Container ' ? "selected" : ""}}>Container</option>
                       <option value="Centrinium" {{ $products->type === 'Centrinium ' ? "selected" : ""}}>Centrinium</option>
                     </select>
-                </div>
+                </div> --}}
 
               <div class="form-group">
                 <label for="image">Image</label>
