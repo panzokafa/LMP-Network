@@ -9,12 +9,19 @@ use App\Models\Product;
 
 class SearchController extends Controller
 {
-    public function search()
+    public function search(Request $request)
     {
-        $products = Product::orderBy('created_at', 'DESC')
-        ->get();
+    $search = $request->search;
 
-        return view('user.search', ['products' => $products]);
+        if($request->has('search')) {
+            $products = Product::where('name','LIKE', '%'.$request->search. '%')->get();
+        } else {
+            $products = Product::all();
+        }
+
+
+
+        return view('user.search',compact('search'), ['products' => $products]);
 
     }
 }

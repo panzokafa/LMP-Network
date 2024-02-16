@@ -33,7 +33,7 @@
             </div>
 
             <div class="form-group">
-              <label for="desc">Desc</label>
+              <label for="desc">Description</label>
               <textarea class="form-control @error('desc') text-danger fw-bold @enderror" name="desc" placeholder="Description..."></textarea>
 
             </div>
