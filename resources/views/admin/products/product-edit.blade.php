@@ -35,11 +35,17 @@
               </div>
 
               <div class="form-group">
-                <label for="desc">Desc</label>
-                <input type="text" class="form-control" id="desc" name="desc" value="{{ $products->desc }}" placeholder="5k - 10k MDC fully integrated with closed rack ">
+                <label for="desc">Description</label>
+                <textarea class="form-control @error('desc') text-danger fw-bold @enderror" name="desc" placeholder="Description...">{{ $products->desc }}</textarea>
+
               </div>
 
               <div class="form-group">
+                <label for="char">Key Character</label>
+                <input type="text" class="form-control" id="char" name="char" value="{{ $products->char }}" placeholder="5k - 10k MDC fully integrated with closed rack ">
+              </div>
+
+              {{-- <div class="form-group">
                   <label for="type">Type</label>
                   <select class="custom-select" name="type">
                       <option value="MDC" {{ $products->type === 'MDC' ? "selected" : ""}}>MDC</option>
@@ -47,7 +53,7 @@
                       <option value="Container" {{ $products->type === 'Container ' ? "selected" : ""}}>Container</option>
                       <option value="Centrinium" {{ $products->type === 'Centrinium ' ? "selected" : ""}}>Centrinium</option>
                     </select>
-                </div>
+                </div> --}}
 
               <div class="form-group">
                 <label for="image">Image</label>
@@ -72,4 +78,40 @@
         format: 'YYYY-MM-DD'
     })
   </script>
+   <script>
+    $(function() {
+        $('textarea[name=desc]').summernote({
+            height: 200
+        });
+    });
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
+<script>
+    $(function() {
+        $('input[name=image]').change(function() {
+            imagePreview(this);
+        });
+    });
+
+    function imagePreview(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $("#preview").removeClass("d-none");
+                $("#preview").attr("src", e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+
 @endsection
+
+@section('css')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+@endsection
+

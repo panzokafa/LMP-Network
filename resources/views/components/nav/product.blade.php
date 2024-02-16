@@ -1,3 +1,5 @@
+{{-- ini yg di lmp --}}
+
 <div
     class="nav-menu rounded-md shadow-lg z-30 absolute opacity-0 invisible w-full inset-x-0  duration-300 xl:top-[80px] top-[84px] bg-white py-12 px-20 text-left flex flex-col items-center">
     <div class="flex flex-wrap justify-between mb-10 w-full gap-x-5 gap-y-10">
@@ -8,13 +10,21 @@
             <a href="{{route('network')}}" class="text-lg text-black font-semibold mb-8">LMP Networks</a>
             </div>
             <div class="flex flex-col gap-4 text-sm">
-                <div class="text-biru cursor-pointer link">Cable Fiber Optic <i class="fa-solid fa-caret-right ml-2"></i>
+                <div class="text-biru cursor-pointer link">Cable Fiber Optic <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
                 </div>
-                <div class="text-biru cursor-pointer link">Patchcord <i class="fa-solid fa-caret-right ml-2"></i>
                 </div>
-                <div class="text-biru cursor-pointer link">Enclosure <i class="fa-solid fa-caret-right ml-2"></i>
+                <div class="text-biru cursor-pointer link">Patchcord <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div></i>
                 </div>
-                <div class="text-biru cursor-pointer link">Accessories <i class="fa-solid fa-caret-right ml-2"></i>
+                <div class="text-biru cursor-pointer link">Enclosure <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div></i>
+                </div>
+                <div class="text-biru cursor-pointer link">Accessories <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div></i>
                 </div>
             </div>
         </div>
@@ -24,10 +34,12 @@
             <a href="{{route('centrinium')}}"  class="text-lg text-black font-semibold mb-8">LMP Centrinium</a>
             </div>
             <div class="flex flex-col gap-4 text-sm whitespace-nowrap text-biru">
-                <a href="{{route('product.containment.centrinium-containment')}}" class="text-biru cursor-pointer link">Centrinium <i class="fa-solid fa-caret-right ml-2"></i>
+                <a href="{{route('product.containment.centrinium-containment')}}" class="text-biru cursor-pointer link">Centrinium <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div></i>
                 </a>
                 <div class="text-biru cursor-pointer flex gap-4 relative max-w-max hover-link">
-                    <div> Rack MDC <i class="fa-solid fa-caret-right ml-2"></i>
+                    <div> Rack MDC
 
                     </div>
 
@@ -49,7 +61,9 @@
                 </div>
 
                 <div class="text-biru cursor-pointer flex gap-4 relative max-w-max hover-link">
-                <div>Outdoor MDC <i class="fa-solid fa-caret-right ml-2"></i>
+                <div>Outdoor MDC
+                </div>
+
                     <div
                     class="link invisible opacity-0 duration-300 border-[0.5px] border-black text-black text-sm absolute left-[120%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
                     <a href="{{ route('product.rack.1') }}"
@@ -66,10 +80,11 @@
 
                 </div>
                 </div>
-                </div>
 
                 {{-- <div class="text-biru cursor-pointer flex gap-4 relative max-w-max hover-link"> --}}
-                    <a href="{{route('product.mdc.row')}}"> Row MDC <i class="fa-solid fa-caret-right ml-2"></i>
+                    <a href="{{route('product.mdc.row')}}"> Row MDC <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div></i>
 
                     </a>
 
@@ -92,7 +107,7 @@
 
                 <!--menu Container MDC-->
                 <div class="text-biru cursor-pointer flex gap-4 relative max-w-max hover-link">
-                    <div>Container MDC <i class="fa-solid fa-caret-right ml-2"></i>
+                    <div>Container MDC
 
                     </div>
 
@@ -114,19 +129,28 @@
             </div>
         </div>
 
+    {{-- ampe sini --}}
+
         <div class="">
             <div class="mb-8">
             <a href="{{route('energy')}}"  class="text-lg text-black font-semibold mb-8">LMP Renewable Energy</a>
             </div>
             <div class="flex flex-col gap-4 text-sm whitespace-nowrap">
-                <div class="text-biru cursor-pointer link">Energy Storage <i class="fa-solid fa-caret-right ml-2"></i>
+                <div class="text-biru cursor-pointer link">Energy Storage <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
                 </div>
-                <div class="text-biru cursor-pointer link">Electrolyzer <i class="fa-solid fa-caret-right ml-2"></i>
                 </div>
-                <div class="text-biru cursor-pointer link">Fuel Cell <i class="fa-solid fa-caret-right ml-2"></i>
+                <div class="text-biru cursor-pointer link">Electrolyzer <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div></i>
                 </div>
-                <div class="text-biru cursor-pointer link">End To End Hydrogen Solution <i
-                        class="fa-solid fa-caret-right ml-2"></i>
+                <div class="text-biru cursor-pointer link">Fuel Cell <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div></i>
+                </div>
+                <div class="text-biru cursor-pointer link">End To End Hydrogen Solution <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div>
                 </div>
             </div>
         </div>
@@ -136,12 +160,17 @@
             <a href="{{route('polymer')}}"  class="text-lg text-black font-semibold mb-8">LMP Polymer</a>
             </div>
             <div class="flex flex-col gap-4 text-sm whitespace-nowrap">
-                <div class="text-biru cursor-pointer link">Roset <i class="fa-solid fa-caret-right ml-2"></i>
+                <div class="text-biru cursor-pointer link">Roset <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div></i>
                 </div>
-                <div class="text-biru cursor-pointer link">OTP <i class="fa-solid fa-caret-right ml-2"></i>
+                <div class="text-biru cursor-pointer link">OTP <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div></i>
                 </div>
-                <div class="text-biru cursor-pointer link">Access Point IDU Hybrid <i
-                        class="fa-solid fa-caret-right ml-2"></i>
+                <div class="text-biru cursor-pointer link">Access Point IDU Hybrid <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div>
                 </div>
             </div>
         </div>
@@ -151,22 +180,33 @@
             <a href="{{route('learning')}}"  class="text-lg text-black font-semibold mb-8">LMP Services & Learning Center</a>
             </div>
             <div class="flex flex-col gap-4 text-sm whitespace-nowrap">
-                <div class="text-biru cursor-pointer link">Project Service <i class="fa-solid fa-caret-right ml-2"></i>
+                <div class="text-biru cursor-pointer link">Project Service <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div></i>
                 </div>
-                <div class="text-biru cursor-pointer link">UPS & Baterry Service <i
-                        class="fa-solid fa-caret-right ml-2"></i>
+                <div class="text-biru cursor-pointer link">UPS & Baterry Service <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
                 </div>
-                <div class="text-biru cursor-pointer link">Thermal Service <i class="fa-solid fa-caret-right ml-2"></i>
                 </div>
-                <div class="text-biru cursor-pointer link">Rack PDU Service <i class="fa-solid fa-caret-right ml-2"></i>
+                <div class="text-biru cursor-pointer link">Thermal Service <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div></i>
                 </div>
-                <div class="text-biru cursor-pointer link">DC Power Service <i class="fa-solid fa-caret-right ml-2"></i>
+                <div class="text-biru cursor-pointer link">Rack PDU Service <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div></i>
                 </div>
-                <div class="text-biru cursor-pointer link">Electrical Reliability Service <i
-                        class="fa-solid fa-caret-right ml-2"></i>
+                <div class="text-biru cursor-pointer link">DC Power Service <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div></i>
                 </div>
-                <div class="text-biru cursor-pointer link">Electrical Safety & Compliance <i
-                        class="fa-solid fa-caret-right ml-2"></i>
+                <div class="text-biru cursor-pointer link">Electrical Reliability Service <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div>
+                </div>
+                <div class="text-biru cursor-pointer link">Electrical Safety & Compliance <div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div>
                 </div>
             </div>
         </div>
@@ -174,17 +214,70 @@
 
 
     </div>
-    <div class="w-full">
+    <div class="flex flex-wrap justify-start mb-10 w-full gap-x-20 gap-y-10">
         <div class="">
             <div class="mb-8">
             <a href="{{route('nex-t')}}"  class="text-lg text-black font-semibold mb-8">LMP Nex-T Edge DC 360</a>
             </div>
             <div class="flex flex-col gap-4 text-sm whitespace-nowrap">
-                <div class="text-biru cursor-pointer link">Container MDC<i class="fa-solid fa-caret-right ml-2"></i>
+                <div class="text-biru cursor-pointer link">Container MDC<div
+                    class="inline opacity-0 duration-300 arrow ml-1">->
+                </div></i>
                 </div>
             </div>
         </div>
+
+    <div class="">
+        <div class="mb-8">
+        <a {{--href="{{route('')}}"--}}  class="text-lg text-black font-semibold mb-8">PAC</a>
+        </div>
+        <div class="flex flex-col gap-4 text-sm whitespace-nowrap text-biru">
+
+            <div class="text-biru cursor-pointer flex gap-4 relative max-w-max hover-link">
+                <div> Air Cool Platform
+
+                </div>
+
+                <!--Sub menu Rack-->
+                <div
+                class="link invisible opacity-0 duration-300 border-[0.5px] border-black text-black text-sm absolute left-[120%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                <a {{--href="{{ route('product.rack.1') }}"--}}
+                    class="py-2 px-4 border-b hover:bg-[#E6F6FE] duration-300 block">Rack Cool</a>
+                <a {{--href="{{ route('product.rack.1') }}"--}}
+                    class="py-2 px-4 border-b hover:bg-[#E6F6FE]  duration-300 block">Ceiling Cool</a>
+                <a {{--href="{{ route('product.rack.1') }}"--}}
+                    class="py-2 px-4 border-b hover:bg-[#E6F6FE]  duration-300 block">Wall Cool</a>
+                <a {{--href="{{ route('product.rack.1') }}"--}}
+                    class="py-2 px-4 border-b hover:bg-[#E6F6FE]  duration-300 block">Row Cool</a>
+                <a {{--href="{{ route('product.rack.1') }}"--}}
+                    class="py-2 px-4 border-b hover:bg-[#E6F6FE]  duration-300 block">Room Cool</a>
+                </div>
+
+            </div>
+
+
+
+            <div class="text-biru cursor-pointer flex gap-4 relative max-w-max hover-link">
+            <div>Liquid Cool Platform
+            </div>
+                <div
+                class="link invisible opacity-0 duration-300 border-[0.5px] border-black text-black text-sm absolute left-[120%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                <a {{--href="{{ route('product.mdc.top') }}"--}}
+                    class="py-2 px-4 border-b hover:bg-[#E6F6FE] duration-300 block">RDX
+                    Cooling</a>
+                <a {{--href="{{ route('product.mdc.top') }}"--}}
+                    class="py-2 px-4 border-b hover:bg-[#E6F6FE]  duration-300 block">Immersion Liquid Cool</a>
+                <a {{--href="{{ route('product.mdc.top') }}"--}}
+                    class="py-2 px-4 border-b hover:bg-[#E6F6FE]  duration-300 block">Cold-Plate Liquid Cool</a>
+
+                </div>
+            </div>
+
+        </div>
     </div>
+</div>
+
+
 </div>
 
 <style>
@@ -192,4 +285,8 @@
         visibility: visible;
         opacity: 1;
     }
+
+    .link:hover .arrow {
+            opacity: 100%;
+        }
 </style>

@@ -23,12 +23,25 @@
                 LMP Nex-T Edge DC 360
             </div>
 
-            <div class="desc-2 mb-7 lg:w-full xl:text-xl lg:text-lg">Are Design & Build to dedicated to serve millions of
+            <div class="desc-2 mb-7 lg:w-full xl:text-xl lg:text-lg lg:block hidden">Are Design & Build to dedicated to serve millions of
                 people and
                 thousands of
                 businesses
                 along Indonesia Archipelago who seek reliability, security, stability and availability for their
                 critical systems every second. As the first of Data Center Provider that serve Nation Wide
+                of People in Indonesia LMP NDC put his EDGE DC at every Main Island in Indonesia Archipelago.
+                Our EDGE DC are placed as near as possible to user to give high user experience on data
+                processing by cutting the latency.
+            </div>
+            <div class="desc-2 mb-7 lg:w-full xl:text-xl lg:text-lg lg:hidden block">Are Design & Build to dedicated to serve millions of
+                people and
+                thousands of
+                businesses
+                along Indonesia Archipelago who seek reliability, security, stability and availability for their
+                critical systems every second.
+            </div>
+
+            <div class="desc-2 mb-7 lg:w-full xl:text-xl lg:text-lg block lg:hidden">As the first of Data Center Provider that serve Nation Wide
                 of People in Indonesia LMP NDC put his EDGE DC at every Main Island in Indonesia Archipelago.
                 Our EDGE DC are placed as near as possible to user to give high user experience on data
                 processing by cutting the latency.</div>

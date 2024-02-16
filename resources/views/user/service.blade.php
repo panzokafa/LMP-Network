@@ -29,7 +29,8 @@
                     and Efficiency in Cooling Systems & Energy consumption</div>
 
                 <div class="flex flex-col lg:gap-6 gap-4">
-                    <div class="text-biru cursor-pointer link">Cable Fiber Optic <div
+                    <div class="text-biru cursor-pointer link">Cable Fiber Optic
+                        <div
                             class="inline opacity-0 duration-300 arrow ml-1">->
                         </div>
                     </div>
@@ -107,7 +108,7 @@
                             </div>
                         </div>
                         <div
-                            class="link z-20 invisible duration-300 opacity-0 border-[0.5px] border-black text-black text-sm absolute lg:left-[100%] left-[90%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                            class="link invisible duration-300 opacity-0 border-[0.5px] border-black text-black text-sm absolute lg:left-[100%] left-[90%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
                             <a href="{{ route('product.rack.1') }}"
                                 class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">1-Rack
                                 MDC With Rack Cooling</a>
@@ -186,6 +187,7 @@
                     </div>
                 </div>
             </div>
+            {{-- ampe sini --}}
 
             <div class="item">
                 <div class="mb-5">
@@ -233,10 +235,98 @@
                     </div>
                 </div>
             </div>
+
+            {{-- baru --}}
+            <div class="item relative z-10">
+                <div class="mb-5 relative">
+                    <a {{-- href="{{ route('') }}" --}}
+                        class="relative z-10 xl:text-4xl lg:text-4xl sm:text-3xl text-2xl mb-5">PAC</a>
+
+
+                </div>
+
+                <div class="sm:text-lg mb-12 relative z-10">Precision Air Conditioning (PAC) is an air cooling system
+                    designed to
+                    provide very precise temperature control in a room. These systems are
+                    typically used in environments where temperature and humidity must be strictly maintained, such as data
+                    centers, laboratories, server rooms, or
+                    other areas that require stable environmental conditions.</div>
+
+                <div class="flex flex-col lg:gap-6 gap-4">
+
+                    <div class="text-biru cursor-pointer flex gap-4 relative max-w-max hover-link">
+                        <div> Air Cool Platform
+                            <div class="inline opacity-0 duration-300 arrow ml-1">->
+                            </div>
+                        </div>
+                        <div
+                            class="link invisible duration-300 opacity-0 border-[0.5px] border-black text-black text-sm absolute lg:left-[100%] left-[90%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                            <a {{-- href="{{ route('product.rack.1') }}" --}}
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">Rack
+                                Cool</a>
+                            <a {{-- href="{{ route('product.rack.2') }}" --}}
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">Ceiling
+                                Cool</a>
+                            <a {{-- href="{{ route('product.rack.2.row') }}" --}}
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">Wall
+                                Cool</a>
+                            <a {{-- href="{{ route('product.rack.3') }}" --}}
+                                class="py-2 px-4 hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">Row
+                                Cool</a>
+                            <div class="cursor-pointer flex gap-4  max-w-max hover-lin">
+                                <a {{-- href="{{ route('product.rack.3') }}" --}}
+                                    class="py-2 px-4 hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs hover-link">Room
+                                    Cool</a>
+
+                            </div>
+
+                        </div>
+                        <div
+                        class=" linkk invisible duration-300 opacity-0 border-[0.5px] border-black text-black text-sm absolute lg:left-[100%] left-[90%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                        <a {{-- href="{{ route('product.mdc.top') }}" --}}
+                            class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">RDX</a>
+                        <a {{-- href="{{ route('product.mdc.row') }}" --}}
+                            class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">Immersion
+                            Liquid Cool </a>
+                        <a {{-- href="{{ route('product.mdc.rack-split') }}" --}}
+                            class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">Cold-Plate
+                            Liquid Cool</a>
+                    </div>
+
+                    </div>
+
+
+                    <div class="text-biru cursor-pointer flex gap-4 relative max-w-max hover-link">
+                        <div> Liquid Cool Platform <div class="inline opacity-0 duration-300 arrow ml-1">->
+                            </div>
+                        </div>
+                        <div
+                            class=" link invisible duration-300 opacity-0 border-[0.5px] border-black text-black text-sm absolute lg:left-[100%] left-[90%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                            <a {{-- href="{{ route('product.mdc.top') }}" --}}
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">RDX</a>
+                            <a {{-- href="{{ route('product.mdc.row') }}" --}}
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">Immersion
+                                Liquid Cool </a>
+                            <a {{-- href="{{ route('product.mdc.rack-split') }}" --}}
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">Cold-Plate
+                                Liquid Cool</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
         </div>
 
         <style>
             .hover-link:hover .link {
+                visibility: visible;
+                opacity: 1;
+            }
+        </style>
+         <style>
+            .hover-lin:hover .linkk {
                 visibility: visible;
                 opacity: 1;
             }
@@ -246,51 +336,52 @@
     </div>
 
     <div
-    class="w-full lg:px-20 flex lg:flex-row flex-col-reverse justify-between items-center sm:mb-36 mb-28 max-lg:pt-14  max-lg:px-12">
+        class="w-full lg:px-20 flex lg:flex-row flex-col-reverse justify-between items-center sm:mb-36 mb-28 max-lg:pt-14  max-lg:px-12">
 
-    <div class="inter lg:w-1/2 text-center lg:text-left 2xl:mt-0 relative lg:top-10 top-14">
+        <div class="inter lg:w-1/2 text-center lg:text-left 2xl:mt-0 relative lg:top-10 top-14">
 
-        <div class="max-w-max max-lg:mx-auto lg:mb-10 mb-5 title">
-            <div
-                class="2xl:text-4xl xl:text-3xl lg:text-2xl sm:text-xl text-lg  font-bold max-lg:px-10 whitespace-nowrap">
-                Data Center Solution
-            </div>
-
-            <div class="h-1 lg:w-[130%] w-full biru sm:my-3 my-2"></div>
-
-            <div class="2xl:text-4xl xl:text-3xl lg:text-2xl sm:text-xl text-lg font-bold max-lg:px-10">
-                Architecture
-            </div>
-
-        </div>
-
-        <div class="desc lg:text-xl sm:text-lg lg:mb-3 sm:leading-8 lg:leading-7 mb-5">We present LMP EDGE DC, a revolutionary solution
-            to enhance efficiency, improve performance, and
-            optimize your best Edge data center. With an
-            approach that brings data processing closer to its
-            source, we deliver remarkable latency reduction for
-            maximum results in energy, cooling, and connectivity.
-        </div>
-        <div class="text lg:text-xl sm:text-lg lg:mb-3 sm:leading-8 lg:leading-7">
-        </div>
-    </div>
-
-
-    <div class="flex relative lg:w-2/5 h-full relative max-lg:left-3 image-1">
-        <div class="flex items-center justify-center w-full">
-            <div class="absolute z-30 p-10">
-                <div class="bruno xl:text-xl lg:text-2xl sm:text-xl text-lg text-white lg:mb-3 mb-2 text-center px-5">
-                    solution
+            <div class="max-w-max max-lg:mx-auto lg:mb-10 mb-5 title">
+                <div
+                    class="2xl:text-4xl xl:text-3xl lg:text-2xl sm:text-xl text-lg  font-bold max-lg:px-10 whitespace-nowrap">
+                    Data Center Solution
                 </div>
-                <div class="w-full relative sm:h-1 h-0.5 bg-white"></div>
-            </div>
-            <img class="relative z-20 w-full" src="{{ asset('images/solution/1.jpg') }}" alt="">
-        </div>
-        <div class="absolute w-full h-full bg-[#E6F6FE] sm:top-8 sm:right-8 top-5 right-5">
 
+                <div class="h-1 lg:w-[130%] w-full biru sm:my-3 my-2"></div>
+
+                <div class="2xl:text-4xl xl:text-3xl lg:text-2xl sm:text-xl text-lg font-bold max-lg:px-10">
+                    Architecture
+                </div>
+
+            </div>
+
+            <div class="desc lg:text-xl sm:text-lg lg:mb-3 sm:leading-8 lg:leading-7 mb-5">We present LMP EDGE DC, a
+                revolutionary solution
+                to enhance efficiency, improve performance, and
+                optimize your best Edge data center. With an
+                approach that brings data processing closer to its
+                source, we deliver remarkable latency reduction for
+                maximum results in energy, cooling, and connectivity.
+            </div>
+            <div class="text lg:text-xl sm:text-lg lg:mb-3 sm:leading-8 lg:leading-7">
+            </div>
+        </div>
+
+
+        <div class="flex lg:w-2/5 h-full relative max-lg:left-3 image-1">
+            <div class="flex items-center justify-center w-full">
+                <div class="absolute z-30 p-10">
+                    <div class="bruno xl:text-xl lg:text-2xl sm:text-xl text-lg text-white lg:mb-3 mb-2 text-center px-5">
+                        solution
+                    </div>
+                    <div class="w-full relative sm:h-1 h-0.5 bg-white"></div>
+                </div>
+                <img class="relative z-20 w-full" src="{{ asset('images/solution/1.jpg') }}" alt="">
+            </div>
+            <div class="absolute w-full h-full bg-[#E6F6FE] sm:top-8 sm:right-8 top-5 right-5">
+
+            </div>
         </div>
     </div>
-</div>
 
 
     <div class="lg:px-20 sm:px-10 px-5">
@@ -305,7 +396,8 @@
                 src="{{ asset('images/dot1.png') }}" alt="">
         </div>
 
-        <div class="grid xl:grid-cols-4 lg:grid-cols-2 justify-center lg:gap-8 gap-12 items-center lg:mb-40 lg:mb-20 mb-16">
+        <div
+            class="grid xl:grid-cols-4 lg:grid-cols-2 justify-center lg:gap-8 gap-12 items-center lg:mb-40 lg:mb-20 mb-16">
 
 
             @php
@@ -331,8 +423,10 @@
             @endphp
             @for ($i = 2; $i < 6; $i++)
                 <div class="flex flex-col items-center {{ 'solution-' . $i }}">
-                    <img class="sm:mb-7 max-sm:scale-75" src="{{ asset('images/solution/' . $i . '.png') }}" alt="">
-                    <div class="text-biru lg:text-2xl sm:text-xl text-lg font-bold lg:mb-7 mb-4">{{ $title[$i - 2] }}</div>
+                    <img class="sm:mb-7 max-sm:scale-75" src="{{ asset('images/solution/' . $i . '.png') }}"
+                        alt="">
+                    <div class="text-biru lg:text-2xl sm:text-xl text-lg font-bold lg:mb-7 mb-4">{{ $title[$i - 2] }}
+                    </div>
 
                     <div class="font-medium text-center">{{ $desc[$i - 2] }}</div>
                 </div>

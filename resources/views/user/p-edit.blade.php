@@ -35,6 +35,7 @@
 
                         <div class="flex items-center justify-center  border-right ">
                             <div class="flex d-flex flex-col items-center text-center">
+
                                 <img src=" {{ asset('storage/picture/' . auth()->user()->profile_picture) }} "
                                     class="brand-image img-circle elevation-3 rounded-full mb-5" height="100" width="100"
                                     id="image_preview_container" alt="">
@@ -118,4 +119,30 @@
 
 
     </div>
+@endsection
+
+@section('js')
+
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
+<script>
+    $(function() {
+        $('input[name=image]').change(function() {
+            imagePreview(this);
+        });
+    });
+
+    function imagePreview(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $("#preview").removeClass("d-none");
+                $("#preview").attr("src", e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
 @endsection
