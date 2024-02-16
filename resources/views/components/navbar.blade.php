@@ -64,60 +64,63 @@
 
     </div>
 
-<div class="flex flex-row gap-5">
-    @guest
-        <div class=" poppins font-semibold flex sm:gap-7 gap-4 items-center text-center">
-            <a href="{{ route('user.login') }}"
-                class="hidden sm:block max-sm:text-sm cursor-pointer hover:text-biru duration-300">Login</a>
-            <a href="{{ route('user.register') }}"
-                class="hidden sm:block max-sm:text-sm relative cursor-pointer py-2 px-3 rounded-md text-white biru hover:bg-white hover:text-biru border-[#1780BB] border-2 duration-300">Sign
-                up</a>
+    <div class="flex flex-row gap-5">
+        @guest
+            <div class=" poppins font-semibold flex sm:gap-7 gap-4 items-center text-center">
+                <a href="{{ route('user.login') }}"
+                    class="hidden sm:block max-sm:text-sm cursor-pointer hover:text-biru duration-300">Login</a>
+                <a href="{{ route('user.register') }}"
+                    class="hidden sm:block max-sm:text-sm relative cursor-pointer py-2 px-3 rounded-md text-white biru hover:bg-white hover:text-biru border-[#1780BB] border-2 duration-300">Sign
+                    up</a>
 
-            <i id="navBtn" class="text-xl cursor-pointer fa-solid fa-bars lg:hidden block lg:text-black "></i>
+                <i id="navBtn" class="text-xl cursor-pointer fa-solid fa-bars lg:hidden block lg:text-black "></i>
 
-        </div>
-    @else
-        <div class="  relative flex items-center gap-5 ">
-            <div  class="poppins font-semibold  gap-3 items-center flex hover-link">
-                {{-- <img src={{ auth()->user()->profile_picture }} alt=""> --}}
-                <div class="w-10 h-auto brand-image img-circle elevation-3 ">
-                    @php($profile_picture = auth()->user()->profile_picture)
-                    <img src="@if ($profile_picture == null) {{ asset('images/Person.png') }} @else {{ asset('image/' . auth()->user()->profile_picture) }} @endif"
-                        class="w-10 h-10 brand-image img-circle elevation-3 rounded-full border-solid border-2 border-sky-600"
-                        alt="">
+            </div>
+        @else
+            <div class="  relative flex items-center gap-5 ">
+                <div class="poppins font-semibold  gap-3 items-center flex hover-link">
+                    {{-- <img src={{ auth()->user()->profile_picture }} alt=""> --}}
+                    <div class="w-10 h-auto brand-image img-circle elevation-3 ">
+                        @php($profile_picture = auth()->user()->profile_picture)
+                        <img src="@if ($profile_picture == null) {{ asset('images/Person.png') }} @else {{ asset('image/' . auth()->user()->profile_picture) }} @endif"
+                            class="w-10 h-10 brand-image img-circle elevation-3 rounded-full border-solid border-2 border-sky-600"
+                            alt="">
+                    </div>
+                    @php($name = auth()->user()->name)
+                    <p class="max-lg:hidden font-light">{{ strtok($name, ' ') }}</p>
+                    <div
+                        class="link invisible hidden lg:block  opacity-0 duration-100 border-[0.5px] border-black text-black text-sm absolute w-44 lg:top-[40px]  whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                        <a href="{{ route('user.profile') }}"
+                            class="py-2 px-4 border-b w-3/4  duration-300 block">Profile</a>
+                        <form action="{{ route('user.logout') }}" method="GET">
+                            @csrf
+                            <button type="submit" class="py-2 px-4 border-b w-1/2 duration-300 block text-red-500">Log
+                                out</button>
+                        </form>
+
+
+
+                    </div>
                 </div>
-                @php($name = auth()->user()->name)
-                <p class="max-lg:hidden font-light">{{ strtok($name, ' ') }}</p>
-                <div
-                class="link invisible hidden lg:block  opacity-0 duration-100 border-[0.5px] border-black text-black text-sm absolute w-44 lg:top-[40px]  whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
-                <a href="{{ route('user.profile') }}"
-                    class="py-2 px-4 border-b w-3/4  duration-300 block">Profile</a>
-                    <form action="{{ route('user.logout') }}" method="GET">
-                        @csrf
-                        <button type="submit"
-                            class="py-2 px-4 border-b w-1/2 duration-300 block text-red-500">Log out</button>
-                    </form>
 
-
-
-            </div>
+                <div class="lg:hidden ">
+                    <i id="navBtn" class="text-xl cursor-pointer fa-solid fa-bars lg:hidden block lg:text-black "></i>
+                </div>
             </div>
 
-        <div class="lg:hidden ">
-            <i id="navBtn" class="text-xl cursor-pointer fa-solid fa-bars lg:hidden block lg:text-black "></i>
+        @endguest
+        <div id="searchBtn"
+            class="hidden lg:block h-full max-w-max cursor-pointer duration-1000 flex-col items-center xl:py-7 py-8 hover:text-biru">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+            </svg>
+
+            <x-nav.search />
+
         </div>
     </div>
-
-    @endguest
-    <div class="hidden lg:block nav-hover nav h-full max-w-max cursor-pointer duration-1000 flex-col items-center xl:py-7 py-8 hover:text-biru">
-        <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-          </svg>
-
-          <x-nav.search />
-
-    </div>
-</div>
 
 </div>
 
@@ -130,17 +133,17 @@
             <img src="{{ asset('images/logo1.png') }}" alt="">
         </div>
         <div class="flex gap-5 justify-normal">
-        @guest
+            @guest
+            @else
+                <form action="{{ route('user.logout') }}" method="GET">
+                    @csrf
+                    <button type="submit"
+                        class=" mt-5 rounded-sm bg-red-600 lg:block px-4  py-2 text-sm text-white hover:bg-red-500 ">Log
+                        out</button>
+                </form>
+            @endguest
 
-        @else
-        <form action="{{ route('user.logout') }}" method="GET">
-            @csrf
-            <button type="submit"
-                class=" mt-5 rounded-sm bg-red-600 lg:block px-4  py-2 text-sm text-white hover:bg-red-500 ">Log out</button>
-        </form>
-        @endguest
-
-        <i id="x" class=" mt-5 fa-solid fa-xmark text-2xl text-white cursor-pointer"></i>
+            <i id="x" class=" mt-5 fa-solid fa-xmark text-2xl text-white cursor-pointer"></i>
         </div>
     </div>
 
@@ -193,10 +196,7 @@
             <a href="{{ route('user.register') }}"
                 class=" text-center justify-center font-medium mt-3 max-sm:text-sm relative cursor-pointer py-2 px-3  text-white biru hover:bg-transparent hover:text-biru border-[#1780BB] border-2 duration-300">Sign
                 up</a>
-
         @else
-
-
         @endguest
     </div>
     {{-- <script>
@@ -266,9 +266,8 @@
         }
 
         .hover-link:hover .link {
-        visibility: visible;
-        opacity: 1;
-    }
-
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 </div>
