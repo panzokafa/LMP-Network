@@ -12,7 +12,7 @@
                         class="block p-2.5 w-full z-20 text-sm bg-gray-50 rounded-lg border-s-2 border border-black focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400 text-black dark:focus:border-blue-500"
                         placeholder="Enter Keyword Search">
                     <button type="submit"
-                        class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full bg-blue-500 hover:bg-blue-700 text-white  py-2 px-4 border-black dark:bg-biru rounded-e-lg border ">
+                        class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full biru hover:bg-blue-700 text-white  py-2 px-4 border-black dark:bg-biru rounded-e-lg border ">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

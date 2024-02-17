@@ -8,7 +8,7 @@
             <input class="border-2 border-gray-300 bg-white w-full  h-14 px-5 pr-16 rounded-lg text-sm focus:outline-none"
                 type="search" value="{{ isset($search) ? $search : '' }}" name="search" placeholder="Enter Keyword Search" >
             <button type="submit" value="search"
-                class="absolute right-0 top-0 mt-0 mr-0 bg-blue-500 hover:bg-blue-700 text-white  py-5 px-4 border-black dark:bg-biru rounded-e-lg ">
+                class="absolute right-0 top-0 mt-0 mr-0 biru hover:bg-blue-700 text-white  py-5 px-4 border-black dark:bg-biru rounded-e-lg ">
                 <svg class="text-white h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
                     viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"
