@@ -40,6 +40,15 @@
           </li>
 
           <li class="nav-item">
+            <a href="{{ route('admin.type')}}" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Type
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="{{ route('admin.product')}}" class="nav-link">
               <i class="nav-icon fas fa-shopping-basket"></i>
               <p>

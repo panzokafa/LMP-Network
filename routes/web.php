@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\TypeController;
+
 
 use App\Http\Controllers\User\RegisterController;
 use App\Http\Controllers\User\LoginController as UserLoginController;
@@ -34,12 +36,22 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function () 
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('logout', [LoginController::class, 'logout'])->name('admin.logout');
     Route::get('user', [UserController::class, 'index'])->name('admin.user');
+
+    //Product
     Route::get('product', [ProductController::class, 'index'])->name('admin.product');
     Route::get('product/create', [ProductController::class, 'create'])->name('admin.product.create');
     Route::post('product/store', [ProductController::class, 'store'])->name('admin.product.store');
-    Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('admin.product.edit');
-    Route::put('/update/{id}', [ProductController::class, 'update'])->name('admin.product.update');
-    Route::delete('/destroy/{id}', [ProductController::class, 'destroy'])->name('admin.product.destroy');
+    Route::get('product/edit/{id}', [ProductController::class, 'edit'])->name('admin.product.edit');
+    Route::put('product/update/{id}', [ProductController::class, 'update'])->name('admin.product.update');
+    Route::delete('product/destroy/{id}', [ProductController::class, 'destroy'])->name('admin.product.destroy');
+
+    //type
+    Route::get('type', [TypeController::class, 'index'])->name('admin.type');
+    Route::get('type/create', [TypeController::class, 'create'])->name('admin.type.create');
+    Route::post('type/store', [TypeController::class, 'store'])->name('admin.type.store');
+    Route::get('type/edit/{id}', [TypeController::class, 'edit'])->name('admin.type.edit');
+    Route::put('type/update/{id}', [TypeController::class, 'update'])->name('admin.type.update');
+    Route::delete('type/destroy/{id}', [TypeController::class, 'destroy'])->name('admin.type.destroy');
 
 
 });

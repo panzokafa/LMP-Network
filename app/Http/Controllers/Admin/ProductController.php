@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Types;
+
 
 class ProductController extends Controller
 {
@@ -18,14 +20,16 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('admin.products.product-create');
+        $types = Types::all();
+        return view('admin.products.product-create', ['types' => $types]);
     }
 
     public function edit($id)
     {
         $products = Product::find($id);
+        $types = Types::all();
 
-        return view('admin.products.product-edit', ['products' => $products]);
+        return view('admin.products.product-edit', ['products' => $products, 'types' => $types]);
     }
 
     public function store(Request $request)
@@ -48,6 +52,8 @@ class ProductController extends Controller
             'image' => $image,
             'desc' => $request->desc,
             'char' => $request->char,
+            'type_id'   => $request->type_id,
+
         ]);
 
         return redirect()
@@ -79,6 +85,8 @@ class ProductController extends Controller
                     'name'         => $request->name,
                     'desc'   => $request->desc,
                     'char'   => $request->char,
+                    'type_id'   => $request->type_id,
+
                 ]));
 
             return redirect()->route('admin.product')->with('success', 'Product updated');
@@ -98,6 +106,8 @@ class ProductController extends Controller
                     'image'  => $image,
                     'desc'   => $request->desc,
                     'char'   => $request->char,
+                    'type_id'   => $request->type_id,
+
                 ]));
 
         return redirect()

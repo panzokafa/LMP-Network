@@ -1,6 +1,6 @@
 @extends('admin.layouts.base');
 
-@section('title', 'Product');
+@section('title', 'Types');
 
 @section('content')
     <meta charset="utf-8">
@@ -9,12 +9,12 @@
         <div class="col-md-12">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Products</h3>
+                    <h3 class="card-title">Type</h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <a href="{{ route('admin.product.create') }}" class="btn btn-success">Create Product</a>
+                            <a href="{{ route('admin.type.create') }}" class="btn btn-success">Create Type</a>
                         </div>
                     </div>
 
@@ -28,34 +28,26 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <table id="product" class="table table-bordered table-hover">
+                                <table id="type" class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
+                                            <th>Id</th>
                                             <th>Name</th>
-                                            <th>Description</th>
-                                            <th>Type</th>
-                                            <th>Key Character</th>
-                                            <th>Image</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($products as $product)
+                                        @foreach ($types as $type)
                                             <tr>
-                                                <td>{{ $product->name }}</td>
-                                                <td>{!! $product->desc !!}</td>
-                                                <td>{{ $product->service_products->name }}</td>
-                                                <td>{{ $product->char }}</td>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $type->name }}</td>
                                                 <td>
-                                                    <img src="{{ asset('image/' . $product->image) }}" width="50%">
-                                                </td>
-                                                <td class="flex flex-row gap-5">
-                                                    <a href="{{ route('admin.product.edit', $product->id) }}"
-                                                        class="btn btn-warning">
+                                                    <a href="{{ route('admin.type.edit', $type->id) }}"
+                                                        class="btn btn-secondary">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
                                                     <form method="post"
-                                                        action="{{ route('admin.product.destroy', $product->id) }}">
+                                                        action="{{ route('admin.type.destroy', $type->id) }}">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger">

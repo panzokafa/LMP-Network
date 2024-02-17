@@ -37,8 +37,21 @@
               <div class="form-group">
                 <label for="desc">Description</label>
                 <textarea class="form-control @error('desc') text-danger fw-bold @enderror" name="desc" placeholder="Description...">{{ $products->desc }}</textarea>
-
               </div>
+
+              <div class="form-group">
+                <label for="name" class="form-label">
+                    Type <span class="text-danger">*</span>
+                </label>
+                <select class="form-control @error('service_type_id') text-danger is-invalid @enderror"
+                    name="type_id">
+                    <option holder>Choose Type</option>
+                    @foreach ($types as $item)
+                        <option value="{{ $item->id }}" @selected($item->id == $products->type_id)> {{ $item->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
 
               <div class="form-group">
                 <label for="char">Key Character</label>

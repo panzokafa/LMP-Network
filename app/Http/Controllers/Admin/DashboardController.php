@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Product;
+use App\Models\Types;
+
 
 
 class DashboardController extends Controller
@@ -14,7 +16,9 @@ class DashboardController extends Controller
     {
         $user = User::where('role','user')->count();
         $products = Product::count();
+        $type = Types::count();
 
-        return view('admin.dashboard', compact('user','products'));
+
+        return view('admin.dashboard', compact('user','products','type'));
     }
 }

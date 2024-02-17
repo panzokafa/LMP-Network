@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="lg:text-base sm:text-base text-xs">
-                        {{ $product->desc}}
+                        {!! $product->desc !!}
                     </div>
                 </div>
 

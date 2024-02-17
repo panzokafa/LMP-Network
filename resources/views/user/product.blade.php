@@ -10,7 +10,7 @@
 
 
                 <div class="lg:text-xl sm:text-lg mb-5">
-                    {{ $product->desc }}
+                    {!! $product->desc !!}
                 </div>
 
                 <div class="flex lg:flex-row flex-col lg:gap-7 gap-4  items-center">
@@ -78,7 +78,7 @@ front and rear doors in the event of a high temperature or fire alarm',
                     </div>
 
                     <div class="lg:text-base sm:text-base text-xs">
-                        {{ $product->desc}}
+                        {!! $product->desc !!}
                     </div>
                 </div>
 
