@@ -49,7 +49,7 @@
                                                 <td>
                                                     <img src="{{ asset('image/' . $product->image) }}" width="50%">
                                                 </td>
-                                                <td class="flex flex-row gap-5">
+                                                <td class="">
                                                     <a href="{{ route('admin.product.edit', $product->id) }}"
                                                         class="btn btn-warning">
                                                         <i class="fas fa-edit"></i>
@@ -59,7 +59,7 @@
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger">
-                                                            <i class="fas fa-trash-alt"></i>
+                                                            <i class="fas fa-trash"></i>
                                                         </button>
                                                     </form>
                                                 </td>

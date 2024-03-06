@@ -45,7 +45,6 @@
                 </label>
                 <select class="form-control @error('service_type_id') text-danger is-invalid @enderror"
                     name="type_id">
-                    <option holder>Choose Type</option>
                     @foreach ($types as $item)
                         <option value="{{ $item->id }}" @selected($item->id == $products->type_id)> {{ $item->name }}
                         </option>
@@ -53,10 +52,33 @@
                 </select>
             </div>
 
-              <div class="form-group">
-                <label for="char">Key Character</label>
-                <input type="text" class="form-control" id="char" name="char" value="{{ $products->char }}" placeholder="5k - 10k MDC fully integrated with closed rack ">
-              </div>
+              <table class="table table-bordered" id="table">
+
+                <tr>
+                    <label for="char">Key Character</label>
+                 </tr>
+                 <td>
+                    <button type="button" name="add" id="add" class="btn btn-success">Add More</button>
+                 </td>
+
+                @php
+                $number = 0;
+                    @endphp
+                @foreach (json_decode($products->char) as $char)
+
+                <tr>
+                    <td>
+                        <input type="text" class="form-control" id="kchar{{++$number}}" name="kchar[]" value="{{ $char  }}" placeholder="5k - 10k MDC fully integrated with closed rack ">
+                    </td>
+                    <td>
+                   <button type="button" class="btn btn-danger remove-table-row">Remove</button>
+
+                    </td>
+                </tr>
+
+                @endforeach
+
+              </table>
 
               {{-- <div class="form-group">
                   <label for="type">Type</label>
@@ -69,8 +91,12 @@
                 </div> --}}
 
               <div class="form-group">
+
                 <label for="image">Image</label>
                 <input type="file" class="form-control" name="image">
+                <div class="mb-3">
+                    <img src="" class="img-thumbnail mt-3 mb-3 d-none w-25" id="preview">
+                </div>
               </div>
 
             </div>
@@ -86,6 +112,34 @@
 @endsection
 
 @section('js')
+
+<script>
+    var i = 0
+    $('#add').click(function(){
+       ++i;
+       $('#table').append(
+           `
+
+           <tr>
+               <td>
+                <input type="text" class="form-control" id="kchar{{++$number}}" name="kchar[]" value="{{ json_decode($char)  }}" placeholder="5k - 10k MDC fully integrated with closed rack ">
+
+               </td>
+               <td>
+                   <button type="button" class="btn btn-danger remove-table-row">Remove</button>
+               </td>
+
+           </tr>
+           `);
+    });
+
+    $(document).on('click', '.remove-table-row', function(){
+       $(this).parents('tr').remove();
+    });
+ </script>
+
+
+
   <script>
     $('#release-date').datetimepicker({
         format: 'YYYY-MM-DD'

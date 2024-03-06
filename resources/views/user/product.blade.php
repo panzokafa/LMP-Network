@@ -41,27 +41,14 @@
             </div>
 
             <div class="flex flex-col justify-center gap-4 mb-20 lg:mb-12">
-                @php
-                    $char = [
-                        'Support global customized services',
-                        'Plug and play design, available online in 10 minutes at the fastest',
-                        'Cabinet covered with insulation material to prevent condensation',
-                        'Fully enclosed design, dust and noise reduction, protection level up to IP55',
-                        'Rack-level cooling, cold and hot aisle isolation, high efficiency, the PUE values as low as 1.3',
-                        'The front and rear doors of the cabinet are equipped with a 3 in 1 access control system',
-                        'Cabinets, power distribution and cooling units have a variety of forms and specifications for flexible application',
-                        'Standard 10-inch integrated touch monitor screen, the monitoring system does not take up U space of the cabinet',
-                        'Support remote web, APP and centralized  monitoring, support monitoring protocols such as Modbus-TCP, SNMPV1 / V2, BACnet',
-                        'The cabinet is equipped with an emergency pop-up door system as standard, which can automatically open the
-front and rear doors in the event of a high temperature or fire alarm',
-                    ];
-                @endphp
-                @for ($i = 0; $i < 9; $i++)
+
+
+                @foreach (json_decode($product->char) as $char)
                     <div class="flex items-center gap-2 text-lg">
                         <div class="lg:min-h-3  lg:min-w-3 min-w-2 min-h-2 bg-[#A0A0A0] rounded-full"></div>
-                        <div class="max-lg:text-sm">{{ $product->char[$i] }}</div>
+                        <div class="max-lg:text-sm">{{ $char }} </div>
                     </div>
-                @endfor
+                @endforeach
             </div>
 
             <div class="lg:text-3xl sm:text-2xl text-xl font-semibold text-biru mb-7">
@@ -69,7 +56,7 @@ front and rear doors in the event of a high temperature or fire alarm',
             </div>
 
             <div class="grid lg:grid-cols-2 grid-cols-1 gap-7">
-                @for ($i = 0; $i < 3; $i++)
+                @foreach ($similar as $product)
                 <a href="{{ route('user.product', $product->id)}}"
                 class="flex hover:border-[#A8D5FB] border-4 border-white duration-300 justify-center items-center bg-[#DDEDFB] px-6 py-8 cursor-pointer h-full">
                 <div>
@@ -84,7 +71,7 @@ front and rear doors in the event of a high temperature or fire alarm',
 
                 <img class="w-1/2" src="{{ asset('image/'.$product->image)}}" alt="">
             </a>
-                @endfor
+                @endforeach
             </div>
         </div>
     </div>

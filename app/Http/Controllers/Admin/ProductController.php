@@ -18,8 +18,10 @@ class ProductController extends Controller
         return view('admin.products.product', ['products' => $products]);
     }
 
-    public function create()
+    public function create(Request $request)
     {
+
+
         $types = Types::all();
         return view('admin.products.product-create', ['types' => $types]);
     }
@@ -35,13 +37,16 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
-
         $request->validate([
             'name' => 'required|string',
             'image' => 'required|image|mimes:jpeg,jpg,png',
             'desc' => 'required|string',
-            'char' => 'required',
         ]);
+
+        $keychar = [];
+            foreach($request->kchar as $char){
+                            $keychar[] = $char;
+                        }
 
         $image = time() . '.' . $request->image->extension();
         $request->image->move(public_path('image'), $image);
@@ -51,7 +56,7 @@ class ProductController extends Controller
             'name' => $request->name,
             'image' => $image,
             'desc' => $request->desc,
-            'char' => $request->char,
+            'char' => json_encode($keychar),
             'type_id'   => $request->type_id,
 
         ]);
@@ -68,8 +73,12 @@ class ProductController extends Controller
             'name' => 'required|string',
             'image' => 'image|mimes:jpeg,jpg,png',
             'desc' => 'required|string',
-            'char' => 'required',
+
         ]);
+        $keychar = [];
+        foreach($request->kchar as $char){
+                        $keychar[] = $char;
+                    }
 
         $products = Product::find($id);
 
@@ -77,14 +86,14 @@ class ProductController extends Controller
             $request->validate([
                 'name' => 'required|string',
                 'desc' => 'required|string',
-                'char' => 'required',
+
             ]);
 
             Product::where('id', $request->id)
                 ->update(([
                     'name'         => $request->name,
                     'desc'   => $request->desc,
-                    'char'   => $request->char,
+                    'char' => json_encode($keychar),
                     'type_id'   => $request->type_id,
 
                 ]));
@@ -105,7 +114,7 @@ class ProductController extends Controller
                     'name'   => $request->name,
                     'image'  => $image,
                     'desc'   => $request->desc,
-                    'char'   => $request->char,
+                    'char' => json_encode($keychar),
                     'type_id'   => $request->type_id,
 
                 ]));

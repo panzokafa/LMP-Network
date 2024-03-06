@@ -43,17 +43,26 @@
                 </label>
                 <select class="form-control @error('service_type_id') text-danger is-invalid @enderror"
                     name="type_id">
-                    <option holder>Choose Type</option>
+
                     @foreach ($types as $item)
                         <option value="{{ $item->id }}"> {{ $item->name }} </option>
                     @endforeach
                 </select>
             </div>
 
-            <div class="form-group">
+            <table class="table table-bordered" id="table">
+                <tr>
                 <label for="char">Key Character</label>
-                <input type="text" class="form-control" id="char" name="char" value="{{ old('char')}}" placeholder="  - 5k - 10k MDC fully integrated with closed rack ">
-              </div>
+            </tr>
+                <tr>
+                    <td>
+                     <input type="text" class="form-control" id="kchar" name="kchar[]" value="{{ old('char')}}" placeholder="5k - 10k MDC fully integrated with closed rack ">
+                    </td>
+                    <td>
+                        <button type="button" name="add" id="add" class="btn btn-success">Add More</button>
+                    </td>
+                </tr>
+            </table>
 
             {{-- <div class="form-group">
                 <label for="type">Type</label>
@@ -66,11 +75,12 @@
               </div> --}}
 
             <div class="form-group">
-                <div class="mb-3">
-                    <img src="" class="img-thumbnail mt-3 mb-3 d-none w-25" id="preview">
-                </div>
+
               <label for="image">Image</label>
               <input type="file" class="form-control" name="image">
+              <div class="mb-3">
+                <img src="" class="img-thumbnail mt-3 mb-3 d-none w-25" id="preview">
+            </div>
             </div>
 
 
@@ -89,10 +99,32 @@
 
 @section('js')
   <script>
+     var i = 0
+     $('#add').click(function(){
+        ++i;
+        $('#table').append(
+            `<tr>
+                <td>
+                    <input type="text" class="form-control" id="kchar" name="kchar[`+i+`]" value="{{ old('char')}}" placeholder="5k - 10k MDC fully integrated with closed rack ">
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger remove-table-row">Remove</button>
+                </td>
+
+            </tr>`);
+     });
+
+     $(document).on('click', '.remove-table-row', function(){
+        $(this).parents('tr').remove();
+     });
+  </script>
+
+  <script>
     $('#release-date').datetimepicker({
         format: 'YYYY-MM-DD'
     })
   </script>
+
    <script>
     $(function() {
         $('textarea[name=desc]').summernote({
@@ -100,6 +132,7 @@
         });
     });
 </script>
+
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
 <script>

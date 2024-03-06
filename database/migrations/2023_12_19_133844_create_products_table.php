@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('desc');
             $table->unsignedBigInteger('type_id')->default(0);
             $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
-            $table->string('char');
+            $table->text('char');
             $table->string('image');
             $table->timestamps();
         });

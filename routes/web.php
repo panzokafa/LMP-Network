@@ -35,15 +35,19 @@ Route::post('admin/login', [LoginController::class, 'authenticate'])->name('admi
 Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('logout', [LoginController::class, 'logout'])->name('admin.logout');
+
+    //user
     Route::get('user', [UserController::class, 'index'])->name('admin.user');
+    Route::delete('user/destroy/{id}', [UserController::class, 'destroy'])->name('admin.user.destroy');
+
 
     //Product
-    Route::get('product', [ProductController::class, 'index'])->name('admin.product');
-    Route::get('product/create', [ProductController::class, 'create'])->name('admin.product.create');
-    Route::post('product/store', [ProductController::class, 'store'])->name('admin.product.store');
-    Route::get('product/edit/{id}', [ProductController::class, 'edit'])->name('admin.product.edit');
-    Route::put('product/update/{id}', [ProductController::class, 'update'])->name('admin.product.update');
-    Route::delete('product/destroy/{id}', [ProductController::class, 'destroy'])->name('admin.product.destroy');
+    Route::get('products', [ProductController::class, 'index'])->name('admin.product');
+    Route::get('products/create', [ProductController::class, 'create'])->name('admin.product.create');
+    Route::post('products/store', [ProductController::class, 'store'])->name('admin.product.store');
+    Route::get('products/edit/{id}', [ProductController::class, 'edit'])->name('admin.product.edit');
+    Route::put('products/update/{id}', [ProductController::class, 'update'])->name('admin.product.update');
+    Route::delete('products/destroy/{id}', [ProductController::class, 'destroy'])->name('admin.product.destroy');
 
     //type
     Route::get('type', [TypeController::class, 'index'])->name('admin.type');

@@ -23,7 +23,7 @@
                     <th>Division</th>
                     <th>Phone Number</th>
                     <th>LinkedIn</th>
-
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -36,6 +36,16 @@
                       <td>{{ $user->division}}</td>
                       <td>{{ $user->phone_number}}</td>
                       <td>{{ $user->linkedin}}</td>
+                      <td>
+                        <form method="post"
+                            action="{{ route('admin.user.destroy', $user->id) }}">
+                            @method('delete')
+                            @csrf
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </form>
+                    </td>
                     </tr>
                     @endforeach
 
