@@ -8,6 +8,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <title>LMP</title>
 
@@ -15,8 +16,9 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
 
+    @livewireStyles
+    @vite(['resources/js/app.js'])
     @yield('css')
-
 </head>
 
 <body>
@@ -24,6 +26,7 @@
         @yield('content')
     </main>
     @yield('javascript')
+    @livewireScripts
 </body>
 
 </html>

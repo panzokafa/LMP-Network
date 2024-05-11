@@ -14,6 +14,7 @@ use App\Http\Controllers\User\ProductController as UserProductController;
 use App\Http\Controllers\User\PageController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\SearchController;
+use App\Livewire\Chat\Index;
 
 // use App\Http\Controllers\User\Profile2Controller;
 
@@ -80,6 +81,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('user.profile');
     Route::get('edit/{id?}', [ProfileController::class, 'edit'])->name('user.edit');
     Route::put('update/{id?}', [ProfileController::class, 'update'])->name('user.update');
+    Route::get('chat', [Index::class, 'render'])->name('chat.index');
 });
 
 // Route::group(['prefix' => 'product', 'middleware' => ['auth']], function () {
