@@ -83,10 +83,12 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::put('update/{id?}', [ProfileController::class, 'update'])->name('user.update');
 });
 
-Route::middleware(['auth'])->prefix('service')->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('chat', [Index::class, 'render'])->name('chat.index');
-    Route::get('chat/{query}', [Chat::class, 'render'])->name('chat');
-    Route::get('users', [Users::class, 'render'])->name('users');
+    Route::get('/chat/{query}', [Chat::class, 'render'])->name('chat');
+    Route::get('/users', [Users::class, 'render'])->name('users');
+
+    Route::post('/users/message/{userId}', [Users::class, 'message'])->name('users.message');
 });
 
 // Route::group(['prefix' => 'product', 'middleware' => ['auth']], function () {

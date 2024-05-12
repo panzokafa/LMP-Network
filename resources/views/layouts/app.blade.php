@@ -15,18 +15,19 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     @vite(['resources/js/app.js'])
-    @livewireStyles
     @yield('css')
+    @livewireStyles
 </head>
 
 <body>
     <main>
         @yield('content')
     </main>
-    @yield('javascript')
     @livewireScripts
+    @yield('javascript')
 </body>
 
 </html>

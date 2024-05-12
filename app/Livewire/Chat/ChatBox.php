@@ -54,7 +54,7 @@ class ChatBox extends Component
                 $newMessage->read_at = now();
                 $newMessage->save();
 
-                #broadcast 
+                #broadcast
                 $this->selectedConversation->getReceiver()
                     ->notify(new MessageRead($this->selectedConversation->id));
             }
@@ -68,7 +68,7 @@ class ChatBox extends Component
     {
 
 
-        #increment 
+        #increment
         $this->paginate_var += 10;
 
         #call loadMessages()
@@ -76,7 +76,7 @@ class ChatBox extends Component
         $this->loadMessages();
 
 
-        #update the chat height 
+        #update the chat height
         $this->dispatchBrowserEvent('update-chat-height');
     }
 

@@ -14,21 +14,20 @@ class Chat extends Component
 
     public function mount()
     {
-
         $this->selectedConversation = Conversation::findOrFail($this->query);
-        dd($this->selectedConversation);
-
-
-        #mark message belogning to receiver as read 
+        // Mark messages belonging to the receiver as read
         Message::where('conversation_id', $this->selectedConversation->id)
             ->where('receiver_id', auth()->id())
             ->whereNull('read_at')
             ->update(['read_at' => now()]);
     }
 
-
     public function render()
     {
-        return view('livewire.chat.chat');
+        $query = $this->query;
+
+        return view('livewire.chat.chat')
+            ->with('selectedConversation', $this->selectedConversation)
+            ->with('query', $query);
     }
 }
