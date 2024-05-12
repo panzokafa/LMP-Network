@@ -16,8 +16,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
 
-    @livewireStyles
     @vite(['resources/js/app.js'])
+    @livewireStyles
     @yield('css')
 </head>
 

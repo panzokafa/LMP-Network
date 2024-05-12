@@ -16,6 +16,7 @@ use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\SearchController;
 use App\Livewire\Chat\Index;
 use App\Livewire\Chat\Chat;
+use App\Livewire\Users;
 
 // use App\Http\Controllers\User\Profile2Controller;
 
@@ -58,8 +59,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function () 
     Route::get('type/edit/{id}', [TypeController::class, 'edit'])->name('admin.type.edit');
     Route::put('type/update/{id}', [TypeController::class, 'update'])->name('admin.type.update');
     Route::delete('type/destroy/{id}', [TypeController::class, 'destroy'])->name('admin.type.destroy');
-
-
 });
 
 // Front-End
@@ -87,6 +86,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 Route::middleware(['auth'])->prefix('service')->group(function () {
     Route::get('chat', [Index::class, 'render'])->name('chat.index');
     Route::get('chat/{query}', [Chat::class, 'render'])->name('chat');
+    Route::get('users', [Users::class, 'render'])->name('users');
 });
 
 // Route::group(['prefix' => 'product', 'middleware' => ['auth']], function () {
@@ -227,7 +227,6 @@ Route::group(['prefix' => 'product'], function () {
     Route::get('half-containment', function () {
         return view('user.product.containment.half-containment');
     })->name('product.containment.half-containment');
-
 });
 // Route::get('/', function () {
 //     return view('welcome');
