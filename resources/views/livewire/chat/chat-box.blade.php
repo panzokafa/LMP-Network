@@ -68,7 +68,7 @@ Echo.private('users.{{ Auth()->User()->id }}')
         window.livewire.emit('loadMore');
 
       }
-     
+
      "
             @update-chat-height.window="
 
@@ -78,7 +78,7 @@ Echo.private('users.{{ Auth()->User()->id }}')
          $el.scrollTop= newHeight- oldHeight;
 
          height=newHeight;
-     
+
      "
             id="conversation"
             class="flex flex-col gap-3 p-2.5 overflow-y-auto  flex-grow overscroll-contain overflow-x-hidden w-full my-auto">
@@ -211,7 +211,7 @@ Echo.private('users.{{ Auth()->User()->id }}')
                     <div class="grid grid-cols-12">
                         <input x-model="body" type="text" autocomplete="off" autofocus
                             placeholder="write your message here" maxlength="1700"
-                            class="col-span-10 bg-gray-100 border-0 outline-0 focus:border-0 focus:ring-0 hover:ring-0 rounded-lg  focus:outline-none">
+                            class="col-span-10 bg-gray-100 border-0 outline-0 focus:border-0 focus:ring-0 hover:ring-0 rounded-lg  focus:outline-none p-3">
 
                         <button x-bind:disabled="!body.trim()" class="col-span-2" type='submit'>Send</button>
 

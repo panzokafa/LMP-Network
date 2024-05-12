@@ -21,9 +21,7 @@ class Chat extends Component
         $this->query = $query;
         $this->selectedConversation = Conversation::findOrFail($this->query);
 
-
-
-        #mark message belogning to receiver as read 
+        #mark message belogning to receiver as read
         Message::where('conversation_id', $this->selectedConversation->id)
             ->where('receiver_id', auth()->id())
             ->whereNull('read_at')
