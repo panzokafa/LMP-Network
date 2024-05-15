@@ -40,6 +40,15 @@
           </li>
 
           <li class="nav-item">
+            <a href="/service/chat" class="nav-link">
+              <i class="nav-icon fas fa-comments"></i>
+              <p>
+                Chat User
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="{{ route('admin.type')}}" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>

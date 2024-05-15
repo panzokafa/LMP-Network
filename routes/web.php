@@ -91,12 +91,6 @@ Route::middleware(['auth'])->prefix('service')->group(function () {
     Route::post('/users/message/{userId}', [Users::class, 'message'])->name('users.message');
 });
 
-// Route::group(['prefix' => 'product', 'middleware' => ['auth']], function () {
-//     Route::get('MDC-Top', function () {
-//         return view('user.product'); // You can return any response you want here
-//     })->name('product');
-// });
-
 Route::get('testing', function () {
     return view('user.testing'); // You can return any response you want here
 })->name('testing');

@@ -2,8 +2,7 @@
 
 
 @section('content')
-    <div
-        class="fixed h-full flex bg-white border  lg:shadow-sm overflow-hidden inset-0 lg:top-16  lg:inset-x-2 m-auto rounded-t-lg">
+    <div class=" fixed h-full flex bg-white lg:shadow-sm overflow-hidden inset-0">
 
         <div class="relative w-full md:w-[320px] xl:w-[400px] overflow-y-auto shrink-0 h-full border">
 
