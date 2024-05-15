@@ -203,11 +203,11 @@ Echo.private('users.{{ Auth()->User()->id }}')
 
             <div class=" p-2 border-t">
 
-                <form wire:submit.prevent="sendMessage" method="POST" autocapitalize="off">
+                <form wire:submit="sendMessage" method="POST" autocapitalize="off">
                     @csrf
 
                     <div class="grid grid-cols-12">
-                        <input wire:model="body" type="text" autocomplete="off" autofocus
+                        <input wire:model.live="body" type="text" autocomplete="off" autofocus
                             placeholder="write your message here" maxlength="1700"
                             class="col-span-10 bg-gray-100 border-0 outline-0 focus:border-0 focus:ring-0 hover:ring-0 rounded-lg  focus:outline-none p-3">
 

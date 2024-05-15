@@ -16,10 +16,10 @@ class MessageSent extends Notification implements ShouldBroadcast
     /**
      * Create a new notification instance.
      */
-     public $user;
-     public $message;
-     public $conversation;
-     public $receiverId;
+    public $user;
+    public $message;
+    public $conversation;
+    public $receiverId;
 
     public function __construct(
         $user,
@@ -27,16 +27,13 @@ class MessageSent extends Notification implements ShouldBroadcast
         $conversation,
         $receiverId,
 
-    )
-    {
+    ) {
         //
 
-        $this->user= $user;
-        $this->message= $message;
-        $this->conversation= $conversation;
-        $this->receiverId= $receiverId;
-
-
+        $this->user = $user;
+        $this->message = $message;
+        $this->conversation = $conversation;
+        $this->receiverId = $receiverId;
     }
 
     /**
@@ -55,9 +52,9 @@ class MessageSent extends Notification implements ShouldBroadcast
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->line('The introduction to the notification.')
+            ->action('Notification Action', url('/'))
+            ->line('Thank you for using our application!');
     }
 
 
@@ -69,7 +66,7 @@ class MessageSent extends Notification implements ShouldBroadcast
         return new BroadcastMessage([
             'user_id' => $this->user->id,
             'conversation_id' => $this->conversation->id,
-            'message_id' => $this->message->id,   
+            'message_id' => $this->message->id,
             'receiver_id' => $this->receiverId,
         ]);
     }
