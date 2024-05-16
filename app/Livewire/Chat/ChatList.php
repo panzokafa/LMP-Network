@@ -9,17 +9,19 @@ class ChatList extends Component
 {
     public $selectedConversation;
     public $query;
-
-
+    public $user;
     protected $listeners = ['refresh' => '$refresh'];
-
+    public $conversations;
 
     public function unreadChat()
     {
+        $this->conversations = $this->user->conversations()->latest('updated_at')->get();
     }
 
     public function allChat()
     {
+        $user = auth()->user();
+        $this->conversations = $this->user->conversations()->latest('created_at')->get();
     }
 
     public function deleteByUser($id)
@@ -27,9 +29,6 @@ class ChatList extends Component
 
         $userId = auth()->id();
         $conversation = Conversation::find(decrypt($id));
-
-
-
 
         $conversation->messages()->each(function ($message) use ($userId) {
 
@@ -62,22 +61,19 @@ class ChatList extends Component
             $conversation->forceDelete();
             # code...
         }
-
-
-
-
-
         return redirect(route('chat.index'));
     }
 
-
+    public function mount()
+    {
+        $this->user = auth()->user();
+        $this->allChat();
+    }
 
     public function render()
     {
-
-        $user = auth()->user();
         return view('livewire.chat.chat-list', [
-            'conversations' => $user->conversations()->latest('updated_at')->get()
+            'conversations' => $this->conversations
         ]);
     }
 }
