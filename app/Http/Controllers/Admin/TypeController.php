@@ -5,14 +5,16 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Types;
-
+use App\Models\Message;
 
 class TypeController extends Controller
 {
     public function index()
     {
         $types = Types::all();
-        return view('admin.types.types', ['types' => $types]);
+        $conversations = Message::whereNull('read_at')->count();
+
+        return view('admin.types.types', ['types' => $types,'conversations' => $conversations]);
     }
 
     public function create()
