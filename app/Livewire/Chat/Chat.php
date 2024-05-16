@@ -6,7 +6,7 @@ use App\Models\Conversation;
 use App\Models\Message;
 use Illuminate\Http\Request;
 use Livewire\Component;
-use Illuminate\Support\Facades\Auth;
+
 
 class Chat extends Component
 {
@@ -17,12 +17,9 @@ class Chat extends Component
     {
         $this->query = $query;
 
-
         if (auth()->user()->is_admin) {
-
             $this->selectedConversation = Conversation::findOrFail($this->query);
         } else {
-
             $this->selectedConversation = Conversation::where('id', $this->query)
                 ->where(function ($query) {
                     $query->where('sender_id', auth()->id())
@@ -30,7 +27,6 @@ class Chat extends Component
                 })
                 ->firstOrFail();
         }
-
 
         Message::where('conversation_id', $this->selectedConversation->id)
             ->where('receiver_id', auth()->id())

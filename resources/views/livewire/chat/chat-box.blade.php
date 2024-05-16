@@ -63,7 +63,7 @@ Echo.private('users.{{ Auth()->User()->id }}')
 
       if(scropTop <= 0){
 
-        window.livewire.emit('loadMore');
+        Livewire.dispatch('loadMore');
 
       }
 
