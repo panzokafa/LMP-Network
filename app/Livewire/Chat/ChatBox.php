@@ -57,7 +57,7 @@ class ChatBox extends Component
                 $newMessage->read_at = now();
                 $newMessage->save();
 
-                #broadcast 
+                #broadcast
                 $this->selectedConversation->getReceiver()
                     ->notify(new MessageRead($this->selectedConversation->id));
             }
@@ -71,7 +71,7 @@ class ChatBox extends Component
     {
 
 
-        #increment 
+        #increment
         $this->paginate_var += 10;
 
         #call loadMessages()
@@ -79,7 +79,7 @@ class ChatBox extends Component
         $this->loadMessages();
 
 
-        #update the chat height 
+        #update the chat height
         $this->dispatch('update-chat-height');
     }
 
@@ -105,18 +105,19 @@ class ChatBox extends Component
 
         #skip and query
         $this->loadedMessages = Message::where('conversation_id', $this->selectedConversation->id)
-            ->where(function ($query) use ($userId) {
-
-                $query->where('sender_id', $userId)
-                    ->whereNull('sender_deleted_at');
-            })->orWhere(function ($query) use ($userId) {
-
+        ->where(function ($query) use ($userId) {
+            $query->where(function ($query) use ($userId) {
                 $query->where('receiver_id', $userId)
-                    ->whereNull('receiver_deleted_at');
-            })
-            ->skip($count - $this->paginate_var)
-            ->take($this->paginate_var)
-            ->get();
+                      ->whereNull('receiver_deleted_at');
+            })->orWhere(function ($query) use ($userId) {
+                $query->where('sender_id', $userId)
+                      ->whereNull('sender_deleted_at');
+            });
+        })
+        ->skip($count - $this->paginate_var)
+        ->take($this->paginate_var)
+        ->get();
+
 
 
         return $this->loadedMessages;

@@ -84,11 +84,14 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 });
 
 Route::middleware(['auth'])->prefix('service')->group(function () {
+
     Route::get('chat', [Index::class, 'render'])->name('chat.index');
     Route::get('/chat/{query}', [Chat::class, 'render'])->name('chat');
-    Route::get('/users', [Users::class, 'render'])->name('users');
-
     Route::post('/users/message/{userId}', [Users::class, 'message'])->name('users.message');
+});
+
+Route::middleware(['auth', 'role:user'])->prefix('service')->group(function () {
+    Route::get('/users', [Users::class, 'render'])->name('users');
 });
 
 Route::get('testing', function () {

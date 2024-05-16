@@ -4,11 +4,8 @@
 @section('content')
     <div class="max-w-6xl mx-auto my-16">
 
-        @if (auth()->user()->role == 'admin')
-            <h5 class="text-center text-5xl font-bold py-3">List of user</h5>
-        @else
-            <h5 class="text-center text-5xl font-bold py-3">List of admin</h5>
-        @endif
+        <h5 class="text-center text-5xl font-bold py-3">List of admin</h5>
+
         <div class="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 p-2 ">
 
             @foreach ($users as $key => $user)
