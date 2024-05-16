@@ -3,25 +3,35 @@
 namespace App\Livewire\Chat;
 
 use App\Models\Conversation;
-use Illuminate\Http\Request;
-
 use App\Models\Message;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Request;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class Chat extends Component
 {
     public $query;
     public $selectedConversation;
 
-
-
     public function render(Request $request, $query)
     {
         $this->query = $query;
-        $this->selectedConversation = Conversation::findOrFail($this->query);
 
-        #mark message belogning to receiver as read
+
+        if (auth()->user()->is_admin) {
+
+            $this->selectedConversation = Conversation::findOrFail($this->query);
+        } else {
+
+            $this->selectedConversation = Conversation::where('id', $this->query)
+                ->where(function ($query) {
+                    $query->where('sender_id', auth()->id())
+                        ->orWhere('receiver_id', auth()->id());
+                })
+                ->firstOrFail();
+        }
+
+
         Message::where('conversation_id', $this->selectedConversation->id)
             ->where('receiver_id', auth()->id())
             ->whereNull('read_at')
