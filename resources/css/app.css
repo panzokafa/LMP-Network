@@ -7,6 +7,16 @@
     font-family: "Poppins", sans-serif;
 }
 
+.circle-badge {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+
 .user-active {
     @apply transform opacity-100 scale-100 absolute;
 }
