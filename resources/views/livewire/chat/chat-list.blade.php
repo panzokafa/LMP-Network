@@ -45,13 +45,15 @@ Echo.private('users.{{ Auth()->User()->id }}')
 
         <div class="flex gap-3 items-center overflow-x-scroll p-2 bg-white">
 
-            <button @click="type='all'" :class="{ 'bg-blue-100 border-0 text-black': type == 'all' }"
+            <button wire:click="allChat" @click="type='all'"
+                :class="{ 'bg-blue-100 border-0 text-black': type == 'all' }"
                 class="inline-flex justify-center items-center rounded-full gap-x-1 text-xs font-medium px-3 lg:px-5 py-1  lg:py-2.5 border ">
                 All
             </button>
-            <button @click="type='deleted'" :class="{ 'bg-blue-100 border-0 text-black': type == 'deleted' }"
+            <button wire:click="unreadChat" @click="type='unread'"
+                :class="{ 'bg-blue-100 border-0 text-black': type == 'unread' }"
                 class="inline-flex justify-center items-center rounded-full gap-x-1 text-xs font-medium px-3 lg:px-5 py-1  lg:py-2.5 border ">
-                Deleted
+                Unread
             </button>
 
         </div>

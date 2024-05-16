@@ -14,6 +14,14 @@ class ChatList extends Component
     protected $listeners = ['refresh' => '$refresh'];
 
 
+    public function unreadChat()
+    {
+    }
+
+    public function allChat()
+    {
+    }
+
     public function deleteByUser($id)
     {
 
@@ -33,6 +41,7 @@ class ChatList extends Component
                 $message->update(['receiver_deleted_at' => now()]);
             }
         });
+
 
 
         $receiverAlsoDeleted = $conversation->messages()
