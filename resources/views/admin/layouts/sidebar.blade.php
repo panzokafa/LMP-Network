@@ -113,5 +113,5 @@
       }
 
       // Panggil fungsi checkNewMessages setiap 5 detik
-      setInterval(checkNewMessages, 5000);
+      setInterval(checkNewMessages, 60000);
   </script>
