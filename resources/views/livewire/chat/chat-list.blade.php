@@ -148,11 +148,9 @@ Echo.private('users.{{ Auth()->User()->id }}')
                             {{-- Dropdown --}}
 
                             <div class="col-span-1 flex flex-col text-center my-auto">
-
                                 <x-dropdown align="right" width="48">
                                     <x-slot name="trigger">
                                         <button>
-
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor"
                                                 class="bi bi-three-dots-vertical w-7 h-7 text-gray-700"
@@ -160,8 +158,6 @@ Echo.private('users.{{ Auth()->User()->id }}')
                                                 <path
                                                     d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
                                             </svg>
-
-
                                         </button>
                                     </x-slot>
 
@@ -184,16 +180,9 @@ Echo.private('users.{{ Auth()->User()->id }}')
                                                 Delete
 
                                             </button>
-
-
-
                                         </div>
-
                                     </x-slot>
                                 </x-dropdown>
-
-
-
                             </div>
 
 

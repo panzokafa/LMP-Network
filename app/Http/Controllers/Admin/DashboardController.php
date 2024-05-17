@@ -18,6 +18,7 @@ class DashboardController extends Controller
         $type = Types::count();
         $conversations = Message::whereNull('read_at')->count();
 
+        // dd($conversations);
         return view('admin.dashboard', compact('user', 'products', 'type', 'conversations'));
     }
 
