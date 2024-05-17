@@ -47,13 +47,11 @@
                               <i class="nav-icon fas fa-comments"></i>
                               <p class="mb-0 d-inline">Chat User</p>
                           </div>
-                          @if ($conversations > 0)
-                              <span
-                                  class="fw-bold d-flex align-items-center justify-content-center text-white bg-primary rounded-circle"
-                                  style="width: 24px; height: 24px;">
-                                  {{ $conversations }}
-                              </span>
-                          @endif
+                          <span
+                              class="notification-badge fw-bold d-flex align-items-center justify-content-center text-white bg-primary rounded-circle"
+                              style="width: 24px; height: 24px;">
+                              <span class="badge-text">{{ $conversations }}</span>
+                          </span>
                       </a>
                   </li>
 
@@ -93,3 +91,26 @@
       </div>
       <!-- /.sidebar -->
   </aside>
+
+  
+  <script>
+    function checkNewMessages() {
+        $.ajax({
+            url: '/admin/check-new-messages',
+            method: 'GET',
+            success: function(response) {
+                if (response.conversations > 0) {
+                    // Ada pesan baru, perbarui notifikasi
+                    $('.notification-badge').text(response.conversations).show();
+                } else {
+                    // Tidak ada pesan baru, sembunyikan notifikasi
+                    $('.notification-badge').hide();
+                }
+            }
+        });
+    }
+
+    // Panggil fungsi checkNewMessages setiap 5 detik
+    setInterval(checkNewMessages, 5000);
+</script>
+

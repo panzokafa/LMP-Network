@@ -38,7 +38,7 @@ Route::post('admin/login', [LoginController::class, 'authenticate'])->name('admi
 Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('logout', [LoginController::class, 'logout'])->name('admin.logout');
-
+    Route::get('check-new-messages', [DashboardController::class, 'checkNewMessages'])->name('admin.checkNewMessages');
     //user
     Route::get('user', [UserController::class, 'index'])->name('admin.user');
     Route::delete('user/destroy/{id}', [UserController::class, 'destroy'])->name('admin.user.destroy');
