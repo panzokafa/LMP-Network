@@ -7,15 +7,14 @@
     font-family: "Poppins", sans-serif;
 }
 
-.circle-badge {
-    width: 24px;
-    height: 24px;
+.custom-avatar {
+    width: 50px; /* Atur ukuran sesuai kebutuhan */
+    height: 50px; /* Pastikan tinggi dan lebar sama */
+    font-size: 24px; /* Ukuran font sesuai kebutuhan */
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
 }
-
 
 .user-active {
     @apply transform opacity-100 scale-100 absolute;

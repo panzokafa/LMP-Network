@@ -41,11 +41,9 @@ Echo.private('users.{{ Auth()->User()->id }}')
 
                 {{-- avatar --}}
 
-
                 <div class="shrink-0">
-                    <x-avatar class="h-9 w-9 lg:w-11 lg:h-11" />
+                    <x-avatar src="{{ $selectedConversation->getReceiver()->name }}" />
                 </div>
-
 
                 <h6 class="font-bold truncate"> {{ $selectedConversation->getReceiver()->email }} </h6>
 
@@ -111,7 +109,8 @@ Echo.private('users.{{ Auth()->User()->id }}')
                             'hidden' => $message->sender_id === auth()->id(),
                         ])>
 
-                            <x-avatar />
+                            <x-avatar src="{{ $selectedConversation->getReceiver()->name }}" />
+
                         </div>
                         {{-- messsage body --}}
 
@@ -180,12 +179,6 @@ Echo.private('users.{{ Auth()->User()->id }}')
                             </div>
 
                         </div>
-
-
-
-
-
-
 
                     </div>
                 @endforeach
