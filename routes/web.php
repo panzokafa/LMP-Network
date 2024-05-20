@@ -14,6 +14,9 @@ use App\Http\Controllers\User\ProductController as UserProductController;
 use App\Http\Controllers\User\PageController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\SearchController;
+use App\Livewire\Chat\Index;
+use App\Livewire\Chat\Chat;
+use App\Livewire\Users;
 
 // use App\Http\Controllers\User\Profile2Controller;
 
@@ -35,7 +38,7 @@ Route::post('admin/login', [LoginController::class, 'authenticate'])->name('admi
 Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('logout', [LoginController::class, 'logout'])->name('admin.logout');
-
+    Route::get('check-new-messages', [DashboardController::class, 'checkNewMessages'])->name('admin.checkNewMessages');
     //user
     Route::get('user', [UserController::class, 'index'])->name('admin.user');
     Route::delete('user/destroy/{id}', [UserController::class, 'destroy'])->name('admin.user.destroy');
@@ -58,8 +61,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function () 
     Route::get('type/edit/{id}', [TypeController::class, 'edit'])->name('admin.type.edit');
     Route::put('type/update/{id}', [TypeController::class, 'update'])->name('admin.type.update');
     Route::delete('type/destroy/{id}', [TypeController::class, 'destroy'])->name('admin.type.destroy');
-
-
 });
 
 // Front-End
@@ -91,11 +92,16 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::put('update/{id?}', [ProfileController::class, 'update'])->name('user.update');
 });
 
-// Route::group(['prefix' => 'product', 'middleware' => ['auth']], function () {
-//     Route::get('MDC-Top', function () {
-//         return view('user.product'); // You can return any response you want here
-//     })->name('product');
-// });
+Route::middleware(['auth'])->prefix('service')->group(function () {
+
+    Route::get('chat', [Index::class, 'render'])->name('chat.index');
+    Route::get('/chat/{query}', [Chat::class, 'render'])->name('chat');
+    Route::post('/users/message/{userId}', [Users::class, 'message'])->name('users.message');
+});
+
+Route::middleware(['auth', 'role:user'])->prefix('service')->group(function () {
+    Route::get('/users', [Users::class, 'render'])->name('users');
+});
 
 Route::get('testing', function () {
     return view('user.testing'); // You can return any response you want here
@@ -229,7 +235,6 @@ Route::group(['prefix' => 'productss'], function () {
     Route::get('half-containment', function () {
         return view('user.product.containment.half-containment');
     })->name('product.containment.half-containment');
-
 });
 // Route::get('/', function () {
 //     return view('welcome');

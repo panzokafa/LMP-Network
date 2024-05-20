@@ -3,7 +3,7 @@
 @section('title', 'User');
 
 @section('content')
-<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <div class="row">
     <div class="col-md-12">
@@ -61,18 +61,18 @@
                     </tr>
                     @endforeach
 
-                </tbody>
-              </table>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-  @endsection
+@endsection
 
-  @section('js')
-  <script>
-    $('#user').DataTable();
-  </script>
+@section('js')
+    <script>
+        $('#user').DataTable();
+    </script>
 @endsection

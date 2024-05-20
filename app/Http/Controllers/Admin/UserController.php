@@ -7,14 +7,15 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-
+use App\Models\Message;
 
 class UserController extends Controller
 {
     public function index()
     {
         $users = User::all();
-        return view('admin.user.users', ['users' => $users]);
+        $conversations = Message::whereNull('read_at')->count();
+        return view('admin.user.users', ['users' => $users,'conversations' => $conversations]);
     }
 
     public function destroy($id) {

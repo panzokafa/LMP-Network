@@ -8,21 +8,24 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <title>LMP</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     @yield('css')
-
+    @livewireStyles
 </head>
 
 <body>
     <main>
         @yield('content')
     </main>
+    @livewireScripts
     @yield('javascript')
 </body>
 

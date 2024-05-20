@@ -16,9 +16,9 @@
 
         <div class="grid xl:grid-cols-4 sm:grid-cols-2 gap-20 justify-center items-start">
             @php
-                $title = ['Visit Us', 'WhatsApp', 'Call Us', 'Email'];
+                $title = ['Visit Us', 'WhatsApp', 'Call Us', 'Email','Contact Admin'];
 
-                $link = [null, 'https://wa.me/082320218200', null, 'mailto:info@lmp-networks.com'];
+                $link = [null, 'https://wa.me/082320218200', null, 'mailto:info@lmp-networks.com','/service/users'];
 
                 $desc = [
                     'Harapan Indah Boulevard
@@ -27,14 +27,15 @@ Bekasi - Jawa Barat',
                     '(+62 21) 82692369',
                     '(+62 21) 82692369',
                     'info@lmp-networks.com',
+                    'Hubungi Admin',
                 ];
             @endphp
-            @for ($i = 1; $i < 5; $i++)
+            @for ($i = 1; $i < 6; $i++)
                 <a {{ $link[$i - 1] != null ? 'href = ' . $link[$i - 1] : null }}
                     class="{{ 'contact-' . $i }} flex flex-col items-center justify-center text-center">
-                    <img class="xl:mb-12 mb-10" src="{{ asset('images/contact/' . $i . '.png') }}" alt="">
+                    <img class="xl:mb-10 mb-7 w-20 h-20" src="{{ asset('images/contact/' . $i . '.png') }}" alt="">
 
-                    <div class="font-bold lg:text-2xl sm:text-xl text-lg xl:mb-14 sm:mb-7 mb-4">{{ $title[$i - 1] }}</div>
+                    <div class="font-bold lg:text-2xl sm:text-xl text-lg xl:mb-10 sm:mb-7 mb-4">{{ $title[$i - 1] }}</div>
 
                     <div class="font-medium max-sm:px-5">{{ $desc[$i - 1] }}</div>
                 </a>

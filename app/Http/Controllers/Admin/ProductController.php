@@ -8,13 +8,15 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Types;
+use App\Models\Message;
 
 class ProductController extends Controller
 {
     public function index()
     {
         $products = Product::all();
-        return view('admin.products.product', ['products' => $products]);
+        $conversations = Message::whereNull('read_at')->count();
+        return view('admin.products.product', ['products' => $products,'conversations' => $conversations]);
     }
 
     public function create(Request $request)
