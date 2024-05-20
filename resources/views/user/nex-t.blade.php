@@ -23,7 +23,7 @@
                 LMP Nex-T Edge DC 360
             </div>
 
-            <div class="desc-2 mb-7 lg:w-full xl:text-xl lg:text-lg lg:block hidden">Are Design & Build to dedicated to serve millions of
+            <div class="desc-2 mb-7  lg:w-full xl:text-xl lg:text-lg lg:block hidden">Are Design & Build to dedicated to serve millions of
                 people and
                 thousands of
                 businesses
@@ -56,7 +56,7 @@
         </div>
 
         <div class="fade w-full flex text-biru justify-end lg:text-xl sm:text-lg cursor-pointer">
-            <a href="{{route('service')}}" class="cursor-pointer">PRODUCT -></a>
+            <a href="{{route('user.solution')}}" class="cursor-pointer">PRODUCT -></a>
         </div>
     </div>
 

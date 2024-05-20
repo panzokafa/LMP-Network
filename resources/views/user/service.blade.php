@@ -29,15 +29,48 @@
                     and Efficiency in Cooling Systems & Energy consumption</div>
 
                 <div class="flex flex-col lg:gap-6 gap-4">
-                    <div class="text-biru cursor-pointer link">Cable Fiber Optic
+
+
+
+                    <div class="text-biru cursor-pointer flex gap-4 relative max-w-max hover-link">
+                            <div> MDC <div class="inline opacity-0 duration-300 arrow ml-1">->
+                                </div>
+                            </div>
+
+                            <div
+                                class="link invisible duration-300 opacity-0 border-[0.5px] border-black text-black text-sm absolute lg:left-[100%] left-[90%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                                @foreach ($mdc as $product)
+                                    <a href="{{ route('user.product', $product->id) }}">
+                                        <div
+                                            class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">
+                                            {{ $product->name }}
+                                        </div>
+                                    </a>
+                                @endforeach
+                            </div>
+
+                    </div>
+
+                    <div class="text-biru cursor-pointer flex gap-4 relative max-w-max hover-link">
+                        <div> UHD <div class="inline opacity-0 duration-300 arrow ml-1">->
+                            </div>
+                        </div>
+
                         <div
-                            class="inline opacity-0 duration-300 arrow ml-1">->
+                            class="link invisible duration-300 opacity-0 border-[0.5px] border-black text-black text-sm absolute lg:left-[100%] left-[90%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                            @foreach ($uhd as $product)
+                                <a href="{{ route('user.product', $product->id) }}">
+                                    <div
+                                        class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">
+                                        {{ $product->name }}
+                                    </div>
+                                </a>
+                            @endforeach
                         </div>
+
                     </div>
-                    <div class="text-biru cursor-pointer link">Patchcord <div
-                            class="inline opacity-0 duration-300 arrow ml-1">->
-                        </div>
-                    </div>
+
+
                     <div class="text-biru cursor-pointer link">Enclosure <div
                             class="inline opacity-0 duration-300 arrow ml-1">->
                         </div>
@@ -47,6 +80,8 @@
                             ->
                         </div>
                     </div>
+
+
                 </div>
             </div>
 
@@ -97,12 +132,28 @@
                     Suppression Systems, Monitoring Systems and DCIM.</div>
 
                 <div class="flex flex-col lg:gap-6 gap-4">
-                    <a href="{{ route('product.containment.centrinium-containment') }}"
-                        class="text-biru cursor-pointer link">Centrinium <div
-                            class="inline opacity-0 duration-300 arrow ml-1">
-                            ->
+                    <div class="text-biru cursor-pointer flex gap-4 relative max-w-max hover-link">
+                        <div> Centrinium <div class="inline opacity-0 duration-300 arrow ml-1">->
+                            </div>
                         </div>
-                    </a>
+
+                        <div
+                            class="link invisible duration-300 opacity-0 border-[0.5px] border-black text-black text-sm absolute lg:left-[100%] left-[90%] whitespace-nowrap z-20 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                            <a href="#"
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">Centrinium
+                                Container</a>
+                            <a href="#"
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">Centrinium
+                                Half Containment</a>
+                            <a href="#"
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">Centrinium
+                                Hot Aisle Containment</a>
+                            <a href="#"
+                                class="py-2 px-4 hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">Centrinium
+                                Cold Aisle Containment</a>
+                        </div>
+
+                    </div>
                     <div class="text-biru cursor-pointer flex gap-4 relative max-w-max hover-link">
                         <div> Rack MDC <div class="inline opacity-0 duration-300 arrow ml-1">->
                             </div>
@@ -199,7 +250,8 @@
                     and Production for wide range Industry</div>
 
                 <div class="flex flex-col lg:gap-6 gap-4">
-                    <div class="text-biru cursor-pointer link">Roset <div class="inline opacity-0 duration-300 arrow ml-1">
+                    <div class="text-biru cursor-pointer link">Roset <div
+                            class="inline opacity-0 duration-300 arrow ml-1">
                             ->
                         </div>
                     </div>
@@ -282,16 +334,16 @@
 
                         </div>
                         <div
-                        class=" linkk invisible duration-300 opacity-0 border-[0.5px] border-black text-black text-sm absolute lg:left-[100%] left-[90%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
-                        <a {{-- href="{{ route('product.mdc.top') }}" --}}
-                            class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">RDX</a>
-                        <a {{-- href="{{ route('product.mdc.row') }}" --}}
-                            class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">Immersion
-                            Liquid Cool </a>
-                        <a {{-- href="{{ route('product.mdc.rack-split') }}" --}}
-                            class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">Cold-Plate
-                            Liquid Cool</a>
-                    </div>
+                            class=" linkk invisible duration-300 opacity-0 border-[0.5px] border-black text-black text-sm absolute lg:left-[100%] left-[90%] whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                            <a {{-- href="{{ route('product.mdc.top') }}" --}}
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">RDX</a>
+                            <a {{-- href="{{ route('product.mdc.row') }}" --}}
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">Immersion
+                                Liquid Cool </a>
+                            <a {{-- href="{{ route('product.mdc.rack-split') }}" --}}
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">Cold-Plate
+                                Liquid Cool</a>
+                        </div>
 
                     </div>
 
@@ -325,7 +377,7 @@
                 opacity: 1;
             }
         </style>
-         <style>
+        <style>
             .hover-lin:hover .linkk {
                 visibility: visible;
                 opacity: 1;
@@ -396,8 +448,7 @@
                 src="{{ asset('images/dot1.png') }}" alt="">
         </div>
 
-        <div
-            class="grid xl:grid-cols-4 lg:grid-cols-2 justify-center lg:gap-8 gap-12 items-center lg:mb-40 lg:mb-20 mb-16">
+        <div class="grid xl:grid-cols-4 lg:grid-cols-2 justify-center lg:gap-8 gap-12 items-center lg:mb-40  mb-16">
 
 
             @php
@@ -459,7 +510,12 @@
         @php
             $title = ['Edge Data Center', 'Micro Data Center', 'Cable Landing Station', 'Core Data Center'];
 
-            $title2 = ['Customize your edge computing with LMP global solutions', 'LMP micro data centers tailored for your needs', 'Leverage LMP global solutions for customized cable landing stations', 'Build flexible, scalable and efficient core data centers with LMP'];
+            $title2 = [
+                'Customize your edge computing with LMP global solutions',
+                'LMP micro data centers tailored for your needs',
+                'Leverage LMP global solutions for customized cable landing stations',
+                'Build flexible, scalable and efficient core data centers with LMP',
+            ];
             $desc = [
                 'LMP Global Solutions revolutionizes the edge with cutting-edge, tailored data centers that supercharge deployment, reduce risks, and optimize expenses. Deploy an array of custom modular edge data centers, ranging from dozens to hundreds, to amplify flexibility, enhance scalability, and elevate efficiency.',
                 'LMP Global Solutions revolutionizes data centers, harmonizing power, cooling, monitoring, and racks to match your unique business demands. Our expert team partners with you, guiding from inception to implementation, freeing you to prioritize your core mission. Our micro data centers offer an innovative approach to flexibly deploy capacity anywhere.',

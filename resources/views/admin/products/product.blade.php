@@ -36,6 +36,7 @@
                                             <th>Type</th>
                                             <th>Key Character</th>
                                             <th>Image</th>
+                                            <th>Brochure</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -49,6 +50,9 @@
                                                 <td>
                                                     <img src="{{ asset('image/' . $product->image) }}" width="50%">
                                                 </td>
+
+                                                <td>{{ $product->brosur }}</td>
+
                                                 <td class="">
                                                     <a href="{{ route('admin.product.edit', $product->id) }}"
                                                         class="btn btn-warning">

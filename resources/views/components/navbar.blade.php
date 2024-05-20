@@ -14,17 +14,36 @@
             </div>
         </a>
 
+        <a href="{{ route('nex-t') }}"
+            class="{{ Route::currentRouteName() == 'nex-t' ? 'text-biru' : 'hover:text-biru' }} xl:py-7 py-8 nav relative h-full max-w-max cursor-pointer duration-300 flex flex-col items-center">
+            <div>Nex-T</div>
+            <div
+                class="{{ Route::currentRouteName() == 'nex-t' ? 'w-[120%]' : 'garis w-0' }} absolute bottom-0 h-0.5 biru">
+            </div>
+        </a>
+
         <div
             class="{{ Route::currentRouteName() == 'service' ? 'text-biru' : '' }} nav-hover nav h-full max-w-max cursor-pointer duration-300 flex flex-col items-center">
 
-            <a href="{{ route('service') }}" class="relative">
+            <a href="{{ route('user.solution') }}" class="relative">
                 <div class="xl:py-7 py-8 hover:text-biru">Product & Solution</div>
                 <div
                     class="{{ Route::currentRouteName() == 'service' ? 'w-[120%]' : 'garis w-0' }} absolute right-[-10%] bottom-0 h-0.5 biru">
                 </div>
             </a>
 
-            <x-nav.product />
+
+            <x-popup   />
+
+            {{-- @foreach ($uhd as $product)
+                        <a href="{{ route('user.product', $product->id) }}">
+                            <div
+                                class="py-2 px-4 border-b hover:bg-[#1780BB] hover:text-white duration-300 block max-lg:text-xs">
+                                {{ $product->name }}
+                            </div>
+                        </a>
+                    @endforeach --}}
+
         </div>
 
         <a href="{{ route('solution') }}"
@@ -89,7 +108,7 @@
                     @php($name = auth()->user()->name)
                     <p class="max-lg:hidden font-light">{{ strtok($name, ' ') }}</p>
                     <div
-                        class="link invisible hidden lg:block  opacity-0 duration-100 border-[0.5px] border-black text-black text-sm absolute w-44 lg:top-[40px]  whitespace-nowrap z-10 bg-white rounded-lg rounded-tl-none overflow-hidden">
+                        class="link invisible hidden lg:block  opacity-0 duration-100 border-[0.5px] border-black text-black text-sm absolute w-44 lg:top-[64px]   whitespace-nowrap z-50 bg-white rounded-lg rounded-tl-none overflow-hidden">
                         <a href="{{ route('user.profile') }}"
                             class="py-2 px-4 border-b w-3/4  duration-300 block">Profile</a>
                         <form action="{{ route('user.logout') }}" method="GET">
@@ -123,7 +142,7 @@
 
 </div>
 
-
+{{-- mobile --}}
 <div id="nav" class="w-[100vw] h-[100vh] inset-x-[100%] duration-300 bottom-0 top-0 z-50 fixed">
     <div class="h-full w-full absolute bg-black opacity-90 z-10"></div>
 
@@ -158,7 +177,13 @@
             <i class="fa-solid fa-arrow-right "></i>
         </a>
 
-        <a href="{{ route('service') }}"
+        <a href="{{ route('nex-t') }}"
+            class="flex justify-between  items-center py-5 text-white font-bold border-b-[1px] hover:bg-white cursor-pointer duration-100 hover:px-5 hover:text-black">
+            <div class="">Nex-T</div>
+            <i class="fa-solid fa-arrow-right "></i>
+        </a>
+
+        <a href="{{ route('user.solution') }}"
             class="flex justify-between items-center py-5 text-white font-bold border-b-[1px]  hover:bg-white cursor-pointer duration-100 hover:px-5 hover:text-black">
             <div class="">Product & Solution</div>
             <i class="fa-solid fa-arrow-right "></i>

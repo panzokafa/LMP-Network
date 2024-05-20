@@ -44,7 +44,7 @@
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
                                 About
                             </a>
-                            <a href="{{ route('service') }}"
+                            <a href="{{ route('user.solution') }}"
                                 class="cursor-pointer hover:text-biru duration-100 max-md:border-b-[1px] max-md:border-white max-md:py-3">
                                 Product & Service</a>
                             <a href="{{ route('solution') }}"

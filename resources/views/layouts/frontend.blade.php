@@ -156,6 +156,7 @@
 
 <body class="">
     @include('components.navbar')
+
     <main class="relative md:top-20 top-16 mb-[63px] overflow-x-hidden">
         @yield('content')
         @yield('javascript')

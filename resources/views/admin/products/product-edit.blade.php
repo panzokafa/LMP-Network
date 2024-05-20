@@ -93,11 +93,16 @@
               <div class="form-group">
 
                 <label for="image">Image</label>
-                <input type="file" class="form-control" name="image">
+                <input type="file" class="form-control" name="image" value="{{ $products->image }}">
                 <div class="mb-3">
                     <img src="" class="img-thumbnail mt-3 mb-3 d-none w-25" id="preview">
                 </div>
               </div>
+
+              <div class="form-group">
+                <label for="brosur">Brochure</label>
+                <input type="file" class="form-control" name="brosur">
+             </div>
 
             </div>
           <!-- /.card-body -->

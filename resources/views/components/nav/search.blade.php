@@ -1,5 +1,5 @@
 <div id="searchBar"
-    class=" border-black bord nav-menu shadow-lg z-50 absolute opacity-0 invisible w-full inset-x-0  duration-300 xl:top-[80px] top-[84px] bg-white py-5 px-20 text-left flex flex-col justify-center items-center">
+    class=" border-black bord nav-menu shadow-lg z-10 absolute opacity-0 invisible w-full inset-x-0  duration-300 xl:top-[80px] top-[84px] bg-white py-5 px-20 text-left flex flex-col justify-center items-center">
     <div class="flex flex-col  w-1/2 gap-x-5 gap-y-10">
 
         <form action="/search" class="form-inline" method="GET">
@@ -18,7 +18,7 @@
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                         </svg>
-                        <span class="sr-only">Search</span>
+                        <span class="sr-only ">Search</span>
                     </button>
                 </div>
             </div>

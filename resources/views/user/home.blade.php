@@ -15,7 +15,7 @@
                 Edge Data Center <span class="text-hijau  bruno">For
                     Greener Data Center</span></div>
 
-            <a href="{{ route('service') }}"
+            <a href="{{ route('user.solution') }}"
                 class="product inter sm:text-xl text-sm absolute lg:right-24 md:right-14 right-8 md:bottom-16 font-light bottom-8 text-white cursor-pointer">
                 PRODUCT <span class="text-biru font-medium md:text-2xl sm:tetx-xl text-lg">-></span>
             </a>

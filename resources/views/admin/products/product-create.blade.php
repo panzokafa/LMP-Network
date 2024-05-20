@@ -83,6 +83,11 @@
             </div>
             </div>
 
+            <div class="form-group">
+                <label for="brosur">Brochure</label>
+                <input type="file" class="form-control" name="brosur">
+             </div>
+
 
 
           </div>

@@ -111,6 +111,8 @@ class ProfileController extends Controller
 
         return redirect()->route('user.login');
     }
+
+    
 }
 
 // //kalo gada gambarnya dia update (gda password gda gambar)

@@ -16,13 +16,14 @@ class Product extends Model
         'desc',
         'char',
         'image',
+        'brosur',
         'type_id',
 
     ];
 
     public function service_products()
     {
-        return $this->belongsTo(Types::class, 'type_id', 'id');
+        return $this->belongsTo(Types::class, 'type_id', 'id','name');
     }
 
 

@@ -19,9 +19,9 @@ class SearchController extends Controller
             $products = Product::all();
         }
 
-
-
         return view('user.search',compact('search'), ['products' => $products]);
 
     }
+
+
 }

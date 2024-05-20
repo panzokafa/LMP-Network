@@ -3,7 +3,7 @@
 @section('title');
 
 @section('content')
-<div class="text-center justify-content-center p-4 mb-5">
+<div class="text-center justify-content-center w-20 1/3  p-4 mb-5">
     <a href="{{ route('user.home')}}" class="w-24 h-auto">
         <img src="{{ asset('images/logo1.png') }}" alt="">
     </a>

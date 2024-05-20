@@ -39,6 +39,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function () 
     //user
     Route::get('user', [UserController::class, 'index'])->name('admin.user');
     Route::delete('user/destroy/{id}', [UserController::class, 'destroy'])->name('admin.user.destroy');
+    Route::get('edit/{id?}', [UserController::class, 'edit'])->name('admin.user.edit');
+    Route::put('update/{id?}', [UserController::class, 'update'])->name('admin.user.update');
 
 
     //Product
@@ -69,12 +71,19 @@ Route::post('/login', [UserLoginController::class, 'auth'])->name('user.login.au
 Route::get('/logout', [UserLoginController::class, 'logout'])->name('user.logout');
 
 Route::get('/', [PageController::class, 'index'])->name('user.home');
+
 Route::get('/about', [PageController::class, 'about'])->name('user.about');
 
 Route::get('/search', [SearchController::class, 'search'])->name('user.search');
 
-Route::get('/product/{id}', [UserProductController::class, 'show'])->name('user.product');
+Route::get('/product/{product_id}', [UserProductController::class, 'show'])->name('user.product');
 
+
+Route::get('/product&solution', [UserProductController::class, 'solution'])->name('user.solution');
+// Route::get('/navbar', [UserProductController::class, 'popup'])->name('user.navbar');
+
+
+Route::get('/navbar', [UserProductController::class, 'popup'])->name('user.popup');
 
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('user.profile');
@@ -97,9 +106,9 @@ Route::get('research', function () {
 })->name('research');
 
 // ini sebenarnya service tapi revisi
-Route::get('product&solution', function () {
-    return view('user.service'); // You can return any response you want here
-})->name('service');
+// Route::get('product&solution', function () {
+//     return view('user.service'); // You can return any response you want here
+// })->name('service');
 
 // ini sebenarnya solution tapi revisi
 Route::get('services', function () {
@@ -143,7 +152,7 @@ Route::get('learning', function () {
     return view('user.learning'); // You can return any response you want here
 })->name('learning');
 
-Route::group(['prefix' => 'product'], function () {
+Route::group(['prefix' => 'productss'], function () {
     Route::get('mdc-top', function () {
         return view('user.product.mdc.top'); // You can return any response you want here
     })->name('product.mdc.top');
