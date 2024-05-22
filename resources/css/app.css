@@ -28,6 +28,13 @@
     text-align: center;
 }
 
+.img-icon{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    display: inline-block;
+}
+
 .copyright a {
     text-decoration:none;
     color: #343c41;
@@ -41,7 +48,7 @@
     border: none;
     background-color: #1087FF;
     color: #fff;
-    border-radius: 30px;
+    border-radius: 30%;
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
