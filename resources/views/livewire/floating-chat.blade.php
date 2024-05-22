@@ -1,6 +1,6 @@
 <div>
-    <button id="chatbot-toggle-btn"><img src="chatbot.png" alt="buttonpng" /></button>
-    <div class="chatbot-popup" id="chatbot-popup" style="display: none;">
+    <button id="chatbot-toggle-btn"><img src="{{ asset('images/chatbot.png') }}" alt="buttonpng" /></button>
+    <div class="chatbot-popup" id="chatbot-popup" style="display: block;">
         <div class="chat-header">
             <span>Chatbot | <a href="https://www.thecodinghubs.com/" target="_blank">The Coding Hubs</a></span>
             <button id="close-btn">&times;</button>
@@ -14,4 +14,11 @@
             <a href="https://www.thecodinghubs.com/" target="_blank">Build By Coding Hubs © 2024</a>
         </div>
     </div>
-<div>
+</div>
+
+<script>
+    document.getElementById('chatbot-toggle-btn').addEventListener('click', function() {
+
+        console.log('ni button chatbox');
+    });
+</script>
