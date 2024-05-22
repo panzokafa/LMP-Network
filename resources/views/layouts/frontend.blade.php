@@ -25,9 +25,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
-    <script
-  type="text/javascript"
-  src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+    <script type="text/javascript" src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -152,10 +150,15 @@
             }
         }
     </style>
+    @livewireStyles
+
 </head>
 
 <body class="">
     @include('components.navbar')
+    @if (!isset($isAdmin) || !$isAdmin)
+        @livewire('floating-chat')
+    @endif
 
     <main class="relative md:top-20 top-16 mb-[63px] overflow-x-hidden">
         @yield('content')
@@ -165,6 +168,8 @@
     <div class="relative bottom-0">
         @include('components.footer')
     </div>
+    @livewireScripts
+
 </body>
 
 </html>
