@@ -27,7 +27,11 @@ class FloatingChat extends Component
     public function mount()
     {
         $this->selectedConversation = Conversation::where('sender_id', Auth::id())->get()->first();
-        $this->selectedConversationId = $this->selectedConversation->id;
+        if ($this->selectedConversation == null) {
+            $this->selectedConversation = null;
+        }else{
+            $this->selectedConversationId = $this->selectedConversation->id;
+        }
 
     }
 
