@@ -1,25 +1,38 @@
 <div>
-    <button id="chatbot-toggle-btn">
-        <img class="img-icon" src="{{ asset('assets/img/chat.png') }}" alt="buttonpng" />
+    <button id="admin-toggle-btn">
+        <img class="img-icon" src="{{ asset('assets/img/chat.png') }}" alt="Chat Button" />
     </button>
-    <div class="chatbot-popup" id="chatbot-popup">
-        <div class="chat-header">
-            <span>Chatbot | <a href="/" target="_blank">LMP</a></span>
+    <div class="chatadmin-popup" id="admin-popup" style="display: none;">
+        <div class="chatadmin-header">
+            <span>ChatAdmin | <a href="/" target="_blank">LMP</a></span>
             <button id="close-btn">&times;</button>
         </div>
-        <div class="chat-box" id="chat-box"></div>
-        <div id="user-form">
-            <select id="reason-input">
-                <option value="">Select a admin</option>
+        <div class="chatadmin-box" id="admin-box">
+            @if (!empty($loadedMessages))
+                @foreach ($loadedMessages as $message)
+                    <div class="{{ $message->sender_id === auth()->id() ? 'user-message' : 'admin-message' }}">
+                        <p>{{ $message->body }}</p>
+                        <small class="message-info">{{ $message->created_at->format('g:i a') }}</small>
+                    </div>
+                @endforeach
+            @else
+                <p>No messages available</p>
+            @endif
+        </div>
+
+        <div id="user-form" style="display: {{ $selectedConversationId ? 'none' : 'flex' }};">
+            <select id="reason-input" wire:model.live="selectedConversationId">
+                <option value="">Select an admin</option>
                 @foreach ($users as $user)
                     <option value="{{ $user->id }}">{{ $user->name }}</option>
                 @endforeach
             </select>
         </div>
 
-        <div class="chat-input">
-            <input type="text" id="user-input" wire:model="body" placeholder="Type a message...">
-            <button id="send-btn" wire:click="sendMessage">Send</button>
+        <div class="chatadmin-input">
+            <input type="text" id="user-input" wire:model="body" "
+                placeholder="Type a message..." autofocus>
+            <button type="button" wire:click="sendMessage" id="send-btn">Send</button>
         </div>
         <div class="copyright">
             <div>Build By LMP Network © 2024</div>
@@ -27,39 +40,33 @@
     </div>
 </div>
 
-
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const responses = {
-            "hello": "Hi there! How can I assist you today?",
-            "how are you": "I'm just a bot, but I'm here to help you!",
-            "need help": "How can I help you today?",
-            "bye": "Goodbye! Have a great day!",
-            "default": "I'm sorry, I didn't understand that. Want to connect with an expert?",
-            "expert": "Great! Please wait a moment while we connect you with an expert.",
-            "no": "Okay, if you change your mind just let me know!"
-        };
+        const adminPopup = document.getElementById('admin-popup');
+        const adminToggleBtn = document.getElementById('admin-toggle-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const sendBtn = document.getElementById('send-btn');
+        const userInput = document.getElementById('user-input');
+        const userForm = document.getElementById('user-form');
 
-        document.getElementById('chatbot-toggle-btn').addEventListener('click', toggleChatbot);
-        document.getElementById('close-btn').addEventListener('click', toggleChatbot);
-        document.getElementById('send-btn').addEventListener('click', sendMessage);
-        document.getElementById('user-input').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
+        adminToggleBtn.addEventListener('click', function() {
+            adminPopup.style.display = adminPopup.style.display === 'none' ? 'block' : 'none';
+        });
+
+        closeBtn.addEventListener('click', function() {
+            adminPopup.style.display = 'none';
+        });
+
+        sendBtn.addEventListener('click', sendMessage);
+
+        userInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && userInput.value.trim() !== '') {
                 sendMessage();
             }
         });
 
-        function toggleChatbot() {
-            const chatbotPopup = document.getElementById('chatbot-popup');
-            const userForm = document.getElementById('user-form');
-            chatbotPopup.style.display = chatbotPopup.style.display === 'none' ? 'block' : 'none';
-            userForm.style.display = userForm.style.display === 'none' ? 'flex' : 'none';
-            document.getElementById('user-input').style.display === 'none' ? 'block' : 'none';
-        }
-
         async function sendMessage() {
-            const userInput = document.getElementById('user-input').value.trim();
+            const userInputValue = userInput.value.trim();
             const reasonInput = document.getElementById('reason-input').value;
 
             // Ensure CSRF token exists before accessing its attribute
@@ -72,10 +79,9 @@
             const csrfToken = csrfTokenMeta.getAttribute('content');
             const messageRoute = messageRouteMeta.getAttribute('content').replace(':userId', reasonInput);
 
-            if (userInput !== '') {
-                appendMessage('user', userInput);
-                respondToUser(userInput.toLowerCase());
-                document.getElementById('user-input').value = '';
+            if (userInputValue !== '') {
+                appendMessage('user', userInputValue);
+                userInput.value = '';
             } else if (reasonInput) {
                 console.log("Reason for contact:", reasonInput);
 
@@ -93,11 +99,9 @@
 
                     if (response.ok) {
                         console.log("Message sent successfully.");
-                        appendMessage('user', 'hello');
-                        respondToUser(reasonInput.toLowerCase());
 
-                        document.getElementById('user-form').style.display = 'none';
-                        document.getElementById('user-input').style.display = 'block';
+                        userForm.style.display = 'none';
+                        userInput.style.display = 'block';
                     } else {
                         console.error("Failed to send message.");
                     }
@@ -107,39 +111,42 @@
             }
         }
 
-        function respondToUser(userInput) {
-            console.log(userInput)
-            const response = responses[userInput] || responses["hello"];
-            setTimeout(function() {
-                appendMessage('bot', response);
-            }, 500);
-        }
-
         function appendMessage(sender, message) {
-            const chatBox = document.getElementById('chat-box');
+            const adminBox = document.getElementById('admin-box');
             const messageElement = document.createElement('div');
-            messageElement.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
-            messageElement.innerHTML = message;
-            chatBox.appendChild(messageElement);
-            chatBox.scrollTop = chatBox.scrollHeight;
-
-            if (sender === 'bot' && message === responses["default"]) {
-                const buttonYes = document.createElement('button');
-                buttonYes.textContent = '✔ Yes';
-                buttonYes.onclick = function() {
-                    appendMessage('bot', responses["expert"]);
-                };
-                const buttonNo = document.createElement('button');
-                buttonNo.textContent = '✖ No';
-                buttonNo.onclick = function() {
-                    appendMessage('bot', responses["no"]);
-                };
-                const buttonContainer = document.createElement('div');
-                buttonContainer.classList.add('button-container');
-                buttonContainer.appendChild(buttonYes);
-                buttonContainer.appendChild(buttonNo);
-                chatBox.appendChild(buttonContainer);
-            }
+            messageElement.classList.add(sender === 'user' ? 'user-message' : 'admin-message');
+            messageElement.innerHTML = `<p>${message}</p>`;
+            adminBox.appendChild(messageElement);
+            adminBox.scrollTop = adminBox.scrollHeight;
         }
     });
+
+    window.addEventListener('message-sent', event => {
+        const adminBox = document.getElementById('admin-box');
+        const message = event.detail.message;
+        const messageElement = document.createElement('div');
+        messageElement.classList.add(message.sender_id === {{ Auth()->User()->id }} ? 'user-message' :
+            'admin-message');
+        messageElement.innerHTML =
+            `<p>${message.body}</p><small>${Carbon.parse(message.created_at).format('g:i a')}</small>`;
+        adminBox.appendChild(messageElement);
+        adminBox.scrollTop = adminBox.scrollHeight;
+    });
+
+    Echo.private('users.' + {{ Auth()->User()->id }})
+        .listen('.Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', (notification) => {
+            if (notification.type === 'App\\Notifications\\MessageSent') {
+                const message = notification.message;
+                if (message && message.sender_id) {
+                    const messageElement = document.createElement('div');
+                    messageElement.classList.add(message.sender_id === {{ Auth()->User()->id }} ?
+                        'user-message' : 'admin-message');
+                    messageElement.innerHTML =
+                        `<p>${message.body}</p><small>${Carbon.parse(message.created_at).format('g:i a')}</small>`;
+                    const adminBox = document.getElementById('admin-box');
+                    adminBox.appendChild(messageElement);
+                    adminBox.scrollTop = adminBox.scrollHeight;
+                }
+            }
+        });
 </script>
