@@ -7,28 +7,17 @@
     font-family: "Poppins", sans-serif;
 }
 
-/* body {
-    font-family: "Poppins", sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-} */
-
-.chat-header a{
-    text-decoration:none;
+.chat-header a {
+    text-decoration: none;
     color: white;
 }
 
-.copyright{
-    font-size:12px;
+.copyright {
+    font-size: 12px;
     text-align: center;
 }
 
-.img-icon{
+.img-icon {
     width: 30px;
     height: 30px;
     border-radius: 100%;
@@ -36,7 +25,7 @@
 }
 
 .copyright a {
-    text-decoration:none;
+    text-decoration: none;
     color: #343c41;
 }
 
@@ -52,7 +41,7 @@
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
-    z-index: 1001; /* Ensure the button is above the chatbot popup */
+    z-index: 1001;
 }
 
 #chatbot-toggle-btn:hover {
@@ -97,6 +86,24 @@
     padding: 15px 20px;
 }
 
+#user-form {
+    display: none;
+    flex-direction: column;
+    padding: 10px 20px;
+}
+
+#user-form label {
+    margin-bottom: 5px;
+}
+
+#user-form select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    outline: none;
+}
+
 .chat-input {
     display: flex;
     align-items: center;
@@ -111,6 +118,7 @@
     border: 1px solid #ddd;
     border-radius: 12px;
     outline: none;
+    display: none; /* Hide input initially */
 }
 
 #send-btn {
@@ -136,15 +144,15 @@
     border-radius: 15px;
     margin-bottom: 15px;
     margin-top: 15px;
-    margin-left: 10px; /* Push user message to the left */
+    margin-left: 10px;
     position: relative;
     display: flex;
     align-items: center;
-    flex-direction: row-reverse; /* Move user message to the right */
+    flex-direction: row-reverse;
 }
 
 .user-message::before {
-    content: "\1F468"; /* Man emoji */
+    content: "\1F468";
     position: absolute;
     bottom: -17px;
     right: -20px;
@@ -168,16 +176,16 @@
     border-radius: 15px;
     margin-bottom: 10px;
     margin-top: 15px;
-    align-self: flex-start; /* Move bot message to the left */
-    margin-right: 10px; /* Push bot message to the right */
+    align-self: flex-start;
+    margin-right: 10px;
     position: relative;
     display: flex;
     align-items: center;
-    flex-direction: column; /* Adjust for button placement */
+    flex-direction: column;
 }
 
 .bot-message::before {
-    content: "\1F916"; /* Robot emoji */
+    content: "\1F916";
     position: absolute;
     bottom: -17px;
     left: -14px;
@@ -193,6 +201,92 @@
     align-items: center;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.button-container button {
+    background-color: #1087FF;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+    background-color: #0074CC;
+}
+
+.user-form {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 20px;
+    border-top: 1px solid #ddd;
+}
+
+.user-form input,
+.user-form select,
+.user-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-family: "Poppins";
+}
+
+.user-form textarea {
+    resize: vertical;
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.button-container button {
+    background-color: #1087FF;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+    background-color: #0074CC;
+}
+
+.user-form {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 20px;
+    border-top: 1px solid #ddd;
+}
+
+.user-form input,
+.user-form select,
+.user-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-family: "Poppins";
+}
+
+.user-form textarea {
+    resize: vertical;
+}
+
 
 .button-container {
     display: flex;
