@@ -38,6 +38,7 @@
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="message-route" content="{{ route('users.message', ':userId') }}">
+
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/97d4904ad5.js" crossorigin="anonymous"></script>
 
@@ -117,7 +118,7 @@
 <body>
     @include('components.navbar')
 
-    @if (!isset($isAdmin) || !$isAdmin)
+    @if (!isset($isAdmin) || (!$isAdmin && auth()->user()))
         @livewire('floating-chat')
     @endif
 
