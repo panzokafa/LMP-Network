@@ -16,9 +16,10 @@
                 @endforeach
             </select>
         </div>
+
         <div class="chat-input">
-            <input type="text" id="user-input" placeholder="Type a message...">
-            <button id="send-btn">Send</button>
+            <input type="text" id="user-input" wire:model="body" placeholder="Type a message...">
+            <button id="send-btn" wire:click="sendMessage">Send</button>
         </div>
         <div class="copyright">
             <div>Build By LMP Network © 2024</div>
@@ -54,7 +55,7 @@
             const userForm = document.getElementById('user-form');
             chatbotPopup.style.display = chatbotPopup.style.display === 'none' ? 'block' : 'none';
             userForm.style.display = userForm.style.display === 'none' ? 'flex' : 'none';
-            document.getElementById('user-input').style.display = 'none';
+            document.getElementById('user-input').style.display === 'none' ? 'block' : 'none';
         }
 
         async function sendMessage() {
