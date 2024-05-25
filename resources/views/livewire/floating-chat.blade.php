@@ -2,7 +2,7 @@
     <button id="admin-toggle-btn">
         <img class="img-icon" src="{{ asset('assets/img/chat.png') }}" alt="Chat Button" />
     </button>
-    <div class="chatadmin-popup" id="admin-popup" style="display: none;">
+    <div class="chatadmin-popup" id="admin-popup">
         <div class="chatadmin-header">
             <span>ChatAdmin | <a href="/" target="_blank">LMP</a></span>
             <button id="close-btn">&times;</button>
@@ -50,22 +50,32 @@
         const userForm = document.getElementById('user-form');
 
         adminToggleBtn.addEventListener('click', function() {
-            adminPopup.style.display = adminPopup.style.display === 'none' ? 'block' : 'none';
+            event.preventDefault();
+            event.stopPropagation();
+            adminPopup.style.display = adminPopup.style.display = 'block'
         });
 
         closeBtn.addEventListener('click', function() {
+            event.preventDefault();
+            event.stopPropagation();
             adminPopup.style.display = 'none';
         });
 
         sendBtn.addEventListener('click', sendMessage);
 
         userInput.addEventListener('keypress', function(e) {
+            console.log(e)
             if (e.key === 'Enter' && userInput.value.trim() !== '') {
+                console.log('jalan')
                 sendMessage();
             }
         });
 
         async function sendMessage() {
+            console.log('jalan send')
+
+            event.preventDefault();
+            event.stopPropagation();
             const userInputValue = userInput.value.trim();
             const reasonInput = document.getElementById('reason-input').value;
 
@@ -80,10 +90,11 @@
             const messageRoute = messageRouteMeta.getAttribute('content').replace(':userId', reasonInput);
 
             if (userInputValue !== '') {
+                console.log('user input value')
                 appendMessage('user', userInputValue);
                 userInput.value = '';
             } else if (reasonInput) {
-                console.log("Reason for contact:", reasonInput);
+                console.log('reason input')
 
                 try {
                     const response = await fetch(messageRoute, {
@@ -98,8 +109,6 @@
                     });
 
                     if (response.ok) {
-                        console.log("Message sent successfully.");
-
                         userForm.style.display = 'none';
                         userInput.style.display = 'block';
                     } else {
@@ -112,6 +121,8 @@
         }
 
         function appendMessage(sender, message) {
+            console.log('append')
+
             const adminBox = document.getElementById('admin-box');
             const messageElement = document.createElement('div');
             messageElement.classList.add(sender === 'user' ? 'user-message' : 'admin-message');
@@ -119,6 +130,9 @@
             adminBox.appendChild(messageElement);
             adminBox.scrollTop = adminBox.scrollHeight;
         }
+
+        adminPopup.style.display = 'none';
+
     });
 
     window.addEventListener('message-sent', event => {
