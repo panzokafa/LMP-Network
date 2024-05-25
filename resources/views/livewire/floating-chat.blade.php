@@ -8,17 +8,16 @@
             <button id="close-btn">&times;</button>
         </div>
         <div class="chatadmin-box" id="admin-box">
-            @if (!empty($loadedMessages))
-                @foreach ($loadedMessages as $message)
-                    <div class="{{ $message->sender_id === auth()->id() ? 'user-message' : 'admin-message' }}">
-                        <p>{{ $message->body }}</p>
-                        <small class="message-info">{{ $message->created_at->format('g:i a') }}</small>
-                    </div>
-                @endforeach
-            @else
+            @forelse ($loadedMessages as $message)
+                <div class="{{ $message->sender_id === auth()->id() ? 'user-message' : 'admin-message' }}">
+                    <p>{{ $message->body }}</p>
+                    <small class="message-info">{{ $message->created_at->format('g:i a') }}</small>
+                </div>
+            @empty
                 <p>No messages available</p>
-            @endif
+            @endforelse
         </div>
+
 
         <div id="user-form" style="display: {{ $selectedConversationId ? 'none' : 'flex' }};">
             <select id="reason-input" wire:model.live="selectedConversationId">

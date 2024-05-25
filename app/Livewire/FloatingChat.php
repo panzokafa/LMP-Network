@@ -73,6 +73,7 @@ class FloatingChat extends Component
 
     public function loadMessages()
     {
+
         if ($this->selectedConversation) {
             $userId = auth()->id();
             $messagesQuery = Message::where('conversation_id', $this->selectedConversation->id)->where(function ($query) use ($userId) {
@@ -88,6 +89,7 @@ class FloatingChat extends Component
             $this->loadedMessages = $messagesToLoad->merge($this->loadedMessages);
         }
     }
+
 
     public function sendMessage()
     {
@@ -112,6 +114,7 @@ class FloatingChat extends Component
             $this->dispatch('newMessage', $createdMessage);
         }
     }
+
 
     public function render()
     {
