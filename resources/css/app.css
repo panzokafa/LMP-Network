@@ -21,12 +21,12 @@
 .copyright {
     font-size: 12px;
     text-align: center;
+    margin-bottom: 5px;
 }
 
 .img-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
+    width: 47px;
+    height: 47px;
     display: inline-block;
 }
 
@@ -39,20 +39,13 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    padding: 12px 15px;
-    border: none;
-    background-color: #1087ff;
     color: #fff;
-    border-radius: 30%;
-    font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
     z-index: 1001;
+    width: fit-content;
 }
 
-#admin-toggle-btn:hover {
-    background-color: #0074cc;
-}
 
 .chatadmin-popup {
     position: fixed;
@@ -162,7 +155,7 @@
     position: absolute;
     bottom: -17px;
     left: -14px;
-    margin-bottom: 2px;
+    margin-bottom: 10px;
     font-size: 20px;
     background-color: #1087ff;
     color: #fff;
@@ -195,7 +188,7 @@
     position: absolute;
     bottom: -17px;
     right: -14px;
-    margin-bottom: 2px;
+    margin-bottom: 10px;
     font-size: 20px;
     background-color: #1087ff;
     color: #fff;

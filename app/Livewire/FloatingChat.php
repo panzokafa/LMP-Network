@@ -43,7 +43,10 @@ class FloatingChat extends Component
     public function hydrate()
     {
         if ($this->selectedConversationId) {
-            $this->selectedConversation = Conversation::findOrFail($this->selectedConversationId);
+            $this->selectedConversation = Conversation::where('receiver_id', $this->selectedConversationId)->first();
+            if (!$this->selectedConversation) {
+                $this->selectedConversationId = null;
+            }
         }
     }
 

@@ -115,7 +115,7 @@ Echo.private('users.{{ Auth()->User()->id }}')
                         {{-- messsage body --}}
 
                         <div @class([
-                            'flex flex-wrap text-[15px]  rounded-xl p-2.5 flex flex-col text-black bg-[#f6f6f8fb]',
+                            'flex flex-wrap text-[15px]  rounded-xl p-2.5 flex flex-col',
                             'rounded-bl-none border  border-gray-200/40 ' => !(
                                 $message->sender_id === auth()->id()
                             ),
@@ -212,10 +212,6 @@ Echo.private('users.{{ Auth()->User()->id }}')
                 @enderror
 
             </div>
-
-
-
-
 
         </footer>
 

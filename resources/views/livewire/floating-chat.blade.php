@@ -1,6 +1,6 @@
 <div>
     <button id="admin-toggle-btn">
-        <img class="img-icon" src="{{ asset('assets/img/chat.png') }}" alt="Chat Button" />
+        <img class="img-icon" src="{{ asset('assets/img/comments.png') }}" alt="Chat Button" />
     </button>
     <div class="chatadmin-popup" id="admin-popup">
         <div class="chatadmin-header">
@@ -62,8 +62,6 @@
                         if (!response.ok) {
                             throw new Error('Network response was not ok');
                         }
-                        // Handle response jika diperlukan
-                        console.log('Message sent successfully!');
                     })
                     .catch(error => {
                         console.error('There was a problem with the fetch operation:', error);
@@ -96,13 +94,11 @@
 
         userInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter' && userInput.value.trim() !== '') {
-                console.log('jalan')
                 sendMessage();
             }
         });
 
         async function sendMessage() {
-            console.log('jalan send')
 
             event.preventDefault();
             event.stopPropagation();
@@ -114,8 +110,6 @@
         }
 
         function appendMessage(sender, message) {
-            console.log('append')
-
             const adminBox = document.getElementById('admin-box');
             const messageElement = document.createElement('div');
             messageElement.classList.add(sender === 'user' ? 'user-message' : 'admin-message');
