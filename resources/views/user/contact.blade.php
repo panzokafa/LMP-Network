@@ -16,7 +16,7 @@
 
         <div class="grid xl:grid-cols-4 sm:grid-cols-2 gap-20 justify-center items-start">
             @php
-                $title = ['Visit Us', 'WhatsApp', 'Call Us', 'Email','Contact Admin'];
+                $title = ['Visit Us', 'WhatsApp', 'Call Us', 'Email'];
 
                 $link = [null, 'https://wa.me/082320218200', null, 'mailto:info@lmp-networks.com','/service/users'];
 
@@ -27,10 +27,9 @@ Bekasi - Jawa Barat',
                     '(+62 21) 82692369',
                     '(+62 21) 82692369',
                     'info@lmp-networks.com',
-                    'Hubungi Admin',
                 ];
             @endphp
-            @for ($i = 1; $i < 6; $i++)
+            @for ($i = 1; $i < 5; $i++)
                 <a {{ $link[$i - 1] != null ? 'href = ' . $link[$i - 1] : null }}
                     class="{{ 'contact-' . $i }} flex flex-col items-center justify-center text-center">
                     <img class="xl:mb-10 mb-7 w-20 h-20" src="{{ asset('images/contact/' . $i . '.png') }}" alt="">
