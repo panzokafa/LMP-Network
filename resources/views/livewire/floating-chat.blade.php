@@ -30,7 +30,7 @@
         </div>
 
         <div class="chatadmin-input">
-            <input type="text" id="user-input" wire:model="body" "
+            <input type="text" id="user-input" wire:model="body" wire:keydown.enter="sendMessage"
                 placeholder="Type a message..." autofocus>
             <button type="button" wire:click="sendMessage" id="send-btn">Send</button>
         </div>
