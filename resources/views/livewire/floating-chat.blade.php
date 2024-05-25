@@ -42,6 +42,37 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        const reasonInput = document.getElementById('reason-input');
+
+        reasonInput.addEventListener('change', function() {
+            const selectedUserId = this.value;
+            if (selectedUserId) {
+                fetch(`/users/message/${selectedUserId}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
+                                .getAttribute('content')
+                        },
+                        body: JSON.stringify({
+                            userId: selectedUserId
+                        })
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        // Handle response jika diperlukan
+                        console.log('Message sent successfully!');
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation:', error);
+                    });
+            }
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
         const adminPopup = document.getElementById('admin-popup');
         const adminToggleBtn = document.getElementById('admin-toggle-btn');
         const closeBtn = document.getElementById('close-btn');
@@ -64,7 +95,6 @@
         sendBtn.addEventListener('click', sendMessage);
 
         userInput.addEventListener('keypress', function(e) {
-            console.log(e)
             if (e.key === 'Enter' && userInput.value.trim() !== '') {
                 console.log('jalan')
                 sendMessage();
@@ -77,47 +107,10 @@
             event.preventDefault();
             event.stopPropagation();
             const userInputValue = userInput.value.trim();
-            const reasonInput = document.getElementById('reason-input').value;
 
-            // Ensure CSRF token exists before accessing its attribute
-            const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
-            const messageRouteMeta = document.querySelector('meta[name="message-route"]');
-            if (!csrfTokenMeta || !messageRouteMeta) {
-                console.error("CSRF token or message route meta tag not found.");
-                return;
-            }
-            const csrfToken = csrfTokenMeta.getAttribute('content');
-            const messageRoute = messageRouteMeta.getAttribute('content').replace(':userId', reasonInput);
+            appendMessage('user', userInputValue);
+            userInput.value = '';
 
-            if (userInputValue !== '') {
-                console.log('user input value')
-                appendMessage('user', userInputValue);
-                userInput.value = '';
-            } else if (reasonInput) {
-                console.log('reason input')
-
-                try {
-                    const response = await fetch(messageRoute, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': csrfToken
-                        },
-                        body: JSON.stringify({
-                            message: reasonInput
-                        })
-                    });
-
-                    if (response.ok) {
-                        userForm.style.display = 'none';
-                        userInput.style.display = 'block';
-                    } else {
-                        console.error("Failed to send message.");
-                    }
-                } catch (error) {
-                    console.error("Error:", error);
-                }
-            }
         }
 
         function appendMessage(sender, message) {
