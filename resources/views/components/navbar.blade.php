@@ -146,7 +146,7 @@
 <div id="nav" class="w-[100vw] h-[100vh] inset-x-[100%] duration-300 bottom-0 top-0 z-50 fixed">
     <div class="h-full w-full absolute bg-black opacity-90 z-10"></div>
 
-    <div class="flex py-5 xl:px-20 md:px-12 px-6 pr-10 justify-between items-center relative z-20 mb-14 z-20">
+    <div class="flex py-5 xl:px-20 md:px-12 px-6 pr-10 justify-between items-center relative z-20 mb-14">
         <div class="md:w-24 w-20 h-auto">
             <img src="{{ asset('images/logo1.png') }}" alt="">
         </div>

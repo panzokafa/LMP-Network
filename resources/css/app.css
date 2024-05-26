@@ -1,52 +1,267 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+/* Tailwind CSS base styles */
 @tailwind base;
+
+/* Tailwind CSS component styles */
 @tailwind components;
+
+/* Tailwind CSS utility styles */
 @tailwind utilities;
 
 * {
     font-family: "Poppins", sans-serif;
 }
 
-.custom-avatar {
-    width: 50px; /* Atur ukuran sesuai kebutuhan */
-    height: 50px; /* Pastikan tinggi dan lebar sama */
-    font-size: 24px; /* Ukuran font sesuai kebutuhan */
+.chatadmin-header a {
+    text-decoration: none;
+    color: white;
+}
+
+.copyright {
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.img-icon {
+    width: 45px;
+    height: 45px;
+    display: inline-block;
+}
+
+.copyright a {
+    text-decoration: none;
+    color: #343c41;
+}
+
+#admin-toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1001;
+    width: fit-content;
+}
+
+
+.chatadmin-popup {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    max-width: 90%;
+    z-index: 1000;
+}
+
+.chatadmin-header {
+    background-color: #1087ff;
+    color: #fff;
+    padding: 15px 20px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#close-btn {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.chatadmin-box {
+    max-height: 350px;
+    overflow-y: auto;
+    padding: 15px 20px;
+}
+
+#user-form {
+    display: none;
+    flex-direction: column;
+    padding: 10px 20px;
+}
+
+#user-form label {
+    margin-bottom: 5px;
+}
+
+#user-form select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    outline: none;
+}
+
+.chatadmin-input {
     display: flex;
     align-items: center;
+    padding: 10px 20px;
+    border-top: 1px solid #ddd;
+}
+
+#user-input {
+    font-family: "Poppins";
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    outline: none;
+    display: block;
+}
+
+#send-btn {
+    font-family: "Poppins", sans-serif;
+    padding: 10px 20px;
+    border: none;
+    background-color: #1087ff;
+    color: #fff;
+    border-radius: 12px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#send-btn:hover {
+    background-color: #0074cc;
+}
+
+.admin-message {
+    background-color: #1087ff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-right: auto;
+    position: relative;
+   display: flex;
+   align-items: flex-start; 
+  flex-direction: column;
+   max-width: 70%;
+}
+
+.admin-message::before {
+    content: "\1F916";
+    position: absolute;
+    bottom: -17px;
+    left: -14px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    background-color: #1087ff;
+    color: #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
     justify-content: center;
+    align-items: flex-start; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+ }
+
+.user-message {
+    background-color: #f3f3f3;
+    color: #333;
+    padding: 10px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: auto;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    max-width: 70%;
 }
 
-.user-active {
-    @apply transform opacity-100 scale-100 absolute;
+.user-message::before {
+    content: "\1F468";
+    position: absolute;
+    bottom: -17px;
+    right: -14px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    background-color: #1087ff;
+    color: #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-.user-inactive {
-    @apply transform opacity-0 scale-95 hidden;
+.admin-message small,
+.user-message small {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #ccc;
 }
 
-.navbar-fixed {
-    @apply fixed z-[9999] bg-white bg-opacity-80;
-    backdrop-filter: blur(5px);
-    box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
+.message-info {
+    text-align: left;
+    margin-top: 3px;
+    color: #aaa;
+    font-size: 12px;
 }
 
-.hamburger-line {
-    @apply w-[30px] h-[2px] my-2 block bg-white;
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
 }
 
-.hamburger-active > span:nth-child(1) {
-    @apply rotate-45;
+.button-container button {
+    background-color: #1087ff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.hamburger-active > span:nth-child(2) {
-    @apply scale-0;
+.button-container button:hover {
+    background-color: #0074cc;
 }
 
-.hamburger-active > span:nth-child(3) {
-    @apply -rotate-45;
+.user-form {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 20px;
+    border-top: 1px solid #ddd;
 }
 
-.bg-dark {
-    --tw-bg-opacity: 1;
-    background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+.user-form input,
+.user-form select,
+.user-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-family: "Poppins";
+}
+
+.user-form textarea {
+    resize: vertical;
+}
+
+.custom-avatar {
+    font-size: 1.5rem; /* Menyesuaikan ukuran font jika diperlukan */
+    width: 3rem; /* 48px */
+    height: 3rem; /* 48px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
