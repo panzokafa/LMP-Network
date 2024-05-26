@@ -165,6 +165,9 @@
             });
             splide2.mount(window.splide.Extensions);
         });
+        setTimeout(function() {
+            location.reload();
+        }, 86400000); // 
     </script>
 </body>
 

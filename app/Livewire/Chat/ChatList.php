@@ -65,7 +65,7 @@ class ChatList extends Component
             }
 
             // Jika pesan terakhir tersedia, cek apakah waktu pembuatannya lebih dari 10 menit yang lalu
-            return $lastMessage->created_at->addMinutes(10)->isPast();
+            return $lastMessage->created_at->addMinutes(1)->isPast();
         });
 
         // Menghapus percakapan yang disaring bersama dengan pesan yang terkait

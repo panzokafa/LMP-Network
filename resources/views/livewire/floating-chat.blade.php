@@ -8,31 +8,37 @@
             <button id="close-btn">&times;</button>
         </div>
         <div class="chatadmin-box" id="admin-box">
-            @forelse ($loadedMessages as $message)
-                <div class="{{ $message->sender_id === auth()->id() ? 'user-message' : 'admin-message' }}">
-                    <p>{{ $message->body }}</p>
-                    <small class="message-info">{{ $message->created_at->format('g:i a') }}</small>
-                </div>
-            @empty
-                <p>No messages available</p>
-            @endforelse
+            @if ($selectedConversationId)
+                @forelse ($loadedMessages as $message)
+                    <div class="{{ $message->sender_id === auth()->id() ? 'user-message' : 'admin-message' }}">
+                        <p>{{ $message->body }}</p>
+                        <small class="message-info">{{ $message->created_at->format('g:i a') }}</small>
+                    </div>
+                @empty
+                    <p>No messages available</p>
+                @endforelse
+            @else
+                <p>Please select an admin to start the conversation.</p>
+            @endif
         </div>
 
+        @if ($selectedConversationId)
+            <div class="chatadmin-input">
+                <input type="text" id="user-input" wire:model.live="body" wire:keydown.enter="sendMessage"
+                    placeholder="Type a message..." autofocus>
+                <button type="button" wire:click="sendMessage" id="send-btn">Send</button>
+            </div>
+        @else
+            <div id="user-form" style="display: {{ $selectedConversationId ? 'none' : 'flex' }};">
+                <select id="reason-input" wire:model.live="selectedConversationId">
+                    <option value="">Select an admin</option>
+                    @foreach ($users as $user)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+        @endif
 
-        <div id="user-form" style="display: {{ $selectedConversationId ? 'none' : 'flex' }};">
-            <select id="reason-input" wire:model.live="selectedConversationId">
-                <option value="">Select an admin</option>
-                @foreach ($users as $user)
-                    <option value="{{ $user->id }}">{{ $user->name }}</option>
-                @endforeach
-            </select>
-        </div>
-
-        <div class="chatadmin-input">
-            <input type="text" id="user-input" wire:model="body" wire:keydown.enter="sendMessage"
-                placeholder="Type a message..." autofocus>
-            <button type="button" wire:click="sendMessage" id="send-btn">Send</button>
-        </div>
         <div class="copyright">
             <div>Build By LMP Network © 2024</div>
         </div>
@@ -66,6 +72,7 @@
                         console.error('There was a problem with the fetch operation:', error);
                     });
             }
+
         });
     });
 
@@ -120,6 +127,7 @@
         adminPopup.style.display = 'none';
 
     });
+
 
     window.addEventListener('message-sent', event => {
         const adminBox = document.getElementById('admin-box');
