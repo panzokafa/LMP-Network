@@ -22,22 +22,21 @@
             @endif
         </div>
 
-        @if ($selectedConversationId)
-            <div class="chatadmin-input">
-                <input type="text" id="user-input" wire:model.live="body" wire:keydown.enter="sendMessage"
-                    placeholder="Type a message..." autofocus>
-                <button type="button" wire:click="sendMessage" id="send-btn">Send</button>
-            </div>
-        @else
-            <div id="user-form" style="display: {{ $selectedConversationId ? 'none' : 'flex' }};">
-                <select id="reason-input" wire:model.live="selectedConversationId">
-                    <option value="">Select an admin</option>
-                    @foreach ($users as $user)
-                        <option value="{{ $user->id }}">{{ $user->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-        @endif
+        <div id="user-form" style="display: {{ $selectedConversationId ? 'none' : 'flex' }};">
+            <select id="reason-input" wire:model.live="selectedConversationId">
+                <option value="">Select an admin</option>
+                @foreach ($users as $user)
+                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="chatadmin-input">
+            <input type="text" id="user-input" wire:model.live="body" wire:keydown.enter="sendMessage"
+                placeholder="Type a message..." autofocus>
+            <button type="button" wire:click="sendMessage" id="send-btn">Send</button>
+        </div>
+
 
         <div class="copyright">
             <div>Build By LMP Network © 2024</div>
