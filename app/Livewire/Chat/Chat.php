@@ -13,26 +13,25 @@ class Chat extends Component
     public $query;
     public $selectedConversation;
 
-    public function render(Request $request, $query)
+    public function render(Request $request, $query = null)
     {
-        $this->query = $query;
-        // dd($this->query);
+        if (empty($query)) {
+            return redirect()->route('chat.index');
+        }
 
-        if (auth()->user()->is_admin) {
-            $this->selectedConversation = Conversation::findOrFail($this->query);
-        } else {
-            $this->selectedConversation = Conversation::findOrFail($this->query);
-
-            // $this->selectedConversation = Conversation::where('id', $this->query)
-            //     ->where(function ($query) {
-            //         $query->where('email_sender', )
-            //             ->orWhere('receiver_id', auth()->id());
-            //     })
-            //     ->firstOrFail();
+        try {
+            $this->selectedConversation = Conversation::findOrFail($query);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return redirect()->route('chat.index');
         }
 
         $conversations = Conversation::all();
-        $selectedConversationEmail = $conversations[0]->getReceiver()->email_sender;
+
+        if ($conversations->isEmpty()) {
+            return redirect()->route('chat.index');
+        }
+
+        $selectedConversationEmail = $this->selectedConversation->getReceiver()->email_sender;
 
         Message::where('conversation_id', $this->selectedConversation->id)
             ->where('email_receiver', $selectedConversationEmail)
@@ -41,7 +40,7 @@ class Chat extends Component
 
         return view('livewire.chat.chat', [
             'selectedConversation' => $this->selectedConversation,
-            'query' => $this->query,
+            'query' => $query,
         ]);
     }
 }
