@@ -77,7 +77,7 @@ class Conversation extends Model
         $selectedConversation = $conversations[0]->getReceiver()->email_sender;
 
         return $unreadMessages = Message::where('conversation_id', '=', $this->id)
-            ->where('email_receiver', $selectedConversation)
+            ->where('email_sender', $selectedConversation)
             ->whereNull('read_at')->count();
     }
 }
