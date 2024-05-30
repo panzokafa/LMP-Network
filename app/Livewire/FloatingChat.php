@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Notifications\MessageRead;
 use App\Notifications\MessageSent;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class FloatingChat extends Component
@@ -109,6 +110,7 @@ class FloatingChat extends Component
 
     public function sendMessage()
     {
+        dd($this->showUserForm);
         $this->validate(['body' => 'required|string']);
 
         if ($this->selectedConversation) {

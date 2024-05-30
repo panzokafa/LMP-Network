@@ -17,7 +17,7 @@ return new class extends Migration
 
             $table->string('email_sender')->nullable();
 
-            $table->unsignedBigInteger('email_receiver')->nullable();
+            $table->string('email_receiver')->nullable();
 
 
             $table->timestamp('read_at')->nullable();

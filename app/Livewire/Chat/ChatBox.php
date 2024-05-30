@@ -27,12 +27,12 @@ class ChatBox extends Component
     {
         $user = Auth::user();
 
-        if($user->role === 'admin'){
+        if ($user->role === 'admin') {
             return [
                 'loadMore',
                 "echo-private:users.{$user->email},.Illuminate\\Notifications\\Events\\BroadcastNotificationCreated" => 'broadcastedNotifications'
             ];
-        }else{
+        } else {
             return [
                 'loadMore',
                 "echo-private:users.{$this->selectedConversation->email_sender},.Illuminate\\Notifications\\Events\\BroadcastNotificationCreated" => 'broadcastedNotifications'
@@ -100,14 +100,14 @@ class ChatBox extends Component
         $this->validate(['body' => 'required|string']);
         $user = Auth::user();
 
-        if($user->role === 'admin'){
+        if ($user->role === 'admin') {
             $createdMessage = Message::create([
                 'conversation_id' => $this->selectedConversation->id,
                 'email_sender' => $user->email,
                 'email_receiver' => $this->selectedConversation->email_sender,
                 'body' => $this->body
             ]);
-        }else{
+        } else {
             $createdMessage = Message::create([
                 'conversation_id' => $this->selectedConversation->id,
                 'email_sender' => $this->selectedConversation->email_sender,

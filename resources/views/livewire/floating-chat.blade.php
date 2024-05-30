@@ -7,47 +7,51 @@
             <span>ChatAdmin | <a href="/" target="_blank">LMP</a></span>
             <button id="close-btn">&times;</button>
         </div>
+
+
         <div class="chatadmin-box" id="admin-box">
-            @if ($showUserForm)
-                @forelse ($loadedMessages as $message)
-                    <div class="{{ $message->sender_id === auth()->id() ? 'user-message' : 'admin-message' }}">
-                        <p>{{ $message->body }}</p>
-                        <small class="message-info">{{ $message->created_at->format('g:i a') }}</small>
-                    </div>
-                @empty
-                    <p>No messages available</p>
-                @endforelse
-            @else
-                <p>No messages available.</p>
-            @endif
+            @forelse ($loadedMessages as $message)
+                <div class="{{ $message->sender_id === auth()->id() ? 'user-message' : 'admin-message' }}">
+                    <p>{{ $message->body }}</p>
+                    <small class="message-info">{{ $message->created_at->format('g:i a') }}</small>
+                </div>
+            @empty
+                <p>No messages available</p>
+            @endforelse
+
         </div>
 
-        <div id="user-form" style="display: {{ $showUserForm ? 'flex' : 'none' }}; flex-direction: column;">
-            <label for="name">Nama:</label>
-            <input type="text" id="name" name="name" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+        @if ($showUserForm)
+            <div id="user-form" style="display: {{ $showUserForm ? 'flex' : 'none' }}; flex-direction: column;">
+                <label for="name">Nama:</label>
+                <input type="text" id="name" name="name" required>
 
-            <label for="phone">Nomor HP:</label>
-            <input type="text" id="phone" name="phone" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
-            <label for="reason-input">Pilih Admin:</label>
-            <select id="reason-input" name="reason" required>
-                <option value="">Select an admin</option>
-                @foreach ($users as $user)
-                    <option value="{{ $user->id }}">{{ $user->name }}</option>
-                @endforeach
-            </select>
+                <label for="phone">Nomor HP:</label>
+                <input type="text" id="phone" name="phone" required>
 
-            <button type="button" id="submit-form">Submit</button>
-        </div>
+                <label for="reason-input">Pilih Admin:</label>
+                <select id="reason-input" name="reason" required>
+                    <option value="">Select an admin</option>
+                    @foreach ($users as $user)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    @endforeach
+                </select>
 
-            <div class="chatadmin-input">
-                <input type="text" id="user-input" wire:model.live="body" wire:keydown.enter="sendMessage"
-                    placeholder="Type a message..." autofocus>
-                <button type="button" wire:click="sendMessage" id="send-btn">Send</button>
+                <button type="button" id="submit-form">SUBMIT</button>
             </div>
+        @else
+        @endif
+        <div class="chatadmin-input">
+            <input type="text" id="user-input" wire:model.live="body" wire:keydown.enter="sendMessage"
+                placeholder="Type a message..." autofocus>
+            <button type="button" wire:click="sendMessage" id="send-btn">Send</button>
+        </div>
+
+
 
         <div class="copyright">
             <div>Build By LMP Network © 2024</div>
@@ -123,6 +127,9 @@
             }
         });
     });
+
+
+
 
     document.addEventListener('DOMContentLoaded', function() {
         const adminPopup = document.getElementById('admin-popup');

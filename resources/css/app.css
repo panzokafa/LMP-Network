@@ -54,7 +54,7 @@
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    width: 350px;
+    width: 450px;
     max-width: 90%;
     z-index: 1000;
 }
@@ -91,7 +91,7 @@
 }
 
 #user-form label {
-    margin-bottom: 5px;
+    margin-block: 5px;
 }
 
 #user-form select {
@@ -109,10 +109,10 @@
     border-top: 1px solid #ddd;
 }
 
-#user-input {
+input {
     font-family: "Poppins";
     flex: 1;
-    padding: 10px;
+    padding: 5px 10px;
     border: 1px solid #ddd;
     border-radius: 12px;
     outline: none;
@@ -145,7 +145,7 @@
     margin-right: auto;
     position: relative;
    display: flex;
-   align-items: flex-start; 
+   align-items: flex-start;
   flex-direction: column;
    max-width: 70%;
 }
@@ -164,7 +164,7 @@
     height: 30px;
     display: flex;
     justify-content: center;
-    align-items: flex-start; 
+    align-items: flex-start;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
  }
 
@@ -256,7 +256,13 @@
 .user-form textarea {
     resize: vertical;
 }
+#submit-form {
 
+    color: white;
+    background-color: #1087ff;
+    padding: 8px 20px;
+    border-radius: 10px;
+}
 .custom-avatar {
     font-size: 1.5rem; /* Menyesuaikan ukuran font jika diperlukan */
     width: 3rem; /* 48px */

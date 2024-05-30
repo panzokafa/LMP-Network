@@ -19,9 +19,7 @@ class Message extends Model
         'sender_deleted_at',
     ];
 
-
     protected $dates = ['read_at', 'receiver_deleted_at', 'sender_deleted_at'];
-
 
     /* relationship */
 
@@ -30,10 +28,8 @@ class Message extends Model
         return $this->belongsTo(Conversation::class);
     }
 
-
     public function isRead(): bool
     {
-
         return $this->read_at != null;
     }
 }

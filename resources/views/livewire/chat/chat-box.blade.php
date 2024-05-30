@@ -92,7 +92,9 @@ Echo.private('users.{{ Auth()->User()->id }}')
 
                     <div wire:key="{{ time() . $key }}" @class([
                         'max-w-[85%] md:max-w-[78%] flex w-auto gap-2 relative mt-2',
-                        'ml-auto' => $message->email_sender !== $selectedConversation->getReceiver()->email_sender,
+                        'ml-auto' =>
+                            $message->email_sender !==
+                            $selectedConversation->getReceiver()->email_sender,
                     ])>
 
                         {{-- avatar --}}
@@ -100,7 +102,9 @@ Echo.private('users.{{ Auth()->User()->id }}')
                         <div @class([
                             'shrink-0',
                             'invisible' => $previousMessage?->email_sender == $message->email_sender,
-                            'hidden' => $message->email_sender !== $selectedConversation->getReceiver()->email_sender,
+                            'hidden' =>
+                                $message->email_sender !==
+                                $selectedConversation->getReceiver()->email_sender,
                         ])>
 
                             <x-avatar src="{{ $selectedConversation->getReceiver()->name }}" />
