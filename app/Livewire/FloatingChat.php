@@ -18,32 +18,50 @@ class FloatingChat extends Component
     public $loadedMessages;
     public $paginate_var = 10;
     public $messagesLoaded = false;
-
-    protected $listeners = ['loadMore'];
-
-    public function getListeners()
-    {
-        $auth_id = auth()->user()->id;
-
-        return ['loadMore', "echo-private:users.{$auth_id},.Illuminate\\Notifications\\Events\\BroadcastNotificationCreated" => 'broadcastedNotifications'];
-    }
+    public $showUserForm = true;
+    protected $listeners = ['loadMore', 'userDataLoaded'];
+    protected $persist = ['showUserForm'];
 
     public function mount()
     {
-        $this->selectedConversation = Conversation::where('sender_id', Auth::id())->first();
-        if (!$this->selectedConversation) {
-            $this->selectedConversation = null;
-        } else {
-            $this->selectedConversationId = $this->selectedConversation->id;
-        }
         $this->loadedMessages = collect();
+        $this->loadMessages();
+    }
+
+    protected function getListeners()
+    {
+        return [
+            'userDataLoaded' =>
+            'showUserForm'
+        ];
+    }
+
+    public function userDataLoaded($userData)
+    {
+        // Log the received data for debugging
+        Log::info('User data loaded', ['userData' => $userData]);
+        dd($userData); // Dump and die to inspect the received data
+
+        $email = $userData['email'];
+
+        $existingConversation = Conversation::where('email_sender', $email)->first();
+
+        if ($existingConversation) {
+            $this->showUserForm = false;
+            $this->selectedConversation = $existingConversation;
+            $this->selectedConversationId = $this->selectedConversation->id;
+        } else {
+            $this->selectedConversation = null;
+            $this->selectedConversationId = null;
+        }
+
         $this->loadMessages();
     }
 
     public function hydrate()
     {
         if ($this->selectedConversationId) {
-            $this->selectedConversation = Conversation::where('sender_id', Auth::id())->first();
+            $this->selectedConversation = Conversation::find($this->selectedConversationId);
             if (!$this->selectedConversation) {
                 $this->selectedConversationId = null;
             }
@@ -73,7 +91,6 @@ class FloatingChat extends Component
 
     public function loadMessages()
     {
-
         if ($this->selectedConversation) {
             $userId = auth()->id();
             $messagesQuery = Message::where('conversation_id', $this->selectedConversation->id)->where(function ($query) use ($userId) {
@@ -89,7 +106,6 @@ class FloatingChat extends Component
             $this->loadedMessages = $messagesToLoad->merge($this->loadedMessages);
         }
     }
-
 
     public function sendMessage()
     {
@@ -114,7 +130,6 @@ class FloatingChat extends Component
             $this->dispatch('newMessage', $createdMessage);
         }
     }
-
 
     public function render()
     {

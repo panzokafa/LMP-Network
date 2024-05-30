@@ -11,8 +11,8 @@ class Message extends Model
 
     protected $fillable = [
         'body',
-        'sender_id',
-        'receiver_id',
+        'email_sender',
+        'email_receiver',
         'conversation_id',
         'read_at',
         'receiver_deleted_at',

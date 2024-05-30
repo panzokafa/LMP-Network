@@ -53,7 +53,7 @@ class ChatList extends Component
 
         // Mendapatkan semua percakapan
         $conversations = Conversation::all();
-
+        // dd($conversations[0]->getReceiver()->email_sender);
         // Menyaring percakapan yang waktu terakhirnya lebih dari 10 menit yang lalu
         $conversationsToDelete = $conversations->filter(function ($conversation) use ($now) {
             $lastMessage = $conversation->messages->last();
@@ -65,7 +65,7 @@ class ChatList extends Component
             }
 
             // Jika pesan terakhir tersedia, cek apakah waktu pembuatannya lebih dari 10 menit yang lalu
-            return $lastMessage->created_at->addMinutes(1)->isPast();
+            return $lastMessage->created_at->addMinutes(10)->isPast();
         });
 
         // Menghapus percakapan yang disaring bersama dengan pesan yang terkait

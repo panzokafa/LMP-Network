@@ -15,11 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('conversation_id')->constrained()->cascadeOnDelete();
 
-            $table->unsignedBigInteger('sender_id')->nullable();// or uuid()
-            $table->foreign('sender_id')->references('id')->on('users')->nullOnDelete();
+            $table->string('email_sender')->nullable();
 
-            $table->unsignedBigInteger('receiver_id')->nullable();// or uuid()
-            $table->foreign('receiver_id')->references('id')->on('users')->nullOnDelete();
+            $table->unsignedBigInteger('email_receiver')->nullable();
 
 
             $table->timestamp('read_at')->nullable();

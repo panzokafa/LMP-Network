@@ -8,7 +8,7 @@
             <button id="close-btn">&times;</button>
         </div>
         <div class="chatadmin-box" id="admin-box">
-            @if ($selectedConversationId)
+            @if ($showUserForm)
                 @forelse ($loadedMessages as $message)
                     <div class="{{ $message->sender_id === auth()->id() ? 'user-message' : 'admin-message' }}">
                         <p>{{ $message->body }}</p>
@@ -18,25 +18,36 @@
                     <p>No messages available</p>
                 @endforelse
             @else
-                <p>Please select an admin to start the conversation.</p>
+                <p>No messages available.</p>
             @endif
         </div>
 
-        <div id="user-form" style="display: {{ $selectedConversationId ? 'none' : 'flex' }};">
-            <select id="reason-input" wire:model.live="selectedConversationId">
+        <div id="user-form" style="display: {{ $showUserForm ? 'flex' : 'none' }}; flex-direction: column;">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Nomor HP:</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <label for="reason-input">Pilih Admin:</label>
+            <select id="reason-input" name="reason" required>
                 <option value="">Select an admin</option>
                 @foreach ($users as $user)
                     <option value="{{ $user->id }}">{{ $user->name }}</option>
                 @endforeach
             </select>
+
+            <button type="button" id="submit-form">Submit</button>
         </div>
 
-        <div class="chatadmin-input">
-            <input type="text" id="user-input" wire:model.live="body" wire:keydown.enter="sendMessage"
-                placeholder="Type a message..." autofocus>
-            <button type="button" wire:click="sendMessage" id="send-btn">Send</button>
-        </div>
-
+            <div class="chatadmin-input">
+                <input type="text" id="user-input" wire:model.live="body" wire:keydown.enter="sendMessage"
+                    placeholder="Type a message..." autofocus>
+                <button type="button" wire:click="sendMessage" id="send-btn">Send</button>
+            </div>
 
         <div class="copyright">
             <div>Build By LMP Network © 2024</div>
@@ -46,11 +57,37 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const reasonInput = document.getElementById('reason-input');
+        let userData = localStorage.getItem('chatFormData');
 
-        reasonInput.addEventListener('change', function() {
-            const selectedUserId = this.value;
-            if (selectedUserId) {
+        if (userData) {
+            console.log("User data found in local storage:", userData); // Log untuk memastikan data ditemukan
+            let parsedData = JSON.parse(userData);
+            Livewire.emit('userDataLoaded', parsedData);
+        } else {
+            console.log("No user data found in local storage."); // Log jika data tidak ditemukan
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const reasonInput = document.getElementById('reason-input');
+        const submitFormBtn = document.getElementById('submit-form');
+        const userForm = document.getElementById('user-form');
+
+        submitFormBtn.addEventListener('click', function() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const selectedUserId = reasonInput.value;
+
+            if (name && email && phone && selectedUserId) {
+                // Save form data to local storage
+                localStorage.setItem('chatFormData', JSON.stringify({
+                    name,
+                    email,
+                    phone
+                }));
+
+                // Send data to server
                 fetch(`/users/message/${selectedUserId}`, {
                         method: 'POST',
                         headers: {
@@ -59,19 +96,31 @@
                                 .getAttribute('content')
                         },
                         body: JSON.stringify({
-                            userId: selectedUserId
+                            name,
+                            email,
+                            phone,
                         })
                     })
                     .then(response => {
                         if (!response.ok) {
-                            throw new Error('Network response was not ok');
+                            return response.json().then(errorData => {
+                                throw new Error(errorData.error);
+                            });
                         }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Handle successful response
+                        console.log('Success:', data);
+                        // Hide the form
+                        userForm.style.display = 'none';
                     })
                     .catch(error => {
                         console.error('There was a problem with the fetch operation:', error);
                     });
+            } else {
+                alert('Please fill out all fields.');
             }
-
         });
     });
 
@@ -132,7 +181,7 @@
         const adminBox = document.getElementById('admin-box');
         const message = event.detail.message;
         const messageElement = document.createElement('div');
-        messageElement.classList.add(message.sender_id === {{ Auth()->User()->id }} ? 'user-message' :
+        messageElement.classList.add(message.sender_id === {{ '1' }} ? 'user-message' :
             'admin-message');
         messageElement.innerHTML =
             `<p>${message.body}</p><small>${Carbon.parse(message.created_at).format('g:i a')}</small>`;
@@ -140,13 +189,13 @@
         adminBox.scrollTop = adminBox.scrollHeight;
     });
 
-    Echo.private('users.' + {{ Auth()->User()->id }})
+    Echo.private('users.' + {{ '1' }})
         .listen('.Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', (notification) => {
             if (notification.type === 'App\\Notifications\\MessageSent') {
                 const message = notification.message;
                 if (message && message.sender_id) {
                     const messageElement = document.createElement('div');
-                    messageElement.classList.add(message.sender_id === {{ Auth()->User()->id }} ?
+                    messageElement.classList.add(message.sender_id === {{ '1' }} ?
                         'user-message' : 'admin-message');
                     messageElement.innerHTML =
                         `<p>${message.body}</p><small>${Carbon.parse(message.created_at).format('g:i a')}</small>`;

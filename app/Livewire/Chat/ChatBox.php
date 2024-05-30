@@ -7,6 +7,8 @@ use App\Models\Conversation;
 use App\Notifications\MessageRead;
 use App\Notifications\MessageSent;
 use Livewire\Component;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class ChatBox extends Component
 {
@@ -23,12 +25,19 @@ class ChatBox extends Component
 
     public function getListeners()
     {
-        $auth_id = auth()->user()->id;
+        $user = Auth::user();
 
-        return [
-            'loadMore',
-            "echo-private:users.{$auth_id},.Illuminate\\Notifications\\Events\\BroadcastNotificationCreated" => 'broadcastedNotifications'
-        ];
+        if($user->role === 'admin'){
+            return [
+                'loadMore',
+                "echo-private:users.{$user->email},.Illuminate\\Notifications\\Events\\BroadcastNotificationCreated" => 'broadcastedNotifications'
+            ];
+        }else{
+            return [
+                'loadMore',
+                "echo-private:users.{$this->selectedConversation->email_sender},.Illuminate\\Notifications\\Events\\BroadcastNotificationCreated" => 'broadcastedNotifications'
+            ];
+        }
     }
 
     public function mount($selectedConversationId)
@@ -67,12 +76,12 @@ class ChatBox extends Component
 
     public function loadMessages()
     {
-        $userId = auth()->id();
+        $emailSender =  $this->selectedConversation->getReceiver()->email_sender;
         $messagesQuery = Message::where('conversation_id', $this->selectedConversation->id)
-            ->where(function ($query) use ($userId) {
-                $query->where('sender_id', $userId)
+            ->where(function ($query) use ($emailSender) {
+                $query->where('email_sender', $emailSender)
                     ->whereNull('sender_deleted_at')
-                    ->orWhere('receiver_id', $userId)
+                    ->orWhere('email_receiver', $emailSender)
                     ->whereNull('receiver_deleted_at');
             });
 
@@ -88,14 +97,24 @@ class ChatBox extends Component
 
     public function sendMessage()
     {
-
         $this->validate(['body' => 'required|string']);
-        $createdMessage = Message::create([
-            'conversation_id' => $this->selectedConversation->id,
-            'sender_id' => auth()->id(),
-            'receiver_id' => $this->selectedConversation->getReceiver()->id,
-            'body' => $this->body
-        ]);
+        $user = Auth::user();
+
+        if($user->role === 'admin'){
+            $createdMessage = Message::create([
+                'conversation_id' => $this->selectedConversation->id,
+                'email_sender' => $user->email,
+                'email_receiver' => $this->selectedConversation->email_sender,
+                'body' => $this->body
+            ]);
+        }else{
+            $createdMessage = Message::create([
+                'conversation_id' => $this->selectedConversation->id,
+                'email_sender' => $this->selectedConversation->email_sender,
+                'email_receiver' => $user->email,
+                'body' => $this->body
+            ]);
+        }
 
         $this->reset('body');
         $this->dispatch('scroll-bottom');
@@ -103,12 +122,21 @@ class ChatBox extends Component
         $this->selectedConversation->updated_at = now();
         $this->selectedConversation->save();
         $this->dispatch('refresh')->to('chat.chat-list');
-        $this->selectedConversation->getReceiver()->notify(new MessageSent(
-            auth()->user(),
-            $createdMessage,
-            $this->selectedConversation,
-            $this->selectedConversation->getReceiver()->id
-        ));
+        $receiver = $this->selectedConversation->getReceiver();
+
+        if ($receiver) {
+            // Periksa apakah $receiver adalah instance dari Conversation
+            if ($receiver instanceof Conversation) {
+                // Dapatkan User dari email_sender
+                $user = User::firstWhere('email', $receiver->email_sender);
+                if ($user) {
+                    $user->notify(new MessageSent(auth()->user(), $createdMessage, $this->selectedConversation, $user->id));
+                }
+            } else {
+                // Jika bukan instance Conversation, langsung notify
+                $receiver->notify(new MessageSent(auth()->user(), $createdMessage, $this->selectedConversation, $receiver->id));
+            }
+        }
     }
 
     public function render()

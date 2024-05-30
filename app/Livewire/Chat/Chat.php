@@ -16,20 +16,26 @@ class Chat extends Component
     public function render(Request $request, $query)
     {
         $this->query = $query;
+        // dd($this->query);
 
         if (auth()->user()->is_admin) {
             $this->selectedConversation = Conversation::findOrFail($this->query);
         } else {
-            $this->selectedConversation = Conversation::where('id', $this->query)
-                ->where(function ($query) {
-                    $query->where('sender_id', auth()->id())
-                        ->orWhere('receiver_id', auth()->id());
-                })
-                ->firstOrFail();
+            $this->selectedConversation = Conversation::findOrFail($this->query);
+
+            // $this->selectedConversation = Conversation::where('id', $this->query)
+            //     ->where(function ($query) {
+            //         $query->where('email_sender', )
+            //             ->orWhere('receiver_id', auth()->id());
+            //     })
+            //     ->firstOrFail();
         }
 
+        $conversations = Conversation::all();
+        $selectedConversationEmail = $conversations[0]->getReceiver()->email_sender;
+
         Message::where('conversation_id', $this->selectedConversation->id)
-            ->where('receiver_id', auth()->id())
+            ->where('email_receiver', $selectedConversationEmail)
             ->whereNull('read_at')
             ->update(['read_at' => now()]);
 

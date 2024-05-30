@@ -38,21 +38,15 @@ Echo.private('users.{{ Auth()->User()->id }}')
 
                 </a>
 
-
                 {{-- avatar --}}
-
                 <div class="shrink-0">
                     <x-avatar src="{{ $selectedConversation->getReceiver()->name }}" />
                 </div>
 
-                <h6 class="font-bold truncate"> {{ $selectedConversation->getReceiver()->email }} </h6>
-
-
+                <h6 class="font-bold truncate"> {{ $selectedConversation->getReceiver()->email_sender }} </h6>
             </div>
 
-
         </header>
-
 
         {{-- body --}}
         <main
@@ -98,15 +92,15 @@ Echo.private('users.{{ Auth()->User()->id }}')
 
                     <div wire:key="{{ time() . $key }}" @class([
                         'max-w-[85%] md:max-w-[78%] flex w-auto gap-2 relative mt-2',
-                        'ml-auto' => $message->sender_id === auth()->id(),
+                        'ml-auto' => $message->email_sender !== $selectedConversation->getReceiver()->email_sender,
                     ])>
 
                         {{-- avatar --}}
 
                         <div @class([
                             'shrink-0',
-                            'invisible' => $previousMessage?->sender_id == $message->sender_id,
-                            'hidden' => $message->sender_id === auth()->id(),
+                            'invisible' => $previousMessage?->email_sender == $message->email_sender,
+                            'hidden' => $message->email_sender !== $selectedConversation->getReceiver()->email_sender,
                         ])>
 
                             <x-avatar src="{{ $selectedConversation->getReceiver()->name }}" />
@@ -117,10 +111,10 @@ Echo.private('users.{{ Auth()->User()->id }}')
                         <div @class([
                             'flex flex-wrap text-[15px]  rounded-xl p-2.5 flex flex-col',
                             'rounded-bl-none border  border-gray-200/40 ' => !(
-                                $message->sender_id === auth()->id()
+                                $message->email_sender === auth()->user()->email
                             ),
                             'rounded-br-none bg-blue-500/80 text-white' =>
-                                $message->sender_id === auth()->id(),
+                                $message->email_sender === auth()->user()->email,
                         ])>
 
 
@@ -134,8 +128,8 @@ Echo.private('users.{{ Auth()->User()->id }}')
 
                                 <p @class([
                                     'text-xs ',
-                                    'text-gray-500' => !($message->sender_id === auth()->id()),
-                                    'text-white' => $message->sender_id === auth()->id(),
+                                    'text-gray-500' => !($message->email_sender === auth()->user()->email),
+                                    'text-white' => $message->email_sender === auth()->user()->email,
                                 ])>
 
 
@@ -146,7 +140,7 @@ Echo.private('users.{{ Auth()->User()->id }}')
 
                                 {{-- message status , only show if message belongs auth --}}
 
-                                @if ($message->sender_id === auth()->id())
+                                @if ($message->email_sender === $selectedConversation->getReceiver()->email_sender)
                                     <div x-data="{ markAsRead: @json($message->isRead()) }">
 
                                         {{-- double ticks --}}
@@ -173,9 +167,6 @@ Echo.private('users.{{ Auth()->User()->id }}')
 
                                     </div>
                                 @endif
-
-
-
                             </div>
 
                         </div>
@@ -186,8 +177,6 @@ Echo.private('users.{{ Auth()->User()->id }}')
 
         </main>
 
-
-
         {{-- send message  --}}
 
         <footer class="shrink-0 z-10 bg-white inset-x-0">
@@ -196,7 +185,6 @@ Echo.private('users.{{ Auth()->User()->id }}')
 
                 <form wire:submit="sendMessage" method="POST" autocapitalize="off">
                     @csrf
-
                     <div class="grid grid-cols-12">
                         <input wire:model.live="body" type="text" autocomplete="off" autofocus
                             placeholder="write your message here" maxlength="1700"

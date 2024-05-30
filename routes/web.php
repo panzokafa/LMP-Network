@@ -16,6 +16,7 @@ use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\SearchController;
 use App\Livewire\Chat\Index;
 use App\Livewire\Chat\Chat;
+use App\Livewire\Chat\FloatingChat;
 use App\Livewire\Users;
 
 // use App\Http\Controllers\User\Profile2Controller;
