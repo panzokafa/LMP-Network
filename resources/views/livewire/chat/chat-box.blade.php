@@ -113,8 +113,8 @@ Echo.private('users.{{ Auth()->User()->id }}')
                         {{-- messsage body --}}
 
                         <div @class([
-                            'flex flex-wrap text-[15px]  rounded-xl p-2.5 flex flex-col',
-                            'rounded-bl-none border  border-gray-200/40 ' => !(
+                            'flex flex-wrap text-[15px] rounded-xl p-2.5 flex flex-col',
+                            'rounded-bl-none border border-gray-200/40 bg-gray-100' => !(
                                 $message->email_sender === auth()->user()->email
                             ),
                             'rounded-br-none bg-blue-500/80 text-white' =>
@@ -135,16 +135,13 @@ Echo.private('users.{{ Auth()->User()->id }}')
                                     'text-gray-500' => !($message->email_sender === auth()->user()->email),
                                     'text-white' => $message->email_sender === auth()->user()->email,
                                 ])>
-
-
                                     {{ $message->created_at->format('g:i a') }}
-
                                 </p>
 
 
                                 {{-- message status , only show if message belongs auth --}}
 
-                                @if ($message->email_sender === $selectedConversation->getReceiver()->email_sender)
+                                @if ($message->email_sender !== $selectedConversation->getReceiver()->email_sender)
                                     <div x-data="{ markAsRead: @json($message->isRead()) }">
 
                                         {{-- double ticks --}}
@@ -167,14 +164,10 @@ Echo.private('users.{{ Auth()->User()->id }}')
                                                     d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
                                             </svg>
                                         </span>
-
-
                                     </div>
                                 @endif
                             </div>
-
                         </div>
-
                     </div>
                 @endforeach
             @endif
