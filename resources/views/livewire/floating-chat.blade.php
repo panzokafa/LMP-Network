@@ -10,16 +10,20 @@
 
 
         <div class="chatadmin-box" id="admin-box">
-            @forelse ($loadedMessages as $message)
-                <div class="{{ $message->email_sender === $emailUser ? 'user-message' : 'admin-message' }}">
-                    <p>{{ $message->body }}</p>
-                    <small class="message-info">{{ $message->created_at->format('g:i a') }}</small>
-                </div>
-            @empty
-                <p>No messages available</p>
-            @endforelse
-
+            <!-- Tampilkan pesan yang dimuat jika tidak null -->
+            @if ($loadedMessages)
+                @foreach ($loadedMessages as $message)
+                    <div class="{{ $message->email_sender === $emailAdmin ? 'admin-message' : 'user-message' }}">
+                        <p>{{ $message->body }}</p>
+                        <small class="message-info">{{ $message->created_at->format('g:i a') }}</small>
+                    </div>
+                @endforeach
+            @else
+                <!-- Tampilkan pesan jika tidak ada pesan yang dimuat -->
+                <p>No messages loaded.</p>
+            @endif
         </div>
+
 
 
         <div id="user-form">

@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Notifications\MessageRead;
 use App\Notifications\MessageSent;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
@@ -23,6 +24,16 @@ class FloatingChat extends Component
     public $emailAdmin;
     public $emailUser;
     protected $listeners = ['loadMore'];
+
+    public function getListener()
+    {
+        return [
+            'loadMore',
+            "echo-private:users.{$this->emailAdmin},.Illuminate\\Notifications\\Events\\BroadcastNotificationCreated" => 'broadcastedNotifications'
+        ];
+    }
+
+
 
     public function mount()
     {
@@ -72,31 +83,34 @@ class FloatingChat extends Component
 
     public function loadMessages()
     {
-        if (!$this->selectedConversation) {
+        if (!$this->selectedConversationId || !$this->emailUser) {
             return [];
         }
-
-        $emailSender = $this->emailUser;
-        $emailReceiver = $this->emailAdmin;
-        $messagesQuery = Message::where('conversation_id', $this->selectedConversation->id)->where(function ($query) use ($emailSender) {
-            $query->where('email_sender', $emailSender)->whereNull('sender_deleted_at')->orWhere('email_receiver', $emailSender)->whereNull('receiver_deleted_at');
-        });
+        $emailUser = $this->emailUser;
+        $messagesQuery = Message::where('conversation_id', $this->selectedConversationId)
+            ->where(function ($query) use ($emailUser) {
+                $query->where('email_sender', $emailUser)
+                    ->orWhere('email_receiver', $emailUser);
+            });
 
         $messagesCount = $messagesQuery->count();
         $messagesToLoad = $messagesQuery
+            ->orderBy('created_at')
             ->skip(max(0, $messagesCount - $this->paginate_var))
             ->take($this->paginate_var)
             ->get();
 
-        // Merge loaded messages at the beginning of the collection
+        $this->loadedMessages = collect();
         $this->loadedMessages = $messagesToLoad->merge($this->loadedMessages);
-        dd($this->loadedMessages);
     }
-
     public function sendMessage()
     {
         // dd($this->showUserForm);
+
         $this->validate(['body' => 'required|string']);
+        Broadcast::channel('conversation.', $this->emailUser, function () {
+            return true;
+        });
 
         if ($this->selectedConversation) {
             $createdMessage = Message::create([
