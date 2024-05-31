@@ -20,42 +20,22 @@ class FloatingChat extends Component
     public $paginate_var = 10;
     public $messagesLoaded = false;
     public $showUserForm = true;
-    protected $listeners = ['loadMore', 'userDataLoaded'];
-    protected $persist = ['showUserForm'];
+    public $emailAdmin;
+    public $emailUser;
+    protected $listeners = ['loadMore'];
 
     public function mount()
     {
-        $this->loadedMessages = collect();
-        $this->loadMessages();
-    }
-
-    protected function getListeners()
-    {
-        return [
-            'userDataLoaded' =>
-            'showUserForm'
-        ];
-    }
-
-    public function userDataLoaded($userData)
-    {
-        // Log the received data for debugging
-        Log::info('User data loaded', ['userData' => $userData]);
-        dd($userData); // Dump and die to inspect the received data
-
-        $email = $userData['email'];
-
-        $existingConversation = Conversation::where('email_sender', $email)->first();
-
-        if ($existingConversation) {
-            $this->showUserForm = false;
-            $this->selectedConversation = $existingConversation;
-            $this->selectedConversationId = $this->selectedConversation->id;
-        } else {
-            $this->selectedConversation = null;
-            $this->selectedConversationId = null;
+        $sessionData = session('chatFormData', null);
+        if ($sessionData) {
+            $this->emailUser = $sessionData['email'];
+            $selectedConversation = Conversation::where('email_sender', $this->emailUser)->first();
+            if ($selectedConversation) {
+                $this->selectedConversationId = $selectedConversation->id;
+                $this->emailAdmin = $selectedConversation->receiver->email;
+            }
         }
-
+        $this->loadedMessages = collect();
         $this->loadMessages();
     }
 
@@ -92,32 +72,37 @@ class FloatingChat extends Component
 
     public function loadMessages()
     {
-        if ($this->selectedConversation) {
-            $userId = auth()->id();
-            $messagesQuery = Message::where('conversation_id', $this->selectedConversation->id)->where(function ($query) use ($userId) {
-                $query->where('sender_id', $userId)->whereNull('sender_deleted_at')->orWhere('receiver_id', $userId)->whereNull('receiver_deleted_at');
-            });
-
-            $messagesCount = $messagesQuery->count();
-            $messagesToLoad = $messagesQuery
-                ->skip(max(0, $messagesCount - $this->paginate_var))
-                ->take($this->paginate_var)
-                ->get();
-
-            $this->loadedMessages = $messagesToLoad->merge($this->loadedMessages);
+        if (!$this->selectedConversation) {
+            return [];
         }
+
+        $emailSender = $this->emailUser;
+        $emailReceiver = $this->emailAdmin;
+        $messagesQuery = Message::where('conversation_id', $this->selectedConversation->id)->where(function ($query) use ($emailSender) {
+            $query->where('email_sender', $emailSender)->whereNull('sender_deleted_at')->orWhere('email_receiver', $emailSender)->whereNull('receiver_deleted_at');
+        });
+
+        $messagesCount = $messagesQuery->count();
+        $messagesToLoad = $messagesQuery
+            ->skip(max(0, $messagesCount - $this->paginate_var))
+            ->take($this->paginate_var)
+            ->get();
+
+        // Merge loaded messages at the beginning of the collection
+        $this->loadedMessages = $messagesToLoad->merge($this->loadedMessages);
+        dd($this->loadedMessages);
     }
 
     public function sendMessage()
     {
-        dd($this->showUserForm);
+        // dd($this->showUserForm);
         $this->validate(['body' => 'required|string']);
 
         if ($this->selectedConversation) {
             $createdMessage = Message::create([
                 'conversation_id' => $this->selectedConversation->id,
-                'sender_id' => Auth::id(),
-                'receiver_id' => $this->selectedConversation->getReceiver()->id,
+                'email_sender' => $this->emailUser,
+                'email_receiver' => $this->emailAdmin,
                 'body' => $this->body,
             ]);
 
@@ -127,7 +112,7 @@ class FloatingChat extends Component
             $this->selectedConversation->updated_at = now();
             $this->selectedConversation->save();
 
-            $this->selectedConversation->getReceiver()->notify(new MessageSent(auth()->user(), $createdMessage, $this->selectedConversation, $this->selectedConversation->getReceiver()->id));
+            $this->selectedConversation->getReceiver()->notify(new MessageSent($this->emailUser, $createdMessage, $this->selectedConversation, $this->selectedConversation->getReceiver()->id));
 
             $this->dispatch('newMessage', $createdMessage);
         }

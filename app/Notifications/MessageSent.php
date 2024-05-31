@@ -34,7 +34,7 @@ class MessageSent extends Notification implements ShouldBroadcast
     public function toBroadcast($notifiable): BroadcastMessage
     {
         return new BroadcastMessage([
-            'user_id' => $this->user->id,
+            'email_sender' => $this->user,
             'conversation_id' => $this->conversation->id,
             'message_id' => $this->message->id,
             'receiver_id' => $this->receiverId,

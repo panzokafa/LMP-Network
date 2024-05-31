@@ -5,6 +5,7 @@ namespace App\Livewire\Chat;
 use App\Models\Conversation;
 use Livewire\Component;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Redirect;
 
 class ChatList extends Component
 {
@@ -48,10 +49,8 @@ class ChatList extends Component
 
     public function render()
     {
-        // Mendapatkan waktu sekarang
         $now = now();
 
-        // Mendapatkan semua percakapan
         $conversations = Conversation::all();
         // dd($conversations[0]->getReceiver()->email_sender);
         // Menyaring percakapan yang waktu terakhirnya lebih dari 10 menit yang lalu
@@ -75,6 +74,11 @@ class ChatList extends Component
         });
 
         // Mengembalikan tampilan chat-list dengan percakapan yang tersaring
+        if ($conversationsToDelete->count() > 0) {
+            // Jika ada percakapan yang dihapus, arahkan ke route chat.index
+            return Redirect::route('chat.index');
+        }
+
         return view('livewire.chat.chat-list', [
             'conversations' => $conversations->diff($conversationsToDelete),
         ]);

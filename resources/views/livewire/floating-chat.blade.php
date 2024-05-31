@@ -11,7 +11,7 @@
 
         <div class="chatadmin-box" id="admin-box">
             @forelse ($loadedMessages as $message)
-                <div class="{{ $message->sender_id === auth()->id() ? 'user-message' : 'admin-message' }}">
+                <div class="{{ $message->email_sender === $emailUser ? 'user-message' : 'admin-message' }}">
                     <p>{{ $message->body }}</p>
                     <small class="message-info">{{ $message->created_at->format('g:i a') }}</small>
                 </div>
@@ -22,30 +22,27 @@
         </div>
 
 
-        @if ($showUserForm)
-            <div id="user-form" style="display: {{ $showUserForm ? 'flex' : 'none' }}; flex-direction: column;">
-                <label for="name">Nama:</label>
-                <input type="text" id="name" name="name" required>
+        <div id="user-form">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" required>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
 
-                <label for="phone">Nomor HP:</label>
-                <input type="text" id="phone" name="phone" required>
+            <label for="phone">Nomor HP:</label>
+            <input type="text" id="phone" name="phone" required>
 
-                <label for="reason-input">Pilih Admin:</label>
-                <select id="reason-input" name="reason" required>
-                    <option value="">Select an admin</option>
-                    @foreach ($users as $user)
-                        <option value="{{ $user->id }}">{{ $user->name }}</option>
-                    @endforeach
-                </select>
+            <label for="reason-input">Pilih Admin:</label>
+            <select id="reason-input" name="reason" required>
+                <option value="">Select an admin</option>
+                @foreach ($users as $user)
+                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                @endforeach
+            </select>
 
-                <button type="button" id="submit-form">SUBMIT</button>
-            </div>
-        @else
-        @endif
-        <div class="chatadmin-input">
+            <button type="button" id="submit-form">SUBMIT</button>
+        </div>
+        <div class="chatadmin-input" id="inputbox-user">
             <input type="text" id="user-input" wire:model.live="body" wire:keydown.enter="sendMessage"
                 placeholder="Type a message..." autofocus>
             <button type="button" wire:click="sendMessage" id="send-btn">Send</button>
@@ -61,22 +58,47 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        let userData = localStorage.getItem('chatFormData');
-
-        if (userData) {
-            console.log("User data found in local storage:", userData); // Log untuk memastikan data ditemukan
-            let parsedData = JSON.parse(userData);
-            Livewire.emit('userDataLoaded', parsedData);
-        } else {
-            console.log("No user data found in local storage."); // Log jika data tidak ditemukan
+        const chatFormData = JSON.parse(localStorage.getItem('chatFormData'));
+        if (chatFormData) {
+            fetch('/store-chat-form-data', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                            'content')
+                    },
+                    body: JSON.stringify(chatFormData)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(errorData => {
+                            throw new Error(errorData.error);
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Form data stored in session:', data);
+                })
+                .catch(error => {
+                    console.error('Error storing form data in session:', error);
+                });
         }
     });
+
 
     document.addEventListener('DOMContentLoaded', function() {
         const reasonInput = document.getElementById('reason-input');
         const submitFormBtn = document.getElementById('submit-form');
+        const chatFormData = JSON.parse(localStorage.getItem('chatFormData'));
         const userForm = document.getElementById('user-form');
+        const inputBoxUser = document.getElementById('inputbox-user');
 
+        if (chatFormData) {
+            userForm.style.display = 'none';
+        } else {
+            userForm.style.display = 'flex';
+        }
         submitFormBtn.addEventListener('click', function() {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
@@ -117,6 +139,7 @@
                         // Handle successful response
                         console.log('Success:', data);
                         // Hide the form
+                        inputBoxUser.style.display = 'flex'
                         userForm.style.display = 'none';
                     })
                     .catch(error => {

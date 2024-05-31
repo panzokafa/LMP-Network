@@ -6,7 +6,7 @@ use App\Models\Conversation;
 use App\Models\Message;
 use Illuminate\Http\Request;
 use Livewire\Component;
-
+use Illuminate\Support\Facades\Session;
 
 class Chat extends Component
 {
@@ -42,5 +42,11 @@ class Chat extends Component
             'selectedConversation' => $this->selectedConversation,
             'query' => $query,
         ]);
+    }
+
+    public function storeChatFormData(Request $request)
+    {
+        $data = $request->all();
+        Session::put('chatFormData', $data);
     }
 }
