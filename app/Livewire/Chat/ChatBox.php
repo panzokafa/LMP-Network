@@ -125,21 +125,11 @@ class ChatBox extends Component
         $this->selectedConversation->save();
         $this->dispatch('refresh')->to('chat.chat-list');
 
-        $receiver = $this->selectedConversation->getReceiver();
-
-        if ($receiver) {
-            // Periksa apakah $receiver adalah instance dari Conversation
-            if ($receiver instanceof Conversation) {
-                // Dapatkan User dari email_sender
-                $user = User::firstWhere('email', $receiver->email_sender);
-                if ($user) {
-                    $user->notify(new MessageSent(auth()->user()->email, $createdMessage, $this->selectedConversation, $user->id));
-                }
-            } else {
-                // Jika bukan instance Conversation, langsung notify
-                $receiver->notify(new MessageSent(auth()->user()->email, $createdMessage, $this->selectedConversation, $receiver->id));
-            }
+        $user = User::firstWhere('email', auth()->user()->email);
+        if ($user) {
+            $user->notify(new MessageSent(auth()->user()->email, $createdMessage, $this->selectedConversation, $this->emailUser));
         }
+
     }
 
     public function render()
