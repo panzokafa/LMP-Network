@@ -40,40 +40,18 @@ class Conversation extends Model
 
     public function scopeWhereNotDeleted($query)
     {
-        // $userId = auth()->id();
-
-        // return $query->where(function ($query) use ($userId) {
-
-        //     #where message is not deleted
-        //     $query->whereHas('messages', function ($query) use ($userId) {
-
-        //         $query->where(function ($query) use ($userId) {
-        //             $query->where('sender_id', $userId)
-        //                 ->whereNull('sender_deleted_at');
-        //         })->orWhere(function ($query) use ($userId) {
-
-        //             $query->where('receiver_id', $userId)
-        //                 ->whereNull('receiver_deleted_at');
-        //         });
-        //     })
-        //         #include conversations without messages
-        //         ->orWhereDoesntHave('messages');
-        // });
-
         return $query->whereNull('deleted_at');
     }
 
-    public  function isLastMessageReadByUser(): bool
-    {
+    // public  function isLastMessageReadByUser(): bool
+    // {
+    //     $user = Auth()->User();
+    //     $lastMessage = $this->messages()->latest()->first();
 
-
-        $user = Auth()->User();
-        $lastMessage = $this->messages()->latest()->first();
-
-        if ($lastMessage) {
-            return  $lastMessage->read_at !== null && $lastMessage->sender_id == $user->id;
-        }
-    }
+    //     if ($lastMessage) {
+    //         return  $lastMessage->read_at !== null && $lastMessage->sender_id == $user->id;
+    //     }
+    // }
 
     public  function unreadMessagesCount(): int
     {

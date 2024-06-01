@@ -11,29 +11,6 @@ use Illuminate\Http\Request;
 
 class Users extends Component
 {
-    // public function message($userId)
-    // {
-    //     $authenticatedUserId = auth()->id();
-
-    //     // Check if conversation already exists
-    //     $existingConversation = Conversation::where(function ($query) use ($authenticatedUserId, $userId) {
-    //         $query->where('sender_id', $authenticatedUserId)
-    //             ->where('receiver_id', $userId);
-    //     })
-    //         ->orWhere(function ($query) use ($authenticatedUserId, $userId) {
-    //             $query->where('sender_id', $userId)
-    //                 ->where('receiver_id', $authenticatedUserId);
-    //         })->first();
-
-    //     // Create new conversation
-    //     $createdConversation = Conversation::create([
-    //         'email_sender' => $authenticatedUserId,
-    //         'receiver_id' => $userId,
-    //     ]);
-
-    //     return redirect()->route('chat', ['query' => $createdConversation->email_sender]);
-    // }
-
     public function message(Request $request, $userId)
     {
         // Validasi data form

@@ -236,6 +236,6 @@ Route::group(['prefix' => 'productss'], function () {
         return view('user.product.containment.half-containment');
     })->name('product.containment.half-containment');
 });
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Broadcast::channel('conversation.{email}', function ($user, $email) {
+    return true;
+});

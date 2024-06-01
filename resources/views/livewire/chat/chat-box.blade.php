@@ -6,7 +6,7 @@
 $nextTick(() => conversationElement.scrollTop = height);
 
 
-Echo.private('users.{{ Auth()->User()->id }}')
+Echo.private('users.{{ $emailUser }}')
     .notification((notification) => {
         if (notification['type'] == 'App\\Notifications\\MessageRead' && notification['conversation_id'] == {{ $this->selectedConversation->id }}) {
 

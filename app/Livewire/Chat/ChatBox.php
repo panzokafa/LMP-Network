@@ -16,6 +16,7 @@ class ChatBox extends Component
     public $selectedConversationId;
     public $body;
     public $loadedMessages;
+    public $emailUser;
     public $paginate_var = 10;
     public $messagesLoaded = false;
 
@@ -44,6 +45,7 @@ class ChatBox extends Component
     {
         $this->selectedConversationId = $selectedConversationId;
         $this->selectedConversation = Conversation::findOrFail($this->selectedConversationId);
+        $this->emailUser = $this->selectedConversation->email_sender;
         $this->loadedMessages = collect();  // Initialize as an empty collection
         $this->loadMessages();
     }
@@ -122,6 +124,7 @@ class ChatBox extends Component
         $this->selectedConversation->updated_at = now();
         $this->selectedConversation->save();
         $this->dispatch('refresh')->to('chat.chat-list');
+
         $receiver = $this->selectedConversation->getReceiver();
 
         if ($receiver) {
@@ -130,11 +133,11 @@ class ChatBox extends Component
                 // Dapatkan User dari email_sender
                 $user = User::firstWhere('email', $receiver->email_sender);
                 if ($user) {
-                    $user->notify(new MessageSent(auth()->user(), $createdMessage, $this->selectedConversation, $user->id));
+                    $user->notify(new MessageSent(auth()->user()->email, $createdMessage, $this->selectedConversation, $user->id));
                 }
             } else {
                 // Jika bukan instance Conversation, langsung notify
-                $receiver->notify(new MessageSent(auth()->user(), $createdMessage, $this->selectedConversation, $receiver->id));
+                $receiver->notify(new MessageSent(auth()->user()->email, $createdMessage, $this->selectedConversation, $receiver->id));
             }
         }
     }

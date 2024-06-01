@@ -1,4 +1,5 @@
 <div>
+
     <button id="admin-toggle-btn">
         <img class="img-icon" src="{{ asset('assets/img/comments.png') }}" alt="Chat Button" />
     </button>
@@ -90,7 +91,6 @@
         }
     });
 
-
     document.addEventListener('DOMContentLoaded', function() {
         const reasonInput = document.getElementById('reason-input');
         const submitFormBtn = document.getElementById('submit-form');
@@ -156,8 +156,6 @@
     });
 
 
-
-
     document.addEventListener('DOMContentLoaded', function() {
         const adminPopup = document.getElementById('admin-popup');
         const adminToggleBtn = document.getElementById('admin-toggle-btn');
@@ -169,7 +167,7 @@
         adminToggleBtn.addEventListener('click', function() {
             event.preventDefault();
             event.stopPropagation();
-            adminPopup.style.display = adminPopup.style.display = 'block'
+            adminPopup.style.display = 'block'
         });
 
         closeBtn.addEventListener('click', function() {
@@ -206,37 +204,49 @@
             adminBox.scrollTop = adminBox.scrollHeight;
         }
 
+        window.addEventListener('clearLocalStorage', function() {
+            localStorage.removeItem('chatFormData');
+            userForm.style.display = 'flex';
+        });
+
         adminPopup.style.display = 'none';
 
     });
 
-
-    window.addEventListener('message-sent', event => {
-        const adminBox = document.getElementById('admin-box');
-        const message = event.detail.message;
-        const messageElement = document.createElement('div');
-        messageElement.classList.add(message.sender_id === {{ '1' }} ? 'user-message' :
-            'admin-message');
-        messageElement.innerHTML =
-            `<p>${message.body}</p><small>${Carbon.parse(message.created_at).format('g:i a')}</small>`;
-        adminBox.appendChild(messageElement);
-        adminBox.scrollTop = adminBox.scrollHeight;
-    });
-
-    Echo.private('users.' + {{ '1' }})
-        .listen('.Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', (notification) => {
-            if (notification.type === 'App\\Notifications\\MessageSent') {
-                const message = notification.message;
-                if (message && message.sender_id) {
-                    const messageElement = document.createElement('div');
-                    messageElement.classList.add(message.sender_id === {{ '1' }} ?
-                        'user-message' : 'admin-message');
-                    messageElement.innerHTML =
-                        `<p>${message.body}</p><small>${Carbon.parse(message.created_at).format('g:i a')}</small>`;
-                    const adminBox = document.getElementById('admin-box');
-                    adminBox.appendChild(messageElement);
-                    adminBox.scrollTop = adminBox.scrollHeight;
-                }
-            }
+    window.addEventListener('DOMContentLoaded', function() {
+        // Inisialisasi Pusher
+        const pusher = new Pusher('{{ env('12e6b5906fa5da4030bf') }}', {
+            cluster: '{{ env('ap1') }}',
+            encrypted: true,
         });
+
+        // Mendengarkan pesan yang dikirim oleh admin ke pengguna
+        const channel = pusher.subscribe('conversation.{{ $emailAdmin }}');
+        channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function(data) {
+            const notification = data.notification;
+            const message = notification.data.message;
+
+            // Tambahkan pesan ke floating chat
+            appendMessage('admin', message.body);
+        });
+
+        function appendMessage(sender, message) {
+            const adminBox = document.getElementById('admin-box');
+            const messageElement = document.createElement('div');
+            messageElement.classList.add(sender === 'user' ? 'user-message' : 'admin-message');
+            messageElement.innerHTML = `<p>${message}</p><small>${getCurrentTime()}</small>`;
+            adminBox.appendChild(messageElement);
+            adminBox.scrollTop = adminBox.scrollHeight;
+        }
+
+        function getCurrentTime() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const formattedHours = hours % 12 || 12;
+            const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+            return `${formattedHours}:${formattedMinutes} ${ampm}`;
+        }
+    });
 </script>

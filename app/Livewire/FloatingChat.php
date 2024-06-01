@@ -27,13 +27,8 @@ class FloatingChat extends Component
 
     public function getListener()
     {
-        return [
-            'loadMore',
-            "echo-private:users.{$this->emailAdmin},.Illuminate\\Notifications\\Events\\BroadcastNotificationCreated" => 'broadcastedNotifications'
-        ];
+        return ['loadMore', "echo-private:users.{$this->emailAdmin},.Illuminate\\Notifications\\Events\\BroadcastNotificationCreated" => 'broadcastedNotifications'];
     }
-
-
 
     public function mount()
     {
@@ -63,13 +58,25 @@ class FloatingChat extends Component
     public function broadcastedNotifications($event)
     {
         if ($event['type'] == MessageSent::class) {
+
             if ($event['conversation_id'] == $this->selectedConversation->id) {
-                $this->dispatch('scroll-bottom');
+
+                $this->dispatchBrowserEvent('scroll-bottom');
+
                 $newMessage = Message::find($event['message_id']);
+
+
+                #push message
                 $this->loadedMessages->push($newMessage);
+
+
+                #mark as read
                 $newMessage->read_at = now();
                 $newMessage->save();
-                $this->selectedConversation->getReceiver()->notify(new MessageRead($this->selectedConversation->id));
+
+                #broadcast
+                $this->selectedConversation->getReceiver()
+                    ->notify(new MessageRead($this->selectedConversation->id));
             }
         }
     }
@@ -87,11 +94,9 @@ class FloatingChat extends Component
             return [];
         }
         $emailUser = $this->emailUser;
-        $messagesQuery = Message::where('conversation_id', $this->selectedConversationId)
-            ->where(function ($query) use ($emailUser) {
-                $query->where('email_sender', $emailUser)
-                    ->orWhere('email_receiver', $emailUser);
-            });
+        $messagesQuery = Message::where('conversation_id', $this->selectedConversationId)->where(function ($query) use ($emailUser) {
+            $query->where('email_sender', $emailUser)->orWhere('email_receiver', $emailUser);
+        });
 
         $messagesCount = $messagesQuery->count();
         $messagesToLoad = $messagesQuery
@@ -103,33 +108,33 @@ class FloatingChat extends Component
         $this->loadedMessages = collect();
         $this->loadedMessages = $messagesToLoad->merge($this->loadedMessages);
     }
+
     public function sendMessage()
     {
-        // dd($this->showUserForm);
-
         $this->validate(['body' => 'required|string']);
-        Broadcast::channel('conversation.', $this->emailUser, function () {
-            return true;
-        });
-
-        if ($this->selectedConversation) {
-            $createdMessage = Message::create([
-                'conversation_id' => $this->selectedConversation->id,
-                'email_sender' => $this->emailUser,
-                'email_receiver' => $this->emailAdmin,
-                'body' => $this->body,
-            ]);
-
-            $this->reset('body');
-            $this->dispatch('scroll-bottom');
-            $this->loadedMessages->push($createdMessage);
-            $this->selectedConversation->updated_at = now();
-            $this->selectedConversation->save();
-
-            $this->selectedConversation->getReceiver()->notify(new MessageSent($this->emailUser, $createdMessage, $this->selectedConversation, $this->selectedConversation->getReceiver()->id));
-
-            $this->dispatch('newMessage', $createdMessage);
+        if (!$this->selectedConversation) {
+            session()->forget('chatFormData');
+            $this->dispatch('clearLocalStorage');
+            return;
         }
+
+        $createdMessage = Message::create([
+            'conversation_id' => $this->selectedConversation->id,
+            'email_sender' => $this->emailUser,
+            'email_receiver' => $this->emailAdmin,
+            'body' => $this->body,
+        ]);
+
+        $this->reset('body');
+        $this->dispatch('scroll-bottom');
+        $this->loadedMessages->push($createdMessage);
+        $this->selectedConversation->updated_at = now();
+        $this->selectedConversation->save();
+
+        $this->selectedConversation->getReceiver()->notify(new MessageSent($this->emailUser, $createdMessage, $this->selectedConversation, $this->selectedConversation->receiver_id));
+
+        $this->dispatch('message-sent', ['message' => $createdMessage]);
+
     }
 
     public function render()
