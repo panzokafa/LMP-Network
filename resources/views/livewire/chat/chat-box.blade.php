@@ -79,6 +79,30 @@ Echo.private('users.{{ $emailUser }}')
                     $previousMessage = null;
                 @endphp
 
+                {{-- welcome user --}}
+                <div @class([
+                    'max-w-[85%] md:max-w-[78%] flex w-auto gap-2 relative mt-2',
+                ])>
+                    {{-- avatar --}}
+                    <div @class(['shrink-0'])>
+                        <x-avatar src="{{ $selectedConversation->name }}" />
+                    </div>
+
+                    {{-- message body --}}
+                    <div @class([
+                        'flex flex-wrap text-[15px] rounded-xl p-2.5 flex flex-col rounded-bl-none border border-gray-200/40 bg-gray-100 gap-2'
+                    ])>
+                        <p class="whitespace-normal truncate text-sm md:text-base tracking-wide lg:tracking-normal">
+                            Nama : {{ $selectedConversation->name }}
+                        </p>
+                        <p class="whitespace-normal truncate text-sm md:text-base tracking-wide lg:tracking-normal">
+                            Email : {{ $selectedConversation->email_sender }}
+                        </p>
+                        <p class="whitespace-normal truncate text-sm md:text-base tracking-wide lg:tracking-normal">
+                            No HP : {{ $selectedConversation->no_hp }}
+                        </p>
+                    </div>
+                </div>
 
                 @foreach ($loadedMessages as $key => $message)
                     {{-- keep track of the previous message --}}
