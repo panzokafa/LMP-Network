@@ -15,6 +15,7 @@ class Conversation extends Model
         'email_sender',
         'name',
         'no_hp',
+        'company',
     ];
 
 

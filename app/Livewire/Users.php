@@ -18,6 +18,7 @@ class Users extends Component
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
             'phone' => 'required|string|max:20',
+            'company' => 'required|string|max:255',
         ]);
 
         // Cek apakah conversation dengan email_sender dan receiver_id yang sama sudah ada
@@ -35,6 +36,7 @@ class Users extends Component
             'email_sender' => $validated['email'],
             'name' => $validated['name'],
             'no_hp' => $validated['phone'],
+            'company' => $validated['company'],
         ]);
 
         // Kembalikan respons JSON yang menunjukkan keberhasilan

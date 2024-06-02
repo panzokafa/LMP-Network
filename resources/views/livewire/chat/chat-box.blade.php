@@ -101,6 +101,9 @@ Echo.private('users.{{ $emailUser }}')
                         <p class="whitespace-normal truncate text-sm md:text-base tracking-wide lg:tracking-normal">
                             No HP : {{ $selectedConversation->no_hp }}
                         </p>
+                        <p class="whitespace-normal truncate text-sm md:text-base tracking-wide lg:tracking-normal">
+                            Company : {{ $selectedConversation->company }}
+                        </p>
                     </div>
                 </div>
 

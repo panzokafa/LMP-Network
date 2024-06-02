@@ -37,6 +37,9 @@
             <label for="phone">Nomor HP:</label>
             <input type="text" id="phone" name="phone" required>
 
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" required>
+
             <label for="reason-input">Pilih Admin:</label>
             <select id="reason-input" name="reason" required>
                 <option value="">Select an admin</option>
@@ -107,6 +110,7 @@
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
+            const company = document.getElementById('company').value;
             const selectedUserId = reasonInput.value;
 
             if (name && email && phone && selectedUserId) {
@@ -114,7 +118,8 @@
                 localStorage.setItem('chatFormData', JSON.stringify({
                     name,
                     email,
-                    phone
+                    phone,
+                    company
                 }));
 
                 // Send data to server
@@ -129,6 +134,7 @@
                             name,
                             email,
                             phone,
+                            company
                         })
                     })
                     .then(response => {
@@ -213,40 +219,5 @@
 
     });
 
-    window.addEventListener('DOMContentLoaded', function() {
-        // Inisialisasi Pusher
-        const pusher = new Pusher('{{ env('12e6b5906fa5da4030bf') }}', {
-            cluster: '{{ env('ap1') }}',
-            encrypted: true,
-        });
 
-        // Mendengarkan pesan yang dikirim oleh admin ke pengguna
-        const channel = pusher.subscribe('conversation.{{ $emailAdmin }}');
-        channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function(data) {
-            const notification = data.notification;
-            const message = notification.data.message;
-
-            // Tambahkan pesan ke floating chat
-            appendMessage('admin', message.body);
-        });
-
-        function appendMessage(sender, message) {
-            const adminBox = document.getElementById('admin-box');
-            const messageElement = document.createElement('div');
-            messageElement.classList.add(sender === 'user' ? 'user-message' : 'admin-message');
-            messageElement.innerHTML = `<p>${message}</p><small>${getCurrentTime()}</small>`;
-            adminBox.appendChild(messageElement);
-            adminBox.scrollTop = adminBox.scrollHeight;
-        }
-
-        function getCurrentTime() {
-            const now = new Date();
-            const hours = now.getHours();
-            const minutes = now.getMinutes();
-            const ampm = hours >= 12 ? 'PM' : 'AM';
-            const formattedHours = hours % 12 || 12;
-            const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
-            return `${formattedHours}:${formattedMinutes} ${ampm}`;
-        }
-    });
 </script>
