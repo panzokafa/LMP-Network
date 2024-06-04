@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Events\MessageSend;
 use App\Models\Conversation;
 use App\Models\Message;
 use App\Models\User;
@@ -27,7 +28,7 @@ class FloatingChat extends Component
 
     public function getListener()
     {
-        return ['loadMore', "echo-private:users.{$this->emailAdmin},.Illuminate\\Notifications\\Events\\BroadcastNotificationCreated" => 'broadcastedNotifications'];
+        return ['loadMore', "echo-private:conversation.{$this->selectedConversation->id},.Illuminate\\Notifications\\Events\\BroadcastNotificationCreated" => 'broadcastedNotifications'];
     }
 
     public function mount()
@@ -57,28 +58,29 @@ class FloatingChat extends Component
 
     public function broadcastedNotifications($event)
     {
-        if ($event['type'] == MessageSent::class) {
+        dd($event);
+        // if ($event['type'] == MessageSent::class) {
 
-            if ($event['conversation_id'] == $this->selectedConversation->id) {
+        //     if ($event['conversation_id'] == $this->selectedConversation->id) {
 
-                $this->dispatchBrowserEvent('scroll-bottom');
+        //         $this->dispatch('scroll-bottom');
 
-                $newMessage = Message::find($event['message_id']);
-
-
-                #push message
-                $this->loadedMessages->push($newMessage);
+        //         $newMessage = Message::find($event['id']);
 
 
-                #mark as read
-                $newMessage->read_at = now();
-                $newMessage->save();
+        //         #push message
+        //         $this->loadedMessages->push($newMessage);
 
-                #broadcast
-                $this->selectedConversation->getReceiver()
-                    ->notify(new MessageRead($this->selectedConversation->id));
-            }
-        }
+
+        //         #mark as read
+        //         $newMessage->read_at = now();
+        //         $newMessage->save();
+
+        //         #broadcast
+        //         $this->selectedConversation->getReceiver()
+        //             ->notify(new MessageRead($this->selectedConversation->id));
+        //     }
+        // }
     }
 
     public function loadMore(): void
@@ -111,12 +113,13 @@ class FloatingChat extends Component
 
     public function sendMessage()
     {
+        // dd($this->selectedConversation->id);
         $this->validate(['body' => 'required|string']);
-        if (!$this->selectedConversation) {
-            session()->forget('chatFormData');
-            $this->dispatch('clearLocalStorage');
-            return;
-        }
+        // if (!$this->selectedConversation) {
+        //     session()->forget('chatFormData');
+        //     $this->dispatch('clearLocalStorage');
+        //     return;
+        // }
 
         $createdMessage = Message::create([
             'conversation_id' => $this->selectedConversation->id,
@@ -131,10 +134,13 @@ class FloatingChat extends Component
         $this->selectedConversation->updated_at = now();
         $this->selectedConversation->save();
 
+        $conversation = Conversation::find($this->selectedConversation->id);
+        if ($conversation) {
+            event(new MessageSend($this->selectedConversation->email_sender, $createdMessage, $this->selectedConversation, $this->emailAdmin));
+        }
         $this->selectedConversation->getReceiver()->notify(new MessageSent($this->emailUser, $createdMessage, $this->selectedConversation, $this->selectedConversation->receiver_id));
 
         $this->dispatch('message-sent', ['message' => $createdMessage]);
-
     }
 
     public function render()

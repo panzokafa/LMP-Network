@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Notifications\Notifiable;
 
 class Conversation extends Model
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
 
     protected $fillable = [
         'receiver_id',
@@ -17,7 +17,6 @@ class Conversation extends Model
         'no_hp',
         'company',
     ];
-
 
     public function messages()
     {
@@ -28,7 +27,6 @@ class Conversation extends Model
     {
         return $this->belongsTo(User::class, 'receiver_id');
     }
-
 
     public function getReceiver()
     {
@@ -44,24 +42,18 @@ class Conversation extends Model
         return $query->whereNull('deleted_at');
     }
 
-    // public  function isLastMessageReadByUser(): bool
-    // {
-    //     $user = Auth()->User();
-    //     $lastMessage = $this->messages()->latest()->first();
-
-    //     if ($lastMessage) {
-    //         return  $lastMessage->read_at !== null && $lastMessage->sender_id == $user->id;
-    //     }
-    // }
-
-    public  function unreadMessagesCount(): int
+    public function unreadMessagesCount(): int
     {
-
         $conversations = Conversation::all();
         $selectedConversation = $conversations[0]->getReceiver()->email_sender;
 
         return $unreadMessages = Message::where('conversation_id', '=', $this->id)
             ->where('email_sender', $selectedConversation)
             ->whereNull('read_at')->count();
+    }
+
+    public function receivesBroadcastNotificationsOn(): string
+    {
+        return 'conversation.' . $this->id;
     }
 }

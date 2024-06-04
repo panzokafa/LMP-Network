@@ -1,24 +1,16 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Support\Facades\Broadcast;
+use App\Models\Conversation;
+use Illuminate\Support\Facades\Log;
 
-/*
-|--------------------------------------------------------------------------
-| Broadcast Channels
-|--------------------------------------------------------------------------
-|
-| Here you may register all of the event broadcasting channels that your
-| application supports. The given channel authorization callbacks are
-| used to check if an authenticated user can listen to the channel.
-|
-*/
+Broadcast::channel('conversation.{conversationId}', function ($user, $conversationId) {
+    $conversation = Conversation::find($conversationId);
 
-Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
-});
+    if (!$conversation) {
+        return false;
+    }
 
-
-Broadcast::channel('users.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
+    Log::info('conversation channe passing success');
+    return $conversation->email_sender === $user->email || $conversation->email_receiver === $user->email;
 });

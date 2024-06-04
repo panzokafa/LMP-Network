@@ -4,47 +4,43 @@ namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\BroadcastMessage;
+use Illuminate\Support\Facades\Log;
 
-class MessageSent extends Notification implements ShouldBroadcast
+class MessageSent extends Notification implements ShouldBroadcastNow
 {
     use Queueable;
 
-    public $user;
+    public $emailSender;
     public $message;
     public $conversation;
-    public $receiverId;
+    public $emailReceiver;
 
-    public function __construct($user, $message, $conversation, $receiverId)
+    public function __construct($emailSender, $message, $conversation, $emailReceiver)
     {
-        $this->user = $user;
+        $this->emailSender = $emailSender;
         $this->message = $message;
         $this->conversation = $conversation;
-        $this->receiverId = $receiverId;
+        $this->emailReceiver = $emailReceiver;
     }
 
-    public function via($notifiable): array
+    public function via($notifiable)
     {
+        Log::info('broadcast');
         return ['broadcast'];
     }
 
     public function toBroadcast($notifiable): BroadcastMessage
     {
+        Log::info('broadcast 2');
         return new BroadcastMessage([
-            'email_sender' => $this->user,
-            'conversation_id' => $this->conversation->id,
-            'message_id' => $this->message->id,
-            'receiver_id' => $this->receiverId,
+            'emailSender' => $this->emailSender,
+            'message' => $this->message,
+            'conversation' => $this->conversation,
+            'emailReceiver' => $this->emailReceiver,
         ]);
-    }
-
-    public function toArray($notifiable): array
-    {
-        return [
-            // Data tambahan jika diperlukan
-        ];
     }
 }

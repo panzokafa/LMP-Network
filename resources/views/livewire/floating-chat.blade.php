@@ -1,5 +1,4 @@
 <div>
-
     <button id="admin-toggle-btn">
         <img class="img-icon" src="{{ asset('assets/img/comments.png') }}" alt="Chat Button" />
     </button>
@@ -218,6 +217,4 @@
         adminPopup.style.display = 'none';
 
     });
-
-
 </script>
