@@ -16,6 +16,7 @@ class Conversation extends Model
         'name',
         'no_hp',
         'company',
+        'email_receiver',
     ];
 
     public function messages()

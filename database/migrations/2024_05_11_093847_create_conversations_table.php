@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('no_hp');
             $table->string('company');
+            $table->string('email_receiver')->nullable();
 
             $table->unsignedBigInteger('receiver_id');// or uuid()
             $table->foreign('receiver_id')->references('id')->on('users');
