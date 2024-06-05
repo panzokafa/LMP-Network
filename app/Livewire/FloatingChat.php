@@ -136,7 +136,7 @@ class FloatingChat extends Component
 
         $conversation = Conversation::find($this->selectedConversation->id);
         if ($conversation) {
-            event(new MessageSend($this->selectedConversation->email_sender, $createdMessage, $this->selectedConversation, $this->emailAdmin));
+            event(new MessageSend($this->selectedConversation->email_sender, $createdMessage, $this->selectedConversation, $this->selectedConversation->email_receiver));
         }
         $this->selectedConversation->getReceiver()->notify(new MessageSent($this->emailUser, $createdMessage, $this->selectedConversation, $this->selectedConversation->receiver_id));
 

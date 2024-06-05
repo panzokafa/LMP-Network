@@ -43,7 +43,7 @@
             <select id="reason-input" name="reason" required>
                 <option value="">Select an admin</option>
                 @foreach ($users as $user)
-                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    <option value="{{ $user }}">{{ $user->name }}</option>
                 @endforeach
             </select>
 
@@ -110,19 +110,22 @@
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
             const company = document.getElementById('company').value;
-            const selectedUserId = reasonInput.value;
+            const dataAdmin = JSON.parse(reasonInput.value)
+            const selectedAdminId = dataAdmin?.id
+            const receiverEmail = dataAdmin?.email
 
-            if (name && email && phone && selectedUserId) {
+            if (name && email && phone && selectedAdminId) {
                 // Save form data to local storage
                 localStorage.setItem('chatFormData', JSON.stringify({
                     name,
                     email,
                     phone,
-                    company
+                    company,
+                    receiverEmail
                 }));
 
                 // Send data to server
-                fetch(`/users/message/${selectedUserId}`, {
+                fetch(`/users/message/${selectedAdminId}`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -133,7 +136,8 @@
                             name,
                             email,
                             phone,
-                            company
+                            company,
+                            receiverEmail
                         })
                     })
                     .then(response => {
