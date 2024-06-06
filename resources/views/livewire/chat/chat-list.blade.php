@@ -64,7 +64,7 @@ Echo.private('users.{{ Auth()->User()->id }}')
     </header>
 
 
-    <main class=" overflow-y-scroll overflow-hidden grow  h-full relative " style="contain:content">
+    <main class=" overflow-y-scroll overflow-hidden grow  h-full relative " style="contain:content" wire:poll="allChat">
 
         {{-- chatlist  --}}
 

@@ -8,21 +8,34 @@
             <button id="close-btn">&times;</button>
         </div>
 
+        @if ($showUserForm)
+            <div class="chatadmin-box" id="admin-box">
+                @if ($loadedMessages)
+                    @foreach ($loadedMessages as $message)
+                        <div class="{{ $message->email_sender === $emailAdmin ? 'admin-message' : 'user-message' }}">
+                            <p>{{ $message->body }}</p>
+                            <small class="message-info">{{ $message->created_at->format('g:i a') }}</small>
+                        </div>
+                    @endforeach
+                @else
+                    <p>No messages loaded.</p>
+                @endif
+            </div>
+        @else
+            <div class="chatadmin-box" id="admin-box" wire:poll="loadMessages">
+                @if ($loadedMessages)
+                    @foreach ($loadedMessages as $message)
+                        <div class="{{ $message->email_sender === $emailAdmin ? 'admin-message' : 'user-message' }}">
+                            <p>{{ $message->body }}</p>
+                            <small class="message-info">{{ $message->created_at->format('g:i a') }}</small>
+                        </div>
+                    @endforeach
+                @else
+                    <p>No messages loaded.</p>
+                @endif
+            </div>
+        @endif
 
-        <div class="chatadmin-box" id="admin-box" wire:poll="loadMessages">
-            <!-- Tampilkan pesan yang dimuat jika tidak null -->
-            @if ($loadedMessages)
-                @foreach ($loadedMessages as $message)
-                    <div class="{{ $message->email_sender === $emailAdmin ? 'admin-message' : 'user-message' }}">
-                        <p>{{ $message->body }}</p>
-                        <small class="message-info">{{ $message->created_at->format('g:i a') }}</small>
-                    </div>
-                @endforeach
-            @else
-                <!-- Tampilkan pesan jika tidak ada pesan yang dimuat -->
-                <p>No messages loaded.</p>
-            @endif
-        </div>
 
 
 
