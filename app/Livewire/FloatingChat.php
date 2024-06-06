@@ -93,8 +93,10 @@ class FloatingChat extends Component
     public function loadMessages()
     {
         if (!$this->selectedConversationId || !$this->emailUser) {
+            $this->showUserForm = true;
             return [];
         }
+        $this->showUserForm = false;
         $emailUser = $this->emailUser;
         $messagesQuery = Message::where('conversation_id', $this->selectedConversationId)->where(function ($query) use ($emailUser) {
             $query->where('email_sender', $emailUser)->orWhere('email_receiver', $emailUser);
@@ -113,7 +115,7 @@ class FloatingChat extends Component
 
     public function sendMessage()
     {
-        // dd($this->selectedConversation->id);
+        // dd(Auth::user());
         $this->validate(['body' => 'required|string']);
         // if (!$this->selectedConversation) {
         //     session()->forget('chatFormData');
@@ -122,7 +124,7 @@ class FloatingChat extends Component
         // }
 
         $createdMessage = Message::create([
-            'conversation_id' => $this->selectedConversation->id,
+            'conversation_id' => $this->selectedConversationId,
             'email_sender' => $this->emailUser,
             'email_receiver' => $this->emailAdmin,
             'body' => $this->body,
@@ -136,7 +138,7 @@ class FloatingChat extends Component
 
         $conversation = Conversation::find($this->selectedConversation->id);
         if ($conversation) {
-            event(new MessageSend($this->selectedConversation->email_sender, $createdMessage, $this->selectedConversation, $this->selectedConversation->email_receiver));
+            $conversation->notify(new MessageSent($this->selectedConversation->email_sender,  $this->selectedConversation, $createdMessage, $this->selectedConversation->email_receiver));
         }
         $this->selectedConversation->getReceiver()->notify(new MessageSent($this->emailUser, $createdMessage, $this->selectedConversation, $this->selectedConversation->receiver_id));
 

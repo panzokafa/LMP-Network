@@ -2,45 +2,57 @@
 
 namespace App\Notifications;
 
+use Hamcrest\Core\HasToString;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
+
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Support\Facades\Log;
 
-class MessageSent extends Notification implements ShouldBroadcastNow
+class MessageSent extends Notification implements ShouldBroadcast
 {
     use Queueable;
 
-    public $emailSender;
-    public $message;
+    public $userEmail;
     public $conversation;
-    public $emailReceiver;
-
-    public function __construct($emailSender, $message, $conversation, $emailReceiver)
+    public $message;
+    public $receiverEmail;
+    public function __construct($userEmail, $conversation, $message, $receiverEmail)
     {
-        $this->emailSender = $emailSender;
-        $this->message = $message;
+        $this->userEmail = $userEmail;
         $this->conversation = $conversation;
-        $this->emailReceiver = $emailReceiver;
+        $this->message = $message;
+        $this->receiverEmail = $receiverEmail;
     }
 
-    public function via($notifiable)
+    public function via($notifiable): string
     {
         Log::info('broadcast');
-        return ['broadcast'];
+        return 'broadcast';
     }
 
     public function toBroadcast($notifiable): BroadcastMessage
     {
         Log::info('broadcast 2');
         return new BroadcastMessage([
-            'emailSender' => $this->emailSender,
-            'message' => $this->message,
-            'conversation' => $this->conversation,
-            'emailReceiver' => $this->emailReceiver,
+            'email_sender' => $this->userEmail,
+            'conversation_id' => $this->conversation->id,
+            'message_id' => $this->message->id,
+            'receiver_email' => $this->receiverEmail,
         ]);
+    }
+
+    /**
+     * Get the array representation of the notification.
+     *
+     * @return array<string, mixed>
+     */
+    public function toArray(object $notifiable): array
+    {
+        return [
+            //
+        ];
     }
 }

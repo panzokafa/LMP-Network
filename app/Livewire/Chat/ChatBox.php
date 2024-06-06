@@ -74,22 +74,22 @@ class ChatBox extends Component
 
     public function loadMessages()
     {
-        $emailSender =  $this->selectedConversation->getReceiver()->email_sender;
-        $messagesQuery = Message::where('conversation_id', $this->selectedConversation->id)
-            ->where(function ($query) use ($emailSender) {
-                $query->where('email_sender', $emailSender)
-                    ->whereNull('sender_deleted_at')
-                    ->orWhere('email_receiver', $emailSender)
-                    ->whereNull('receiver_deleted_at');
-            });
+        if (!$this->selectedConversationId || !$this->emailUser) {
+            return [];
+        }
+        $emailUser = $this->emailUser;
+        $messagesQuery = Message::where('conversation_id', $this->selectedConversationId)->where(function ($query) use ($emailUser) {
+            $query->where('email_sender', $emailUser)->orWhere('email_receiver', $emailUser);
+        });
 
         $messagesCount = $messagesQuery->count();
         $messagesToLoad = $messagesQuery
+            ->orderBy('created_at')
             ->skip(max(0, $messagesCount - $this->paginate_var))
             ->take($this->paginate_var)
             ->get();
 
-        // Merge loaded messages at the beginning of the collection
+        $this->loadedMessages = collect();
         $this->loadedMessages = $messagesToLoad->merge($this->loadedMessages);
     }
 

@@ -25,7 +25,7 @@ console.log(`Listening to: conversation.{{ $selectedConversationId }}`);"
 "
     class="w-full overflow-hidden">
 
-    <div class="border-b flex flex-col overflow-y-scroll grow h-full">
+    <div class="border-b flex flex-col overflow-y-scroll grow h-full" wire:poll="loadMessages">
         {{-- header --}}
         <header class="w-full sticky inset-x-0 flex pb-[5px] pt-[5px] top-0 z-10 bg-white border-b ">
             <div class="flex w-full items-center px-2 lg:px-4 gap-2 md:gap-5">
