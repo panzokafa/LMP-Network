@@ -22,7 +22,7 @@
                 @endif
             </div>
         @else
-            <div class="chatadmin-box" id="admin-box" wire:poll="loadMessages">
+            <div class="chatadmin-box" id="admin-box" wire:poll.visible="loadMessages">
                 @if ($loadedMessages)
                     @foreach ($loadedMessages as $message)
                         <div class="{{ $message->email_sender === $emailAdmin ? 'admin-message' : 'user-message' }}">

@@ -2,7 +2,6 @@
 
 namespace App\Livewire;
 
-use App\Events\MessageSend;
 use App\Models\Conversation;
 use App\Models\Message;
 use App\Models\User;
@@ -61,6 +60,29 @@ class FloatingChat extends Component
 
     public function broadcastedNotifications($event)
     {
+        dd($event);
+        if ($event['type'] == MessageSent::class) {
+
+            if ($event['conversation_id'] == $this->selectedConversation->id) {
+
+                $this->dispatch('scroll-bottom');
+
+                $newMessage = Message::find($event['id']);
+
+
+                #push message
+                $this->loadedMessages->push($newMessage);
+
+
+                #mark as read
+                $newMessage->read_at = now();
+                $newMessage->save();
+
+                #broadcast
+                $this->selectedConversation->getReceiver()
+                    ->notify(new MessageRead($this->selectedConversation->id));
+            }
+        }
     }
 
     public function loadMore(): void
