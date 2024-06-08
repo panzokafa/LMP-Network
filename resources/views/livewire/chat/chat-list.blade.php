@@ -126,9 +126,6 @@ Echo.private('users.{{ Auth()->User()->id }}')
                                         @endif
                                     @endif
 
-
-
-
                                     <p class="grow truncate text-sm font-[100]">
                                         {{ $conversation->messages?->last()?->body ?? ' ' }}
                                     </p>
@@ -140,12 +137,7 @@ Echo.private('users.{{ Auth()->User()->id }}')
                                             {{ $conversation->unreadMessagesCount() }}
                                         </span>
                                     @endif
-
-
                                 </div>
-
-
-
                             </a>
 
                             {{-- Dropdown --}}

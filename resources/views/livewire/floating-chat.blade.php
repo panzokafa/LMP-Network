@@ -36,11 +36,9 @@
             </div>
         @endif
 
-
-
-
         @if ($showUserForm)
-            <div id="user-form">
+            <form method="POST" action="{{ route('users.message') }}" class="user-form">
+                @csrf
                 <label for="name">Nama:</label>
                 <input type="text" id="name" name="name" required>
 
@@ -53,24 +51,23 @@
                 <label for="company">Company</label>
                 <input type="text" id="company" name="company" required>
 
-                <label for="reason-input">Pilih Admin:</label>
-                <select id="reason-input" name="reason" required>
-                    <option value="">Select an admin</option>
+                <label for="email_receiver">Pilih Admin:</label>
+                <select id="email_receiver" name="email_receiver" required>
+                    <option value="">Pilih admin</option>
                     @foreach ($users as $user)
-                        <option value="{{ $user }}">{{ $user->name }}</option>
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
                     @endforeach
                 </select>
 
-                <button type="button" id="submit-form">SUBMIT</button>
+                <button type="submit">KIRIM</button>
+            </form>
+        @else
+            <div class="chatadmin-input" id="inputbox-user">
+                <input type="text" id="user-input" wire:model.live="body" wire:keydown.enter="sendMessage"
+                    placeholder="Type a message..." autofocus>
+                <button type="button" wire:click="sendMessage" id="send-btn">Send</button>
             </div>
         @endif
-        <div class="chatadmin-input" id="inputbox-user">
-            <input type="text" id="user-input" wire:model.live="body" wire:keydown.enter="sendMessage"
-                placeholder="Type a message..." autofocus>
-            <button type="button" wire:click="sendMessage" id="send-btn">Send</button>
-        </div>
-
-
 
         <div class="copyright">
             <div>Build By LMP Network © 2024</div>
@@ -79,107 +76,6 @@
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const chatFormData = JSON.parse(localStorage.getItem('chatFormData'));
-        if (chatFormData) {
-            fetch('/store-chat-form-data', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
-                            'content')
-                    },
-                    body: JSON.stringify(chatFormData)
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        return response.json().then(errorData => {
-                            throw new Error(errorData.error);
-                        });
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Form data stored in session:', data);
-                })
-                .catch(error => {
-                    console.error('Error storing form data in session:', error);
-                });
-        }
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const reasonInput = document.getElementById('reason-input');
-        const submitFormBtn = document.getElementById('submit-form');
-        const chatFormData = JSON.parse(localStorage.getItem('chatFormData'));
-        const userForm = document.getElementById('user-form');
-        const inputBoxUser = document.getElementById('inputbox-user');
-
-        if (chatFormData) {
-            userForm.style.display = 'none';
-        } else {
-            userForm.style.display = 'flex';
-        }
-        submitFormBtn.addEventListener('click', function() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const company = document.getElementById('company').value;
-            const dataAdmin = JSON.parse(reasonInput.value)
-            const selectedAdminId = dataAdmin?.id
-            const receiverEmail = dataAdmin?.email
-
-            if (name && email && phone && selectedAdminId) {
-                // Save form data to local storage
-                localStorage.setItem('chatFormData', JSON.stringify({
-                    name,
-                    email,
-                    phone,
-                    company,
-                    receiverEmail
-                }));
-
-                // Send data to server
-                fetch(`/users/message/${selectedAdminId}`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
-                                .getAttribute('content')
-                        },
-                        body: JSON.stringify({
-                            name,
-                            email,
-                            phone,
-                            company,
-                            receiverEmail
-                        })
-                    })
-                    .then(response => {
-                        if (!response.ok) {
-                            return response.json().then(errorData => {
-                                throw new Error(errorData.error);
-                            });
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        // Handle successful response
-                        console.log('Success:', data);
-                        // Hide the form
-                        inputBoxUser.style.display = 'flex'
-                        userForm.style.display = 'none';
-                    })
-                    .catch(error => {
-                        console.error('There was a problem with the fetch operation:', error);
-                    });
-            } else {
-                alert('Please fill out all fields.');
-            }
-        });
-    });
-
-
     document.addEventListener('DOMContentLoaded', function() {
         const adminPopup = document.getElementById('admin-popup');
         const adminToggleBtn = document.getElementById('admin-toggle-btn');

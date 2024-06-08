@@ -16,7 +16,7 @@ use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\SearchController;
 use App\Livewire\Chat\Index;
 use App\Livewire\Chat\Chat;
-use App\Livewire\Chat\FloatingChat;
+use App\Livewire\FloatingChat;
 use App\Livewire\Users;
 
 // use App\Http\Controllers\User\Profile2Controller;
@@ -101,7 +101,9 @@ Route::middleware(['auth'])->prefix('service')->group(function () {
 
 Route::post('/store-chat-form-data', [Chat::class, 'storeChatFormData'])->name('store.chat.form.data');
 
-Route::post('/users/message/{userId}', [Users::class, 'message'])->name('users.message');
+Route::post('/users/message', [Users::class, 'message'])->name('users.message');
+
+// Route::post('/users/message-floatingchat/{userId}', [FloatingChat::class, 'message'])->name('users.message');
 
 Route::get('testing', function () {
     return view('user.testing'); // You can return any response you want here

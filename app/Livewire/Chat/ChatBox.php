@@ -51,18 +51,28 @@ class ChatBox extends Component
     public function broadcastedNotifications($event)
     {
         dd($event);
-        // Log::info('Broadcasted notification received', ['event' => $event]);
+        if ($event['type'] == MessageSent::class) {
 
-        // if ($event['type'] == MessageSent::class) {
-        //     if ($event['conversation_id'] == $this->selectedConversation->id) {
-        //         $this->dispatch('scroll-bottom');
-        //         $newMessage = Message::find($event['message_id']);
-        //         $this->loadedMessages->push($newMessage);
-        //         $newMessage->read_at = now();
-        //         $newMessage->save();
-        //         $this->selectedConversation->getReceiver()->notify(new MessageRead($this->selectedConversation->id));
-        //     }
-        // }
+            if ($event['conversation_id'] == $this->selectedConversation->id) {
+
+                $this->dispatchBrowserEvent('scroll-bottom');
+
+                $newMessage = Message::find($event['conversation_id']);
+
+
+                #push message
+                $this->loadedMessages->push($newMessage);
+
+
+                #mark as read
+                $newMessage->read_at = now();
+                $newMessage->save();
+
+                #broadcast
+                $this->selectedConversation->getReceiver()
+                    ->notify(new MessageRead($this->selectedConversation->id));
+            }
+        }
     }
 
     public function loadMore(): void

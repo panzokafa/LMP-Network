@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
+use Illuminate\Http\Request;
 
 class FloatingChat extends Component
 {
@@ -33,10 +34,12 @@ class FloatingChat extends Component
 
     public function mount()
     {
-        $sessionData = session('chatFormData', null);
+        $sessionData = session('chatFormData',null);
+        // dd($sessionData);
         if ($sessionData) {
             $this->emailUser = $sessionData['email'];
-            $selectedConversation = Conversation::where('email_sender', $this->emailUser)->first();
+            $selectedConversation = Conversation::where('email_sender', $sessionData['email'])->first();
+            $this->selectedConversation = $selectedConversation;
             if ($selectedConversation) {
                 $this->selectedConversationId = $selectedConversation->id;
                 $this->emailAdmin = $selectedConversation->receiver->email;
@@ -58,29 +61,6 @@ class FloatingChat extends Component
 
     public function broadcastedNotifications($event)
     {
-        dd($event);
-        // if ($event['type'] == MessageSent::class) {
-
-        //     if ($event['conversation_id'] == $this->selectedConversation->id) {
-
-        //         $this->dispatch('scroll-bottom');
-
-        //         $newMessage = Message::find($event['id']);
-
-
-        //         #push message
-        //         $this->loadedMessages->push($newMessage);
-
-
-        //         #mark as read
-        //         $newMessage->read_at = now();
-        //         $newMessage->save();
-
-        //         #broadcast
-        //         $this->selectedConversation->getReceiver()
-        //             ->notify(new MessageRead($this->selectedConversation->id));
-        //     }
-        // }
     }
 
     public function loadMore(): void
@@ -115,14 +95,7 @@ class FloatingChat extends Component
 
     public function sendMessage()
     {
-        // dd(Auth::user());
         $this->validate(['body' => 'required|string']);
-        // if (!$this->selectedConversation) {
-        //     session()->forget('chatFormData');
-        //     $this->dispatch('clearLocalStorage');
-        //     return;
-        // }
-
         $createdMessage = Message::create([
             'conversation_id' => $this->selectedConversationId,
             'email_sender' => $this->emailUser,
@@ -138,7 +111,7 @@ class FloatingChat extends Component
 
         $conversation = Conversation::find($this->selectedConversation->id);
         if ($conversation) {
-            $conversation->notify(new MessageSent($this->selectedConversation->email_sender,  $this->selectedConversation, $createdMessage, $this->selectedConversation->email_receiver));
+            $conversation->notify(new MessageSent($this->selectedConversation->email_sender, $this->selectedConversation, $createdMessage, $this->selectedConversation->email_receiver));
         }
         $this->selectedConversation->getReceiver()->notify(new MessageSent($this->emailUser, $createdMessage, $this->selectedConversation, $this->selectedConversation->receiver_id));
 

@@ -1,28 +1,28 @@
-<div x-data="{
-    height: 0,
-    conversationElement: document.getElementById('conversation'),
-    markAsRead: null
-}" x-init="height = conversationElement.scrollHeight;
-$nextTick(() => conversationElement.scrollTop = height);
+<div  x-data="{
+    height:0,
+    conversationElement:document.getElementById('conversation'),
+    markAsRead:null
+}"
+ x-init="
+        height= conversationElement.scrollHeight;
+        $nextTick(()=>conversationElement.scrollTop= height);
 
-Echo.private(`conversation.{{ $selectedConversationId }}`)
-    .notification((notification) => {
-        console.log('Notification received:', notification);
-        if (notification.type === 'App\\Notifications\\MessageSent') {
-            const message = notification.message;
-            console.log('Message:', message);
-        }
-    })
-    .listen('.Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', (e) => {
-        console.log('BroadcastNotificationCreated event received:', e);
-    });
 
-console.log(`Listening to: conversation.{{ $selectedConversationId }}`);"
-    @scroll-bottom.window="
+        Echo.private('users.{{Auth()->User()->id}}')
+        .notification((notification)=>{
+            if(notification['type']== 'App\\Notifications\\MessageRead' && notification['conversation_id']== {{$this->selectedConversation->id}})
+            {
+
+                markAsRead=true;
+            }
+        });
+ "
+
+ @scroll-bottom.window="
  $nextTick(()=>
  conversationElement.scrollTop= conversationElement.scrollHeight
  );
-"
+ "
     class="w-full overflow-hidden">
 
     <div class="border-b flex flex-col overflow-y-scroll grow h-full" wire:poll="loadMessages">
