@@ -60,14 +60,15 @@
 }
 
 .chatadmin-header {
-    background-color: #1087ff;
+    background-color: #1780BB;
     color: #fff;
-    padding: 15px 20px;
+    padding: 12px 15px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
 }
 
 #close-btn {
@@ -119,11 +120,24 @@ input {
     display: block;
 }
 
+#send-btn-request {
+    font-family: "Poppins", sans-serif;
+    padding: 10px 20px;
+    border: none;
+    background-color: #1780BB;
+    color: #fff;
+    border-radius: 12px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
 #send-btn {
     font-family: "Poppins", sans-serif;
     padding: 10px 20px;
     border: none;
-    background-color: #1087ff;
+    background-color: #1780BB;
     color: #fff;
     border-radius: 12px;
     margin-left: 10px;
@@ -136,7 +150,7 @@ input {
 }
 
 .admin-message {
-    background-color: #1087ff;
+    background-color: #1780BB;
     color: #fff;
     padding: 10px;
     border-radius: 15px;
@@ -144,20 +158,20 @@ input {
     margin-top: 10px;
     margin-right: auto;
     position: relative;
-   display: flex;
-   align-items: flex-start;
-  flex-direction: column;
-   max-width: 70%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    max-width: 70%;
 }
 
 .admin-message::before {
-    content: "\1F916";
+    content: "\1F471";
     position: absolute;
     bottom: -17px;
     left: -14px;
     margin-bottom: 10px;
     font-size: 20px;
-    background-color: #1087ff;
+    background-color: #1780BB;
     color: #fff;
     border-radius: 50%;
     width: 30px;
@@ -190,7 +204,7 @@ input {
     right: -14px;
     margin-bottom: 10px;
     font-size: 20px;
-    background-color: #1087ff;
+    background-color: #1780BB;
     color: #fff;
     border-radius: 50%;
     width: 30px;
@@ -222,7 +236,7 @@ input {
 }
 
 .button-container button {
-    background-color: #1087ff;
+    background-color: #1780BB;
     color: white;
     border: none;
     padding: 8px 16px;
@@ -259,7 +273,7 @@ input {
 #submit-form {
 
     color: white;
-    background-color: #1087ff;
+    background-color: #1780BB;
     padding: 8px 20px;
     border-radius: 10px;
 }

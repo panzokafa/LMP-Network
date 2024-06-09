@@ -4,7 +4,10 @@
     </button>
     <div class="chatadmin-popup" id="admin-popup">
         <div class="chatadmin-header">
-            <span>ChatAdmin | <a href="/" target="_blank">LMP</a></span>
+            <div class="flex flex-row items-center text-sm gap-1">
+                <img class="w-20 h-12 object-cover" src="{{ asset('assets/img/lmp_logo_white.png') }}" alt="Chat Button" />
+                <span>Fill the following form to start the chat</span>
+            </div>
             <button id="close-btn">&times;</button>
         </div>
 
@@ -59,7 +62,7 @@
                     @endforeach
                 </select>
 
-                <button type="submit">KIRIM</button>
+                <button type="submit" id="send-btn-request">Send Request</button>
             </form>
         @else
             <div class="chatadmin-input" id="inputbox-user">
@@ -70,7 +73,7 @@
         @endif
 
         <div class="copyright">
-            <div>Build By LMP Network © 2024</div>
+            <div>© 2023 by Technology Team LMP Networks.</div>
         </div>
     </div>
 </div>

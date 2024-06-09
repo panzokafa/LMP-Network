@@ -104,6 +104,10 @@ class FloatingChat extends Component
             $query->where('email_sender', $emailUser)->orWhere('email_receiver', $emailUser);
         });
 
+        if(!$messagesQuery){
+            return redirect()->back();
+        }
+
         $messagesCount = $messagesQuery->count();
         $messagesToLoad = $messagesQuery
             ->orderBy('created_at')
