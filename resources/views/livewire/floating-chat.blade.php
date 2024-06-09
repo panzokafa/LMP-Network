@@ -84,6 +84,9 @@
         const userInput = document.getElementById('user-input');
         const userForm = document.getElementById('user-form');
 
+
+        adminPopup.style.display = 'none';
+
         adminToggleBtn.addEventListener('click', function() {
             event.preventDefault();
             event.stopPropagation();
@@ -129,7 +132,7 @@
             userForm.style.display = 'flex';
         });
 
-        adminPopup.style.display = 'none';
+
 
     });
 </script>
