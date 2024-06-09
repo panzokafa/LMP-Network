@@ -122,6 +122,11 @@ class FloatingChat extends Component
     public function sendMessage()
     {
         $this->validate(['body' => 'required|string']);
+
+        if($this->selectedConversationId){
+            return redirect()->back();
+        }
+
         $createdMessage = Message::create([
             'conversation_id' => $this->selectedConversationId,
             'email_sender' => $this->emailUser,
