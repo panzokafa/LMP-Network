@@ -32,11 +32,8 @@ class ChatList extends Component
 
         $conversation = Conversation::find(decrypt($id));
 
-        if ($conversation) {
-            $conversation->messages()->delete();
-
-            $conversation->forceDelete();
-        }
+        $conversation->messages()->delete();
+        $conversation->forceDelete();
 
         return redirect(route('chat.index'));
     }

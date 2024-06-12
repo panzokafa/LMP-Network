@@ -28,20 +28,24 @@ class FloatingChat extends Component
 
     public function getListener()
     {
-        return ['loadMore', "echo-private:conversation.{$this->selectedConversation->id},.Illuminate\\Notifications\\Events\\BroadcastNotificationCreated" => 'broadcastedNotifications'];
+        return ['loadMore', "echo-private:conversation.{$this->selectedConversationId},.Illuminate\\Notifications\\Events\\BroadcastNotificationCreated" => 'broadcastedNotifications'];
     }
 
     public function mount()
     {
-        $sessionData = session('chatFormData',null);
-        // dd($sessionData);
+        $sessionData = session('chatFormData', null);
         if ($sessionData) {
             $this->emailUser = $sessionData['email'];
+            $this->emailAdmin = $sessionData['email_receiver'];
             $selectedConversation = Conversation::where('email_sender', $sessionData['email'])->first();
-            $this->selectedConversation = $selectedConversation;
             if ($selectedConversation) {
+                $this->selectedConversation = $selectedConversation;
                 $this->selectedConversationId = $selectedConversation->id;
-                $this->emailAdmin = $selectedConversation->receiver->email;
+            } else {
+                // Menghandle ketika conversation tidak ditemukan
+                $this->selectedConversation = null;
+                $this->selectedConversationId = null;
+                session()->forget('chatFormData'); // hapus data sesi jika tidak ada conversation
             }
         }
         $this->loadedMessages = collect();
@@ -53,34 +57,27 @@ class FloatingChat extends Component
         if ($this->selectedConversationId) {
             $this->selectedConversation = Conversation::find($this->selectedConversationId);
             if (!$this->selectedConversation) {
+                // Menghandle ketika conversation tidak ditemukan
                 $this->selectedConversationId = null;
+                session()->forget('chatFormData'); // hapus data sesi jika tidak ada conversation
             }
         }
     }
 
     public function broadcastedNotifications($event)
     {
-        dd($event);
         if ($event['type'] == MessageSent::class) {
-
-            if ($event['conversation_id'] == $this->selectedConversation->id) {
-
+            if ($event['conversation_id'] == $this->selectedConversationId) {
                 $this->dispatch('scroll-bottom');
 
                 $newMessage = Message::find($event['id']);
+                if ($newMessage) {
+                    $this->loadedMessages->push($newMessage);
+                    $newMessage->read_at = now();
+                    $newMessage->save();
 
-
-                #push message
-                $this->loadedMessages->push($newMessage);
-
-
-                #mark as read
-                $newMessage->read_at = now();
-                $newMessage->save();
-
-                #broadcast
-                $this->selectedConversation->getReceiver()
-                    ->notify(new MessageRead($this->selectedConversation->id));
+                    $this->selectedConversation->getReceiver()->notify(new MessageRead($this->selectedConversation->id));
+                }
             }
         }
     }
@@ -94,19 +91,17 @@ class FloatingChat extends Component
 
     public function loadMessages()
     {
-        if (!$this->selectedConversationId || !$this->emailUser) {
+        $sessionData = session('chatFormData', null);
+
+        if (!$this->selectedConversationId && !$this->emailUser && !$sessionData) {
             $this->showUserForm = true;
-            return [];
+            return;
         }
         $this->showUserForm = false;
         $emailUser = $this->emailUser;
         $messagesQuery = Message::where('conversation_id', $this->selectedConversationId)->where(function ($query) use ($emailUser) {
             $query->where('email_sender', $emailUser)->orWhere('email_receiver', $emailUser);
         });
-
-        if(!$messagesQuery){
-            return redirect()->back();
-        }
 
         $messagesCount = $messagesQuery->count();
         $messagesToLoad = $messagesQuery
@@ -133,16 +128,18 @@ class FloatingChat extends Component
         $this->reset('body');
         $this->dispatch('scroll-bottom');
         $this->loadedMessages->push($createdMessage);
-        $this->selectedConversation->updated_at = now();
-        $this->selectedConversation->save();
+        if ($this->selectedConversation) {
+            $this->selectedConversation->updated_at = now();
+            $this->selectedConversation->save();
 
-        $conversation = Conversation::find($this->selectedConversation->id);
-        if ($conversation) {
-            $conversation->notify(new MessageSent($this->selectedConversation->email_sender, $this->selectedConversation, $createdMessage, $this->selectedConversation->email_receiver));
+            $conversation = Conversation::find($this->selectedConversation->id);
+            if ($conversation) {
+                $conversation->notify(new MessageSent($this->selectedConversation->email_sender, $this->selectedConversation, $createdMessage, $this->selectedConversation->email_receiver));
+            }
+            $this->selectedConversation->getReceiver()->notify(new MessageSent($this->emailUser, $createdMessage, $this->selectedConversation, $this->selectedConversation->receiver_id));
+
+            $this->dispatch('message-sent', ['message' => $createdMessage]);
         }
-        $this->selectedConversation->getReceiver()->notify(new MessageSent($this->emailUser, $createdMessage, $this->selectedConversation, $this->selectedConversation->receiver_id));
-
-        $this->dispatch('message-sent', ['message' => $createdMessage]);
     }
 
     public function render()

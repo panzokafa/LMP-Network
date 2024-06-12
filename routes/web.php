@@ -16,6 +16,7 @@ use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\SearchController;
 use App\Livewire\Chat\Index;
 use App\Livewire\Chat\Chat;
+use App\Livewire\Chat\ChatList;
 use App\Livewire\FloatingChat;
 use App\Livewire\Users;
 
@@ -62,6 +63,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function () 
     Route::get('type/edit/{id}', [TypeController::class, 'edit'])->name('admin.type.edit');
     Route::put('type/update/{id}', [TypeController::class, 'update'])->name('admin.type.update');
     Route::delete('type/destroy/{id}', [TypeController::class, 'destroy'])->name('admin.type.destroy');
+
+    Route::delete('/conversation/{id}', [ChatList::class, 'deleteByUser'])->name('conversation.delete');
+
 });
 
 // Front-End
