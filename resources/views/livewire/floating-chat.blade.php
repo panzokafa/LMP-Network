@@ -5,8 +5,13 @@
     <div class="chatadmin-popup" id="admin-popup">
         <div class="chatadmin-header">
             <div class="flex flex-row items-center text-sm gap-1">
-                <img class="w-20 h-12 object-cover" src="{{ asset('assets/img/lmp_logo_white.png') }}" alt="Chat Button" />
-                <span>Fill the following form to start the chat</span>
+                <img class="w-20 h-12 object-cover" src="{{ asset('assets/img/lmp_logo_white.png') }}"
+                    alt="Chat Button" />
+                @if ($showUserForm)
+                    <span>Fill the following form to start the chat</span>
+                @else
+                    <span>Admin</span>
+                @endif
             </div>
             <button id="close-btn">&times;</button>
         </div>
