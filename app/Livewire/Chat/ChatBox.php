@@ -39,13 +39,27 @@ class ChatBox extends Component
         $this->selectedConversationId = $selectedConversationId;
         $this->selectedConversation = Conversation::findOrFail($this->selectedConversationId);
         $this->emailUser = $this->selectedConversation->email_sender;
-        $this->loadedMessages = collect();  // Initialize as an empty collection
+        $this->readMsg();
+        $this->loadedMessages = collect();
         $this->loadMessages();
     }
 
     public function hydrate()
     {
         $this->selectedConversation = Conversation::findOrFail($this->selectedConversationId);
+        $this->readMsg();
+
+    }
+
+    public function readMsg(){
+        $emailUser = $this->emailUser;
+        $messagesQuery = Message::where('conversation_id', $this->selectedConversationId)
+        ->where(function ($query) use ($emailUser) {
+            $query->where('email_sender', $emailUser)->orWhere('email_receiver', $emailUser);
+        })
+        ->select('read_at');
+
+        $messagesQuery->whereNull('read_at')->update(['read_at' => now()]);
     }
 
     public function broadcastedNotifications($event)
