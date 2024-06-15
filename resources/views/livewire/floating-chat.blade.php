@@ -47,25 +47,17 @@
         @if ($showUserForm)
             <form method="POST" action="{{ route('users.message') }}" class="user-form">
                 @csrf
-                <label for="name">Nama:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="phone">Nomor HP:</label>
-                <input type="text" id="phone" name="phone" required>
-
-                <label for="company">Company</label>
-                <input type="text" id="company" name="company" required>
-
-                <label for="email_receiver">Pilih Admin:</label>
                 <select id="email_receiver" name="email_receiver" required>
                     <option value="">Pilih admin</option>
                     @foreach ($users as $user)
                         <option value="{{ $user->id }}">{{ $user->name }}</option>
                     @endforeach
                 </select>
+                <input type="text" id="name" name="name" placeholder="Masukan nama" required>
+                <input type="email" id="email" name="email" placeholder="Masukan email" required>
+                <input type="text" id="phone" name="phone" placeholder="Masukan nomor hp" required>
+                <input type="text" id="company" name="company" placeholder="Masukan company" required>
+
 
                 <button type="submit" id="send-btn-request">Send Request</button>
             </form>

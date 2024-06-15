@@ -55,14 +55,14 @@
     border-radius: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     width: 450px;
-    max-width: 90%;
+    max-width: 70%;
     z-index: 1000;
 }
 
 .chatadmin-header {
     background-color: #1780BB;
     color: #fff;
-    padding: 12px 15px;
+    padding: 8px 15px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     display: flex;
@@ -75,7 +75,7 @@
     background-color: transparent;
     border: none;
     color: #fff;
-    font-size: 20px;
+    font-size: 25px;
     cursor: pointer;
 }
 
@@ -90,7 +90,6 @@
     flex-direction: column;
     padding: 10px 20px;
 }
-
 #user-form label {
     margin-block: 5px;
 }
@@ -111,6 +110,7 @@
 }
 
 input {
+    margin: 5px 0px;
     font-family: "Poppins";
     flex: 1;
     padding: 5px 10px;
