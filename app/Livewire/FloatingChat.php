@@ -26,10 +26,6 @@ class FloatingChat extends Component
     public $emailUser;
     protected $listeners = ['loadMore'];
 
-    public function getListener()
-    {
-        return ['loadMore', "echo-private:conversation.{$this->selectedConversationId},.Illuminate\\Notifications\\Events\\BroadcastNotificationCreated" => 'broadcastedNotifications'];
-    }
 
     public function mount()
     {
@@ -42,7 +38,6 @@ class FloatingChat extends Component
                 $this->selectedConversation = $selectedConversation;
                 $this->selectedConversationId = $selectedConversation->id;
             } else {
-                // Menghandle ketika conversation tidak ditemukan
                 $this->selectedConversation = null;
                 $this->selectedConversationId = null;
             }
@@ -61,24 +56,6 @@ class FloatingChat extends Component
         }
     }
 
-    public function broadcastedNotifications($event)
-    {
-        if ($event['type'] == MessageSent::class) {
-            if ($event['conversation_id'] == $this->selectedConversationId) {
-                $this->dispatch('scroll-bottom');
-
-                $newMessage = Message::find($event['id']);
-                if ($newMessage) {
-                    $this->loadedMessages->push($newMessage);
-                    $newMessage->read_at = now();
-                    $newMessage->save();
-
-                    $this->selectedConversation->getReceiver()->notify(new MessageRead($this->selectedConversation->id));
-                }
-            }
-        }
-    }
-
     public function loadMore(): void
     {
         $this->paginate_var += 10;
@@ -90,7 +67,6 @@ class FloatingChat extends Component
     {
         $sessionData = session('chatFormData', null);
 
-        // dd($this->selectedConversationId);
         if (!$this->selectedConversationId && !$this->emailUser && !$sessionData) {
             $this->showUserForm = true;
             return;
@@ -118,7 +94,7 @@ class FloatingChat extends Component
         $this->validate(['body' => 'required|string']);
         $selectedConversation = Conversation::withTrashed()->where('email_sender', $sessionData['email'])->first();
 
-        if($this->selectedConversationId === null){
+        if ($this->selectedConversationId === null) {
             $this->showUserForm = true;
             $selectedConversation->messages()->delete();
             $selectedConversation->forceDelete();
@@ -139,13 +115,6 @@ class FloatingChat extends Component
         if ($this->selectedConversation) {
             $this->selectedConversation->updated_at = now();
             $this->selectedConversation->save();
-
-            $conversation = Conversation::find($this->selectedConversation->id);
-            if ($conversation) {
-                $conversation->notify(new MessageSent($this->selectedConversation->email_sender, $this->selectedConversation, $createdMessage, $this->selectedConversation->email_receiver));
-            }
-            $this->selectedConversation->getReceiver()->notify(new MessageSent($this->emailUser, $createdMessage, $this->selectedConversation, $this->selectedConversation->receiver_id));
-
             $this->dispatch('message-sent', ['message' => $createdMessage]);
         }
     }

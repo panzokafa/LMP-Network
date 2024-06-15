@@ -14,7 +14,6 @@ class Users extends Component
 {
     public function message(Request $request)
     {
-        // Validasi data form
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
@@ -27,7 +26,6 @@ class Users extends Component
         $selectedUserId = $selectedUser->id;
         $selectedUserEmail = $selectedUser->email;
 
-        // Cek apakah conversation dengan email_sender dan receiver_id yang sama sudah ada
         $existingConversation = Conversation::where('email_sender', $validated['email'])
             ->where('receiver_id', $selectedUserId)
             ->first();
@@ -39,7 +37,6 @@ class Users extends Component
             return redirect()->back();
         }
 
-        // Buat entri baru di tabel Conversation
         $createdConversation = Conversation::create([
             'receiver_id' => $selectedUserId,
             'email_sender' => $validated['email'],
@@ -51,7 +48,7 @@ class Users extends Component
 
         Session::put('chatFormData', $validated);
 
-        // Kembalikan respons JSON yang menunjukkan keberhasilan
+
         return redirect()->back();
     }
 

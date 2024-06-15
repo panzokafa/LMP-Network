@@ -1,24 +1,10 @@
-<div  x-data="{
-    height:0,
-    conversationElement:document.getElementById('conversation'),
-    markAsRead:null
-}"
- x-init="
-        height= conversationElement.scrollHeight;
-        $nextTick(()=>conversationElement.scrollTop= height);
-
-
-        Echo.private('users.{{Auth()->User()->id}}')
-        .notification((notification)=>{
-            if(notification['type']== 'App\\Notifications\\MessageRead' && notification['conversation_id']== {{$this->selectedConversation->id}})
-            {
-
-                markAsRead=true;
-            }
-        });
- "
-
- @scroll-bottom.window="
+<div x-data="{
+    height: 0,
+    conversationElement: document.getElementById('conversation'),
+    markAsRead: null
+}" x-init="height = conversationElement.scrollHeight;
+$nextTick(() => conversationElement.scrollTop = height);"
+    @scroll-bottom.window="
  $nextTick(()=>
  conversationElement.scrollTop= conversationElement.scrollHeight
  );

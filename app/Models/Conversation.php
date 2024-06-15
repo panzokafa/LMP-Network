@@ -55,9 +55,4 @@ class Conversation extends Model
             ->where('email_sender', $selectedConversation)
             ->whereNull('read_at')->count();
     }
-
-    public function receivesBroadcastNotificationsOn(): string
-    {
-        return 'conversation.' . $this->id;
-    }
 }

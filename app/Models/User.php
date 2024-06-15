@@ -46,12 +46,4 @@ class User extends Authenticatable
     {
         return $this->role === $role;
     }
-
-    /**
-     * The channels the user receives notification broadcasts on.
-     */
-    public function receivesBroadcastNotificationsOn(): string
-    {
-        return 'users.' . $this->id;
-    }
 }

@@ -33,7 +33,6 @@ class ChatList extends Component
         $conversation = Conversation::find(decrypt($id));
 
         if ($conversation) {
-            // dd($conversation);
             $conversation->update(['deleted_at' => Carbon::now()]);
         }
 
