@@ -116,12 +116,12 @@ class FloatingChat extends Component
     {
         $sessionData = session('chatFormData', null);
         $this->validate(['body' => 'required|string']);
-        $selectedConversation = Conversation::where('email_sender', $sessionData['email'])->first();
+        $selectedConversation = Conversation::withTrashed()->where('email_sender', $sessionData['email'])->first();
 
-        // dd($selectedConversation);
         if($this->selectedConversationId === null){
             $this->showUserForm = true;
-
+            $selectedConversation->messages()->delete();
+            $selectedConversation->forceDelete();
             session()->forget('chatFormData');
             return redirect()->route('user.home');
         }
