@@ -11,15 +11,7 @@
 
     }
 
-}, 200);
-
-Echo.private('users.{{ Auth()->User()->id }}')
-    .notification((notification) => {
-        if (notification['type'] == 'App\\Notifications\\MessageRead' || notification['type'] == 'App\\Notifications\\MessageSent') {
-
-            Livewire.dispatch('refresh');
-        }
-    });" class="flex flex-col transition-all h-full overflow-hidden">
+}, 200);" class="flex flex-col transition-all h-full overflow-hidden">
 
     <header class="px-3 z-10 bg-white sticky top-0 w-full py-2">
 
@@ -64,7 +56,7 @@ Echo.private('users.{{ Auth()->User()->id }}')
     </header>
 
 
-    <main class=" overflow-y-scroll overflow-hidden grow  h-full relative " style="contain:content">
+    <main class=" overflow-y-scroll overflow-hidden grow  h-full relative " style="contain:content" wire:poll="allChat">
 
         {{-- chatlist  --}}
 
@@ -126,9 +118,6 @@ Echo.private('users.{{ Auth()->User()->id }}')
                                         @endif
                                     @endif
 
-
-
-
                                     <p class="grow truncate text-sm font-[100]">
                                         {{ $conversation->messages?->last()?->body ?? ' ' }}
                                     </p>
@@ -140,12 +129,7 @@ Echo.private('users.{{ Auth()->User()->id }}')
                                             {{ $conversation->unreadMessagesCount() }}
                                         </span>
                                     @endif
-
-
                                 </div>
-
-
-
                             </a>
 
                             {{-- Dropdown --}}
@@ -167,23 +151,25 @@ Echo.private('users.{{ Auth()->User()->id }}')
                                     <x-slot name="content">
 
                                         <div class="w-full p-1">
-                                            <button onclick="confirm('Are you sure?')||event.stopImmediatePropagation()"
-                                                wire:click="deleteByUser('{{ encrypt($conversation->id) }}')"
-                                                class="items-center gap-3 flex w-full px-4 py-2 text-left text-sm leading-5 text-gray-500 hover:bg-gray-100 transition-all duration-150 ease-in-out focus:outline-none focus:bg-gray-100">
-
-                                                <span>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                        height="16" fill="currentColor" class="bi bi-trash-fill"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
-                                                    </svg>
-                                                </span>
-
-                                                Delete
-
-                                            </button>
+                                            <form method="POST"
+                                                action="{{ route('conversation.delete', ['id' => encrypt($conversation->id)]) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"
+                                                    class="items-center gap-3 flex w-full px-4 py-2 text-left text-sm leading-5 text-gray-500 hover:bg-gray-100 transition-all duration-150 ease-in-out focus:outline-none focus:bg-gray-100">
+                                                    <span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor" class="bi bi-trash-fill"
+                                                            viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                                                        </svg>
+                                                    </span>
+                                                    Delete
+                                                </button>
+                                            </form>
                                         </div>
+
                                     </x-slot>
                                 </x-dropdown>
                             </div>

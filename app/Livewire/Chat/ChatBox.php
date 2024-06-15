@@ -4,9 +4,9 @@ namespace App\Livewire\Chat;
 
 use App\Models\Message;
 use App\Models\Conversation;
-use App\Notifications\MessageRead;
-use App\Notifications\MessageSent;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
+
 
 class ChatBox extends Component
 {
@@ -14,6 +14,7 @@ class ChatBox extends Component
     public $selectedConversationId;
     public $body;
     public $loadedMessages;
+    public $emailUser;
     public $paginate_var = 10;
     public $messagesLoaded = false;
 
@@ -21,41 +22,33 @@ class ChatBox extends Component
         'loadMore'
     ];
 
-    public function getListeners()
-    {
-        $auth_id = auth()->user()->id;
-
-        return [
-            'loadMore',
-            "echo-private:users.{$auth_id},.Illuminate\\Notifications\\Events\\BroadcastNotificationCreated" => 'broadcastedNotifications'
-        ];
-    }
 
     public function mount($selectedConversationId)
     {
         $this->selectedConversationId = $selectedConversationId;
         $this->selectedConversation = Conversation::findOrFail($this->selectedConversationId);
-        $this->loadedMessages = collect();  // Initialize as an empty collection
+        $this->emailUser = $this->selectedConversation->email_sender;
+        $this->readMsg();
+        $this->loadedMessages = collect();
         $this->loadMessages();
     }
 
     public function hydrate()
     {
         $this->selectedConversation = Conversation::findOrFail($this->selectedConversationId);
+        $this->readMsg();
     }
 
-    public function broadcastedNotifications($event)
+    public function readMsg()
     {
-        if ($event['type'] == MessageSent::class) {
-            if ($event['conversation_id'] == $this->selectedConversation->id) {
-                $this->dispatch('scroll-bottom');
-                $newMessage = Message::find($event['message_id']);
-                $this->loadedMessages->push($newMessage);
-                $newMessage->read_at = now();
-                $newMessage->save();
-                $this->selectedConversation->getReceiver()->notify(new MessageRead($this->selectedConversation->id));
-            }
-        }
+        $emailUser = $this->emailUser;
+        $messagesQuery = Message::where('conversation_id', $this->selectedConversationId)
+            ->where(function ($query) use ($emailUser) {
+                $query->where('email_sender', $emailUser)->orWhere('email_receiver', $emailUser);
+            })
+            ->select('read_at');
+
+        $messagesQuery->whereNull('read_at')->update(['read_at' => now()]);
     }
 
     public function loadMore(): void
@@ -67,35 +60,45 @@ class ChatBox extends Component
 
     public function loadMessages()
     {
-        $userId = auth()->id();
-        $messagesQuery = Message::where('conversation_id', $this->selectedConversation->id)
-            ->where(function ($query) use ($userId) {
-                $query->where('sender_id', $userId)
-                    ->whereNull('sender_deleted_at')
-                    ->orWhere('receiver_id', $userId)
-                    ->whereNull('receiver_deleted_at');
-            });
+        if (!$this->selectedConversationId || !$this->emailUser) {
+            return [];
+        }
+        $emailUser = $this->emailUser;
+        $messagesQuery = Message::where('conversation_id', $this->selectedConversationId)->where(function ($query) use ($emailUser) {
+            $query->where('email_sender', $emailUser)->orWhere('email_receiver', $emailUser);
+        });
 
         $messagesCount = $messagesQuery->count();
         $messagesToLoad = $messagesQuery
+            ->orderBy('created_at')
             ->skip(max(0, $messagesCount - $this->paginate_var))
             ->take($this->paginate_var)
             ->get();
 
-        // Merge loaded messages at the beginning of the collection
+        $this->loadedMessages = collect();
         $this->loadedMessages = $messagesToLoad->merge($this->loadedMessages);
     }
 
     public function sendMessage()
     {
-
         $this->validate(['body' => 'required|string']);
-        $createdMessage = Message::create([
-            'conversation_id' => $this->selectedConversation->id,
-            'sender_id' => auth()->id(),
-            'receiver_id' => $this->selectedConversation->getReceiver()->id,
-            'body' => $this->body
-        ]);
+        $user = Auth::user();
+
+        if ($user->role === 'admin') {
+            $createdMessage = Message::create([
+                'conversation_id' => $this->selectedConversation->id,
+                'email_sender' => $user->email,
+                'email_receiver' => $this->selectedConversation->email_sender,
+                'body' => $this->body
+            ]);
+        } else {
+            $createdMessage = Message::create([
+                'conversation_id' => $this->selectedConversation->id,
+                'email_sender' => $this->selectedConversation->email_sender,
+                'email_receiver' => $user->email,
+                'body' => $this->body
+            ]);
+        }
 
         $this->reset('body');
         $this->dispatch('scroll-bottom');
@@ -103,12 +106,6 @@ class ChatBox extends Component
         $this->selectedConversation->updated_at = now();
         $this->selectedConversation->save();
         $this->dispatch('refresh')->to('chat.chat-list');
-        $this->selectedConversation->getReceiver()->notify(new MessageSent(
-            auth()->user(),
-            $createdMessage,
-            $this->selectedConversation,
-            $this->selectedConversation->getReceiver()->id
-        ));
     }
 
     public function render()

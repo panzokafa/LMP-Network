@@ -7,39 +7,49 @@ use App\Models\Conversation;
 use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class Users extends Component
 {
-    public function message($userId)
+    public function message(Request $request)
     {
-        $authenticatedUserId = auth()->id();
-        Log::info('Authenticated User ID: ' . $authenticatedUserId);
-        Log::info('Recipient User ID: ' . $userId);
-
-        // Check if conversation already exists
-        $existingConversation = Conversation::where(function ($query) use ($authenticatedUserId, $userId) {
-            $query->where('sender_id', $authenticatedUserId)
-                ->where('receiver_id', $userId);
-        })
-            ->orWhere(function ($query) use ($authenticatedUserId, $userId) {
-                $query->where('sender_id', $userId)
-                    ->where('receiver_id', $authenticatedUserId);
-            })->first();
-
-        if ($existingConversation) {
-            Log::info('Existing Conversation Found', $existingConversation->toArray());
-            return redirect()->route('chat', ['query' => $existingConversation->id]);
-        }
-
-        // Create new conversation
-        $createdConversation = Conversation::create([
-            'sender_id' => $authenticatedUserId,
-            'receiver_id' => $userId,
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|string|max:15',
+            'company' => 'required|string|max:255',
+            'email_receiver' => 'required'
         ]);
 
-        Log::info('Created Conversation', $createdConversation->toArray());
+        $selectedUser = User::find($request->input('email_receiver'));
+        $selectedUserId = $selectedUser->id;
+        $selectedUserEmail = $selectedUser->email;
 
-        return redirect()->route('chat', ['query' => $createdConversation->id]);
+        $existingConversation = Conversation::where('email_sender', $validated['email'])
+            ->where('receiver_id', $selectedUserId)
+            ->first();
+
+        $validated['email_receiver'] = $selectedUserEmail;
+
+        if ($existingConversation) {
+            Session::put('chatFormData', $validated);
+            return redirect()->back();
+        }
+
+        $createdConversation = Conversation::create([
+            'receiver_id' => $selectedUserId,
+            'email_sender' => $validated['email'],
+            'name' => $validated['name'],
+            'no_hp' => $validated['phone'],
+            'company' => $validated['company'],
+            'email_receiver' => $selectedUserEmail,
+        ]);
+
+        Session::put('chatFormData', $validated);
+
+
+        return redirect()->back();
     }
 
     public function render()

@@ -18,6 +18,8 @@ use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\SearchController;
 use App\Livewire\Chat\Index;
 use App\Livewire\Chat\Chat;
+use App\Livewire\Chat\ChatList;
+use App\Livewire\FloatingChat;
 use App\Livewire\Users;
 
 // use App\Http\Controllers\User\Profile2Controller;
@@ -71,6 +73,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function () 
     Route::get('banner/edit/{id}', [BannerController::class, 'edit'])->name('admin.banner.edit');
     Route::put('banner/update/{id}', [BannerController::class, 'update'])->name('admin.banner.update');
     Route::delete('banner/destroy/{id}', [BannerController::class, 'destroy'])->name('admin.banner.destroy');
+
+    Route::delete('/conversation/{id}', [ChatList::class, 'deleteByUser'])->name('conversation.delete');
+
 });
 
 // Front-End
@@ -104,11 +109,15 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
 
 //chatbot
 Route::middleware(['auth'])->prefix('service')->group(function () {
-
     Route::get('chat', [Index::class, 'render'])->name('chat.index');
-    Route::get('/chat/{query}', [Chat::class, 'render'])->name('chat');
+    Route::get('/chat/{query?}', [Chat::class, 'render'])->name('chat');
 });
-Route::post('/users/message/{userId}', [Users::class, 'message'])->name('users.message');
+
+Route::post('/store-chat-form-data', [Chat::class, 'storeChatFormData'])->name('store.chat.form.data');
+
+Route::post('/users/message', [Users::class, 'message'])->name('users.message');
+
+// Route::post('/users/message-floatingchat/{userId}', [FloatingChat::class, 'message'])->name('users.message');
 
 Route::get('testing', function () {
     return view('user.testing'); // You can return any response you want here
@@ -243,6 +252,3 @@ Route::group(['prefix' => 'productss'], function () {
         return view('user.product.containment.half-containment');
     })->name('product.containment.half-containment');
 });
-// Route::get('/', function () {
-//     return view('welcome');
-// });

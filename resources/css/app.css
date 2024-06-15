@@ -54,27 +54,28 @@
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    width: 350px;
-    max-width: 90%;
+    width: 450px;
+    max-width: 70%;
     z-index: 1000;
 }
 
 .chatadmin-header {
-    background-color: #1087ff;
+    background-color: #1780BB;
     color: #fff;
-    padding: 15px 20px;
+    padding: 8px 15px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
 }
 
 #close-btn {
     background-color: transparent;
     border: none;
     color: #fff;
-    font-size: 20px;
+    font-size: 25px;
     cursor: pointer;
 }
 
@@ -85,13 +86,12 @@
 }
 
 #user-form {
-    display: none;
+    display: flex;
     flex-direction: column;
     padding: 10px 20px;
 }
-
 #user-form label {
-    margin-bottom: 5px;
+    margin-block: 5px;
 }
 
 #user-form select {
@@ -109,21 +109,35 @@
     border-top: 1px solid #ddd;
 }
 
-#user-input {
+input {
+    margin: 5px 0px;
     font-family: "Poppins";
     flex: 1;
-    padding: 10px;
+    padding: 5px 10px;
     border: 1px solid #ddd;
     border-radius: 12px;
     outline: none;
     display: block;
 }
 
+#send-btn-request {
+    font-family: "Poppins", sans-serif;
+    padding: 10px 20px;
+    border: none;
+    background-color: #1780BB;
+    color: #fff;
+    border-radius: 12px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
 #send-btn {
     font-family: "Poppins", sans-serif;
     padding: 10px 20px;
     border: none;
-    background-color: #1087ff;
+    background-color: #1780BB;
     color: #fff;
     border-radius: 12px;
     margin-left: 10px;
@@ -136,7 +150,7 @@
 }
 
 .admin-message {
-    background-color: #1087ff;
+    background-color: #1780BB;
     color: #fff;
     padding: 10px;
     border-radius: 15px;
@@ -144,27 +158,27 @@
     margin-top: 10px;
     margin-right: auto;
     position: relative;
-   display: flex;
-   align-items: flex-start; 
-  flex-direction: column;
-   max-width: 70%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    max-width: 70%;
 }
 
 .admin-message::before {
-    content: "\1F916";
+    content: "\1F471";
     position: absolute;
     bottom: -17px;
     left: -14px;
     margin-bottom: 10px;
     font-size: 20px;
-    background-color: #1087ff;
+    background-color: #1780BB;
     color: #fff;
     border-radius: 50%;
     width: 30px;
     height: 30px;
     display: flex;
     justify-content: center;
-    align-items: flex-start; 
+    align-items: flex-start;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
  }
 
@@ -190,7 +204,7 @@
     right: -14px;
     margin-bottom: 10px;
     font-size: 20px;
-    background-color: #1087ff;
+    background-color: #1780BB;
     color: #fff;
     border-radius: 50%;
     width: 30px;
@@ -222,7 +236,7 @@
 }
 
 .button-container button {
-    background-color: #1087ff;
+    background-color: #1780BB;
     color: white;
     border: none;
     padding: 8px 16px;
@@ -236,7 +250,7 @@
 }
 
 .user-form {
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 15px 20px;
@@ -256,7 +270,13 @@
 .user-form textarea {
     resize: vertical;
 }
+#submit-form {
 
+    color: white;
+    background-color: #1780BB;
+    padding: 8px 20px;
+    border-radius: 10px;
+}
 .custom-avatar {
     font-size: 1.5rem; /* Menyesuaikan ukuran font jika diperlukan */
     width: 3rem; /* 48px */

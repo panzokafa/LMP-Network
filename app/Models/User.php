@@ -8,7 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -18,27 +17,14 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'company',
-        'division',
-        'phone_number',
-        'linkedin',
-        'instagram',
-        'profile_picture',
-        'role'
-    ];
+    protected $fillable = ['name', 'email', 'password', 'company', 'division', 'phone_number', 'linkedin', 'instagram', 'profile_picture', 'role'];
 
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
      */
-    protected $hidden = [
-        'password',
-    ];
+    protected $hidden = ['password'];
 
     /**
      * The attributes that should be cast.
@@ -51,20 +37,13 @@ class User extends Authenticatable
 
     public function conversations()
     {
-
-        return $this->hasMany(Conversation::class,'sender_id')->orWhere('receiver_id',$this->id)->whereNotDeleted();
+        return $this->hasMany(Conversation::class, 'receiver_id')->where(function ($query) {
+            $query->where('receiver_id', $this->id)->whereNull('deleted_at');
+        });
     }
 
     public function hasRole($role)
     {
         return $this->role === $role;
-    }
-
-    /**
-     * The channels the user receives notification broadcasts on.
-     */
-    public function receivesBroadcastNotificationsOn(): string
-    {
-        return 'users.'.$this->id;
     }
 }

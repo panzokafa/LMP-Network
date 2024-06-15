@@ -118,9 +118,7 @@
 <body>
     @include('components.navbar')
 
-    @if (!isset($isAdmin) || (!$isAdmin && auth()->user()))
         @livewire('floating-chat')
-    @endif
 
     <main class="relative md:top-20 top-16 mb-[63px] overflow-x-hidden">
         @yield('content')

@@ -6,36 +6,47 @@ use App\Models\Conversation;
 use App\Models\Message;
 use Illuminate\Http\Request;
 use Livewire\Component;
-
+use Illuminate\Support\Facades\Session;
 
 class Chat extends Component
 {
     public $query;
     public $selectedConversation;
 
-    public function render(Request $request, $query)
+    public function render(Request $request, $query = null)
     {
-        $this->query = $query;
-
-        if (auth()->user()->is_admin) {
-            $this->selectedConversation = Conversation::findOrFail($this->query);
-        } else {
-            $this->selectedConversation = Conversation::where('id', $this->query)
-                ->where(function ($query) {
-                    $query->where('sender_id', auth()->id())
-                        ->orWhere('receiver_id', auth()->id());
-                })
-                ->firstOrFail();
+        if (empty($query)) {
+            return redirect()->route('chat.index');
         }
 
+        try {
+            $this->selectedConversation = Conversation::findOrFail($query);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return redirect()->route('chat.index');
+        }
+
+        $conversations = Conversation::all();
+
+        if ($conversations->isEmpty()) {
+            return redirect()->route('chat.index');
+        }
+
+        $selectedConversationEmail = $this->selectedConversation->getReceiver()->email_sender;
+
         Message::where('conversation_id', $this->selectedConversation->id)
-            ->where('receiver_id', auth()->id())
+            ->where('email_receiver', $selectedConversationEmail)
             ->whereNull('read_at')
             ->update(['read_at' => now()]);
 
         return view('livewire.chat.chat', [
             'selectedConversation' => $this->selectedConversation,
-            'query' => $this->query,
+            'query' => $query,
         ]);
+    }
+
+    public function storeChatFormData(Request $request)
+    {
+        $data = $request->all();
+        Session::put('chatFormData', $data);
     }
 }

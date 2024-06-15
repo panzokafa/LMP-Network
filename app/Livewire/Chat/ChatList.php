@@ -5,6 +5,7 @@ namespace App\Livewire\Chat;
 use App\Models\Conversation;
 use Livewire\Component;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Redirect;
 
 class ChatList extends Component
 {
@@ -32,9 +33,7 @@ class ChatList extends Component
         $conversation = Conversation::find(decrypt($id));
 
         if ($conversation) {
-            $conversation->messages()->delete();
-
-            $conversation->forceDelete();
+            $conversation->update(['deleted_at' => Carbon::now()]);
         }
 
         return redirect(route('chat.index'));
@@ -48,35 +47,8 @@ class ChatList extends Component
 
     public function render()
     {
-        // Mendapatkan waktu sekarang
-        $now = now();
-
-        // Mendapatkan semua percakapan
-        $conversations = Conversation::all();
-
-        // Menyaring percakapan yang waktu terakhirnya lebih dari 10 menit yang lalu
-        $conversationsToDelete = $conversations->filter(function ($conversation) use ($now) {
-            $lastMessage = $conversation->messages->last();
-
-            // Memeriksa apakah percakapan ini baru
-            if ($lastMessage === null) {
-                // Jika percakapan tidak memiliki pesan, maka dianggap sebagai percakapan baru
-                return false;
-            }
-
-            // Jika pesan terakhir tersedia, cek apakah waktu pembuatannya lebih dari 10 menit yang lalu
-            return $lastMessage->created_at->addMinutes(1)->isPast();
-        });
-
-        // Menghapus percakapan yang disaring bersama dengan pesan yang terkait
-        $conversationsToDelete->each(function ($conversation) {
-            $conversation->messages()->delete();
-            $conversation->delete();
-        });
-
-        // Mengembalikan tampilan chat-list dengan percakapan yang tersaring
         return view('livewire.chat.chat-list', [
-            'conversations' => $conversations->diff($conversationsToDelete),
+            'conversations' => $this->conversations,
         ]);
     }
 }

@@ -121,6 +121,5 @@
           });
       }
 
-      // Panggil fungsi checkNewMessages setiap 10 detik
       setInterval(checkNewMessages, 10000);
   </script>
