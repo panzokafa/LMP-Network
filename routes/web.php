@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\TypeController;
+use App\Http\Controllers\Admin\BannerController;
+
 
 
 use App\Http\Controllers\User\RegisterController;
@@ -61,6 +63,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function () 
     Route::get('type/edit/{id}', [TypeController::class, 'edit'])->name('admin.type.edit');
     Route::put('type/update/{id}', [TypeController::class, 'update'])->name('admin.type.update');
     Route::delete('type/destroy/{id}', [TypeController::class, 'destroy'])->name('admin.type.destroy');
+
+    //banner
+    Route::get('banner', [BannerController::class, 'index'])->name('admin.banner');
+    Route::get('banner/create', [BannerController::class, 'create'])->name('admin.banner.create');
+    Route::post('banner/store', [BannerController::class, 'store'])->name('admin.banner.store');
+    Route::get('banner/edit/{id}', [BannerController::class, 'edit'])->name('admin.banner.edit');
+    Route::put('banner/update/{id}', [BannerController::class, 'update'])->name('admin.banner.update');
+    Route::delete('banner/destroy/{id}', [BannerController::class, 'destroy'])->name('admin.banner.destroy');
 });
 
 // Front-End

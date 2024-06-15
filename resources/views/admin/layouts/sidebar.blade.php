@@ -41,7 +41,7 @@
                       </a>
                   </li>
 
-                  <li class="nav-item">
+                  {{-- <li class="nav-item">
                       <a href="/service/chat" class="nav-link d-flex justify-content-between align-items-center">
                           <div>
                               <i class="nav-icon fas fa-comments"></i>
@@ -55,7 +55,7 @@
                               </span>
                           @endif
                       </a>
-                  </li>
+                  </li> --}}
 
 
 
@@ -68,6 +68,15 @@
                           </p>
                       </a>
                   </li>
+
+                  <li class="nav-item">
+                    <a href="{{ route('admin.banner') }}" class="nav-link">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>
+                            Banner
+                        </p>
+                    </a>
+                </li>
 
                   <li class="nav-item">
                       <a href="{{ route('admin.product') }}" class="nav-link">

@@ -3,20 +3,32 @@
 
 @section('content')
     <div class="slider absolute">
+
+        @foreach ($banners as $banner)
+
+        <div class="relative overflow-hidden">
+            <img class=" object-cover object-center lg:h-[65vh] sm:h-[40vh] h-[35vh] relative w-full"
+                src="{{ asset('banner/'.$banner->image) }}" alt="">
+
+
+        </div>
+        @endforeach
+
+
         {{-- slide ultra high --}}
         <div class="relative overflow-hidden">
-            <img class="banner object-cover lg:h-[65vh] sm:h-[40vh] h-[35vh]  w-full" src="{{ asset('images/banner/1.jpg') }}"
+            <img class=" object-cover lg:h-[65vh] sm:h-[40vh] h-[35vh]  w-full" src="{{ asset('images/banner/1.jpg') }}"
                 alt="">
 
             <div
-                class="header tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal w-1/2 2xl:w-2/5 xl:w-2/5 xl:pr-5 poppins  bruno text-white absolute  sm:top-[35%] top-[30%] left-6 md:left-10 lg:left-20">
+                class=" tracking-wider lg:text-4xl md:text-3xl sm:text-2xl text-lg lg:leading-normal md:leading-normal leading-normal w-1/2 2xl:w-2/5 xl:w-2/5 xl:pr-5 poppins  bruno text-white absolute  sm:top-[35%] top-[30%] left-6 md:left-10 lg:left-20">
                 Ultra High
                 Density
                 Edge Data Center <span class="text-hijau  bruno">For
                     Greener Data Center</span></div>
 
             <a href="{{ route('user.solution') }}"
-                class="product inter sm:text-xl text-sm absolute lg:right-24 md:right-14 right-8 md:bottom-16 font-light bottom-8 text-white cursor-pointer">
+                class=" inter sm:text-xl text-sm absolute lg:right-24 md:right-14 right-8 md:bottom-16 font-light bottom-8 text-white cursor-pointer">
                 PRODUCT <span class="text-biru font-medium md:text-2xl sm:tetx-xl text-lg">-></span>
             </a>
         </div>

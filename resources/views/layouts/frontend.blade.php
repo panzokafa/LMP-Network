@@ -138,7 +138,7 @@
             $(".slider").bxSlider({
                 touchEnabled: false,
                 auto: true,
-                pause: 3000
+                pause: 10000
             });
         });
 
@@ -167,7 +167,7 @@
         });
         setTimeout(function() {
             location.reload();
-        }, 86400000); // 
+        }, 86400000); //
     </script>
 </body>
 
