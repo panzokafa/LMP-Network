@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Conversation extends Model
 {
     use HasFactory, Notifiable;
+    use SoftDeletes;
 
     protected $fillable = [
         'receiver_id',
@@ -17,6 +19,7 @@ class Conversation extends Model
         'no_hp',
         'company',
         'email_receiver',
+        'deleted_at'
     ];
 
     public function messages()

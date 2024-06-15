@@ -45,7 +45,6 @@ class FloatingChat extends Component
                 // Menghandle ketika conversation tidak ditemukan
                 $this->selectedConversation = null;
                 $this->selectedConversationId = null;
-                session()->forget('chatFormData'); // hapus data sesi jika tidak ada conversation
             }
         }
         $this->loadedMessages = collect();
@@ -57,9 +56,7 @@ class FloatingChat extends Component
         if ($this->selectedConversationId) {
             $this->selectedConversation = Conversation::find($this->selectedConversationId);
             if (!$this->selectedConversation) {
-                // Menghandle ketika conversation tidak ditemukan
                 $this->selectedConversationId = null;
-                session()->forget('chatFormData'); // hapus data sesi jika tidak ada conversation
             }
         }
     }
@@ -93,6 +90,7 @@ class FloatingChat extends Component
     {
         $sessionData = session('chatFormData', null);
 
+        // dd($this->selectedConversationId);
         if (!$this->selectedConversationId && !$this->emailUser && !$sessionData) {
             $this->showUserForm = true;
             return;
@@ -116,7 +114,17 @@ class FloatingChat extends Component
 
     public function sendMessage()
     {
+        $sessionData = session('chatFormData', null);
         $this->validate(['body' => 'required|string']);
+        $selectedConversation = Conversation::where('email_sender', $sessionData['email'])->first();
+
+        // dd($selectedConversation);
+        if($this->selectedConversationId === null){
+            $this->showUserForm = true;
+
+            session()->forget('chatFormData');
+            return redirect()->route('user.home');
+        }
 
         $createdMessage = Message::create([
             'conversation_id' => $this->selectedConversationId,
