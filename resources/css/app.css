@@ -59,6 +59,14 @@
     z-index: 1000;
 }
 
+/* Media query for mobile devices */
+@media (max-width: 767px) {
+    .chatadmin-popup {
+        max-width: 100%;
+        right: 0px;
+    }
+}
+
 .chatadmin-header {
     background-color: #1780BB;
     color: #fff;
@@ -127,7 +135,6 @@ input {
     background-color: #1780BB;
     color: #fff;
     border-radius: 12px;
-    margin-left: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 10px;
