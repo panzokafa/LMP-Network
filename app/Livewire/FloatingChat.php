@@ -26,7 +26,6 @@ class FloatingChat extends Component
     public $emailUser;
     protected $listeners = ['loadMore'];
 
-
     public function mount()
     {
         $sessionData = session('chatFormData', null);
@@ -67,32 +66,44 @@ class FloatingChat extends Component
     {
         $sessionData = session('chatFormData', null);
 
-        if (!$this->selectedConversationId && !$this->emailUser && !$sessionData) {
-            $this->showUserForm = true;
-            return;
+        if ($sessionData) {
+            $selectedConversationTrashed = Conversation::withTrashed()
+            ->where('email_sender', $sessionData['email'])
+            ->whereNotNull('deleted_at')
+            ->first();
+            if ($selectedConversationTrashed !== null) {
+                $this->showUserForm = true;
+                $selectedConversationTrashed->messages()->delete();
+                $selectedConversationTrashed->forceDelete();
+                session()->forget('chatFormData');
+                return redirect()->route('user.home');
+            } else {
+                $this->showUserForm = false;
+                $emailUser = $this->emailUser;
+                $messagesQuery = Message::where('conversation_id', $this->selectedConversationId)->where(function ($query) use ($emailUser) {
+                    $query->where('email_sender', $emailUser)->orWhere('email_receiver', $emailUser);
+                });
+
+                $messagesCount = $messagesQuery->count();
+                $messagesToLoad = $messagesQuery
+                    ->orderBy('created_at')
+                    ->skip(max(0, $messagesCount - $this->paginate_var))
+                    ->take($this->paginate_var)
+                    ->get();
+
+                $this->loadedMessages = collect();
+                $this->loadedMessages = $messagesToLoad->merge($this->loadedMessages);
+            }
         }
-        $this->showUserForm = false;
-        $emailUser = $this->emailUser;
-        $messagesQuery = Message::where('conversation_id', $this->selectedConversationId)->where(function ($query) use ($emailUser) {
-            $query->where('email_sender', $emailUser)->orWhere('email_receiver', $emailUser);
-        });
-
-        $messagesCount = $messagesQuery->count();
-        $messagesToLoad = $messagesQuery
-            ->orderBy('created_at')
-            ->skip(max(0, $messagesCount - $this->paginate_var))
-            ->take($this->paginate_var)
-            ->get();
-
-        $this->loadedMessages = collect();
-        $this->loadedMessages = $messagesToLoad->merge($this->loadedMessages);
     }
 
     public function sendMessage()
     {
         $sessionData = session('chatFormData', null);
         $this->validate(['body' => 'required|string']);
-        $selectedConversation = Conversation::withTrashed()->where('email_sender', $sessionData['email'])->first();
+        $selectedConversation = Conversation::withTrashed()
+            ->where('email_sender', $sessionData['email'])
+            ->first();
 
         if ($this->selectedConversationId === null) {
             $this->showUserForm = true;

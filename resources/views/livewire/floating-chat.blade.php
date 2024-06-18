@@ -31,7 +31,7 @@
             </div>
         @else
             <div class="chatadmin-box" id="admin-box" wire:poll.visible="loadMessages">
-                @if ($loadedMessages)
+                @if ($loadedMessages->isNotEmpty())
                     @foreach ($loadedMessages as $message)
                         <div class="{{ $message->email_sender === $emailAdmin ? 'admin-message' : 'user-message' }}">
                             <p>{{ $message->body }}</p>
