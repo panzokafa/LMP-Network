@@ -41,7 +41,7 @@
                       </a>
                   </li>
 
-                  {{-- <li class="nav-item">
+                  <li class="nav-item">
                       <a href="/service/chat" class="nav-link d-flex justify-content-between align-items-center">
                           <div>
                               <i class="nav-icon fas fa-comments"></i>
@@ -55,9 +55,16 @@
                               </span>
                           @endif
                       </a>
-                  </li> --}}
+                  </li>
 
-
+                  <li class="nav-item">
+                    <a href="{{ route('emails.create') }}" class="nav-link">
+                        <i class="nav-icon fas mail"></i>
+                        <p>
+                            Email Admin
+                        </p>
+                    </a>
+                </li>
 
 
                   <li class="nav-item">

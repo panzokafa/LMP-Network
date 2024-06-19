@@ -136,7 +136,7 @@
             $(".slider").bxSlider({
                 touchEnabled: false,
                 auto: true,
-                pause: 10000
+                pause: 5000
             });
         });
 

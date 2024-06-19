@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\EmailController;
 
 
 
@@ -73,6 +74,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function () 
     Route::get('banner/edit/{id}', [BannerController::class, 'edit'])->name('admin.banner.edit');
     Route::put('banner/update/{id}', [BannerController::class, 'update'])->name('admin.banner.update');
     Route::delete('banner/destroy/{id}', [BannerController::class, 'destroy'])->name('admin.banner.destroy');
+
+    //Email Admin
+    Route::get('/email/create', [EmailController::class, 'create'])->name('emails.create');
+    Route::post('/email', [EmailController::class, 'store'])->name('emails.store');
+    Route::put('/email/update/{email}', [EmailController::class, 'update'])->name('emails.update');
+
 
     Route::delete('/conversation/{id}', [ChatList::class, 'deleteByUser'])->name('conversation.delete');
 
