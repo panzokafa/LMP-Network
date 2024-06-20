@@ -74,9 +74,9 @@ class FloatingChat extends Component
 
         if ($sessionData) {
             $selectedConversationTrashed = Conversation::withTrashed()
-            ->where('email_sender', $sessionData['email'])
-            ->whereNotNull('deleted_at')
-            ->first();
+                ->where('email_sender', $sessionData['email'])
+                ->whereNotNull('deleted_at')
+                ->first();
             if ($selectedConversationTrashed !== null) {
                 $this->showUserForm = true;
                 $selectedConversationTrashed->messages()->delete();
@@ -102,8 +102,6 @@ class FloatingChat extends Component
             }
         }
     }
-
-
     public function submitForm()
     {
         $formData = [
