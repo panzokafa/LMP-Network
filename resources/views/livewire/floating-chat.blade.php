@@ -1,4 +1,4 @@
-<div>
+<div class="popup">
     <button id="admin-toggle-btn">
         <img class="img-icon" src="{{ asset('assets/img/comments.png') }}" alt="Chat Button" />
     </button>
@@ -18,17 +18,27 @@
 
         @if ($showUserForm)
             <div class="chatadmin-box" id="admin-box">
-                @if ($loadedMessages)
-                    @foreach ($loadedMessages as $message)
-                        <div class="{{ $message->email_sender === $emailAdmin ? 'admin-message' : 'user-message' }}">
-                            <p>{{ $message->body }}</p>
-                            <small class="message-info">{{ $message->created_at->format('g:i a') }}</small>
-                        </div>
-                    @endforeach
-                @else
-                    <p>No messages loaded.</p>
-                @endif
+                <p>Please fill out the form to start the chat.</p>
             </div>
+            <form method="POST" action="{{ route('users.message') }}" class="user-form">
+                @csrf
+                <select id="email_receiver" name="email_receiver" required wire:model="emailAdmin">
+                    <option value="">Pilih admin</option>
+                    @foreach ($users as $user)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    @endforeach
+                </select>
+                <input type="text" id="name" name="name" placeholder="Masukan nama" required
+                    wire:model.live="name">
+                <input type="email" id="email" name="email" placeholder="Masukan email" required
+                    wire:model.live="emailUser">
+                <input type="text" id="phone" name="phone" placeholder="Masukan nomor hp" required
+                    wire:model.live="phone">
+                <input type="text" id="company" name="company" placeholder="Masukan company" required
+                    wire:model.live="company">
+
+                <button type="submit" wire:click="submitForm" id="send-btn-request">SUBMIT</button>
+            </form>
         @else
             <div class="chatadmin-box" id="admin-box" wire:poll.visible="loadMessages">
                 @if ($loadedMessages->isNotEmpty())
@@ -42,26 +52,6 @@
                     <p>No messages loaded.</p>
                 @endif
             </div>
-        @endif
-
-        @if ($showUserForm)
-            <form method="POST" action="{{ route('users.message') }}" class="user-form">
-                @csrf
-                <select id="email_receiver" name="email_receiver" required>
-                    <option value="">Pilih admin</option>
-                    @foreach ($users as $user)
-                        <option value="{{ $user->id }}">{{ $user->name }}</option>
-                    @endforeach
-                </select>
-                <input type="text" id="name" name="name" placeholder="Masukan nama" required>
-                <input type="email" id="email" name="email" placeholder="Masukan email" required>
-                <input type="text" id="phone" name="phone" placeholder="Masukan nomor hp" required>
-                <input type="text" id="company" name="company" placeholder="Masukan company" required>
-
-
-                <button type="submit" id="send-btn-request">Send Request</button>
-            </form>
-        @else
             <div class="chatadmin-input" id="inputbox-user">
                 <input type="text" id="user-input" wire:model.live="body" wire:keydown.enter="sendMessage"
                     placeholder="Type a message..." autofocus>
@@ -74,6 +64,7 @@
         </div>
     </div>
 </div>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

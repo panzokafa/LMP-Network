@@ -2,16 +2,18 @@
 
 namespace App\Livewire;
 
+use App\Mail\UserFormNotification;
 use App\Models\Conversation;
 use App\Models\Message;
 use App\Models\User;
-use App\Notifications\MessageRead;
-use App\Notifications\MessageSent;
+use App\Notifications\UserFormSubmitted;
+use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification as FacadesNotification;
 use Livewire\Component;
-use Illuminate\Http\Request;
 
 class FloatingChat extends Component
 {
@@ -24,6 +26,10 @@ class FloatingChat extends Component
     public $showUserForm = true;
     public $emailAdmin;
     public $emailUser;
+    public $name;
+    public $phone;
+    public $company;
+
     protected $listeners = ['loadMore'];
 
     public function mount()
@@ -97,6 +103,18 @@ class FloatingChat extends Component
         }
     }
 
+
+    public function submitForm()
+    {
+        $formData = [
+            'name' =>  $this->name,
+            'email' =>  $this->emailUser,
+            'phone' =>  $this->phone,
+            'company' => $this->company,
+        ];
+
+        Mail::to('codewithdizi@gmail.com')->send(new UserFormNotification($formData));
+    }
     public function sendMessage()
     {
         $sessionData = session('chatFormData', null);
@@ -119,6 +137,7 @@ class FloatingChat extends Component
             'email_receiver' => $this->emailAdmin,
             'body' => $this->body,
         ]);
+
 
         $this->reset('body');
         $this->dispatch('scroll-bottom');

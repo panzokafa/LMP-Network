@@ -114,7 +114,11 @@
     display: flex;
     align-items: center;
     padding: 10px 20px;
+    width: 100%;
     border-top: 1px solid #ddd;
+}
+.chatadmin-input input {
+    width: 100%;
 }
 
 input {
@@ -284,6 +288,13 @@ input {
     padding: 8px 20px;
     border-radius: 10px;
 }
+
+@media  screen and  (max-width: 600px) {
+    .chatadmin-popup {
+     width: 100%;
+    }
+ }
+
 .custom-avatar {
     font-size: 1.5rem; /* Menyesuaikan ukuran font jika diperlukan */
     width: 3rem; /* 48px */
