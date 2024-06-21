@@ -1,4 +1,4 @@
-<div x-data="{ type: 'all', query: @entangle('query').live }" x-init="setTimeout(() => {
+<div wire:poll="autoDelete" x-data="{ type: 'all', query: @entangle('query').live }" x-init="setTimeout(() => {
 
     conversationElement = document.getElementById('conversation-' + query);
 
@@ -11,7 +11,8 @@
 
     }
 
-}, 200);" class="flex flex-col transition-all h-full overflow-hidden">
+}, 200);"
+    class="flex flex-col transition-all h-full overflow-hidden">
 
     <header class="px-3 z-10 bg-white sticky top-0 w-full py-2">
 

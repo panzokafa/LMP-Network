@@ -4,6 +4,7 @@ namespace App\Livewire\Chat;
 
 use App\Models\Message;
 use App\Models\Conversation;
+use Carbon\Carbon;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,10 +41,7 @@ class ChatBox extends Component
     }
 
 
-    public function autoDelete()
-    {
-        dd('test');
-    }
+  
 
     public function readMsg()
     {

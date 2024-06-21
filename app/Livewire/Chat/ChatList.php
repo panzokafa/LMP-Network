@@ -38,7 +38,16 @@ class ChatList extends Component
 
         return redirect(route('chat.index'));
     }
-
+    public function autoDelete()
+    {
+        $conversationsToDelete = Conversation::withTrashed()
+            ->where('deleted_at', '<', Carbon::now()->subMinutes(10))
+            ->get();
+        foreach ($conversationsToDelete as $conversation) {
+            $conversation->messages()->forceDelete();
+            $conversation->forceDelete();
+        }
+    }
     public function mount()
     {
         $this->user = auth()->user();

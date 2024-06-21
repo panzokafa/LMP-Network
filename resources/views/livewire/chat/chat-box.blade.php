@@ -1,4 +1,4 @@
-<div wire:poll.600s="autoDelete" x-data="{
+<div x-data="{
     height: 0,
     conversationElement: document.getElementById('conversation'),
     markAsRead: null
