@@ -11,6 +11,7 @@
     <p><strong>Email:</strong> {{ $details['email'] }}</p>
     <p><strong>Phone:</strong> {{ $details['phone'] }}</p>
     <p><strong>Company:</strong> {{ $details['company'] }}</p>
+    <p><strong>Message:</strong> {{ $details['message'] }}</p>
 </body>
 
 </html>
