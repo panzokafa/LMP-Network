@@ -17,9 +17,6 @@
         </div>
 
         @if ($showUserForm)
-            <div class="chatadmin-box" id="admin-box">
-                <p>Please fill out the form to start the chat.</p>
-            </div>
             <form method="POST" action="{{ route('users.message') }}" class="user-form">
                 @csrf
                 <select id="email_receiver" name="email_receiver" required wire:model="emailAdmin">
@@ -28,14 +25,16 @@
                         <option value="{{ $user->id }}">{{ $user->name }}</option>
                     @endforeach
                 </select>
-                <input type="text" id="name" name="name" placeholder="Masukan nama" required
+                <input type="text" id="name" name="name" placeholder="Name" required
                     wire:model.live="name">
-                <input type="email" id="email" name="email" placeholder="Masukan email" required
+                <input type="email" id="email" name="email" placeholder="Email" required
                     wire:model.live="emailUser">
-                <input type="text" id="phone" name="phone" placeholder="Masukan nomor hp" required
+                <input type="text" id="phone" name="phone" placeholder="Handphone" required
                     wire:model.live="phone">
-                <input type="text" id="company" name="company" placeholder="Masukan company" required
+                <input type="text" id="company" name="company" placeholder="Company" required
                     wire:model.live="company">
+                <textarea type="text" id="message" name="message" wire:model.live="message" rows="4" cols="50"
+                placeholder="Message" required style="resize: none;"></textarea>
 
                 <button type="submit" wire:click="submitForm" id="send-btn-request">SUBMIT</button>
             </form>

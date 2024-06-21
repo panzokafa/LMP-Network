@@ -18,6 +18,7 @@ class Conversation extends Model
         'name',
         'no_hp',
         'company',
+        'message',
         'email_receiver',
         'deleted_at'
     ];

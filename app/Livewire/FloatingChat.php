@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Mail\UserFormNotification;
 use App\Models\Conversation;
+use App\Models\Email;
 use App\Models\Message;
 use App\Models\User;
 use App\Notifications\UserFormSubmitted;
@@ -19,7 +20,7 @@ class FloatingChat extends Component
 {
     public $selectedConversation;
     public $selectedConversationId;
-    public $body;
+    public $emailNotification;
     public $loadedMessages;
     public $paginate_var = 10;
     public $messagesLoaded = false;
@@ -29,12 +30,15 @@ class FloatingChat extends Component
     public $name;
     public $phone;
     public $company;
+    public $message;
+    public $body;
 
     protected $listeners = ['loadMore'];
 
     public function mount()
     {
         $sessionData = session('chatFormData', null);
+        $this->emailNotification = Email::find(1);
         if ($sessionData) {
             $this->emailUser = $sessionData['email'];
             $this->emailAdmin = $sessionData['email_receiver'];
@@ -109,9 +113,9 @@ class FloatingChat extends Component
             'email' =>  $this->emailUser,
             'phone' =>  $this->phone,
             'company' => $this->company,
+            'message' => $this->message,
         ];
-
-        Mail::to('codewithdizi@gmail.com')->send(new UserFormNotification($formData));
+        Mail::to($this->emailNotification->email)->send(new UserFormNotification($formData));
     }
     public function sendMessage()
     {

@@ -76,6 +76,9 @@ $nextTick(() => conversationElement.scrollTop = height);"
                         <p class="whitespace-normal truncate text-sm md:text-base tracking-wide lg:tracking-normal">
                             Company : {{ $selectedConversation->company }}
                         </p>
+                        <p class="whitespace-normal truncate text-sm md:text-base tracking-wide lg:tracking-normal">
+                            Message : {{ $selectedConversation->message }}
+                        </p>
                     </div>
                 </div>
 

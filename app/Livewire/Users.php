@@ -19,6 +19,7 @@ class Users extends Component
             'email' => 'required|email|max:255',
             'phone' => 'required|string|max:15',
             'company' => 'required|string|max:255',
+            'message' => 'required|string|max:255',
             'email_receiver' => 'required'
         ]);
 
@@ -43,6 +44,7 @@ class Users extends Component
             'name' => $validated['name'],
             'no_hp' => $validated['phone'],
             'company' => $validated['company'],
+            'message' => $validated['message'],
             'email_receiver' => $selectedUserEmail,
         ]);
 
