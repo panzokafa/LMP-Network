@@ -1,4 +1,4 @@
-<div x-data="{
+<div wire:poll.600s="autoDelete" x-data="{
     height: 0,
     conversationElement: document.getElementById('conversation'),
     markAsRead: null
@@ -10,6 +10,7 @@ $nextTick(() => conversationElement.scrollTop = height);"
  );
  "
     class="w-full overflow-hidden">
+
 
     <div class="border-b flex flex-col overflow-y-scroll grow h-full" wire:poll="loadMessages">
         {{-- header --}}

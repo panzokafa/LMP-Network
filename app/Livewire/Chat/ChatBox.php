@@ -39,6 +39,12 @@ class ChatBox extends Component
         $this->readMsg();
     }
 
+
+    public function autoDelete()
+    {
+        dd('test');
+    }
+
     public function readMsg()
     {
         $emailUser = $this->emailUser;

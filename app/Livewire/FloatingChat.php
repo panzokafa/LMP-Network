@@ -7,13 +7,7 @@ use App\Models\Conversation;
 use App\Models\Email;
 use App\Models\Message;
 use App\Models\User;
-use App\Notifications\UserFormSubmitted;
-use Illuminate\Notifications\Notification;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Broadcast;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Notification as FacadesNotification;
 use Livewire\Component;
 
 class FloatingChat extends Component
