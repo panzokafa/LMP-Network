@@ -1,4 +1,4 @@
-<div wire:poll="autoDelete" x-data="{ type: 'all', query: @entangle('query').live }" x-init="setTimeout(() => {
+<div wire:poll.300s="autoDelete" x-data="{ type: 'all', query: @entangle('query').live }" x-init="setTimeout(() => {
 
     conversationElement = document.getElementById('conversation-' + query);
 
